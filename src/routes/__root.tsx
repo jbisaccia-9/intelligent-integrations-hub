@@ -78,6 +78,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Intelligent Integrations" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Intelligent Integrations" },
+      { name: "twitter:title", content: "Intelligent Integrations" },
+      { property: "og:description", content: "AI model training and bespoke AI integrations for small businesses." },
+      { name: "twitter:description", content: "AI model training and bespoke AI integrations for small businesses." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/44b2de2c-dbbf-44a8-baad-dd8a2e187334/id-preview-2884fb5e--6033c6f1-d4ee-4a14-a047-376e5c0048c5.lovable.app-1779409372505.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/44b2de2c-dbbf-44a8-baad-dd8a2e187334/id-preview-2884fb5e--6033c6f1-d4ee-4a14-a047-376e5c0048c5.lovable.app-1779409372505.png" },
     ],
     links: [
       {
