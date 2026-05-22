@@ -314,7 +314,7 @@ function Contact() {
               <Linkedin className="h-4 w-4" /> Joseph Bisaccia on LinkedIn
             </a>
             <div className="flex items-center gap-3 text-muted-foreground">
-              <Mail className="h-4 w-4" /> hello@intelligentintegrations.ai
+              <Mail className="h-4 w-4" /> jbisaccia@ai-intelligentintegrations.com
             </div>
             <div className="flex items-center gap-3 text-muted-foreground">
               <MapPin className="h-4 w-4" /> Remote · United States
