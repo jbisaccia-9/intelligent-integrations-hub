@@ -30,6 +30,7 @@ function Home() {
       <Nav />
       <Hero />
       <Marquee />
+      <About />
       <Services />
       <Showcase />
       <Pricing />
