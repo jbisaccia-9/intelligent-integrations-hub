@@ -30,6 +30,7 @@ function Home() {
       <Nav />
       <Hero />
       <Marquee />
+      <About />
       <Services />
       <Showcase />
       <Pricing />
@@ -109,6 +110,19 @@ function Marquee() {
         </div>
       </div>
     </div>
+  );
+}
+
+function About() {
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-4xl text-center">
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Mission</p>
+        <p className="mt-6 font-display text-2xl leading-relaxed md:text-3xl">
+          Intelligent Integrations is an independent AI contracting LLC founded by Joseph Bisaccia — bridging the gap between cutting-edge AI research and real-world business impact. We train frontier models for major AI labs through platforms like Handshake AI and Outlier AI, then bring that same deep expertise to small businesses who need practical AI integrations that actually work. From custom GPTs and workflow automation to retrieval-augmented generation and strategic AI roadmaps, we build systems that fit the way your business already operates — no disruption, just leverage.
+        </p>
+      </div>
+    </section>
   );
 }
 
