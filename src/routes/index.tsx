@@ -170,14 +170,21 @@ function Showcase() {
             A short walkthrough of recent AI projects — model training, evaluation, and integration work for labs and small business clients.
           </p>
         </div>
-        <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
-          <video
-            src="/portfolio-video.mp4"
-            controls
-            playsInline
-            preload="metadata"
-            className="aspect-video w-full bg-black"
-          />
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
+            <video src="/portfolio-video.mp4" controls playsInline preload="metadata" className="aspect-video w-full bg-black" />
+            <div className="border-t border-border p-5">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 01</p>
+              <p className="mt-2 font-display text-xl">AI model training & evaluation</p>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
+            <video src="/portfolio-video-2.mp4" controls playsInline preload="metadata" className="aspect-video w-full bg-black" />
+            <div className="border-t border-border p-5">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 02</p>
+              <p className="mt-2 font-display text-xl">Solar SMB AI integration example</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -296,7 +303,7 @@ function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\n\n${form.message}`
     );
-    window.location.href = `mailto:hello@intelligentintegrations.ai?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:jbisaccia@ai-intelligentintegrations.com?subject=${subject}&body=${body}`;
     setState("sent");
   };
 
@@ -314,7 +321,7 @@ function Contact() {
               <Linkedin className="h-4 w-4" /> Joseph Bisaccia on LinkedIn
             </a>
             <div className="flex items-center gap-3 text-muted-foreground">
-              <Mail className="h-4 w-4" /> hello@intelligentintegrations.ai
+              <Mail className="h-4 w-4" /> jbisaccia@ai-intelligentintegrations.com
             </div>
             <div className="flex items-center gap-3 text-muted-foreground">
               <MapPin className="h-4 w-4" /> Remote · United States
