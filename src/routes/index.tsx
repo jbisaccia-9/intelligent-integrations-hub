@@ -296,7 +296,7 @@ function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\n\n${form.message}`
     );
-    window.location.href = `mailto:hello@intelligentintegrations.ai?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:jbisaccia@ai-intelligentintegrations.com?subject=${subject}&body=${body}`;
     setState("sent");
   };
 
