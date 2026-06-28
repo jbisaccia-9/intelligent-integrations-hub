@@ -408,8 +408,11 @@ function CampaignPricing() {
               </p>
             </div>
           </div>
-          <a href="#contact" className="inline-flex shrink-0 items-center gap-2 rounded-md bg-gradient-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
-            Request an appointment <ArrowRight className="h-4 w-4" />
+          <a
+            href="mailto:jbisaccia@ai-intelligentintegrations.com?subject=Appointment%20Request%20%E2%80%94%20Negotiable%20Campaign%20Pricing&body=Hi%20Joseph%2C%0A%0AI%27d%20like%20to%20book%20an%20appointment%20to%20discuss%20negotiable%20pricing%20for%20my%20campaign%2Forganization.%0A%0AName%3A%0ARole%2FCampaign%3A%0AMission%20%2F%20vision%20in%20one%20sentence%3A%0AScope%20needed%20(texting%2C%20data%2C%20automations%2C%20etc.)%3A%0ATimeline%3A%0APreferred%20times%20to%20meet%20(next%207%20days)%3A%0A%0AThanks%2C"
+            className="inline-flex shrink-0 items-center gap-2 rounded-md bg-gradient-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
+          >
+            Book an appointment with Joseph <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </div>
