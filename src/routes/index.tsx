@@ -44,11 +44,9 @@ function Home() {
 
 function BrandMark({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <img
-      src={logoAsset.url}
-      alt="Intelligent Integrations"
-      className={`${className} brightness-0 invert`}
-    />
+    <span className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5">
+      <img src={logoAsset.url} alt="Intelligent Integrations" className={className} />
+    </span>
   );
 }
 
