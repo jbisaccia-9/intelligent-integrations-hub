@@ -1,14 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, Brain, Cpu, LineChart, Mail, MapPin, Linkedin, Check, Sparkles, Workflow, Database, Send } from "lucide-react";
+import { ArrowRight, Brain, Cpu, LineChart, Mail, MapPin, Linkedin, Check, Sparkles, Workflow, Database, Send, Megaphone } from "lucide-react";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Intelligent Integrations — AI Model Training & SMB AI Integrations" },
-      { name: "description", content: "Independent AI contracting LLC by Joseph Bisaccia. AI model training for major labs and custom AI integrations for small businesses." },
+      { title: "Intelligent Integrations — AI Solutions for Small Business Growth" },
+      { name: "description", content: "Independent AI contracting LLC by Joseph Bisaccia. AI model training, custom integrations for small businesses, and ethical AI consulting for political campaigns." },
       { property: "og:title", content: "Intelligent Integrations" },
-      { property: "og:description", content: "AI model training and bespoke AI integrations for small businesses." },
+      { property: "og:description", content: "AI model training, bespoke SMB integrations, and ethical campaign technology." },
       { property: "og:type", content: "website" },
     ],
     links: [
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/")({
 });
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/joseph-bisaccia-20662384/";
-const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&bgcolor=1a1f2e&color=e8c87a&margin=10&data=${encodeURIComponent(LINKEDIN_URL)}`;
+const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&bgcolor=1a2540&color=7cc2f2&margin=10&data=${encodeURIComponent(LINKEDIN_URL)}`;
 
 function Home() {
   return (
@@ -34,9 +35,18 @@ function Home() {
       <Services />
       <Showcase />
       <Pricing />
+      <CampaignPricing />
       <Contact />
       <Footer />
     </div>
+  );
+}
+
+function BrandMark({ className = "h-9 w-auto" }: { className?: string }) {
+  return (
+    <span className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5">
+      <img src={logoAsset.url} alt="Intelligent Integrations" className={className} />
+    </span>
   );
 }
 
@@ -44,21 +54,19 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2.5">
-          <div className="grid h-8 w-8 place-items-center rounded-md bg-gradient-gold text-primary-foreground">
-            <Sparkles className="h-4 w-4" strokeWidth={2.5} />
-          </div>
-          <span className="font-display text-xl">Intelligent Integrations</span>
+        <a href="#top" className="flex items-center gap-2">
+          <BrandMark className="h-8 w-auto" />
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#services" className="transition-colors hover:text-foreground">Services</a>
           <a href="#work" className="transition-colors hover:text-foreground">Work</a>
           <a href="#pricing" className="transition-colors hover:text-foreground">Pricing</a>
+          <a href="#campaigns" className="transition-colors hover:text-foreground">Campaigns</a>
           <a href="#contact" className="transition-colors hover:text-foreground">Contact</a>
         </nav>
         <a
           href="#contact"
-          className="inline-flex items-center gap-1.5 rounded-md bg-gradient-gold px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
+          className="inline-flex items-center gap-1.5 rounded-md bg-gradient-blue px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
         >
           Get in touch <ArrowRight className="h-3.5 w-3.5" />
         </a>
@@ -78,13 +86,13 @@ function Hero() {
             Independent AI contracting · accepting new engagements
           </div>
           <h1 className="font-display text-5xl leading-[1.05] md:text-7xl lg:text-8xl">
-            AI that <em className="text-gradient-gold not-italic">actually integrates</em> into the way your business already works.
+            AI that <em className="text-gradient-blue not-italic">actually integrates</em> into the way your business already works.
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-lg text-muted-foreground md:text-xl">
-            I train frontier models for major AI labs and build practical AI systems for small businesses — from automation to custom GPTs to data pipelines.
+            I train frontier models for major AI labs and build practical AI systems for small businesses and mission-driven campaigns — from automation to custom GPTs to data pipelines.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <a href="#pricing" className="inline-flex items-center gap-2 rounded-md bg-gradient-gold px-6 py-3 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]">
+            <a href="#pricing" className="inline-flex items-center gap-2 rounded-md bg-gradient-blue px-6 py-3 text-sm font-medium text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]">
               See pricing <ArrowRight className="h-4 w-4" />
             </a>
             <a href="#work" className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-surface-elevated">
@@ -119,7 +127,7 @@ function About() {
       <div className="mx-auto max-w-4xl text-center">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Mission</p>
         <p className="mt-6 font-display text-2xl leading-relaxed md:text-3xl">
-          Intelligent Integrations is an independent AI contracting LLC founded by Joseph Bisaccia — bridging the gap between cutting-edge AI research and real-world business impact. We train frontier models for major AI labs through platforms like Handshake AI and Outlier AI, then bring that same deep expertise to small businesses who need practical AI integrations that actually work. From custom GPTs and workflow automation to retrieval-augmented generation and strategic AI roadmaps, we build systems that fit the way your business already operates — no disruption, just leverage.
+          Intelligent Integrations is an independent AI contracting LLC founded by Joseph Bisaccia — bridging the gap between cutting-edge AI research and real-world business impact. We train frontier models for major AI labs through platforms like Handshake AI and Outlier AI, then bring that same deep expertise to small businesses and mission-driven campaigns who need practical AI integrations that actually work. From custom GPTs and workflow automation to retrieval-augmented generation and strategic AI roadmaps, we build systems that fit the way your organization already operates — no disruption, just leverage.
         </p>
       </div>
     </section>
@@ -144,9 +152,14 @@ function Services() {
       desc: "Retrieval-augmented generation built on your internal docs. Your team gets a private assistant that actually knows your business.",
     },
     {
+      icon: Megaphone,
+      title: "Campaign & Advocacy Tech",
+      desc: "Ethical AI consulting for political campaigns and mission-driven orgs — peer-to-peer texting, voter data integration, volunteer automation, and field ops tooling.",
+    },
+    {
       icon: Cpu,
       title: "Strategy & Audit",
-      desc: "Where will AI actually move the needle for your business? I audit your stack and ship a prioritized roadmap — no hype, just leverage.",
+      desc: "Where will AI actually move the needle? I audit your stack and ship a prioritized roadmap — no hype, just leverage.",
     },
   ];
   return (
@@ -157,10 +170,10 @@ function Services() {
           <h2 className="font-display text-4xl md:text-6xl">What I do.</h2>
         </div>
         <p className="text-muted-foreground md:text-lg">
-          Two sides of the same craft: training the models the world's largest labs depend on, and translating that frontier expertise into tools that small businesses can actually use.
+          Three sides of the same craft: training the models the world's largest labs depend on, translating that frontier expertise into tools small businesses can actually use, and equipping principled campaigns with the tech to win.
         </p>
       </div>
-      <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
+      <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
           <div key={s.title} className="group relative bg-surface p-8 transition-colors hover:bg-surface-elevated md:p-10">
             <s.icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
@@ -205,8 +218,65 @@ function Showcase() {
   );
 }
 
+type Tier = {
+  name: string;
+  price: string;
+  cadence: string;
+  blurb: string;
+  features: string[];
+  cta: string;
+  featured?: boolean;
+};
+
+function PricingGrid({ tiers }: { tiers: Tier[] }) {
+  return (
+    <div className="grid gap-6 lg:grid-cols-3">
+      {tiers.map((t) => (
+        <div
+          key={t.name}
+          className={`relative flex flex-col rounded-2xl border p-8 md:p-10 ${
+            t.featured
+              ? "border-primary/50 bg-surface-elevated shadow-glow"
+              : "border-border bg-surface"
+          }`}
+        >
+          {t.featured && (
+            <span className="absolute -top-3 left-8 rounded-full bg-gradient-blue px-3 py-1 text-xs font-medium text-primary-foreground">
+              Most popular
+            </span>
+          )}
+          <h3 className="font-display text-3xl">{t.name}</h3>
+          <p className="mt-2 min-h-12 text-sm text-muted-foreground">{t.blurb}</p>
+          <div className="mt-6 flex items-baseline gap-2">
+            <span className="font-display text-5xl text-gradient-blue">{t.price}</span>
+            <span className="text-sm text-muted-foreground">{t.cadence}</span>
+          </div>
+          <ul className="mt-8 space-y-3 text-sm">
+            {t.features.map((f) => (
+              <li key={f} className="flex gap-3">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span className="text-foreground/90">{f}</span>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#contact"
+            className={`mt-10 inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-medium transition-transform hover:scale-[1.02] ${
+              t.featured
+                ? "bg-gradient-blue text-primary-foreground"
+                : "border border-border bg-background text-foreground hover:bg-surface-elevated"
+            }`}
+          >
+            {t.cta} <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function Pricing() {
-  const tiers = [
+  const tiers: Tier[] = [
     {
       name: "Spark",
       price: "$1,500",
@@ -255,53 +325,81 @@ function Pricing() {
   return (
     <section id="pricing" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
       <div className="mb-16 max-w-3xl">
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">03 — Pricing</p>
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">03 — SMB Pricing</p>
         <h2 className="font-display text-4xl md:text-6xl">Transparent tiers for small business AI.</h2>
         <p className="mt-4 text-muted-foreground md:text-lg">
           Every engagement starts with a free 30-minute call. Pricing below is for SMB integration work — model training contracts are quoted separately.
         </p>
       </div>
-      <div className="grid gap-6 lg:grid-cols-3">
-        {tiers.map((t) => (
-          <div
-            key={t.name}
-            className={`relative flex flex-col rounded-2xl border p-8 md:p-10 ${
-              t.featured
-                ? "border-primary/50 bg-surface-elevated shadow-glow"
-                : "border-border bg-surface"
-            }`}
-          >
-            {t.featured && (
-              <span className="absolute -top-3 left-8 rounded-full bg-gradient-gold px-3 py-1 text-xs font-medium text-primary-foreground">
-                Most popular
-              </span>
-            )}
-            <h3 className="font-display text-3xl">{t.name}</h3>
-            <p className="mt-2 min-h-12 text-sm text-muted-foreground">{t.blurb}</p>
-            <div className="mt-6 flex items-baseline gap-2">
-              <span className="font-display text-5xl text-gradient-gold">{t.price}</span>
-              <span className="text-sm text-muted-foreground">{t.cadence}</span>
-            </div>
-            <ul className="mt-8 space-y-3 text-sm">
-              {t.features.map((f) => (
-                <li key={f} className="flex gap-3">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  <span className="text-foreground/90">{f}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#contact"
-              className={`mt-10 inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-medium transition-transform hover:scale-[1.02] ${
-                t.featured
-                  ? "bg-gradient-gold text-primary-foreground"
-                  : "border border-border bg-background text-foreground hover:bg-surface-elevated"
-              }`}
-            >
-              {t.cta} <ArrowRight className="h-4 w-4" />
-            </a>
+      <PricingGrid tiers={tiers} />
+    </section>
+  );
+}
+
+function CampaignPricing() {
+  const tiers: Tier[] = [
+    {
+      name: "Field Kit",
+      price: "$3,500",
+      cadence: "one-time",
+      blurb: "Stand up the essentials for a local campaign or advocacy push in two weeks.",
+      features: [
+        "Peer-to-peer texting setup & scripts",
+        "Voter file / CRM integration (VAN, NGP, Action Network)",
+        "Volunteer signup automations",
+        "Compliance-aware messaging templates",
+      ],
+      cta: "Start the Field Kit",
+    },
+    {
+      name: "Campaign OS",
+      price: "$8,500",
+      cadence: "project",
+      blurb: "A full-stack tech operation for a serious campaign or organization.",
+      features: [
+        "Everything in Field Kit",
+        "Custom data pipelines & dashboards",
+        "AI-assisted constituent response drafting",
+        "Multi-channel outreach (SMS, email, phone-bank)",
+        "Staff & volunteer training",
+        "Cycle-long async support",
+      ],
+      cta: "Build Campaign OS",
+      featured: true,
+    },
+    {
+      name: "Movement Retainer",
+      price: "$3,500",
+      cadence: "per month",
+      blurb: "Ongoing fractional tech leadership for orgs running long-term programs.",
+      features: [
+        "Everything in Campaign OS",
+        "Continuous automation & list hygiene",
+        "Monthly strategy & analytics review",
+        "Rapid-response message tooling",
+        "Quarterly roadmap & data audits",
+      ],
+      cta: "Talk retainer",
+    },
+  ];
+
+  return (
+    <section id="campaigns" className="border-t border-border bg-surface/30">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="mb-12 max-w-3xl">
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">04 — Campaigns & Advocacy</p>
+          <h2 className="font-display text-4xl md:text-6xl">Technology for a hopeful politics.</h2>
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            Peer-to-peer texting, voter data integration, and outreach automation for candidates and organizations.
+          </p>
+          <div className="mt-6 inline-flex items-start gap-3 rounded-xl border border-primary/30 bg-primary/5 px-5 py-4 text-sm text-foreground/90">
+            <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            <p>
+              <span className="font-medium">Values clause —</span> we only take on campaigns and organizations that advance a positive vision for the future and operate with demonstrable integrity and ethics. We reserve the right to decline any engagement at our discretion.
+            </p>
           </div>
-        ))}
+        </div>
+        <PricingGrid tiers={tiers} />
       </div>
     </section>
   );
@@ -325,10 +423,10 @@ function Contact() {
     <section id="contact" className="border-t border-border bg-surface/30">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:py-32 lg:grid-cols-5">
         <div className="lg:col-span-2">
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">04 — Contact</p>
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">05 — Contact</p>
           <h2 className="font-display text-4xl md:text-6xl">Let's build something useful.</h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Tell me a little about your business and what you're trying to solve. I respond to every inquiry within 24 hours.
+            Tell me a little about your business or campaign and what you're trying to solve. I respond to every inquiry within 24 hours.
           </p>
           <div className="mt-10 space-y-4 text-sm">
             <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground">
@@ -360,13 +458,13 @@ function Contact() {
               <input required type="email" maxLength={255} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-md border border-border bg-input px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
             </Field>
           </div>
-          <Field label="Company">
+          <Field label="Company or campaign">
             <input maxLength={150} value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className="w-full rounded-md border border-border bg-input px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
           </Field>
           <Field label="How can I help?" required>
             <textarea required rows={6} maxLength={2000} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-md border border-border bg-input px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
           </Field>
-          <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-gradient-gold px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.01]">
+          <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-gradient-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.01]">
             {state === "sent" ? "Opening email…" : (<>Send inquiry <Send className="h-4 w-4" /></>)}
           </button>
           <p className="text-center text-xs text-muted-foreground">Submitting opens your email client with the message pre-filled.</p>
@@ -391,10 +489,8 @@ function Footer() {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-8 text-sm text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <div className="grid h-6 w-6 place-items-center rounded bg-gradient-gold">
-            <Sparkles className="h-3 w-3 text-primary-foreground" strokeWidth={2.5} />
-          </div>
+        <div className="flex items-center gap-3">
+          <BrandMark className="h-6 w-auto" />
           <span>© {new Date().getFullYear()} Intelligent Integrations LLC</span>
         </div>
         <div className="flex items-center gap-5">
