@@ -398,6 +398,20 @@ function CampaignPricing() {
           </div>
         </div>
         <PricingGrid tiers={tiers} />
+        <div className="mt-10 flex flex-col items-start gap-4 rounded-2xl border border-primary/30 bg-primary/5 p-6 md:flex-row md:items-center md:justify-between md:p-8">
+          <div className="flex items-start gap-3">
+            <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+            <div>
+              <p className="font-display text-2xl">Negotiable pricing for compelling candidates</p>
+              <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
+                Running a campaign with a bold, principled vision but a tight budget? Custom terms are available — negotiated directly with Joseph by appointment only.
+              </p>
+            </div>
+          </div>
+          <a href="#contact" className="inline-flex shrink-0 items-center gap-2 rounded-md bg-gradient-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
+            Request an appointment <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -441,7 +455,7 @@ function Contact() {
             <img src={QR_URL} alt="QR code to LinkedIn profile" width={120} height={120} className="rounded-md" />
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Scan to connect</p>
-              <p className="mt-2 font-display text-xl">linkedin.com/in/joseph-bisaccia</p>
+              <p className="mt-2 font-display text-xl">linkedin.com/in/joseph-bisaccia-ai</p>
               <p className="mt-1 text-xs text-muted-foreground">Or tap the link above.</p>
             </div>
           </div>
