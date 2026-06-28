@@ -441,7 +441,7 @@ function Contact() {
             <img src={QR_URL} alt="QR code to LinkedIn profile" width={120} height={120} className="rounded-md" />
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Scan to connect</p>
-              <p className="mt-2 font-display text-xl">linkedin.com/in/joseph-bisaccia</p>
+              <p className="mt-2 font-display text-xl">linkedin.com/in/joseph-bisaccia-ai</p>
               <p className="mt-1 text-xs text-muted-foreground">Or tap the link above.</p>
             </div>
           </div>
