@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/joseph-bisaccia-20662384/";
+const LINKEDIN_URL = "https://www.linkedin.com/in/joseph-bisaccia-ai/";
 const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&bgcolor=1a2540&color=7cc2f2&margin=10&data=${encodeURIComponent(LINKEDIN_URL)}`;
 
 function Home() {
@@ -44,9 +44,7 @@ function Home() {
 
 function BrandMark({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <span className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5">
-      <img src={logoAsset.url} alt="Intelligent Integrations" className={className} />
-    </span>
+    <img src={logoAsset.url} alt="Intelligent Integrations" className={className} />
   );
 }
 
