@@ -37,30 +37,33 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.16 0.018 250);
-  --foreground: oklch(0.97 0.005 250);
-  --surface: oklch(0.20 0.020 250);
-  --surface-elevated: oklch(0.24 0.022 250);
-  --card: oklch(0.20 0.020 250);
-  --card-foreground: oklch(0.97 0.005 250);
-  --popover: oklch(0.20 0.020 250);
-  --popover-foreground: oklch(0.97 0.005 250);
-  --primary: oklch(0.82 0.14 85);
-  --primary-foreground: oklch(0.16 0.018 250);
-  --secondary: oklch(0.28 0.025 250);
-  --secondary-foreground: oklch(0.97 0.005 250);
-  --muted: oklch(0.24 0.022 250);
-  --muted-foreground: oklch(0.68 0.018 250);
-  --accent: oklch(0.72 0.16 55);
-  --accent-foreground: oklch(0.16 0.018 250);
+  /* Navy-deep background pulled from logo wordmark */
+  --background: oklch(0.18 0.04 255);
+  --foreground: oklch(0.98 0.005 255);
+  --surface: oklch(0.22 0.045 255);
+  --surface-elevated: oklch(0.27 0.05 255);
+  --card: oklch(0.22 0.045 255);
+  --card-foreground: oklch(0.98 0.005 255);
+  --popover: oklch(0.22 0.045 255);
+  --popover-foreground: oklch(0.98 0.005 255);
+  /* Primary = vivid logo blue */
+  --primary: oklch(0.72 0.17 240);
+  --primary-foreground: oklch(0.16 0.04 255);
+  --secondary: oklch(0.30 0.05 255);
+  --secondary-foreground: oklch(0.98 0.005 255);
+  --muted: oklch(0.26 0.045 255);
+  --muted-foreground: oklch(0.72 0.03 255);
+  /* Accent = lighter cyan-blue from logo bulb gradient */
+  --accent: oklch(0.82 0.13 230);
+  --accent-foreground: oklch(0.16 0.04 255);
   --destructive: oklch(0.62 0.22 27);
-  --destructive-foreground: oklch(0.97 0.005 250);
-  --border: oklch(0.30 0.025 250);
-  --input: oklch(0.26 0.022 250);
-  --ring: oklch(0.82 0.14 85);
-  --gradient-hero: radial-gradient(ellipse at top, oklch(0.28 0.06 75 / 0.35), transparent 60%), linear-gradient(180deg, oklch(0.16 0.018 250) 0%, oklch(0.13 0.018 250) 100%);
-  --gradient-gold: linear-gradient(135deg, oklch(0.85 0.14 85), oklch(0.72 0.16 55));
-  --shadow-glow: 0 20px 80px -20px oklch(0.82 0.14 85 / 0.35);
+  --destructive-foreground: oklch(0.98 0.005 255);
+  --border: oklch(0.32 0.05 255);
+  --input: oklch(0.27 0.045 255);
+  --ring: oklch(0.72 0.17 240);
+  --gradient-hero: radial-gradient(ellipse at top, oklch(0.55 0.18 240 / 0.30), transparent 60%), linear-gradient(180deg, oklch(0.18 0.04 255) 0%, oklch(0.13 0.035 255) 100%);
+  --gradient-blue: linear-gradient(135deg, oklch(0.82 0.13 230), oklch(0.62 0.20 250));
+  --shadow-glow: 0 20px 80px -20px oklch(0.72 0.17 240 / 0.45);
   --shadow-card: 0 10px 40px -15px oklch(0 0 0 / 0.5);
 }
 
@@ -79,19 +82,19 @@
 
 @layer utilities {
   .bg-hero { background: var(--gradient-hero); }
-  .text-gradient-gold {
-    background: var(--gradient-gold);
+  .text-gradient-blue {
+    background: var(--gradient-blue);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .bg-gradient-gold { background: var(--gradient-gold); }
+  .bg-gradient-blue { background: var(--gradient-blue); }
   .shadow-glow { box-shadow: var(--shadow-glow); }
   .shadow-card { box-shadow: var(--shadow-card); }
   .grid-bg {
     background-image:
-      linear-gradient(oklch(0.30 0.025 250 / 0.4) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.30 0.025 250 / 0.4) 1px, transparent 1px);
+      linear-gradient(oklch(0.40 0.06 250 / 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.40 0.06 250 / 0.35) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   }
