@@ -147,18 +147,6 @@ function Experience() {
       org: "Capital Energy",
       desc: "Led AI adoption across sales and operations — deployed custom GPTs, automations, and data pipelines that shortened sales cycles and gave reps real leverage on their book of business.",
     },
-    {
-      period: "2019 — 2022",
-      title: "Instructional Designer & CS / Robotics Teacher",
-      org: "Gilbert Public Schools",
-      desc: "Designed AP Computer Science and applied-tech curriculum. Learned how to make hard technical concepts land with real humans — a skill that now shapes how I onboard clients to AI.",
-    },
-    {
-      period: "Earlier",
-      title: "TV News Reporter",
-      org: "Local broadcast newsrooms",
-      desc: "Filed daily stories on deadline. Sharpened the storytelling and stakeholder instincts I bring to every technical rollout.",
-    },
   ];
   return (
     <section id="experience" className="border-y border-border bg-surface/30">
