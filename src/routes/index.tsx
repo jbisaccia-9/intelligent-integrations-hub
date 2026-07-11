@@ -157,7 +157,7 @@ function Experience() {
             <h2 className="font-display text-4xl md:text-6xl">Built by an operator, not just a coder.</h2>
           </div>
           <p className="text-muted-foreground md:text-lg">
-            I'm Joseph — a Senior AI Engineer and Technical PM finishing an MS in AI Engineering at Quantic. I've never stayed in one lane: TV reporter, teacher, solar consultant, and now shipping production LLM systems. That range is the product — I translate between what AI can actually do and what your business actually needs.
+            I'm Joseph — a Senior AI Engineer and Technical PM finishing an MS in AI Engineering at Quantic. I ship production LLM systems for frontier AI labs and translate that same expertise into practical integrations for small businesses and mission-driven campaigns.
           </p>
         </div>
         <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
