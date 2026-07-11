@@ -1,0 +1,144 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { ArrowUpRight, Mail, Linkedin } from "lucide-react";
+import { SiteLayout, EMAIL, LINKEDIN_URL, GITHUB_URL } from "@/components/SiteLayout";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact — Joseph Bisaccia" },
+      { name: "description", content: "Contact Joseph Bisaccia for enterprise AI consulting engagements or senior AI engineering opportunities." },
+      { property: "og:title", content: "Contact — Joseph Bisaccia" },
+      { property: "og:description", content: "Enterprise consulting and senior AI engineering opportunities." },
+    ],
+    links: [{ rel: "canonical", href: "/contact" }],
+  }),
+  component: ContactPage,
+});
+
+type Intent = "consulting" | "career";
+
+function ContactPage() {
+  const [intent, setIntent] = useState<Intent>("consulting");
+  const [form, setForm] = useState({ name: "", email: "", org: "", message: "" });
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(
+      intent === "consulting"
+        ? `Enterprise consulting inquiry — ${form.name || "website visitor"}`
+        : `Career opportunity — ${form.name || "website visitor"}`
+    );
+    const body = encodeURIComponent(
+      `Intent: ${intent === "consulting" ? "Enterprise consulting" : "Career opportunity"}\nName: ${form.name}\nEmail: ${form.email}\nOrganization: ${form.org}\n\n${form.message}`
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <SiteLayout>
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Contact</p>
+          <h1 className="mt-4 max-w-3xl text-4xl leading-[1.05] tracking-tight md:text-5xl">
+            Two ways to get in touch.
+          </h1>
+          <p className="mt-5 max-w-2xl text-muted-foreground md:text-lg">
+            Available for enterprise consulting engagements and open to conversations about senior
+            AI engineering and AI leadership opportunities.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:py-20 lg:grid-cols-5">
+          <div className="space-y-8 lg:col-span-2">
+            <IntentCard
+              active={intent === "consulting"}
+              onClick={() => setIntent("consulting")}
+              label="Enterprise consulting"
+              desc="Advisory and hands-on engineering for organizations deploying AI in production — governance, security, RAG, agentic systems, and infrastructure."
+            />
+            <IntentCard
+              active={intent === "career"}
+              onClick={() => setIntent("career")}
+              label="Career opportunities"
+              desc="Open to Lead / Principal AI Engineer and AI leadership conversations at organizations serious about production AI."
+            />
+
+            <div className="rounded-md border border-border bg-surface p-5 text-sm">
+              <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Direct</p>
+              <div className="mt-4 space-y-3">
+                <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-foreground hover:text-primary">
+                  <Mail className="h-4 w-4" /> {EMAIL}
+                </a>
+                <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-foreground hover:text-primary">
+                  <Linkedin className="h-4 w-4" /> LinkedIn
+                </a>
+                <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-foreground hover:text-primary">
+                  <ArrowUpRight className="h-4 w-4" /> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={onSubmit} className="space-y-5 rounded-lg border border-border bg-background p-6 md:p-8 lg:col-span-3">
+            <div className="grid gap-5 md:grid-cols-2">
+              <Field label="Name" required>
+                <input required maxLength={100} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
+              </Field>
+              <Field label="Email" required>
+                <input required type="email" maxLength={255} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
+              </Field>
+            </div>
+            <Field label={intent === "consulting" ? "Organization" : "Company / recruiter"}>
+              <input maxLength={150} value={form.org} onChange={(e) => setForm({ ...form, org: e.target.value })} className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
+            </Field>
+            <Field label={intent === "consulting" ? "What are you trying to build or solve?" : "About the role"} required>
+              <textarea required rows={7} maxLength={2000} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-md border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
+            </Field>
+            <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-foreground px-5 py-3 text-sm font-medium text-background transition-colors hover:bg-foreground/90">
+              Send inquiry
+            </button>
+            <p className="text-center text-xs text-muted-foreground">
+              Submitting opens your email client with the message pre-filled.
+            </p>
+          </form>
+        </div>
+      </section>
+    </SiteLayout>
+  );
+}
+
+function IntentCard({ active, onClick, label, desc }: { active: boolean; onClick: () => void; label: string; desc: string }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`w-full rounded-md border p-5 text-left transition-colors ${
+        active ? "border-primary bg-surface" : "border-border bg-background hover:bg-surface"
+      }`}
+    >
+      <div className="flex items-center justify-between">
+        <p className="text-sm font-semibold">{label}</p>
+        <span
+          className={`h-2.5 w-2.5 rounded-full border ${
+            active ? "border-primary bg-primary" : "border-border bg-background"
+          }`}
+        />
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+    </button>
+  );
+}
+
+function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+        {label} {required && <span className="text-primary">*</span>}
+      </span>
+      {children}
+    </label>
+  );
+}
