@@ -104,7 +104,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = ["Handshake AI", "Outlier AI", "Frontier Model Training", "RLHF", "Custom GPTs", "Workflow Automation", "Data Pipelines"];
+  const items = ["Handshake AI", "Outlier AI", "Mercor", "Frontier Model Training", "RLHF", "Custom GPTs", "Workflow Automation", "Data Pipelines"];
   return (
     <div className="border-y border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-6 py-6">
