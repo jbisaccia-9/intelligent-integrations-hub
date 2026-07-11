@@ -200,14 +200,14 @@ function Showcase() {
             <video src="/portfolio-video.mp4" controls playsInline preload="metadata" className="aspect-video w-full bg-black" />
             <div className="border-t border-border p-5">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 01</p>
-              <p className="mt-2 font-display text-xl">AI model training & evaluation</p>
+              <p className="mt-2 font-display text-xl">Custom GPT & agent build</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
             <video src="/portfolio-video-2.mp4" controls playsInline preload="metadata" className="aspect-video w-full bg-black" />
             <div className="border-t border-border p-5">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 02</p>
-              <p className="mt-2 font-display text-xl">Solar SMB AI integration example</p>
+              <p className="mt-2 font-display text-xl">SMB data analysis + AI</p>
             </div>
           </div>
         </div>
