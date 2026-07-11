@@ -85,6 +85,60 @@ const PROJECTS: Project[] = [
     impact:
       "Redirected significant operational hours to higher-leverage work with measurable throughput gains and no material incident record.",
   },
+  {
+    slug: "voice-ai-front-desk",
+    title: "Voice AI front-desk & intake agent",
+    context: "Multi-location service operations",
+    problem:
+      "Front-desk staff were overwhelmed by inbound calls for scheduling, intake, and routine questions, causing missed calls and lost revenue outside business hours.",
+    solution:
+      "A production voice agent that answers calls, qualifies intent, books appointments, and escalates cleanly to a human — with structured call transcripts written back to the CRM.",
+    architecture:
+      "Low-latency speech pipeline (STT → LLM planner → tool calls → TTS), telephony via SIP/Twilio, deterministic booking tools, and a supervisor model that scores every call for QA.",
+    technologies: ["Twilio", "Deepgram", "ElevenLabs", "OpenAI Realtime", "Node.js", "Postgres"],
+    security:
+      "Recording consent handling, PII redaction on transcripts, scoped API credentials per tenant, and rate-limited tool access to prevent misuse.",
+    governance:
+      "Per-call evaluation scoring, escalation logging, prompt and voice version pinning, and dashboards tracking answer rate, booking conversion, and containment.",
+    impact:
+      "Recovered a large share of previously missed calls and shifted routine intake off human staff without measurable drop in caller satisfaction.",
+  },
+  {
+    slug: "n8n-integrations-suite",
+    title: "AI-native integrations & workflow suite",
+    context: "SMB automation · Intelligent Integrations",
+    problem:
+      "Growing teams were stitching CRMs, billing, email, and internal tools together with brittle Zaps that broke silently and had no visibility into failures.",
+    solution:
+      "A managed workflow layer built on n8n and typed adapters, augmented with LLM steps for classification, extraction, and drafting — with observability and replay built in.",
+    architecture:
+      "Self-hosted n8n on containerized infra, typed integration modules for Stripe / HubSpot / Gmail / Slack, LLM sub-workflows for enrichment and triage, and a run store for auditability.",
+    technologies: ["n8n", "TypeScript", "Stripe", "HubSpot", "OpenAI", "Docker", "Postgres"],
+    security:
+      "Per-workflow credential scoping, secret rotation, webhook signature verification, and structured error alerts to on-call.",
+    governance:
+      "Versioned workflows, staged rollouts, run-level audit trail, and SLOs tracked per integration for reliability and cost.",
+    impact:
+      "Replaced a fragile Zap sprawl with a governed automation layer, cutting integration incidents and enabling AI-assisted steps inside existing business processes.",
+  },
+  {
+    slug: "llm-evaluation-harness",
+    title: "LLM evaluation & regression harness",
+    context: "Cross-team model quality tooling",
+    problem:
+      "Prompt and model changes were shipping without a reliable way to catch regressions, and stakeholders had no shared view of model quality over time.",
+    solution:
+      "A reusable evaluation harness with golden datasets, rubric-graded judges, red-team suites, and CI gates that block regressions before they reach production.",
+    architecture:
+      "Dataset registry with versioned test suites, deterministic + LLM-judge scoring, side-by-side model comparison, CI integration, and a dashboard for accuracy, cost, and latency trends.",
+    technologies: ["Python", "TypeScript", "OpenAI", "Anthropic", "GitHub Actions", "Postgres"],
+    security:
+      "Scrubbed evaluation datasets, isolated evaluation credentials, and controlled access to sensitive golden sets.",
+    governance:
+      "Signed-off evaluation gates before promotion, historical scorecards per prompt/model version, and clear ownership of failing suites.",
+    impact:
+      "Made model quality measurable and enforceable — teams ship prompt and model changes with confidence and a clear audit trail.",
+  },
 ];
 
 function ProjectsPage() {
