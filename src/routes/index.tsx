@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SiteLayout, GITHUB_URL } from "@/components/SiteLayout";
+import portfolioVideo from "@/assets/portfolio.mp4.asset.json";
+import portfolioPoster from "@/assets/portfolio-poster.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -9,8 +11,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Joseph Bisaccia is a Lead AI Engineer building secure, compliant, enterprise AI systems — governance, security, infrastructure, RAG, and agentic workflows." },
       { property: "og:title", content: "Joseph Bisaccia — Lead AI Engineer" },
       { property: "og:description", content: "Enterprise AI governance, security, and infrastructure. RAG platforms, agentic workflows, and intelligent automations." },
+      { property: "og:image", content: portfolioPoster.url },
       { name: "twitter:title", content: "Joseph Bisaccia — Lead AI Engineer" },
       { name: "twitter:description", content: "Enterprise AI governance, security, and infrastructure." },
+      { name: "twitter:image", content: portfolioPoster.url },
     ],
     links: [
       { rel: "canonical", href: "/" },
