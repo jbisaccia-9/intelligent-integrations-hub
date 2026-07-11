@@ -136,6 +136,12 @@ function About() {
 function Experience() {
   const roles = [
     {
+      period: "2025 — Now",
+      title: "Lead AI Engineer",
+      org: "Behavior Frontiers",
+      desc: "Architecting HIPAA-compliant agentic workflows across clinical and operations teams — RAG over PHI-safe knowledge bases, automated intake and documentation copilots, and evaluation harnesses that keep LLM outputs auditable in a regulated healthcare environment.",
+    },
+    {
       period: "2024 — Now",
       title: "Senior AI Engineer & Technical PM",
       org: "Intelligent Integrations · Handshake AI · Outlier AI · Mercor",
