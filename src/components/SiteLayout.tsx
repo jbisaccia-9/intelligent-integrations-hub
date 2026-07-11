@@ -28,8 +28,16 @@ function SiteNav() {
     <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
-          <img src={logo.url} alt="Intelligent Integrations" className="h-8 w-auto" />
-          <span className="text-primary">Intelligent Integrations</span>
+          <img
+            src={logo.url}
+            alt="Intelligent Integrations"
+            className="h-8 w-auto"
+            style={{
+              filter:
+                "brightness(0) saturate(100%) invert(24%) sepia(38%) saturate(1200%) hue-rotate(184deg) brightness(92%) contrast(92%)",
+            }}
+          />
+          <span className="sr-only">Intelligent Integrations</span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
           {NAV.map((n) => (
