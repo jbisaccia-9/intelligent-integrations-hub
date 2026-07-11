@@ -108,19 +108,19 @@ function PortfolioReel() {
 function Hero() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <p className="mb-6 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <p className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Joseph Bisaccia · Lead AI Engineer
         </p>
         <h1 className="max-w-4xl text-4xl leading-[1.05] tracking-tight md:text-6xl">
           Enterprise AI that organizations trust.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
+        <p className="mt-5 max-w-2xl text-base text-muted-foreground md:text-lg">
           I design and implement secure, compliant AI systems — enterprise infrastructure,
           retrieval-augmented generation platforms, agentic workflows, and intelligent
           automations that solve real business problems.
         </p>
-        <div className="mt-10 flex flex-wrap items-center gap-3">
+        <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link
             to="/projects"
             className="inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
@@ -134,7 +134,7 @@ function Hero() {
             Schedule a Consultation
           </Link>
         </div>
-        <div className="mt-14 grid gap-6 border-t border-border pt-10 text-sm text-muted-foreground sm:grid-cols-3">
+        <div className="mt-12 grid gap-6 border-t border-border pt-8 text-sm text-muted-foreground sm:grid-cols-3">
           <Meta label="Focus" value="Enterprise AI Governance, Security, Infrastructure" />
           <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers" />
           <Meta label="Open to" value="Select consulting engagements &amp; advisory work" />
