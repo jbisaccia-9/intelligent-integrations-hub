@@ -177,7 +177,7 @@ function Experience() {
           ))}
         </div>
         <div className="mt-10 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          {["Agentic AI", "RAG", "LangChain", "Prompt Engineering", "Evaluation & RLHF", "TypeScript / Python", "MS AI Engineering — Quantic"].map((t) => (
+          {["Agentic AI", "RAG", "LangChain", "HIPAA-Compliant AI", "Prompt Engineering", "Evaluation & RLHF", "TypeScript / Python", "MS AI Engineering — Quantic"].map((t) => (
             <span key={t} className="rounded-full border border-border bg-background px-3 py-1">{t}</span>
           ))}
         </div>
