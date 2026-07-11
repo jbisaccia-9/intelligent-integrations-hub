@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SiteLayout, GITHUB_URL } from "@/components/SiteLayout";
+import portfolioVideo from "@/assets/portfolio.mp4.asset.json";
+import portfolioPoster from "@/assets/portfolio-poster.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -9,8 +11,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Joseph Bisaccia is a Lead AI Engineer building secure, compliant, enterprise AI systems — governance, security, infrastructure, RAG, and agentic workflows." },
       { property: "og:title", content: "Joseph Bisaccia — Lead AI Engineer" },
       { property: "og:description", content: "Enterprise AI governance, security, and infrastructure. RAG platforms, agentic workflows, and intelligent automations." },
+      { property: "og:image", content: portfolioPoster.url },
       { name: "twitter:title", content: "Joseph Bisaccia — Lead AI Engineer" },
       { name: "twitter:description", content: "Enterprise AI governance, security, and infrastructure." },
+      { name: "twitter:image", content: portfolioPoster.url },
     ],
     links: [
       { rel: "canonical", href: "/" },
@@ -63,6 +67,7 @@ function Home() {
   return (
     <SiteLayout>
       <Hero />
+      <PortfolioReel />
       <Expertise />
       <FeaturedProjects />
       <GithubBand />
@@ -71,22 +76,51 @@ function Home() {
   );
 }
 
+function PortfolioReel() {
+  return (
+    <section className="border-b border-border bg-surface">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Portfolio reel</p>
+            <h2 className="mt-3 text-2xl md:text-3xl">A short tour of the work.</h2>
+          </div>
+          <p className="max-w-md text-sm text-muted-foreground">
+            A brief walkthrough of production AI systems — governance, retrieval, and agentic workflows in the wild.
+          </p>
+        </div>
+        <div className="overflow-hidden rounded-lg border border-border bg-background shadow-sm">
+          <video
+            controls
+            preload="metadata"
+            playsInline
+            poster={portfolioPoster.url}
+            className="block h-auto w-full"
+          >
+            <source src={portfolioVideo.url} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Hero() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <p className="mb-6 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <p className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Joseph Bisaccia · Lead AI Engineer
         </p>
         <h1 className="max-w-4xl text-4xl leading-[1.05] tracking-tight md:text-6xl">
           Enterprise AI that organizations trust.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
+        <p className="mt-5 max-w-2xl text-base text-muted-foreground md:text-lg">
           I design and implement secure, compliant AI systems — enterprise infrastructure,
           retrieval-augmented generation platforms, agentic workflows, and intelligent
           automations that solve real business problems.
         </p>
-        <div className="mt-10 flex flex-wrap items-center gap-3">
+        <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link
             to="/projects"
             className="inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
@@ -100,7 +134,7 @@ function Hero() {
             Schedule a Consultation
           </Link>
         </div>
-        <div className="mt-14 grid gap-6 border-t border-border pt-10 text-sm text-muted-foreground sm:grid-cols-3">
+        <div className="mt-12 grid gap-6 border-t border-border pt-8 text-sm text-muted-foreground sm:grid-cols-3">
           <Meta label="Focus" value="Enterprise AI Governance, Security, Infrastructure" />
           <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers" />
           <Meta label="Open to" value="Select consulting engagements &amp; advisory work" />
@@ -122,7 +156,7 @@ function Meta({ label, value }: { label: string; value: string }) {
 function Expertise() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
         <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_2fr]">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Expertise</p>
@@ -147,7 +181,7 @@ function Expertise() {
 function FeaturedProjects() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Featured projects</p>
@@ -189,7 +223,7 @@ function FeaturedProjects() {
 function GithubBand() {
   return (
     <section className="border-b border-border bg-surface">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
         <div className="grid gap-8 md:grid-cols-[2fr_1fr] md:items-center">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Open work</p>
@@ -220,7 +254,7 @@ function GithubBand() {
 function CTA() {
   return (
     <section>
-      <div className="mx-auto max-w-6xl px-6 py-24 md:py-28">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-end">
           <h2 className="max-w-3xl text-3xl leading-tight md:text-4xl">
             Building secure, compliant, enterprise AI systems that organizations trust.
