@@ -156,7 +156,7 @@ function Meta({ label, value }: { label: string; value: string }) {
 function Expertise() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
         <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_2fr]">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Expertise</p>
@@ -181,7 +181,7 @@ function Expertise() {
 function FeaturedProjects() {
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Featured projects</p>
@@ -223,7 +223,7 @@ function FeaturedProjects() {
 function GithubBand() {
   return (
     <section className="border-b border-border bg-surface">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
         <div className="grid gap-8 md:grid-cols-[2fr_1fr] md:items-center">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Open work</p>
@@ -254,7 +254,7 @@ function GithubBand() {
 function CTA() {
   return (
     <section>
-      <div className="mx-auto max-w-6xl px-6 py-24 md:py-28">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-end">
           <h2 className="max-w-3xl text-3xl leading-tight md:text-4xl">
             Building secure, compliant, enterprise AI systems that organizations trust.
