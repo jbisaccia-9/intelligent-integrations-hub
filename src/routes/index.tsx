@@ -32,6 +32,7 @@ function Home() {
       <Hero />
       <Marquee />
       <About />
+      <Experience />
       <Services />
       <Showcase />
       <Pricing />
