@@ -103,7 +103,7 @@ function Hero() {
         <div className="mt-14 grid gap-6 border-t border-border pt-10 text-sm text-muted-foreground sm:grid-cols-3">
           <Meta label="Focus" value="Enterprise AI Governance, Security, Infrastructure" />
           <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers" />
-          <Meta label="Available for" value="Consulting engagements &amp; senior AI roles" />
+          <Meta label="Open to" value="Select consulting engagements &amp; advisory work" />
         </div>
       </div>
     </section>
