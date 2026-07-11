@@ -147,18 +147,6 @@ function Experience() {
       org: "Capital Energy",
       desc: "Led AI adoption across sales and operations — deployed custom GPTs, automations, and data pipelines that shortened sales cycles and gave reps real leverage on their book of business.",
     },
-    {
-      period: "2019 — 2022",
-      title: "Instructional Designer & CS / Robotics Teacher",
-      org: "Gilbert Public Schools",
-      desc: "Designed AP Computer Science and applied-tech curriculum. Learned how to make hard technical concepts land with real humans — a skill that now shapes how I onboard clients to AI.",
-    },
-    {
-      period: "Earlier",
-      title: "TV News Reporter",
-      org: "Local broadcast newsrooms",
-      desc: "Filed daily stories on deadline. Sharpened the storytelling and stakeholder instincts I bring to every technical rollout.",
-    },
   ];
   return (
     <section id="experience" className="border-y border-border bg-surface/30">
@@ -169,7 +157,7 @@ function Experience() {
             <h2 className="font-display text-4xl md:text-6xl">Built by an operator, not just a coder.</h2>
           </div>
           <p className="text-muted-foreground md:text-lg">
-            I'm Joseph — a Senior AI Engineer and Technical PM finishing an MS in AI Engineering at Quantic. I've never stayed in one lane: TV reporter, teacher, solar consultant, and now shipping production LLM systems. That range is the product — I translate between what AI can actually do and what your business actually needs.
+            I'm Joseph — a Senior AI Engineer and Technical PM finishing an MS in AI Engineering at Quantic. I ship production LLM systems for frontier AI labs and translate that same expertise into practical integrations for small businesses and mission-driven campaigns.
           </p>
         </div>
         <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
