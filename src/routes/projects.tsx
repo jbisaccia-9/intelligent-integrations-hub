@@ -138,6 +138,7 @@ const PROJECTS: Project[] = [
       "Signed-off evaluation gates before promotion, historical scorecards per prompt/model version, and clear ownership of failing suites.",
     impact:
       "Made model quality measurable and enforceable — teams ship prompt and model changes with confidence and a clear audit trail.",
+  },
 ];
 
 function ProjectsPage() {
