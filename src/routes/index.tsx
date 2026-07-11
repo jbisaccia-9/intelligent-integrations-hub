@@ -137,7 +137,7 @@ function Services() {
     {
       icon: Brain,
       title: "AI Model Training",
-      desc: "Contract work for top-tier AI labs via Handshake AI and Outlier AI — RLHF, evaluation, red-teaming, and domain-expert annotation for frontier LLMs.",
+      desc: "Contract work for top-tier AI labs via Handshake AI, Outlier AI, and Mercor — RLHF, evaluation, red-teaming, and domain-expert annotation for frontier LLMs.",
     },
     {
       icon: Workflow,
