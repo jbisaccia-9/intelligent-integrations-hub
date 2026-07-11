@@ -104,7 +104,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = ["Handshake AI", "Outlier AI", "Frontier Model Training", "RLHF", "Custom GPTs", "Workflow Automation", "Data Pipelines"];
+  const items = ["Handshake AI", "Outlier AI", "Mercor", "Frontier Model Training", "RLHF", "Custom GPTs", "Workflow Automation", "Data Pipelines"];
   return (
     <div className="border-y border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-6 py-6">
@@ -125,7 +125,7 @@ function About() {
       <div className="mx-auto max-w-4xl text-center">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Mission</p>
         <p className="mt-6 font-display text-2xl leading-relaxed md:text-3xl">
-          Intelligent Integrations is an independent AI contracting LLC founded by Joseph Bisaccia — bridging the gap between cutting-edge AI research and real-world business impact. We train frontier models for major AI labs through platforms like Handshake AI and Outlier AI, then bring that same deep expertise to small businesses and mission-driven campaigns who need practical AI integrations that actually work. From custom GPTs and workflow automation to retrieval-augmented generation and strategic AI roadmaps, we build systems that fit the way your organization already operates — no disruption, just leverage.
+          Intelligent Integrations is an independent AI contracting LLC founded by Joseph Bisaccia — bridging the gap between cutting-edge AI research and real-world business impact. We train frontier models for major AI labs through platforms like Handshake AI, Outlier AI, and Mercor, then bring that same deep expertise to small businesses and mission-driven campaigns who need practical AI integrations that actually work. From custom GPTs and workflow automation to retrieval-augmented generation and strategic AI roadmaps, we build systems that fit the way your organization already operates — no disruption, just leverage.
         </p>
       </div>
     </section>
@@ -137,7 +137,7 @@ function Services() {
     {
       icon: Brain,
       title: "AI Model Training",
-      desc: "Contract work for top-tier AI labs via Handshake AI and Outlier AI — RLHF, evaluation, red-teaming, and domain-expert annotation for frontier LLMs.",
+      desc: "Contract work for top-tier AI labs via Handshake AI, Outlier AI, and Mercor — RLHF, evaluation, red-teaming, and domain-expert annotation for frontier LLMs.",
     },
     {
       icon: Workflow,
