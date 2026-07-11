@@ -211,8 +211,8 @@ function Showcase() {
             </div>
           </div>
         </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
+        <div className="mt-10">
+          <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card md:max-w-md">
             <a
               href="https://github.com/jbisaccia-9"
               target="_blank"
@@ -235,22 +235,6 @@ function Showcase() {
             <div className="border-t border-border p-5">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 03</p>
               <p className="mt-2 font-display text-xl">GitHub — code & repos</p>
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
-            <div className="aspect-video w-full bg-black">
-              <iframe
-                src="https://www.youtube.com/embed/XQtBcV9fjlU"
-                title="Digital portfolio walkthrough"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="h-full w-full"
-              />
-            </div>
-            <div className="border-t border-border p-5">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 04</p>
-              <p className="mt-2 font-display text-xl">Digital portfolio walkthrough</p>
             </div>
           </div>
         </div>
