@@ -211,6 +211,34 @@ function Showcase() {
             </div>
           </div>
         </div>
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          <a
+            href="https://github.com/jbisaccia-9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between rounded-2xl border border-border bg-background p-5 transition-colors hover:border-primary/60 hover:bg-surface"
+          >
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 03</p>
+              <p className="mt-2 font-display text-xl">GitHub — code & repos</p>
+              <p className="mt-1 text-sm text-muted-foreground">github.com/jbisaccia-9</p>
+            </div>
+            <span aria-hidden className="text-xl text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary">↗</span>
+          </a>
+          <a
+            href="https://youtu.be/XQtBcV9fjlU"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between rounded-2xl border border-border bg-background p-5 transition-colors hover:border-primary/60 hover:bg-surface"
+          >
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 04</p>
+              <p className="mt-2 font-display text-xl">Digital portfolio walkthrough</p>
+              <p className="mt-1 text-sm text-muted-foreground">youtu.be/XQtBcV9fjlU</p>
+            </div>
+            <span aria-hidden className="text-xl text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary">↗</span>
+          </a>
+        </div>
       </div>
     </section>
   );
