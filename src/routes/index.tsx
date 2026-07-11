@@ -211,33 +211,48 @@ function Showcase() {
             </div>
           </div>
         </div>
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          <a
-            href="https://github.com/jbisaccia-9"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-between rounded-2xl border border-border bg-background p-5 transition-colors hover:border-primary/60 hover:bg-surface"
-          >
-            <div>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
+            <a
+              href="https://github.com/jbisaccia-9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-4 bg-surface/60 p-6 transition-colors hover:bg-surface"
+            >
+              <img
+                src="https://github.com/jbisaccia-9.png"
+                alt="GitHub avatar for jbisaccia-9"
+                loading="lazy"
+                className="h-20 w-20 rounded-full border border-border object-cover"
+              />
+              <div className="min-w-0 flex-1">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">GitHub</p>
+                <p className="mt-1 font-display text-xl">jbisaccia-9</p>
+                <p className="truncate text-sm text-muted-foreground">Joseph Bisaccia · public repositories</p>
+              </div>
+              <span aria-hidden className="text-xl text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary">↗</span>
+            </a>
+            <div className="border-t border-border p-5">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 03</p>
               <p className="mt-2 font-display text-xl">GitHub — code & repos</p>
-              <p className="mt-1 text-sm text-muted-foreground">github.com/jbisaccia-9</p>
             </div>
-            <span aria-hidden className="text-xl text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary">↗</span>
-          </a>
-          <a
-            href="https://youtu.be/XQtBcV9fjlU"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-between rounded-2xl border border-border bg-background p-5 transition-colors hover:border-primary/60 hover:bg-surface"
-          >
-            <div>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
+            <div className="aspect-video w-full bg-black">
+              <iframe
+                src="https://www.youtube.com/embed/XQtBcV9fjlU"
+                title="Digital portfolio walkthrough"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="h-full w-full"
+              />
+            </div>
+            <div className="border-t border-border p-5">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">Case 04</p>
               <p className="mt-2 font-display text-xl">Digital portfolio walkthrough</p>
-              <p className="mt-1 text-sm text-muted-foreground">youtu.be/XQtBcV9fjlU</p>
             </div>
-            <span aria-hidden className="text-xl text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary">↗</span>
-          </a>
+          </div>
         </div>
       </div>
     </section>
