@@ -67,11 +67,41 @@ function Home() {
   return (
     <SiteLayout>
       <Hero />
+      <PortfolioReel />
       <Expertise />
       <FeaturedProjects />
       <GithubBand />
       <CTA />
     </SiteLayout>
+  );
+}
+
+function PortfolioReel() {
+  return (
+    <section className="border-b border-border bg-surface">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Portfolio reel</p>
+            <h2 className="mt-3 text-2xl md:text-3xl">A short tour of the work.</h2>
+          </div>
+          <p className="max-w-md text-sm text-muted-foreground">
+            A brief walkthrough of production AI systems — governance, retrieval, and agentic workflows in the wild.
+          </p>
+        </div>
+        <div className="overflow-hidden rounded-lg border border-border bg-background shadow-sm">
+          <video
+            controls
+            preload="metadata"
+            playsInline
+            poster={portfolioPoster.url}
+            className="block h-auto w-full"
+          >
+            <source src={portfolioVideo.url} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
   );
 }
 
