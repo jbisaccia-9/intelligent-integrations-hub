@@ -32,6 +32,7 @@ function Home() {
       <Hero />
       <Marquee />
       <About />
+      <Experience />
       <Services />
       <Showcase />
       <Pricing />
@@ -127,6 +128,65 @@ function About() {
         <p className="mt-6 font-display text-2xl leading-relaxed md:text-3xl">
           Intelligent Integrations is an independent AI contracting LLC founded by Joseph Bisaccia — bridging the gap between cutting-edge AI research and real-world business impact. We train frontier models for major AI labs through platforms like Handshake AI, Outlier AI, and Mercor, then bring that same deep expertise to small businesses and mission-driven campaigns who need practical AI integrations that actually work. From custom GPTs and workflow automation to retrieval-augmented generation and strategic AI roadmaps, we build systems that fit the way your organization already operates — no disruption, just leverage.
         </p>
+      </div>
+    </section>
+  );
+}
+
+function Experience() {
+  const roles = [
+    {
+      period: "2024 — Now",
+      title: "Senior AI Engineer & Technical PM",
+      org: "Intelligent Integrations · Handshake AI · Outlier AI · Mercor",
+      desc: "Building production LLM systems — agentic workflows, RAG pipelines, and evaluation harnesses. Contract model-training work for frontier AI labs and bespoke integrations for SMBs and campaigns.",
+    },
+    {
+      period: "2022 — 2024",
+      title: "AI Implementation PM & Customer Success",
+      org: "Capital Energy",
+      desc: "Led AI adoption across sales and operations — deployed custom GPTs, automations, and data pipelines that shortened sales cycles and gave reps real leverage on their book of business.",
+    },
+    {
+      period: "2019 — 2022",
+      title: "Instructional Designer & CS / Robotics Teacher",
+      org: "Gilbert Public Schools",
+      desc: "Designed AP Computer Science and applied-tech curriculum. Learned how to make hard technical concepts land with real humans — a skill that now shapes how I onboard clients to AI.",
+    },
+    {
+      period: "Earlier",
+      title: "TV News Reporter",
+      org: "Local broadcast newsrooms",
+      desc: "Filed daily stories on deadline. Sharpened the storytelling and stakeholder instincts I bring to every technical rollout.",
+    },
+  ];
+  return (
+    <section id="experience" className="border-y border-border bg-surface/30">
+      <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="mb-16 grid gap-8 md:grid-cols-2 md:items-end">
+          <div>
+            <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">01.5 — Background</p>
+            <h2 className="font-display text-4xl md:text-6xl">Built by an operator, not just a coder.</h2>
+          </div>
+          <p className="text-muted-foreground md:text-lg">
+            I'm Joseph — a Senior AI Engineer and Technical PM finishing an MS in AI Engineering at Quantic. I've never stayed in one lane: TV reporter, teacher, solar consultant, and now shipping production LLM systems. That range is the product — I translate between what AI can actually do and what your business actually needs.
+          </p>
+        </div>
+        <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
+          {roles.map((r) => (
+            <div key={r.title} className="bg-surface p-8 transition-colors hover:bg-surface-elevated md:p-10">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{r.period}</p>
+              <h3 className="mt-4 font-display text-2xl md:text-3xl">{r.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{r.org}</p>
+              <p className="mt-3 text-muted-foreground">{r.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          {["Agentic AI", "RAG", "LangChain", "Prompt Engineering", "Evaluation & RLHF", "TypeScript / Python", "MS AI Engineering — Quantic"].map((t) => (
+            <span key={t} className="rounded-full border border-border bg-background px-3 py-1">{t}</span>
+          ))}
+        </div>
       </div>
     </section>
   );
