@@ -136,6 +136,12 @@ function About() {
 function Experience() {
   const roles = [
     {
+      period: "2025 — Now",
+      title: "Lead AI Engineer",
+      org: "Behavior Frontiers",
+      desc: "Architecting HIPAA-compliant agentic workflows across clinical and operations teams — RAG over PHI-safe knowledge bases, automated intake and documentation copilots, and evaluation harnesses that keep LLM outputs auditable in a regulated healthcare environment.",
+    },
+    {
       period: "2024 — Now",
       title: "Senior AI Engineer & Technical PM",
       org: "Intelligent Integrations · Handshake AI · Outlier AI · Mercor",
@@ -171,7 +177,7 @@ function Experience() {
           ))}
         </div>
         <div className="mt-10 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          {["Agentic AI", "RAG", "LangChain", "Prompt Engineering", "Evaluation & RLHF", "TypeScript / Python", "MS AI Engineering — Quantic"].map((t) => (
+          {["Agentic AI", "RAG", "LangChain", "HIPAA-Compliant AI", "Prompt Engineering", "Evaluation & RLHF", "TypeScript / Python", "MS AI Engineering — Quantic"].map((t) => (
             <span key={t} className="rounded-full border border-border bg-background px-3 py-1">{t}</span>
           ))}
         </div>
