@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import logo from "@/assets/logo.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -27,17 +26,14 @@ function SiteNav() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
-          <img
-            src={logo.url}
-            alt="Intelligent Integrations"
-            className="h-8 w-auto"
-            style={{
-              filter:
-                "brightness(0) saturate(100%) invert(24%) sepia(38%) saturate(1200%) hue-rotate(184deg) brightness(92%) contrast(92%)",
-            }}
-          />
-          <span className="sr-only">Intelligent Integrations</span>
+        <Link to="/" className="group flex items-center gap-2.5 text-sm font-semibold tracking-tight text-primary">
+          <span
+            aria-hidden
+            className="grid h-7 w-7 shrink-0 place-items-center rounded-[6px] bg-primary text-[13px] font-semibold text-primary-foreground"
+          >
+            II
+          </span>
+          <span className="text-[15px] tracking-[-0.01em]">Intelligent Integrations</span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
           {NAV.map((n) => (

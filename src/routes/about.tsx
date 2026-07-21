@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SiteLayout, GITHUB_URL, LINKEDIN_URL } from "@/components/SiteLayout";
+import portrait from "@/assets/joseph-bisaccia-portrait.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -52,17 +53,60 @@ function AboutPage() {
     <SiteLayout>
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">About</p>
-          <h1 className="mt-4 max-w-3xl text-4xl leading-[1.05] tracking-tight md:text-5xl">
-            Helping organizations deploy AI responsibly at scale.
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
-            I&rsquo;m Joseph Bisaccia, a Lead AI Engineer focused on the systems, governance, and
-            infrastructure enterprises need to trust AI in production. My work sits at the
-            intersection of applied machine learning, security engineering, and technical program
-            leadership — building AI that meets the standards of regulated and enterprise
-            environments.
-          </p>
+          <div className="grid gap-12 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] md:items-center md:gap-16">
+            <div className="order-2 md:order-1">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">About</p>
+              <h1 className="mt-4 text-4xl leading-[1.05] tracking-tight md:text-5xl">
+                Building AI systems enterprises can trust.
+              </h1>
+              <p className="mt-6 text-lg text-muted-foreground">
+                I&rsquo;m Joseph Bisaccia — a Lead AI Engineer working at the intersection of
+                applied machine learning, security engineering, and technical program leadership.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-foreground/85">
+                I design and operate enterprise AI systems where governance, compliance, and
+                infrastructure are first-class concerns: HIPAA-aware agentic workflows, PHI-safe
+                RAG over sensitive corpora, and evaluation harnesses that make model behavior
+                auditable. My focus is quiet, durable AI &mdash; the kind regulated organizations can
+                actually put in production.
+              </p>
+              <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6 text-sm">
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Role</dt>
+                  <dd className="mt-1 text-foreground/90">Lead AI Engineer</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Focus</dt>
+                  <dd className="mt-1 text-foreground/90">Governance · Security · Infrastructure</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Domains</dt>
+                  <dd className="mt-1 text-foreground/90">Healthcare · Regulated Enterprise</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Based</dt>
+                  <dd className="mt-1 text-foreground/90">United States · Remote</dd>
+                </div>
+              </dl>
+            </div>
+            <div className="order-1 md:order-2">
+              <figure className="relative">
+                <div className="overflow-hidden rounded-md border border-border bg-surface shadow-[0_1px_0_0_rgba(0,0,0,0.02),0_20px_40px_-24px_rgba(15,30,60,0.25)]">
+                  <img
+                    src={portrait.url}
+                    alt="Portrait of Joseph Bisaccia"
+                    className="aspect-[4/5] w-full object-cover"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption className="mt-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                  <span>Joseph Bisaccia</span>
+                  <span>Founder · Intelligent Integrations</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
       </section>
 
