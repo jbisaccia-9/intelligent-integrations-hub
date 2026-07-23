@@ -52,8 +52,12 @@ function ContactPage() {
           </p>
         </div>
       </section>
+      <DataStreamDivider />
 
       <section>
+        <div className="mx-auto max-w-6xl px-6 pt-10">
+          <StatusLine text="system: online · accepting_connections" />
+        </div>
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:py-20 lg:grid-cols-5">
           <div className="space-y-8 lg:col-span-2">
             <div className="rounded-md border border-border bg-surface p-5 text-sm">
