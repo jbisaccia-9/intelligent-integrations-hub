@@ -79,19 +79,19 @@ function AboutPage() {
               </p>
               <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6 text-sm">
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Role</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Role</dt>
                   <dd className="mt-1 text-foreground/90">Lead AI Engineer</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Focus</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Focus</dt>
                   <dd className="mt-1 text-foreground/90">Governance · Security · Infrastructure</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Domains</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Domains</dt>
                   <dd className="mt-1 text-foreground/90">Healthcare · Regulated Enterprise</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Based</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Based</dt>
                   <dd className="mt-1 text-foreground/90">United States · Remote</dd>
                 </div>
               </dl>
@@ -107,7 +107,7 @@ function AboutPage() {
                     decoding="async"
                   />
                 </div>
-                <figcaption className="mt-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
                   <span>Joseph Bisaccia</span>
                   <span>Founder · Intelligent Integrations</span>
                 </figcaption>
@@ -129,7 +129,7 @@ function AboutPage() {
               {ROLES.map((r) => (
                 <li key={r.title} className="relative">
                   <span className="absolute -left-[33px] top-2 h-2 w-2 rounded-full bg-primary" />
-                  <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">{r.period}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{r.period}</p>
                   <h3 className="mt-1 text-lg font-semibold">{r.title}</h3>
                   <p className="text-sm text-muted-foreground">{r.org}</p>
                   <p className="mt-3 max-w-2xl text-sm leading-relaxed text-foreground/90">{r.desc}</p>
@@ -184,7 +184,7 @@ function ExternalLink({ href, label, value, internal }: { href: string; label: s
       className="group flex items-center justify-between rounded-md border border-border bg-surface px-5 py-4 transition-colors hover:bg-surface-elevated"
     >
       <div>
-        <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">{label}</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{label}</p>
         <p className="mt-1 text-sm font-medium">{value}</p>
       </div>
       <ArrowUpRight className="h-4 w-4 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

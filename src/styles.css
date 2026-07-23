@@ -266,7 +266,7 @@
   font-size: 9px;
   font-weight: 300;
   letter-spacing: 0.02em;
-  color: color-mix(in oklab, var(--foreground) 22%, transparent);
+  color: color-mix(in oklab, var(--foreground) 34%, transparent);
   animation: token-fall-kf 60s linear infinite;
   white-space: nowrap;
 }

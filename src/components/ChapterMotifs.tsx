@@ -1,10 +1,21 @@
 import type { CSSProperties } from "react";
 
 /* -------------------------------------------------------------------------- */
-/* Small computer-science / AI visual motifs used across the homepage.        */
+/* Small computer-science / AI visual motifs used across the site.            */
 /* All motifs are quiet, ink-and-blue, cheap to render, and paused under      */
 /* prefers-reduced-motion (handled in styles.css).                            */
 /* -------------------------------------------------------------------------- */
+
+/**
+ * Shared motif style tokens. All mono labels/annotations across the homepage
+ * chapters AND interior pages (Projects, About, Contact) MUST use these so
+ * the four pages render identically.
+ */
+export const MOTIF_MONO_LABEL =
+  "font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground";
+export const MOTIF_MONO_TAG =
+  "font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground";
+
 
 /** Chapter label styled as a code comment: `// 01 — SYSTEMS`. */
 export function ChapterLabel({
@@ -17,12 +28,7 @@ export function ChapterLabel({
   className?: string;
 }) {
   return (
-    <p
-      className={
-        "font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground " +
-        className
-      }
-    >
+    <p className={MOTIF_MONO_LABEL + " " + className}>
       <span className="text-primary/80">{"//"}</span>{" "}
       <span className="tabular-nums text-foreground/80">{n}</span>
       <span className="mx-2 text-black/25">—</span>
@@ -50,7 +56,7 @@ export function DataStreamDivider({ className = "" }: { className?: string }) {
 /** Mono status line + soft blue pulse dot. */
 export function StatusLine({ text }: { text: string }) {
   return (
-    <p className="flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+    <p className={"flex items-center gap-2.5 " + MOTIF_MONO_LABEL}>
       <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-primary">
         <span className="absolute inset-0 rounded-full bg-primary opacity-70 status-ping" />
       </span>
