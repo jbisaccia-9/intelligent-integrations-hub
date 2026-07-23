@@ -430,7 +430,7 @@ function ChapterTwo() {
                   key={i}
                   className={
                     "h-px transition-all duration-500 " +
-                    (i <= activeStat ? "w-16 bg-primary" : "w-8 bg-white/15")
+                    (i <= activeStat ? "w-16 bg-primary" : "w-8 bg-black/15")
                   }
                 />
               ))}
