@@ -154,7 +154,7 @@ function useHeroScrollFade() {
 
 function Hero() {
   return (
-    <section className="relative isolate overflow-hidden border-b border-white/8">
+    <section className="relative isolate overflow-hidden border-b border-black/8">
       <div id="hero-scene" className="absolute inset-0 -z-10">
         <ConstellationScene className="absolute inset-0 h-full w-full" />
         <div aria-hidden className="ambient-glow" />
@@ -195,12 +195,12 @@ function Hero() {
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-md border border-white/15 bg-white/[0.03] px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-white/[0.06]"
+            className="inline-flex items-center gap-2 rounded-md border border-black/12 bg-black/[0.02] px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-black/[0.04]"
           >
             Request Advisory Session
           </Link>
         </div>
-        <div className="mt-20 grid gap-8 border-t border-white/8 pt-8 text-sm text-muted-foreground sm:grid-cols-3">
+        <div className="mt-20 grid gap-8 border-t border-black/8 pt-8 text-sm text-muted-foreground sm:grid-cols-3">
           <Meta label="Focus" value="Enterprise AI Governance, Security, Infrastructure" />
           <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers &mdash; leading company-wide AI enablement" />
           <Meta label="Open to" value="Advisory engagements &amp; speaking opportunities" />
@@ -242,7 +242,7 @@ function ChapterHeading({
   return (
     <div ref={r.ref} className={r.className}>
       <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-        Chapter {n} <span className="mx-2 text-white/25">/</span> {kicker}
+        Chapter {n} <span className="mx-2 text-black/25">/</span> {kicker}
       </p>
       <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">{title}</h2>
     </div>
@@ -259,7 +259,7 @@ function ChapterOne() {
   return (
     <section
       id="chapter-01"
-      className="relative border-b border-white/8 bg-surface"
+      className="relative border-b border-black/8 bg-surface"
       style={{
         background:
           "linear-gradient(to bottom, var(--background) 0%, var(--surface) 40%, var(--surface) 100%)",
@@ -268,7 +268,7 @@ function ChapterOne() {
       <div className="mx-auto max-w-6xl px-6 py-28 md:py-40">
         <ChapterHeading n="01" kicker="The Systems" title="A short tour of the work." />
         <div ref={reel.ref} className={`mt-16 ${reel.className}`}>
-          <div className="group relative overflow-hidden rounded-lg border border-white/10 bg-black shadow-[0_40px_120px_-40px_rgba(0,0,0,0.6)] transition-colors hover:border-primary/30">
+          <div className="group relative overflow-hidden rounded-lg border border-black/10 bg-black shadow-[0_40px_120px_-40px_rgba(0,0,0,0.6)] transition-colors hover:border-primary/30">
             <div aria-hidden className="pointer-events-none absolute -inset-px rounded-lg bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
             <video
               controls
@@ -292,7 +292,7 @@ function ChapterOne() {
             </div>
             <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">
               {EXPERTISE.map((item) => (
-                <li key={item} className="flex items-start gap-3 border-b border-white/8 pb-4 text-sm transition-colors hover:border-primary/40">
+                <li key={item} className="flex items-start gap-3 border-b border-black/8 pb-4 text-sm transition-colors hover:border-primary/40">
                   <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
                   <span className="text-foreground/90">{item}</span>
                 </li>
@@ -372,7 +372,7 @@ function ChapterTwo() {
   return (
     <section
       id="chapter-02"
-      className="relative border-b border-white/8"
+      className="relative border-b border-black/8"
       style={{
         background:
           "linear-gradient(to bottom, var(--surface) 0%, var(--background) 50%, var(--background) 100%)",
@@ -383,7 +383,7 @@ function ChapterTwo() {
         <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <div className="mx-auto w-full max-w-6xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-              Chapter 02 <span className="mx-2 text-white/25">/</span> The Organization
+              Chapter 02 <span className="mx-2 text-black/25">/</span> The Organization
             </p>
             <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">
               Building the systems &mdash; and bringing the organization along.
@@ -430,7 +430,7 @@ function ChapterTwo() {
                   key={i}
                   className={
                     "h-px transition-all duration-500 " +
-                    (i <= activeStat ? "w-16 bg-primary" : "w-8 bg-white/15")
+                    (i <= activeStat ? "w-16 bg-primary" : "w-8 bg-black/15")
                   }
                 />
               ))}
@@ -472,7 +472,7 @@ function ChapterTwo() {
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
             Leadership &amp; enablement — a snapshot
           </p>
-          <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] sm:grid-cols-2">
+          <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-black/10 bg-black/[0.04] sm:grid-cols-2">
             {LEADERSHIP.map((item) => (
               <article
                 key={item.title}
@@ -576,7 +576,7 @@ function ChapterThree() {
   return (
     <section
       id="chapter-03"
-      className="relative overflow-hidden border-b border-white/8 bg-surface"
+      className="relative overflow-hidden border-b border-black/8 bg-surface"
       style={{
         background:
           "linear-gradient(to bottom, var(--background) 0%, var(--surface) 40%, var(--surface) 100%)",
@@ -585,7 +585,7 @@ function ChapterThree() {
       <div aria-hidden className="pointer-events-none absolute -left-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-primary/[0.06] blur-3xl" />
       <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-48" ref={containerRef}>
         <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-          Chapter 03 <span className="mx-2 text-white/25">/</span> The Perspective
+          Chapter 03 <span className="mx-2 text-black/25">/</span> The Perspective
         </p>
         <blockquote
           className="mt-12 max-w-5xl font-display italic leading-[1.08] tracking-tight text-foreground"
@@ -603,7 +603,7 @@ function ChapterThree() {
             </span>
           ))}
         </blockquote>
-        <div className="mt-16 grid max-w-4xl gap-6 border-l border-white/15 pl-8 text-lg leading-[1.65] text-foreground/85 md:text-xl">
+        <div className="mt-16 grid max-w-4xl gap-6 border-l border-black/12 pl-8 text-lg leading-[1.65] text-foreground/85 md:text-xl">
           <ProseLine>
             The hard part is governance, trust, and adoption &mdash; the slow work of
             building something a regulated organization can actually stand behind.
@@ -682,7 +682,7 @@ function ChapterFour() {
     <section
       id="chapter-04"
       ref={sectionRef}
-      className="relative border-b border-white/8"
+      className="relative border-b border-black/8"
       style={{
         background:
           "linear-gradient(to bottom, var(--surface) 0%, var(--background) 40%, var(--background) 100%)",
@@ -693,7 +693,7 @@ function ChapterFour() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-                Chapter 04 <span className="mx-2 text-white/25">/</span> The Work
+                Chapter 04 <span className="mx-2 text-black/25">/</span> The Work
               </p>
               <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">
                 Selected engineering case studies.
@@ -711,7 +711,7 @@ function ChapterFour() {
               to="/projects"
               hash={p.slug}
               ref={(el) => { cardRefs.current[i] = el as unknown as HTMLElement | null; }}
-              className="group relative flex flex-col gap-4 rounded-lg border border-white/10 bg-surface p-7 transition-colors will-change-transform hover:border-primary/30 hover:bg-surface-elevated"
+              className="group relative flex flex-col gap-4 rounded-lg border border-black/10 bg-surface p-7 transition-colors will-change-transform hover:border-primary/30 hover:bg-surface-elevated"
             >
               <div aria-hidden className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.context}</p>
@@ -719,7 +719,7 @@ function ChapterFour() {
               <p className="relative text-sm text-muted-foreground">{p.summary}</p>
               <div className="relative mt-auto flex flex-wrap gap-1.5 pt-2">
                 {p.stack.slice(0, 4).map((s) => (
-                  <span key={s} className="rounded border border-white/10 bg-white/[0.03] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                  <span key={s} className="rounded border border-black/10 bg-black/[0.02] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
                     {s}
                   </span>
                 ))}
@@ -745,7 +745,7 @@ function ChapterFour() {
               href={GITHUB_URL}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center justify-between gap-4 rounded-md border border-white/10 bg-surface px-6 py-5 text-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-surface-elevated"
+              className="group inline-flex items-center justify-between gap-4 rounded-md border border-black/10 bg-surface px-6 py-5 text-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-surface-elevated"
             >
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">github.com</p>
@@ -787,7 +787,7 @@ function ChapterFive() {
       <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-48">
         <div ref={r.ref} className={r.className}>
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-            Chapter 05 <span className="mx-2 text-white/25">/</span> Contact
+            Chapter 05 <span className="mx-2 text-black/25">/</span> Contact
           </p>
           <div className="mt-10 grid gap-12 md:grid-cols-[2fr_1fr] md:items-end">
             <h2 className="max-w-4xl text-4xl leading-[1.05] md:text-6xl">

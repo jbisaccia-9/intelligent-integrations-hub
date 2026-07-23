@@ -55,7 +55,7 @@ export function ScrollProgress() {
                     "inline-block h-px transition-all duration-500 " +
                     (on
                       ? "w-10 bg-primary"
-                      : "w-4 bg-white/25 group-hover:w-6 group-hover:bg-white/50")
+                      : "w-4 bg-black/25 group-hover:w-6 group-hover:bg-black/50")
                   }
                 />
                 <span

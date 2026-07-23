@@ -37,29 +37,29 @@
 
 :root {
   --radius: 0.375rem;
-  /* Midnight foundation */
-  --background: oklch(0.145 0.012 250);
-  --foreground: oklch(0.965 0.010 85);
-  --surface: oklch(0.175 0.013 250);
-  --surface-elevated: oklch(0.210 0.015 250);
-  --card: oklch(0.175 0.013 250);
-  --card-foreground: oklch(0.965 0.010 85);
-  --popover: oklch(0.175 0.013 250);
-  --popover-foreground: oklch(0.965 0.010 85);
-  /* Warm amber accent */
-  --primary: oklch(0.82 0.14 78);
-  --primary-foreground: oklch(0.145 0.012 250);
-  --secondary: oklch(0.220 0.015 250);
-  --secondary-foreground: oklch(0.965 0.010 85);
-  --muted: oklch(0.210 0.014 250);
-  --muted-foreground: oklch(0.68 0.018 250);
-  --accent: oklch(0.82 0.14 78);
-  --accent-foreground: oklch(0.145 0.012 250);
+  /* Warm ivory foundation — bright gallery / printed magazine */
+  --background: oklch(0.985 0.006 85);
+  --foreground: oklch(0.18 0.02 250);
+  --surface: oklch(0.965 0.008 85);
+  --surface-elevated: oklch(0.94 0.010 85);
+  --card: oklch(0.985 0.006 85);
+  --card-foreground: oklch(0.18 0.02 250);
+  --popover: oklch(0.985 0.006 85);
+  --popover-foreground: oklch(0.18 0.02 250);
+  /* Deep logo blue accent */
+  --primary: oklch(0.44 0.14 258);
+  --primary-foreground: oklch(0.99 0.005 85);
+  --secondary: oklch(0.93 0.010 85);
+  --secondary-foreground: oklch(0.18 0.02 250);
+  --muted: oklch(0.94 0.008 85);
+  --muted-foreground: oklch(0.42 0.020 250);
+  --accent: oklch(0.44 0.14 258);
+  --accent-foreground: oklch(0.99 0.005 85);
   --destructive: oklch(0.58 0.22 27);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(1 0 0 / 0.08);
-  --input: oklch(1 0 0 / 0.10);
-  --ring: oklch(0.82 0.14 78);
+  --border: oklch(0.18 0.02 250 / 0.10);
+  --input: oklch(0.18 0.02 250 / 0.14);
+  --ring: oklch(0.44 0.14 258);
 }
 
 @layer base {
@@ -79,20 +79,20 @@
     font-weight: 400;
   }
   ::selection {
-    background: color-mix(in oklab, var(--primary) 40%, transparent);
+    background: color-mix(in oklab, var(--primary) 25%, transparent);
     color: var(--foreground);
   }
 }
 
-/* Ambient glow used behind hero */
+/* Ambient wash behind hero — softened for light mode */
 @utility ambient-glow {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(60% 50% at 20% 25%, color-mix(in oklab, var(--primary) 18%, transparent) 0%, transparent 60%),
-    radial-gradient(50% 40% at 85% 70%, color-mix(in oklab, oklch(0.55 0.15 250) 22%, transparent) 0%, transparent 65%);
-  filter: blur(20px);
+    radial-gradient(60% 50% at 20% 25%, color-mix(in oklab, var(--primary) 10%, transparent) 0%, transparent 60%),
+    radial-gradient(50% 40% at 85% 70%, color-mix(in oklab, oklch(0.55 0.05 85) 18%, transparent) 0%, transparent 65%);
+  filter: blur(24px);
   animation: ambient-drift 18s ease-in-out infinite alternate;
 }
 
@@ -100,12 +100,12 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.04;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
-/* Reveal utility — set data-reveal="in" via IntersectionObserver */
+/* Reveal utility — set via IntersectionObserver */
 @utility reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -121,11 +121,12 @@
 }
 
 @utility hairline {
-  border-color: color-mix(in oklab, oklch(1 0 0) 10%, transparent);
+  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
 }
 
 @utility accent-glow {
-  text-shadow: 0 0 60px color-mix(in oklab, var(--primary) 45%, transparent);
+  /* Subtler on light — a soft ink halo, no neon */
+  text-shadow: 0 1px 0 color-mix(in oklab, var(--foreground) 4%, transparent);
 }
 
 @keyframes ambient-drift {
@@ -134,13 +135,14 @@
 }
 
 @keyframes scroll-hint {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
   50%      { transform: translateY(6px); opacity: 1; }
 }
 
 @utility scroll-hint {
   animation: scroll-hint 2.2s ease-in-out infinite;
 }
+
 
 /* Masked text reveal — used for line-by-line perspective */
 @utility mask-reveal {

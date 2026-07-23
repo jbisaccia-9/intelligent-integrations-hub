@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import logo from "@/assets/logo.png.asset.json";
+
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -23,29 +25,24 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 }
 
 function Wordmark() {
+
   return (
-    <Link to="/" className="group flex items-center gap-2.5" aria-label="Intelligent Integrations — Home">
-      <span
-        aria-hidden
-        className="grid h-8 w-8 place-items-center rounded-sm border border-white/15 bg-white/[0.04] font-mono text-[11px] font-medium tracking-wider text-primary transition-colors group-hover:border-primary/40"
-      >
-        JB
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-          Intelligent
-        </span>
-        <span className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/90">
-          Integrations
-        </span>
-      </span>
+    <Link to="/" className="group inline-flex items-center gap-3" aria-label="Intelligent Integrations — Home">
+      <img
+        src={logo.url}
+        alt="Intelligent Integrations"
+        className="h-8 w-auto md:h-9"
+        loading="eager"
+        decoding="async"
+      />
     </Link>
   );
 }
 
+
 function SiteNav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/8 bg-background/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-black/8 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Wordmark />
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
@@ -85,7 +82,7 @@ function SiteNav() {
 
 function SiteFooter() {
   return (
-    <footer className="border-t border-white/8 bg-background">
+    <footer className="border-t border-black/8 bg-background">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
           <p className="font-display text-2xl leading-tight">Joseph Bisaccia</p>
@@ -113,7 +110,7 @@ function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/8">
+      <div className="border-t border-black/8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-5 text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} Joseph Bisaccia. All rights reserved.</span>
           <span className="font-mono">Building secure, compliant, enterprise AI systems.</span>
