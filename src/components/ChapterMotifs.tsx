@@ -1,10 +1,21 @@
 import type { CSSProperties } from "react";
 
 /* -------------------------------------------------------------------------- */
-/* Small computer-science / AI visual motifs used across the homepage.        */
+/* Small computer-science / AI visual motifs used across the site.            */
 /* All motifs are quiet, ink-and-blue, cheap to render, and paused under      */
 /* prefers-reduced-motion (handled in styles.css).                            */
 /* -------------------------------------------------------------------------- */
+
+/**
+ * Shared motif style tokens. All mono labels/annotations across the homepage
+ * chapters AND interior pages (Projects, About, Contact) MUST use these so
+ * the four pages render identically.
+ */
+export const MOTIF_MONO_LABEL =
+  "font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground";
+export const MOTIF_MONO_TAG =
+  "font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground";
+
 
 /** Chapter label styled as a code comment: `// 01 — SYSTEMS`. */
 export function ChapterLabel({
