@@ -702,7 +702,7 @@ function ChapterFour() {
     <section
       id="chapter-04"
       ref={sectionRef}
-      className="relative overflow-hidden border-b border-black/8"
+      className="relative isolate overflow-hidden border-b border-black/8"
       style={{
         background:
           "linear-gradient(to bottom, var(--surface) 0%, var(--background) 40%, var(--background) 100%)",
@@ -710,7 +710,7 @@ function ChapterFour() {
     >
       <DataStreamDivider />
       <TokenStream />
-      <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 md:py-40">
         <div ref={headingReveal.ref} className={headingReveal.className}>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
