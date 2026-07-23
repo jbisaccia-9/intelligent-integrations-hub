@@ -212,7 +212,10 @@ export function ConstellationScene({
       const pulses: Pulse[] = Array.from({ length: maxPulses }, () => ({
         e: 0, t: 0, speed: 0, alive: false,
       }));
-      const pulseSpeedScale = subtle ? 0.55 : 1;
+      // Meditative pacing — halved from earlier revisions. Interior (subtle)
+      // pages match the homepage cadence so all four pages feel unified.
+      const pulseSpeedScale = 0.5;
+      const spawnRatePerSec = 0.7; // was 1.4
       const spawnPulse = (p: Pulse) => {
         p.e = Math.floor(Math.random() * edges.length);
         p.t = 0;
@@ -287,7 +290,9 @@ export function ConstellationScene({
       let raf = 0;
       let last = performance.now();
       const nodeColorAttr = nodeGeo.getAttribute("color") as import("three").BufferAttribute;
-      const opacityCeiling = subtle ? 0.9 : 1;
+      // Interior "subtle" pages match the homepage's calibrated brightness —
+      // no ceiling dimming; only node/edge density differs.
+      const opacityCeiling = 1;
       let currentOpacity = opacityCeiling;
       // Lower = slower/gentler easing of scroll-linked dissolve.
       const OPACITY_LERP = 1.6;
@@ -313,10 +318,10 @@ export function ConstellationScene({
         camera.position.y = -my * 2;
         camera.lookAt(0, 0, 0);
 
-        // decay node activations
+        // decay node activations (halved decay rate → glow lingers longer)
         for (const layer of layers) {
           for (const n of layer) {
-            n.act *= Math.max(0, 1 - dt * 2.2);
+            n.act *= Math.max(0, 1 - dt * 1.1);
           }
         }
 
@@ -324,7 +329,7 @@ export function ConstellationScene({
         for (let i = 0; i < pulses.length; i++) {
           const p = pulses[i];
           if (!p.alive) {
-            if (Math.random() < dt * 1.4) spawnPulse(p);
+            if (Math.random() < dt * spawnRatePerSec) spawnPulse(p);
             pulsePositions[i * 3 + 0] = 9999;
             pulsePositions[i * 3 + 1] = 9999;
             pulsePositions[i * 3 + 2] = 9999;
