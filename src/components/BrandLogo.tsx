@@ -21,46 +21,34 @@ export function BrandMark({
       {...props}
     >
       <title>{title}</title>
-      {/* input -> hidden edges */}
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.1}
+      {/* badge container — deep ink */}
+      <rect x="2" y="2" width="36" height="36" rx="9" fill="var(--foreground)" />
+      {/* connector line between dots — turns "ii" into linked nodes */}
+      <line
+        x1="16.5"
+        y1="14"
+        x2="23.5"
+        y2="14"
+        stroke="var(--background)"
+        strokeWidth="1.2"
         strokeLinecap="round"
-        opacity={0.5}
-      >
-        <line x1="7" y1="14" x2="20" y2="9" />
-        <line x1="7" y1="14" x2="20" y2="20" />
-        <line x1="7" y1="14" x2="20" y2="31" />
-        <line x1="7" y1="26" x2="20" y2="9" />
-        <line x1="7" y1="26" x2="20" y2="20" />
-        <line x1="7" y1="26" x2="20" y2="31" />
-      </g>
-      {/* hidden -> output edges (slightly stronger) */}
+        opacity="0.55"
+      />
+      {/* "ii" stems */}
       <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.1}
+        stroke="var(--background)"
+        strokeWidth="3.5"
         strokeLinecap="round"
-        opacity={0.65}
       >
-        <line x1="20" y1="9" x2="33" y2="20" />
-        <line x1="20" y1="20" x2="33" y2="20" />
-        <line x1="20" y1="31" x2="33" y2="20" />
+        <line x1="16.5" y1="20" x2="16.5" y2="30" />
+        <line x1="23.5" y1="20" x2="23.5" y2="30" />
       </g>
-      {/* ink nodes */}
-      <g fill="currentColor">
-        <circle cx="7" cy="14" r="2.2" />
-        <circle cx="7" cy="26" r="2.2" />
-        <circle cx="20" cy="9" r="2.2" />
-        <circle cx="20" cy="20" r="2.2" />
-        <circle cx="20" cy="31" r="2.2" />
-      </g>
-      {/* accent output node with soft glow */}
-      <circle cx="33" cy="20" r="5.5" fill="var(--primary)" opacity={0.15} />
-      <circle cx="33" cy="20" r="3" fill="var(--primary)" />
+      {/* left dot — ivory */}
+      <circle cx="16.5" cy="14" r="2.2" fill="var(--background)" />
+      {/* right dot — accent blue with soft glow */}
+      <circle cx="23.5" cy="14" r="5" fill="var(--primary)" opacity="0.22" />
+      <circle cx="23.5" cy="14" r="2.2" fill="var(--primary)" />
     </svg>
-
   );
 }
 
