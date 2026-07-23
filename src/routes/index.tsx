@@ -182,7 +182,7 @@ function Hero() {
       </div>
       <div className="relative mx-auto flex min-h-[100vh] max-w-6xl flex-col justify-center px-6 py-28 md:py-32">
         <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
-          Joseph Bisaccia &nbsp;/&nbsp; AI Engineering Leader
+          <span className="text-primary/80">{"//"}</span> Joseph Bisaccia <span className="mx-1 text-black/25">·</span> AI Engineering Leader
         </p>
         <h1
           className="mt-8 max-w-[16ch] font-display leading-[0.95] tracking-tight text-foreground accent-glow"
@@ -252,9 +252,7 @@ function ChapterHeading({
   const r = useReveal<HTMLDivElement>();
   return (
     <div ref={r.ref} className={r.className}>
-      <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-        Chapter {n} <span className="mx-2 text-black/25">/</span> {kicker}
-      </p>
+      <ChapterLabel n={n} name={kicker.toUpperCase()} />
       <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">{title}</h2>
     </div>
   );
@@ -270,13 +268,14 @@ function ChapterOne() {
   return (
     <section
       id="chapter-01"
-      className="relative border-b border-black/8 bg-surface"
+      className="relative overflow-hidden border-b border-black/8 bg-surface"
       style={{
         background:
           "linear-gradient(to bottom, var(--background) 0%, var(--surface) 40%, var(--surface) 100%)",
       }}
     >
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-40">
+      <CircuitBackdrop />
+      <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40">
         <ChapterHeading n="01" kicker="The Systems" title="A short tour of the work." />
         <div ref={reel.ref} className={`mt-16 ${reel.className}`}>
           <div className="group relative overflow-hidden rounded-lg border border-black/10 bg-black shadow-[0_40px_120px_-40px_rgba(0,0,0,0.6)] transition-colors hover:border-primary/30">
@@ -302,9 +301,11 @@ function ChapterOne() {
               </h3>
             </div>
             <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">
-              {EXPERTISE.map((item) => (
+              {EXPERTISE.map((item, i) => (
                 <li key={item} className="flex items-start gap-3 border-b border-black/8 pb-4 text-sm transition-colors hover:border-primary/40">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                  <span className="mt-0.5 font-mono text-[10px] tabular-nums text-muted-foreground">
+                    [{i.toString().padStart(2, "0")}]
+                  </span>
                   <span className="text-foreground/90">{item}</span>
                 </li>
               ))}
@@ -389,13 +390,13 @@ function ChapterTwo() {
           "linear-gradient(to bottom, var(--surface) 0%, var(--background) 50%, var(--background) 100%)",
       }}
     >
+      <DataStreamDivider />
       {/* Pinned, scrubbed stat scene (desktop). On mobile → simple stacked reveals. */}
       <div ref={wrapperRef} className="relative hidden md:block" style={{ height: "320vh" }}>
         <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
-          <div className="mx-auto w-full max-w-6xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-              Chapter 02 <span className="mx-2 text-black/25">/</span> The Organization
-            </p>
+          <AttentionMatrix />
+          <div className="relative mx-auto w-full max-w-6xl px-6">
+            <ChapterLabel n="02" name="ORGANIZATION" />
             <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">
               Building the systems &mdash; and bringing the organization along.
             </h2>
@@ -417,7 +418,7 @@ function ChapterTwo() {
                     aria-hidden={!on}
                   >
                     <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-                      0{i + 1} / {STATS.length.toString().padStart(2, "0")}
+                      <span className="text-primary/80">{"//"}</span> 0{i + 1} / {STATS.length.toString().padStart(2, "0")}
                     </p>
                     <p
                       className="mt-6 font-display leading-none tracking-tight text-primary accent-glow tabular-nums"
@@ -426,8 +427,8 @@ function ChapterTwo() {
                       {displayValues[i]}
                       {s.suffix}
                     </p>
-                    <p className="mt-8 max-w-2xl text-lg text-foreground/85 md:text-2xl">
-                      {s.label}
+                    <p className="mt-8 max-w-2xl font-mono text-sm uppercase tracking-[0.14em] text-foreground/80 md:text-base">
+                      <span className="mr-2 text-primary/70">&gt;</span>{s.label}
                     </p>
                   </div>
                 );
@@ -452,9 +453,7 @@ function ChapterTwo() {
 
       {/* Mobile fallback: static, stacked, no pinning */}
       <div className="md:hidden mx-auto max-w-6xl px-6 py-24">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-          Chapter 02 / The Organization
-        </p>
+        <ChapterLabel n="02" name="ORGANIZATION" />
         <h2 className="mt-6 text-4xl leading-[1.05]">
           Building the systems &mdash; and bringing the organization along.
         </h2>
@@ -593,11 +592,11 @@ function ChapterThree() {
           "linear-gradient(to bottom, var(--background) 0%, var(--surface) 40%, var(--surface) 100%)",
       }}
     >
+      <DataStreamDivider />
+      <GradientDescent />
       <div aria-hidden className="pointer-events-none absolute -left-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-primary/[0.06] blur-3xl" />
       <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-48" ref={containerRef}>
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-          Chapter 03 <span className="mx-2 text-black/25">/</span> The Perspective
-        </p>
+        <ChapterLabel n="03" name="PERSPECTIVE" />
         <blockquote
           className="mt-12 max-w-5xl font-display italic leading-[1.08] tracking-tight text-foreground"
           style={{ fontSize: "clamp(2rem, 5.6vw, 5rem)" }}
@@ -693,19 +692,19 @@ function ChapterFour() {
     <section
       id="chapter-04"
       ref={sectionRef}
-      className="relative border-b border-black/8"
+      className="relative overflow-hidden border-b border-black/8"
       style={{
         background:
           "linear-gradient(to bottom, var(--surface) 0%, var(--background) 40%, var(--background) 100%)",
       }}
     >
-      <div className="mx-auto max-w-6xl px-6 py-28 md:py-40">
+      <DataStreamDivider />
+      <TokenStream />
+      <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40">
         <div ref={headingReveal.ref} className={headingReveal.className}>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-                Chapter 04 <span className="mx-2 text-black/25">/</span> The Work
-              </p>
+              <ChapterLabel n="04" name="WORK" />
               <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">
                 Selected engineering case studies.
               </h2>
@@ -722,22 +721,25 @@ function ChapterFour() {
               to="/projects"
               hash={p.slug}
               ref={(el) => { cardRefs.current[i] = el as unknown as HTMLElement | null; }}
-              className="group relative flex flex-col gap-4 rounded-lg border border-black/10 bg-surface p-7 transition-colors will-change-transform hover:border-primary/30 hover:bg-surface-elevated"
+              className="group relative flex flex-col overflow-hidden rounded-lg border border-black/10 bg-surface transition-colors will-change-transform hover:border-primary/30 hover:bg-surface-elevated"
             >
-              <div aria-hidden className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-              <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.context}</p>
-              <h3 className="relative text-xl leading-snug">{p.title}</h3>
-              <p className="relative text-sm text-muted-foreground">{p.summary}</p>
-              <div className="relative mt-auto flex flex-wrap gap-1.5 pt-2">
-                {p.stack.slice(0, 4).map((s) => (
-                  <span key={s} className="rounded border border-black/10 bg-black/[0.02] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
-                    {s}
-                  </span>
-                ))}
+              <TerminalHeader path={p.slug} />
+              <div className="relative flex flex-1 flex-col gap-4 p-7">
+                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.context}</p>
+                <h3 className="relative text-xl leading-snug">{p.title}</h3>
+                <p className="relative text-sm text-muted-foreground">{p.summary}</p>
+                <div className="relative mt-auto flex flex-wrap gap-1.5 pt-2">
+                  {p.stack.slice(0, 4).map((s) => (
+                    <span key={s} className="rounded border border-black/10 bg-black/[0.02] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <span className="relative inline-flex items-center gap-1 text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                  Read case study <ArrowRight className="h-3.5 w-3.5" />
+                </span>
               </div>
-              <span className="relative inline-flex items-center gap-1 text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                Read case study <ArrowRight className="h-3.5 w-3.5" />
-              </span>
             </Link>
           ))}
         </div>
@@ -779,6 +781,7 @@ function ChapterFive() {
   const r = useReveal<HTMLDivElement>();
   return (
     <section id="chapter-05" className="relative overflow-hidden">
+      <DataStreamDivider />
       <div className="absolute inset-0 -z-10">
         <ConstellationScene
           className="absolute inset-0 h-full w-full opacity-40"
@@ -797,14 +800,13 @@ function ChapterFive() {
       <div aria-hidden className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.05] blur-3xl" />
       <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-48">
         <div ref={r.ref} className={r.className}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-            Chapter 05 <span className="mx-2 text-black/25">/</span> Contact
-          </p>
+          <ChapterLabel n="05" name="CONTACT" />
           <div className="mt-10 grid gap-12 md:grid-cols-[2fr_1fr] md:items-end">
             <h2 className="max-w-4xl text-4xl leading-[1.05] md:text-6xl">
               Building the AI systems <span className="italic text-primary">&mdash;</span> and the organizations <span className="italic text-primary">&mdash;</span> that the next decade will run on.
             </h2>
-            <div className="flex flex-col gap-3 md:items-end">
+            <div className="flex flex-col gap-4 md:items-end">
+              <StatusLine text="system: online · accepting_connections" />
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
                 Request Advisory Session <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
