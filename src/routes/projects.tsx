@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { SiteLayout, GITHUB_URL } from "@/components/SiteLayout";
+import { PageAmbientScene } from "@/components/PageAmbientScene";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
