@@ -56,7 +56,7 @@ export function DataStreamDivider({ className = "" }: { className?: string }) {
 /** Mono status line + soft blue pulse dot. */
 export function StatusLine({ text }: { text: string }) {
   return (
-    <p className="flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+    <p className={"flex items-center gap-2.5 " + MOTIF_MONO_LABEL}>
       <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-primary">
         <span className="absolute inset-0 rounded-full bg-primary opacity-70 status-ping" />
       </span>
