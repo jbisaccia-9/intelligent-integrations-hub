@@ -212,7 +212,10 @@ export function ConstellationScene({
       const pulses: Pulse[] = Array.from({ length: maxPulses }, () => ({
         e: 0, t: 0, speed: 0, alive: false,
       }));
-      const pulseSpeedScale = subtle ? 0.55 : 1;
+      // Meditative pacing — halved from earlier revisions. Interior (subtle)
+      // pages match the homepage cadence so all four pages feel unified.
+      const pulseSpeedScale = 0.5;
+      const spawnRatePerSec = 0.7; // was 1.4
       const spawnPulse = (p: Pulse) => {
         p.e = Math.floor(Math.random() * edges.length);
         p.t = 0;
