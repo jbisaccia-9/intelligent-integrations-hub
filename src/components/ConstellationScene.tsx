@@ -390,7 +390,7 @@ export function ConstellationScene({
       disposed = true;
       cleanup?.();
     };
-  }, [density, respondToPointer]);
+  }, [density, respondToPointer, subtle]);
 
   return (
     <div
