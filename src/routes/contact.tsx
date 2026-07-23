@@ -32,13 +32,17 @@ function ContactPage() {
 
   return (
     <SiteLayout>
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Contact</p>
-          <h1 className="mt-4 max-w-3xl text-4xl leading-[1.05] tracking-tight md:text-5xl">
+      <section className="relative overflow-hidden border-b border-white/8">
+        <div aria-hidden className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.06] blur-3xl" />
+        <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-36">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Contact</p>
+          <h1
+            className="mt-8 max-w-4xl font-display leading-[1.02] tracking-tight"
+            style={{ fontSize: "clamp(2.75rem, 7vw, 6rem)" }}
+          >
             Request an advisory session.
           </h1>
-          <p className="mt-5 max-w-2xl text-muted-foreground md:text-lg">
+          <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
             Available for advisory engagements, speaking opportunities, and select
             hands-on work with organizations building AI into serious infrastructure.
             Share a bit of context and I&rsquo;ll respond directly.
@@ -88,7 +92,7 @@ function ContactPage() {
             <Field label="What are you trying to build or solve?" required>
               <textarea required rows={7} maxLength={2000} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-md border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
             </Field>
-            <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-foreground px-5 py-3 text-sm font-medium text-background transition-colors hover:bg-foreground/90">
+            <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
               Send inquiry
             </button>
             <p className="text-center text-xs text-muted-foreground">

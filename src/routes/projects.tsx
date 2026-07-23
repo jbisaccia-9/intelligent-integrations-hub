@@ -144,13 +144,17 @@ const PROJECTS: Project[] = [
 function ProjectsPage() {
   return (
     <SiteLayout>
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Projects</p>
-          <h1 className="mt-4 max-w-3xl text-4xl leading-[1.05] tracking-tight md:text-5xl">
+      <section className="relative overflow-hidden border-b border-white/8">
+        <div aria-hidden className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.06] blur-3xl" />
+        <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-36">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Projects</p>
+          <h1
+            className="mt-8 max-w-4xl font-display leading-[1.02] tracking-tight"
+            style={{ fontSize: "clamp(2.75rem, 7vw, 6rem)" }}
+          >
             Case studies from production AI systems.
           </h1>
-          <p className="mt-5 max-w-2xl text-muted-foreground md:text-lg">
+          <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
             Each entry leads with the outcome and what it enabled for the organization,
             followed by the architecture, security, and governance decisions that made it
             possible.
@@ -196,7 +200,7 @@ function ProjectsPage() {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article id={project.slug} className="scroll-mt-24 rounded-lg border border-border bg-background">
+    <article id={project.slug} className="scroll-mt-24 overflow-hidden rounded-lg border border-white/10 bg-surface transition-colors hover:border-primary/30">
       <header className="flex flex-wrap items-start justify-between gap-4 border-b border-border p-6 md:p-8">
         <div>
           <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
