@@ -28,12 +28,7 @@ export function ChapterLabel({
   className?: string;
 }) {
   return (
-    <p
-      className={
-        "font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground " +
-        className
-      }
-    >
+    <p className={MOTIF_MONO_LABEL + " " + className}>
       <span className="text-primary/80">{"//"}</span>{" "}
       <span className="tabular-nums text-foreground/80">{n}</span>
       <span className="mx-2 text-black/25">—</span>
