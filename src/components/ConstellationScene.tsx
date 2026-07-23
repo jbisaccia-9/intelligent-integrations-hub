@@ -207,15 +207,16 @@ export function ConstellationScene({
 
       // ---- pulses: bright blue dots traveling along edges ----
       // Reuse a fixed pool sized per edge count.
-      const maxPulses = Math.min(edges.length, isMobile ? 28 : 70);
+      const maxPulses = Math.min(edges.length, isMobile ? 24 : subtle ? 36 : 70);
       type Pulse = { e: number; t: number; speed: number; alive: boolean };
       const pulses: Pulse[] = Array.from({ length: maxPulses }, () => ({
         e: 0, t: 0, speed: 0, alive: false,
       }));
+      const pulseSpeedScale = subtle ? 0.55 : 1;
       const spawnPulse = (p: Pulse) => {
         p.e = Math.floor(Math.random() * edges.length);
         p.t = 0;
-        p.speed = 0.22 + Math.random() * 0.35; // units per second
+        p.speed = (0.22 + Math.random() * 0.35) * pulseSpeedScale;
         p.alive = true;
       };
       // Stagger initial pulses so waves feel continuous.
