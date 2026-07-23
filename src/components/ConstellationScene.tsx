@@ -318,10 +318,10 @@ export function ConstellationScene({
         camera.position.y = -my * 2;
         camera.lookAt(0, 0, 0);
 
-        // decay node activations
+        // decay node activations (halved decay rate → glow lingers longer)
         for (const layer of layers) {
           for (const n of layer) {
-            n.act *= Math.max(0, 1 - dt * 2.2);
+            n.act *= Math.max(0, 1 - dt * 1.1);
           }
         }
 
@@ -329,7 +329,7 @@ export function ConstellationScene({
         for (let i = 0; i < pulses.length; i++) {
           const p = pulses[i];
           if (!p.alive) {
-            if (Math.random() < dt * 1.4) spawnPulse(p);
+            if (Math.random() < dt * spawnRatePerSec) spawnPulse(p);
             pulsePositions[i * 3 + 0] = 9999;
             pulsePositions[i * 3 + 1] = 9999;
             pulsePositions[i * 3 + 2] = 9999;
