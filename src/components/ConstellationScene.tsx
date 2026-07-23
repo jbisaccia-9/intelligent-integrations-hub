@@ -287,6 +287,10 @@ export function ConstellationScene({
       let raf = 0;
       let last = performance.now();
       const nodeColorAttr = nodeGeo.getAttribute("color") as import("three").BufferAttribute;
+      const opacityCeiling = subtle ? 0.55 : 1;
+      let currentOpacity = opacityCeiling;
+      // Lower = slower/gentler easing of scroll-linked dissolve.
+      const OPACITY_LERP = 1.6;
 
       const tick = (now: number) => {
         raf = requestAnimationFrame(tick);
@@ -294,10 +298,13 @@ export function ConstellationScene({
         last = now;
         if (!visible) return;
 
-        // scroll-scrubbed opacity from CSS var
+        // scroll-scrubbed opacity from CSS var, damped so the scene lags
+        // gently behind fast scrolling rather than tracking it 1:1.
         const cs = getComputedStyle(host);
-        const o = parseFloat(cs.getPropertyValue("--constellation-opacity") || "1");
-        host.style.opacity = String(isNaN(o) ? 1 : Math.max(0, Math.min(1, o)));
+        const raw = parseFloat(cs.getPropertyValue("--constellation-opacity") || "1");
+        const target = (isNaN(raw) ? 1 : Math.max(0, Math.min(1, raw))) * opacityCeiling;
+        currentOpacity += (target - currentOpacity) * Math.min(1, dt * OPACITY_LERP);
+        host.style.opacity = currentOpacity.toFixed(3);
 
         // ease camera parallax
         mx += (tmx - mx) * 0.04;
