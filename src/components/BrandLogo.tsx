@@ -21,42 +21,46 @@ export function BrandMark({
       {...props}
     >
       <title>{title}</title>
+      {/* input -> hidden edges */}
       <g
         fill="none"
         stroke="currentColor"
         strokeWidth={1.1}
         strokeLinecap="round"
-        strokeLinejoin="round"
-        opacity={0.85}
+        opacity={0.5}
       >
-        {/* edges — ascending network */}
-        <line x1="6" y1="30" x2="16" y2="22" />
-        <line x1="16" y1="22" x2="24" y2="26" />
-        <line x1="16" y1="22" x2="28" y2="14" />
-        <line x1="24" y1="26" x2="34" y2="10" />
-        <line x1="28" y1="14" x2="34" y2="10" />
+        <line x1="7" y1="14" x2="20" y2="9" />
+        <line x1="7" y1="14" x2="20" y2="20" />
+        <line x1="7" y1="14" x2="20" y2="31" />
+        <line x1="7" y1="26" x2="20" y2="9" />
+        <line x1="7" y1="26" x2="20" y2="20" />
+        <line x1="7" y1="26" x2="20" y2="31" />
       </g>
-      {/* accent edge */}
-      <line
-        x1="16"
-        y1="22"
-        x2="28"
-        y2="14"
-        stroke="var(--primary)"
-        strokeWidth={1.4}
+      {/* hidden -> output edges (slightly stronger) */}
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.1}
         strokeLinecap="round"
-      />
+        opacity={0.65}
+      >
+        <line x1="20" y1="9" x2="33" y2="20" />
+        <line x1="20" y1="20" x2="33" y2="20" />
+        <line x1="20" y1="31" x2="33" y2="20" />
+      </g>
       {/* ink nodes */}
       <g fill="currentColor">
-        <circle cx="6" cy="30" r="1.9" />
-        <circle cx="16" cy="22" r="2.1" />
-        <circle cx="24" cy="26" r="1.9" />
-        <circle cx="28" cy="14" r="2.1" />
+        <circle cx="7" cy="14" r="2.2" />
+        <circle cx="7" cy="26" r="2.2" />
+        <circle cx="20" cy="9" r="2.2" />
+        <circle cx="20" cy="20" r="2.2" />
+        <circle cx="20" cy="31" r="2.2" />
       </g>
-      {/* accent apex node */}
-      <circle cx="34" cy="10" r="2.4" fill="var(--primary)" />
-      <circle cx="34" cy="10" r="4.2" fill="var(--primary)" opacity={0.14} />
+      {/* accent output node with soft glow */}
+      <circle cx="33" cy="20" r="5.5" fill="var(--primary)" opacity={0.15} />
+      <circle cx="33" cy="20" r="3" fill="var(--primary)" />
     </svg>
+
   );
 }
 
