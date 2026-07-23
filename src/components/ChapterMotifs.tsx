@@ -79,32 +79,38 @@ export function CircuitBackdrop() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 -z-0 overflow-hidden hidden md:block"
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden hidden md:block"
+      style={{
+        maskImage:
+          "radial-gradient(120% 90% at 50% 50%, transparent 0%, transparent 25%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.9) 100%)",
+        WebkitMaskImage:
+          "radial-gradient(120% 90% at 50% 50%, transparent 0%, transparent 25%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.9) 100%)",
+      }}
     >
       <svg
         className="absolute inset-0 h-full w-full"
         viewBox="0 0 1200 800"
         preserveAspectRatio="xMidYMid slice"
       >
-        <g stroke="currentColor" strokeWidth="0.6" fill="none" className="text-foreground/25">
+        <g stroke="currentColor" strokeWidth="0.5" fill="none" className="text-foreground/10">
           {CIRCUIT_PATHS.map((d, i) => (
             <path key={i} d={d} />
           ))}
         </g>
-        <g fill="currentColor" className="text-foreground/40">
+        <g fill="currentColor" className="text-foreground/15">
           {CIRCUIT_NODES.map(([x, y], i) => (
-            <circle key={i} cx={x} cy={y} r="2" />
+            <circle key={i} cx={x} cy={y} r="1.6" />
           ))}
         </g>
-        <g fill="var(--primary)">
+        <g fill="var(--primary)" opacity="0.55">
           {CIRCUIT_PATHS.slice(0, 3).map((d, i) => (
             <circle
               key={i}
-              r="3"
+              r="2.2"
               className="circuit-pulse"
               style={{
                 offsetPath: `path('${d}')`,
-                animationDuration: `${10 + i * 3.5}s`,
+                animationDuration: `${16 + i * 4}s`,
                 animationDelay: `${i * 2.3}s`,
               } as CSSProperties}
             />
