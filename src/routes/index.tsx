@@ -403,9 +403,9 @@ function ChapterTwo() {
       <DataStreamDivider />
       {/* Pinned, scrubbed stat scene (desktop). On mobile → simple stacked reveals. */}
       <div ref={wrapperRef} className="relative hidden md:block" style={{ height: "320vh" }}>
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden isolate">
           <AttentionMatrix />
-          <div className="relative mx-auto w-full max-w-6xl px-6">
+          <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
             <ChapterLabel n="02" name="ORGANIZATION" />
             <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">
               Building the systems &mdash; and bringing the organization along.
