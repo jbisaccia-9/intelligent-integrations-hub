@@ -54,11 +54,12 @@ function ContactPage() {
       </section>
       <DataStreamDivider />
 
-      <section>
-        <div className="mx-auto max-w-6xl px-6 pt-10">
+      <section className="relative isolate overflow-hidden">
+        <AttentionMatrix />
+        <div className="relative z-10 mx-auto max-w-6xl px-6 pt-10">
           <StatusLine text="system: online · accepting_connections" />
         </div>
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:py-20 lg:grid-cols-5">
+        <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-6 py-16 md:py-20 lg:grid-cols-5">
           <div className="space-y-8 lg:col-span-2">
             <div className="rounded-md border border-border bg-surface p-5 text-sm">
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Engagements</p>
@@ -99,6 +100,9 @@ function ContactPage() {
             <Field label="What are you trying to build or solve?" required>
               <textarea required rows={7} maxLength={2000} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-md border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
             </Field>
+            <div className="flex items-center justify-between gap-4">
+              <StatusLine text="system: online · accepting_connections" />
+            </div>
             <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
               Send inquiry
             </button>
@@ -107,6 +111,7 @@ function ContactPage() {
             </p>
           </form>
         </div>
+        <DataStreamDivider />
       </section>
     </SiteLayout>
   );
