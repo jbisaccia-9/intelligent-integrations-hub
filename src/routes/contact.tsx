@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUpRight, Mail, Linkedin } from "lucide-react";
 import { SiteLayout, EMAIL, LINKEDIN_URL, GITHUB_URL } from "@/components/SiteLayout";
-import { PageAmbientScene } from "@/components/PageAmbientScene";
+import { SignalScene } from "@/components/ambient/SignalScene";
 import { DataStreamDivider, StatusLine, AttentionMatrix } from "@/components/ChapterMotifs";
 
 export const Route = createFileRoute("/contact")({

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { SiteLayout, GITHUB_URL } from "@/components/SiteLayout";
-import { PageAmbientScene } from "@/components/PageAmbientScene";
+import { ArchitectureScene } from "@/components/ambient/ArchitectureScene";
 import { DataStreamDivider, TokenStream, CircuitBackdrop, TerminalHeader } from "@/components/ChapterMotifs";
 
 export const Route = createFileRoute("/projects")({
