@@ -192,11 +192,17 @@ const TOKENS = [
 ];
 
 export function TokenStream() {
-  const cols = 10;
+  const cols = 7;
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 -z-0 hidden overflow-hidden md:block"
+      className="pointer-events-none absolute inset-0 -z-10 hidden overflow-hidden md:block"
+      style={{
+        maskImage:
+          "radial-gradient(120% 90% at 50% 50%, transparent 0%, transparent 30%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.9) 100%)",
+        WebkitMaskImage:
+          "radial-gradient(120% 90% at 50% 50%, transparent 0%, transparent 30%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.9) 100%)",
+      }}
     >
       {Array.from({ length: cols }).map((_, ci) => (
         <div
@@ -204,11 +210,11 @@ export function TokenStream() {
           className="token-col"
           style={{
             left: `${(ci + 0.5) * (100 / cols)}%`,
-            animationDelay: `-${(ci * 3.1) % 20}s`,
-            animationDuration: `${28 + (ci % 4) * 6}s`,
+            animationDelay: `-${(ci * 5.7) % 40}s`,
+            animationDuration: `${55 + (ci % 4) * 12}s`,
           }}
         >
-          {Array.from({ length: 16 }).map((_, ti) => (
+          {Array.from({ length: 14 }).map((_, ti) => (
             <span key={ti}>
               {TOKENS[(ci * 7 + ti * 3) % TOKENS.length]}
             </span>
