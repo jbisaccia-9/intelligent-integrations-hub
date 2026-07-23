@@ -73,11 +73,14 @@ export function ConstellationScene({
 
       // ---- layer geometry ----
       // Layer sizes across the network. Scaled by density.
+      const effectiveDensity = density * (subtle ? 0.75 : 1);
       const layerSizes = (
         isMobile
           ? [4, 6, 6, 4]
-          : [5, 8, 8, 5]
-      ).map((n) => Math.max(3, Math.round(n * density)));
+          : subtle
+            ? [4, 6, 6, 4]
+            : [5, 8, 8, 5]
+      ).map((n) => Math.max(3, Math.round(n * effectiveDensity)));
       const layerCount = layerSizes.length;
 
       const spanX = isMobile ? 26 : 34;
