@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ArrowUpRight, Mail, Linkedin } from "lucide-react";
 import { SiteLayout, EMAIL, LINKEDIN_URL, GITHUB_URL } from "@/components/SiteLayout";
 import { PageAmbientScene } from "@/components/PageAmbientScene";
-import { DataStreamDivider, StatusLine } from "@/components/ChapterMotifs";
+import { DataStreamDivider, StatusLine, AttentionMatrix } from "@/components/ChapterMotifs";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
