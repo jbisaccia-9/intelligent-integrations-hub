@@ -22,26 +22,22 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   );
 }
 
+import logo from "@/assets/logo.png.asset.json";
+
 function Wordmark() {
   return (
-    <Link to="/" className="group flex items-center gap-2.5" aria-label="Intelligent Integrations — Home">
-      <span
-        aria-hidden
-        className="grid h-8 w-8 place-items-center rounded-sm border border-black/12 bg-black/[0.03] font-mono text-[11px] font-medium tracking-wider text-primary transition-colors group-hover:border-primary/40"
-      >
-        JB
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-          Intelligent
-        </span>
-        <span className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/90">
-          Integrations
-        </span>
-      </span>
+    <Link to="/" className="group inline-flex items-center gap-3" aria-label="Intelligent Integrations — Home">
+      <img
+        src={logo.url}
+        alt="Intelligent Integrations"
+        className="h-8 w-auto md:h-9"
+        loading="eager"
+        decoding="async"
+      />
     </Link>
   );
 }
+
 
 function SiteNav() {
   return (
