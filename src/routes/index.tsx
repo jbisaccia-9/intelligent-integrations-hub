@@ -4,6 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { SiteLayout, GITHUB_URL } from "@/components/SiteLayout";
 import { ConstellationScene } from "@/components/ConstellationScene";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import {
+  ChapterLabel,
+  DataStreamDivider,
+  StatusLine,
+  CircuitBackdrop,
+  AttentionMatrix,
+  GradientDescent,
+  TokenStream,
+  TerminalHeader,
+} from "@/components/ChapterMotifs";
 import { useReveal } from "@/hooks/use-reveal";
 import portfolioVideo from "@/assets/portfolio.mp4.asset.json";
 import portfolioPoster from "@/assets/portfolio-poster.jpg.asset.json";
