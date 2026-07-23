@@ -36,12 +36,12 @@ function ContactPage() {
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Contact</p>
           <h1 className="mt-4 max-w-3xl text-4xl leading-[1.05] tracking-tight md:text-5xl">
-            Let's talk.
+            Request an advisory session.
           </h1>
           <p className="mt-5 max-w-2xl text-muted-foreground md:text-lg">
-            Available for enterprise consulting engagements, advisory work, and technical
-            collaboration on production AI systems. Always open to a good conversation with
-            people building serious things.
+            Available for advisory engagements, speaking opportunities, and select
+            hands-on work with organizations building AI into serious infrastructure.
+            Share a bit of context and I&rsquo;ll respond directly.
           </p>
         </div>
       </section>
