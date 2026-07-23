@@ -78,7 +78,7 @@ function SiteFooter() {
         <div className="md:col-span-2">
           <p className="text-sm font-semibold">Joseph Bisaccia</p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Lead AI Engineer · Enterprise AI Governance, Security &amp; Infrastructure.
+            AI Engineering Leader &middot; Enterprise AI Governance, Security &amp; Infrastructure.
           </p>
         </div>
         <div>

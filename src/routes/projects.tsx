@@ -151,9 +151,9 @@ function ProjectsPage() {
             Case studies from production AI systems.
           </h1>
           <p className="mt-5 max-w-2xl text-muted-foreground md:text-lg">
-            A selection of engineering work across enterprise AI governance, security, infrastructure,
-            and agentic workflow development. Each entry outlines the problem, architecture, and
-            production considerations.
+            Each entry leads with the outcome and what it enabled for the organization,
+            followed by the architecture, security, and governance decisions that made it
+            possible.
           </p>
         </div>
       </section>
@@ -228,10 +228,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
       </header>
       <div className="grid gap-px bg-border md:grid-cols-2">
-        <Field label="Business problem" value={project.problem} />
-        <Field label="Solution" value={project.solution} />
+        <Field label="Outcome" value={project.impact} />
+        <Field label="What it enabled" value={project.solution} />
+        <Field label="Context" value={project.problem} />
         <Field label="Architecture" value={project.architecture} />
-        <Field label="Business impact" value={project.impact} />
         <Field label="Security" value={project.security} />
         <Field label="Governance" value={project.governance} />
       </div>

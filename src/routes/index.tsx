@@ -7,13 +7,13 @@ import portfolioPoster from "@/assets/portfolio-poster.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Joseph Bisaccia — Lead AI Engineer" },
-      { name: "description", content: "Joseph Bisaccia is a Lead AI Engineer building secure, compliant, enterprise AI systems — governance, security, infrastructure, RAG, and agentic workflows." },
-      { property: "og:title", content: "Joseph Bisaccia — Lead AI Engineer" },
-      { property: "og:description", content: "Enterprise AI governance, security, and infrastructure. RAG platforms, agentic workflows, and intelligent automations." },
+      { title: "Joseph Bisaccia — AI Engineering Leader" },
+      { name: "description", content: "Joseph Bisaccia is an AI Engineering Leader building secure enterprise AI systems and leading the organizational change that makes them work — governance, agentic workflows, and adoption at scale." },
+      { property: "og:title", content: "Joseph Bisaccia — AI Engineering Leader" },
+      { property: "og:description", content: "Enterprise AI systems and the organizations that trust them. Governance, agentic workflows, and company-wide AI enablement." },
       { property: "og:image", content: portfolioPoster.url },
-      { name: "twitter:title", content: "Joseph Bisaccia — Lead AI Engineer" },
-      { name: "twitter:description", content: "Enterprise AI governance, security, and infrastructure." },
+      { name: "twitter:title", content: "Joseph Bisaccia — AI Engineering Leader" },
+      { name: "twitter:description", content: "Enterprise AI systems and the organizations that trust them." },
       { name: "twitter:image", content: portfolioPoster.url },
     ],
     links: [
@@ -30,9 +30,9 @@ const EXPERTISE = [
   "HIPAA-Compliant AI Systems",
   "Agentic Workflow Development",
   "Retrieval-Augmented Generation (RAG)",
-  "Workflow Automation",
+  "Company-Wide AI Enablement",
   "Technical Program Leadership",
-  "Enterprise AI Adoption",
+  "Change Management & Adoption",
   "LLM Evaluation",
 ];
 
@@ -42,24 +42,24 @@ const FEATURED_PROJECTS = [
     title: "HIPAA-compliant clinical agent platform",
     context: "Behavior Frontiers · Healthcare",
     summary:
-      "Agentic workflow suite that assists clinical and operations teams over PHI-safe knowledge bases, with audit-ready evaluation and human-in-the-loop review.",
-    stack: ["Python", "TypeScript", "LangGraph", "OpenAI", "Postgres/pgvector", "AWS"],
+      "Gave clinical and operations teams a safe way to use LLMs over PHI — cutting documentation turnaround and setting the internal blueprint for regulated AI expansion.",
+    stack: ["LangGraph", "OpenAI", "pgvector", "AWS"],
   },
   {
     slug: "enterprise-rag-platform",
     title: "Enterprise RAG platform",
     context: "Multi-tenant knowledge retrieval",
     summary:
-      "Governed retrieval layer over private document corpora with per-tenant isolation, hybrid search, and policy-aware answer synthesis.",
-    stack: ["pgvector", "OpenSearch", "OpenAI", "Bedrock", "Terraform"],
+      "Unified grounded knowledge access across departments with per-tenant isolation and citation-first synthesis — measurable answer quality, zero observed cross-tenant leakage.",
+    stack: ["pgvector", "OpenSearch", "Bedrock", "Terraform"],
   },
   {
     slug: "agentic-ops-copilots",
     title: "Agentic operations copilots",
     context: "Sales, RevOps &amp; back-office",
     summary:
-      "Tool-using agents that automate long-tail operational work — CRM hygiene, document drafting, and inbox triage — with structured evaluation harnesses.",
-    stack: ["LangChain", "Temporal", "TypeScript", "OpenAI", "Anthropic"],
+      "Redirected significant operational hours to higher-leverage work via tool-using agents with structured evaluation harnesses keeping behavior within policy.",
+    stack: ["LangChain", "Temporal", "OpenAI", "Anthropic"],
   },
 ];
 
@@ -68,6 +68,8 @@ function Home() {
     <SiteLayout>
       <Hero />
       <PortfolioReel />
+      <Leadership />
+      <Perspective />
       <Expertise />
       <FeaturedProjects />
       <GithubBand />
@@ -110,15 +112,14 @@ function Hero() {
     <section className="border-b border-border">
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <p className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          Joseph Bisaccia · Lead AI Engineer
+          Joseph Bisaccia · AI Engineering Leader
         </p>
         <h1 className="max-w-4xl text-4xl leading-[1.05] tracking-tight md:text-6xl">
-          Enterprise AI that organizations trust.
+          I build AI systems &mdash; and the organizations that trust them.
         </h1>
         <p className="mt-5 max-w-2xl text-base text-muted-foreground md:text-lg">
-          I design and implement secure, compliant AI systems — enterprise infrastructure,
-          retrieval-augmented generation platforms, agentic workflows, and intelligent
-          automations that solve real business problems.
+          I lead enterprise AI adoption end to end: secure infrastructure, agentic workflows,
+          and the training programs that turn skeptical teams into confident AI operators.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link
@@ -131,13 +132,13 @@ function Hero() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface"
           >
-            Schedule a Consultation
+            Request Advisory Session
           </Link>
         </div>
         <div className="mt-12 grid gap-6 border-t border-border pt-8 text-sm text-muted-foreground sm:grid-cols-3">
           <Meta label="Focus" value="Enterprise AI Governance, Security, Infrastructure" />
-          <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers" />
-          <Meta label="Open to" value="Select consulting engagements &amp; advisory work" />
+          <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers &mdash; leading company-wide AI enablement" />
+          <Meta label="Open to" value="Advisory engagements &amp; speaking opportunities" />
         </div>
       </div>
     </section>
@@ -150,6 +151,107 @@ function Meta({ label, value }: { label: string; value: string }) {
       <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">{label}</p>
       <p className="mt-2 text-foreground" dangerouslySetInnerHTML={{ __html: value }} />
     </div>
+  );
+}
+
+const LEADERSHIP = [
+  {
+    kicker: "Company-wide rollout",
+    title: "Microsoft Copilot enablement — Lead",
+    body: "Designed and delivered the Copilot training program for mid-level managers. Expanding the rollout across the organization's behavioral therapy practice.",
+  },
+  {
+    kicker: "Department-level AI",
+    title: "Custom GPTs in deployment",
+    body: "Currently deploying five department-scoped GPTs — each tuned to the workflows, sources, and guardrails of the team it serves.",
+  },
+  {
+    kicker: "Executive & operations",
+    title: "Agentic workflows for the back office",
+    body: "Building agentic systems that assist executive-level reporting and scheduling, and streamline HR and billing operations.",
+  },
+  {
+    kicker: "Community",
+    title: "The Velocity Room",
+    body: "Active member of an AI engineering collective — recurring meetups, technical exchange, and shared work with practicing AI engineers.",
+  },
+];
+
+function Leadership() {
+  return (
+    <section className="border-b border-border">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_2fr]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Leadership &amp; enablement</p>
+            <h2 className="mt-3 text-2xl md:text-3xl">
+              Building the systems &mdash; and bringing the organization along.
+            </h2>
+            <p className="mt-4 max-w-md text-sm text-muted-foreground">
+              Enterprise AI succeeds when engineering depth meets deliberate change management.
+              A snapshot of current work.
+            </p>
+          </div>
+          <div>
+            <div className="grid gap-6 border-y border-border py-8 sm:grid-cols-3">
+              <Stat number="65" label="Managers trained in Copilot program" />
+              <Stat number="250+" label="Practitioners in expanding rollout" />
+              <Stat number="5" label="Custom department GPTs in deployment" />
+            </div>
+            <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">
+              {LEADERSHIP.map((item) => (
+                <article key={item.title} className="bg-background p-6">
+                  <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">{item.kicker}</p>
+                  <h3 className="mt-2 text-lg leading-snug">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-foreground/85">{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Stat({ number, label }: { number: string; label: string }) {
+  return (
+    <div>
+      <p className="font-display text-5xl leading-none tracking-tight text-primary md:text-6xl">{number}</p>
+      <p className="mt-3 text-sm text-muted-foreground">{label}</p>
+    </div>
+  );
+}
+
+function Perspective() {
+  return (
+    <section className="border-b border-border bg-surface">
+      <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_2fr]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Perspective</p>
+            <h2 className="mt-3 text-2xl md:text-3xl">A note on what actually matters.</h2>
+          </div>
+          <div className="max-w-3xl space-y-6 border-l border-border pl-8 font-display text-xl leading-[1.5] tracking-tight text-foreground/90 md:text-2xl md:leading-[1.45]">
+            <p>
+              Enterprise AI success is an organizational challenge, not an engineering one. The
+              model is the easy part. The hard part is governance, trust, and adoption &mdash; the
+              slow work of building something a regulated organization can actually stand behind.
+            </p>
+            <p>
+              The leaders who win the next decade won&rsquo;t just ship models. They&rsquo;ll build
+              secure systems <em>and</em> bring entire organizations along &mdash; training the
+              skeptics, designing the guardrails, and turning AI from a pilot deck into
+              infrastructure.
+            </p>
+            <p>
+              I work at exactly that intersection: hands-on engineering depth, paired with the
+              organizational enablement that makes the engineering matter.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -229,8 +331,8 @@ function GithubBand() {
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Open work</p>
             <h2 className="mt-3 text-2xl md:text-3xl">Architecture, implementation, and decisions in the open.</h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
-              Explore production-ready AI projects, architecture decisions, and engineering
-              documentation on GitHub.
+              Production-ready AI projects, architecture decisions, and engineering documentation
+              &mdash; published on GitHub.
             </p>
           </div>
           <a
@@ -257,11 +359,11 @@ function CTA() {
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-end">
           <h2 className="max-w-3xl text-3xl leading-tight md:text-4xl">
-            Building secure, compliant, enterprise AI systems that organizations trust.
+            Building the AI systems &mdash; and the organizations &mdash; that the next decade will run on.
           </h2>
           <div className="flex flex-col gap-2 md:items-end">
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-foreground/90">
-              Start a conversation <ArrowRight className="h-4 w-4" />
+              Request Advisory Session <ArrowRight className="h-4 w-4" />
             </Link>
             <a href="/resume.pdf" className="text-sm text-muted-foreground hover:text-foreground">
               Download resume →
