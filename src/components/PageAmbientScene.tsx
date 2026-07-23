@@ -56,7 +56,7 @@ export function PageAmbientScene({
       ref={hostRef}
       aria-hidden
       className={
-        "pointer-events-none absolute inset-0 -z-10 overflow-hidden " + className
+        "pointer-events-none absolute inset-0 z-0 overflow-hidden " + className
       }
     >
       <ConstellationScene
@@ -65,15 +65,15 @@ export function PageAmbientScene({
         density={0.95}
         respondToPointer={false}
       />
-      {/* Very light ivory feather — enough to keep headline text legible,
-          but not so much that it hides the network. Concentrated at the
-          top-left where the H1 sits. */}
+      {/* Very light ivory feather — just enough to keep headline text legible
+          in the top-left, and a soft base gradient at the bottom so content
+          below the hero fades cleanly into the page. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(90% 80% at 25% 30%, color-mix(in oklab, var(--background) 55%, transparent) 0%, transparent 55%), linear-gradient(to bottom, transparent 60%, var(--background) 100%)",
+            "radial-gradient(75% 65% at 22% 28%, color-mix(in oklab, var(--background) 45%, transparent) 0%, transparent 60%), linear-gradient(to bottom, transparent 65%, var(--background) 100%)",
         }}
       />
     </div>
