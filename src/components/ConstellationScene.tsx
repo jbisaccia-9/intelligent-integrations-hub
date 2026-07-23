@@ -290,7 +290,9 @@ export function ConstellationScene({
       let raf = 0;
       let last = performance.now();
       const nodeColorAttr = nodeGeo.getAttribute("color") as import("three").BufferAttribute;
-      const opacityCeiling = subtle ? 0.9 : 1;
+      // Interior "subtle" pages match the homepage's calibrated brightness —
+      // no ceiling dimming; only node/edge density differs.
+      const opacityCeiling = 1;
       let currentOpacity = opacityCeiling;
       // Lower = slower/gentler easing of scroll-linked dissolve.
       const OPACITY_LERP = 1.6;
