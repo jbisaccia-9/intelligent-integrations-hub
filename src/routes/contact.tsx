@@ -61,7 +61,7 @@ function ContactPage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:py-20 lg:grid-cols-5">
           <div className="space-y-8 lg:col-span-2">
             <div className="rounded-md border border-border bg-surface p-5 text-sm">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Engagements</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Engagements</p>
               <p className="mt-3 text-sm text-muted-foreground">
                 Advisory and hands-on engineering for organizations deploying AI in production —
                 governance, security, RAG, agentic systems, and infrastructure.
@@ -69,7 +69,7 @@ function ContactPage() {
             </div>
 
             <div className="rounded-md border border-border bg-surface p-5 text-sm">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Direct</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Direct</p>
               <div className="mt-4 space-y-3">
                 <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-foreground hover:text-primary">
                   <Mail className="h-4 w-4" /> {EMAIL}
@@ -115,7 +115,7 @@ function ContactPage() {
 function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+      <span className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
         {label} {required && <span className="text-primary">*</span>}
       </span>
       {children}

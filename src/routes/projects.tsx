@@ -207,7 +207,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     <article id={project.slug} className="scroll-mt-24 overflow-hidden rounded-lg border border-black/10 bg-surface transition-colors hover:border-primary/30">
       <header className="flex flex-wrap items-start justify-between gap-4 border-b border-border p-6 md:p-8">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
             Case {String(index).padStart(2, "0")} · {project.context}
           </p>
           <h2 className="mt-2 text-2xl md:text-3xl">{project.title}</h2>
@@ -244,10 +244,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <Field label="Governance" value={project.governance} />
       </div>
       <div className="border-t border-border p-6 md:p-8">
-        <p className="mb-3 text-[11px] font-medium uppercase tracking-widest text-muted-foreground">Technologies</p>
+        <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Technologies</p>
         <div className="flex flex-wrap gap-1.5">
           {project.technologies.map((t) => (
-            <span key={t} className="rounded border border-border bg-surface px-2 py-1 font-mono text-[11px] text-foreground/80">
+            <span key={t} className="rounded border border-border bg-surface px-2 py-1 font-mono text-[10px] text-foreground/80">
               {t}
             </span>
           ))}
@@ -260,7 +260,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div className="bg-background p-6 md:p-8">
-      <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">{label}</p>
+      <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{label}</p>
       <p className="mt-2 text-sm leading-relaxed text-foreground/90" dangerouslySetInnerHTML={{ __html: value }} />
     </div>
   );
