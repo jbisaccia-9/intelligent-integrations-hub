@@ -21,36 +21,26 @@ export function BrandMark({
       {...props}
     >
       <title>{title}</title>
-      {/* badge container — deep ink */}
-      <rect x="2" y="2" width="36" height="36" rx="9" fill="var(--foreground)" />
-      {/* connector line between dots — turns "ii" into linked nodes */}
-      <line
-        x1="16.5"
-        y1="14"
-        x2="23.5"
-        y2="14"
-        stroke="var(--background)"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        opacity="0.55"
+      {/* hexagon frame */}
+      <path
+        d="M20 5 L33 12.5 L33 27.5 L20 35 L7 27.5 L7 12.5 Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.6"
+        strokeLinejoin="round"
       />
-      {/* "ii" stems */}
-      <g
-        stroke="var(--background)"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      >
-        <line x1="16.5" y1="20" x2="16.5" y2="30" />
-        <line x1="23.5" y1="20" x2="23.5" y2="30" />
+      {/* three struts to alternating vertices */}
+      <g stroke="currentColor" strokeWidth="1.4" opacity="0.6">
+        <line x1="20" y1="20" x2="20" y2="5" />
+        <line x1="20" y1="20" x2="33" y2="27.5" />
+        <line x1="20" y1="20" x2="7" y2="27.5" />
       </g>
-      {/* left dot — ivory */}
-      <circle cx="16.5" cy="14" r="2.2" fill="var(--background)" />
-      {/* right dot — accent blue with soft glow */}
-      <circle cx="23.5" cy="14" r="5" fill="var(--primary)" opacity="0.22" />
-      <circle cx="23.5" cy="14" r="2.2" fill="var(--primary)" />
+      {/* center node */}
+      <circle cx="20" cy="20" r="3.2" fill="var(--primary)" />
     </svg>
   );
 }
+
 
 export function BrandLogo({
   className,
