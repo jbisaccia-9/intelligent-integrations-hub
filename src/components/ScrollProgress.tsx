@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 
 const CHAPTERS = [
-  { id: "chapter-01", label: "Systems" },
-  { id: "chapter-02", label: "Organization" },
-  { id: "chapter-03", label: "Perspective" },
-  { id: "chapter-04", label: "Work" },
-  { id: "chapter-05", label: "Contact" },
+  { id: "chapter-01", label: "SYSTEMS" },
+  { id: "chapter-02", label: "ORGANIZATION" },
+  { id: "chapter-03", label: "PERSPECTIVE" },
+  { id: "chapter-04", label: "WORK" },
+  { id: "chapter-05", label: "CONTACT" },
 ];
 
-/** Fixed left-edge chapter rail. Highlights the section currently in view. */
+/** Fixed left-edge chapter rail styled as code comments. */
 export function ScrollProgress() {
   const [active, setActive] = useState(0);
 
@@ -21,7 +21,6 @@ export function ScrollProgress() {
 
     const io = new IntersectionObserver(
       (entries) => {
-        // Pick the entry closest to the top of the viewport that's intersecting.
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
@@ -48,16 +47,19 @@ export function ScrollProgress() {
             <li key={c.id}>
               <a
                 href={`#${c.id}`}
-                className="group flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground transition-colors hover:text-foreground"
+                className="group flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground transition-colors hover:text-foreground"
               >
                 <span
                   className={
                     "inline-block h-px transition-all duration-500 " +
                     (on
-                      ? "w-10 bg-primary"
-                      : "w-4 bg-black/25 group-hover:w-6 group-hover:bg-black/50")
+                      ? "w-8 bg-primary"
+                      : "w-3 bg-black/25 group-hover:w-5 group-hover:bg-black/50")
                   }
                 />
+                <span className={on ? "text-primary/80" : "text-primary/50"}>
+                  {"//"}
+                </span>
                 <span
                   className={
                     "tabular-nums transition-colors " +
@@ -72,7 +74,7 @@ export function ScrollProgress() {
                     (on ? "opacity-100" : "opacity-0 group-hover:opacity-70")
                   }
                 >
-                  {c.label}
+                  — {c.label}
                 </span>
               </a>
             </li>

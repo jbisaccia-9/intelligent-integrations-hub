@@ -148,12 +148,12 @@ export function ConstellationScene({
       const dotTex = new THREE.CanvasTexture(dotCanvas);
 
       const nodeMat = new THREE.PointsMaterial({
-        size: 1.15,
+        size: subtle ? 1.5 : 1.15,
         map: dotTex,
         vertexColors: true,
         transparent: true,
         depthWrite: false,
-        opacity: 0.9,
+        opacity: subtle ? 1 : 0.9,
       });
       const nodePoints = new THREE.Points(nodeGeo, nodeMat);
       scene.add(nodePoints);
@@ -199,7 +199,7 @@ export function ConstellationScene({
       const edgeMat = new THREE.LineBasicMaterial({
         color: INK_SOFT,
         transparent: true,
-        opacity: 0.18,
+        opacity: subtle ? 0.32 : 0.18,
         depthWrite: false,
       });
       const edgeLines = new THREE.LineSegments(edgeGeo, edgeMat);
@@ -245,12 +245,12 @@ export function ConstellationScene({
       const pulseTex = new THREE.CanvasTexture(pulseCanvas);
 
       const pulseMat = new THREE.PointsMaterial({
-        size: 1.4,
+        size: subtle ? 1.8 : 1.4,
         map: pulseTex,
         color: BLUE,
         transparent: true,
         depthWrite: false,
-        opacity: 0.95,
+        opacity: 1,
       });
       const pulsePoints = new THREE.Points(pulseGeo, pulseMat);
       scene.add(pulsePoints);
@@ -287,7 +287,7 @@ export function ConstellationScene({
       let raf = 0;
       let last = performance.now();
       const nodeColorAttr = nodeGeo.getAttribute("color") as import("three").BufferAttribute;
-      const opacityCeiling = subtle ? 0.55 : 1;
+      const opacityCeiling = subtle ? 0.9 : 1;
       let currentOpacity = opacityCeiling;
       // Lower = slower/gentler easing of scroll-linked dissolve.
       const OPACITY_LERP = 1.6;
