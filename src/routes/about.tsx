@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SiteLayout, GITHUB_URL, LINKEDIN_URL } from "@/components/SiteLayout";
+import { PageAmbientScene } from "@/components/PageAmbientScene";
 import portrait from "@/assets/joseph-bisaccia-portrait.png.asset.json";
 
 export const Route = createFileRoute("/about")({
