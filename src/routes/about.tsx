@@ -118,18 +118,21 @@ function AboutPage() {
       </section>
       <DataStreamDivider />
 
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <section className="relative isolate overflow-hidden border-b border-border">
+        <GradientDescent />
+        <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-24">
           <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_2fr]">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Experience</p>
               <h2 className="mt-3 text-2xl md:text-3xl">Selected roles.</h2>
             </div>
             <ol className="relative space-y-10 border-l border-border pl-8">
-              {ROLES.map((r) => (
+              {ROLES.map((r, i) => (
                 <li key={r.title} className="relative">
                   <span className="absolute -left-[33px] top-2 h-2 w-2 rounded-full bg-primary" />
-                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{r.period}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                    <span className="text-primary/70">[{String(i).padStart(2, "0")}]</span> {r.period}
+                  </p>
                   <h3 className="mt-1 text-lg font-semibold">{r.title}</h3>
                   <p className="text-sm text-muted-foreground">{r.org}</p>
                   <p className="mt-3 max-w-2xl text-sm leading-relaxed text-foreground/90">{r.desc}</p>
@@ -140,17 +143,20 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+      <section className="relative isolate overflow-hidden border-b border-border">
+        <AttentionMatrix />
+        <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-24">
           <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_2fr]">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Capabilities</p>
               <h2 className="mt-3 text-2xl md:text-3xl">What I bring to engagements.</h2>
             </div>
             <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
-              {CAPABILITIES.map((c) => (
+              {CAPABILITIES.map((c, i) => (
                 <li key={c} className="flex items-start gap-3 border-b border-border/70 pb-3 text-sm">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                  <span className="mt-0.5 shrink-0 font-mono text-[10px] tracking-[0.22em] text-primary/70 tabular-nums">
+                    [{String(i).padStart(2, "0")}]
+                  </span>
                   <span>{c}</span>
                 </li>
               ))}
