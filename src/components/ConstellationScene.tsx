@@ -15,10 +15,13 @@ export function ConstellationScene({
   className = "",
   density = 1,
   respondToPointer = true,
+  subtle = false,
 }: {
   className?: string;
   density?: number;
   respondToPointer?: boolean;
+  /** Ambient variant for interior pages: fewer nodes, slower pulses, lower opacity. */
+  subtle?: boolean;
 }) {
   const hostRef = useRef<HTMLDivElement | null>(null);
 
