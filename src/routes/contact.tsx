@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUpRight, Mail, Linkedin } from "lucide-react";
 import { SiteLayout, EMAIL, LINKEDIN_URL, GITHUB_URL } from "@/components/SiteLayout";
+import { PageAmbientScene } from "@/components/PageAmbientScene";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -32,7 +33,8 @@ function ContactPage() {
 
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden border-b border-black/8">
+      <section id="contact-hero" className="relative overflow-hidden border-b border-black/8">
+        <PageAmbientScene anchorId="contact-hero" />
         <div aria-hidden className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.06] blur-3xl" />
         <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-36">
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Contact</p>

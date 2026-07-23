@@ -134,9 +134,10 @@ function useHeroScrollFade() {
       if (!node) return;
       const rect = node.getBoundingClientRect();
       const vh = window.innerHeight;
-      // fully opaque when hero is centered; fades as hero scrolls off.
-      const progress = Math.max(0, Math.min(1, -rect.top / (rect.height * 0.85 || vh)));
-      const opacity = Math.max(0, 1 - progress * 1.15);
+      // fully opaque when hero is centered; fades gradually as hero scrolls
+      // off. Damping in the scene itself smooths the actual applied opacity.
+      const progress = Math.max(0, Math.min(1, -rect.top / (rect.height * 1.4 || vh)));
+      const opacity = Math.max(0, 1 - progress * 0.9);
       node.style.setProperty("--constellation-opacity", opacity.toFixed(3));
     };
     const onScroll = () => {

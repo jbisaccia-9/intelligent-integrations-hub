@@ -15,10 +15,13 @@ export function ConstellationScene({
   className = "",
   density = 1,
   respondToPointer = true,
+  subtle = false,
 }: {
   className?: string;
   density?: number;
   respondToPointer?: boolean;
+  /** Ambient variant for interior pages: fewer nodes, slower pulses, lower opacity. */
+  subtle?: boolean;
 }) {
   const hostRef = useRef<HTMLDivElement | null>(null);
 
@@ -70,11 +73,14 @@ export function ConstellationScene({
 
       // ---- layer geometry ----
       // Layer sizes across the network. Scaled by density.
+      const effectiveDensity = density * (subtle ? 0.75 : 1);
       const layerSizes = (
         isMobile
           ? [4, 6, 6, 4]
-          : [5, 8, 8, 5]
-      ).map((n) => Math.max(3, Math.round(n * density)));
+          : subtle
+            ? [4, 6, 6, 4]
+            : [5, 8, 8, 5]
+      ).map((n) => Math.max(3, Math.round(n * effectiveDensity)));
       const layerCount = layerSizes.length;
 
       const spanX = isMobile ? 26 : 34;
@@ -201,15 +207,16 @@ export function ConstellationScene({
 
       // ---- pulses: bright blue dots traveling along edges ----
       // Reuse a fixed pool sized per edge count.
-      const maxPulses = Math.min(edges.length, isMobile ? 28 : 70);
+      const maxPulses = Math.min(edges.length, isMobile ? 24 : subtle ? 36 : 70);
       type Pulse = { e: number; t: number; speed: number; alive: boolean };
       const pulses: Pulse[] = Array.from({ length: maxPulses }, () => ({
         e: 0, t: 0, speed: 0, alive: false,
       }));
+      const pulseSpeedScale = subtle ? 0.55 : 1;
       const spawnPulse = (p: Pulse) => {
         p.e = Math.floor(Math.random() * edges.length);
         p.t = 0;
-        p.speed = 0.22 + Math.random() * 0.35; // units per second
+        p.speed = (0.22 + Math.random() * 0.35) * pulseSpeedScale;
         p.alive = true;
       };
       // Stagger initial pulses so waves feel continuous.
@@ -280,6 +287,10 @@ export function ConstellationScene({
       let raf = 0;
       let last = performance.now();
       const nodeColorAttr = nodeGeo.getAttribute("color") as import("three").BufferAttribute;
+      const opacityCeiling = subtle ? 0.55 : 1;
+      let currentOpacity = opacityCeiling;
+      // Lower = slower/gentler easing of scroll-linked dissolve.
+      const OPACITY_LERP = 1.6;
 
       const tick = (now: number) => {
         raf = requestAnimationFrame(tick);
@@ -287,10 +298,13 @@ export function ConstellationScene({
         last = now;
         if (!visible) return;
 
-        // scroll-scrubbed opacity from CSS var
+        // scroll-scrubbed opacity from CSS var, damped so the scene lags
+        // gently behind fast scrolling rather than tracking it 1:1.
         const cs = getComputedStyle(host);
-        const o = parseFloat(cs.getPropertyValue("--constellation-opacity") || "1");
-        host.style.opacity = String(isNaN(o) ? 1 : Math.max(0, Math.min(1, o)));
+        const raw = parseFloat(cs.getPropertyValue("--constellation-opacity") || "1");
+        const target = (isNaN(raw) ? 1 : Math.max(0, Math.min(1, raw))) * opacityCeiling;
+        currentOpacity += (target - currentOpacity) * Math.min(1, dt * OPACITY_LERP);
+        host.style.opacity = currentOpacity.toFixed(3);
 
         // ease camera parallax
         mx += (tmx - mx) * 0.04;
@@ -376,7 +390,7 @@ export function ConstellationScene({
       disposed = true;
       cleanup?.();
     };
-  }, [density, respondToPointer]);
+  }, [density, respondToPointer, subtle]);
 
   return (
     <div
