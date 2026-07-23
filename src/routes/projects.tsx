@@ -151,9 +151,9 @@ function ProjectsPage() {
             Case studies from production AI systems.
           </h1>
           <p className="mt-5 max-w-2xl text-muted-foreground md:text-lg">
-            A selection of engineering work across enterprise AI governance, security, infrastructure,
-            and agentic workflow development. Each entry outlines the problem, architecture, and
-            production considerations.
+            Each entry leads with the outcome and what it enabled for the organization,
+            followed by the architecture, security, and governance decisions that made it
+            possible.
           </p>
         </div>
       </section>
