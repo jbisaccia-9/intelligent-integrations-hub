@@ -596,7 +596,7 @@ function ChapterThree() {
   return (
     <section
       id="chapter-03"
-      className="relative overflow-hidden border-b border-black/8 bg-surface"
+      className="relative isolate overflow-hidden border-b border-black/8 bg-surface"
       style={{
         background:
           "linear-gradient(to bottom, var(--background) 0%, var(--surface) 40%, var(--surface) 100%)",
@@ -605,7 +605,7 @@ function ChapterThree() {
       <DataStreamDivider />
       <GradientDescent />
       <div aria-hidden className="pointer-events-none absolute -left-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-primary/[0.06] blur-3xl" />
-      <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-48" ref={containerRef}>
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-32 md:py-48" ref={containerRef}>
         <ChapterLabel n="03" name="PERSPECTIVE" />
         <blockquote
           className="mt-12 max-w-5xl font-display italic leading-[1.08] tracking-tight text-foreground"
