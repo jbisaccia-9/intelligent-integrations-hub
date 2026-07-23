@@ -78,9 +78,12 @@ function SiteFooter() {
     <footer className="border-t border-black/8 bg-background">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="font-display text-2xl leading-tight">Joseph Bisaccia</p>
-          <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-            AI Engineering Leader &middot; Enterprise AI Governance, Security &amp; Infrastructure.
+          <div className="flex items-center gap-3">
+            <BrandMark className="h-6 w-6 text-foreground" />
+            <p className="font-display text-2xl leading-tight">Intelligent Integrations</p>
+          </div>
+          <p className="mt-3 max-w-sm text-sm text-muted-foreground">
+            Joseph Bisaccia &middot; AI Engineering Leader &middot; Enterprise AI Governance, Security &amp; Infrastructure.
           </p>
         </div>
         <div>
