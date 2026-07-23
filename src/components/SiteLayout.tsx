@@ -24,9 +24,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   );
 }
 
-import logo from "@/assets/logo.png.asset.json";
-
 function Wordmark() {
+
   return (
     <Link to="/" className="group inline-flex items-center gap-3" aria-label="Intelligent Integrations — Home">
       <img
