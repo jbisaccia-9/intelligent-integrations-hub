@@ -73,7 +73,7 @@ export function PageAmbientScene({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(75% 65% at 22% 28%, color-mix(in oklab, var(--background) 45%, transparent) 0%, transparent 60%), linear-gradient(to bottom, transparent 65%, var(--background) 100%)",
+            "radial-gradient(60% 50% at 22% 28%, color-mix(in oklab, var(--background) 22%, transparent) 0%, transparent 65%), linear-gradient(to bottom, transparent 70%, var(--background) 100%)",
         }}
       />
     </div>
