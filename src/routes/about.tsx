@@ -52,7 +52,8 @@ const CAPABILITIES = [
 function AboutPage() {
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden border-b border-black/8">
+      <section id="about-hero" className="relative overflow-hidden border-b border-black/8">
+        <PageAmbientScene anchorId="about-hero" />
         <div aria-hidden className="pointer-events-none absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.06] blur-3xl" />
         <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
           <div className="grid gap-14 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] md:items-center md:gap-16">
