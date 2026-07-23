@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ArrowUpRight, Mail, Linkedin } from "lucide-react";
 import { SiteLayout, EMAIL, LINKEDIN_URL, GITHUB_URL } from "@/components/SiteLayout";
 import { PageAmbientScene } from "@/components/PageAmbientScene";
+import { DataStreamDivider, StatusLine } from "@/components/ChapterMotifs";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -33,10 +34,10 @@ function ContactPage() {
 
   return (
     <SiteLayout>
-      <section id="contact-hero" className="relative overflow-hidden border-b border-black/8">
+      <section id="contact-hero" className="relative isolate overflow-hidden border-b border-black/8">
         <PageAmbientScene anchorId="contact-hero" />
         <div aria-hidden className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.06] blur-3xl" />
-        <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-36">
+        <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 md:py-36">
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Contact</p>
           <h1
             className="mt-8 max-w-4xl font-display leading-[1.02] tracking-tight"
@@ -51,8 +52,12 @@ function ContactPage() {
           </p>
         </div>
       </section>
+      <DataStreamDivider />
 
       <section>
+        <div className="mx-auto max-w-6xl px-6 pt-10">
+          <StatusLine text="system: online · accepting_connections" />
+        </div>
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:py-20 lg:grid-cols-5">
           <div className="space-y-8 lg:col-span-2">
             <div className="rounded-md border border-border bg-surface p-5 text-sm">

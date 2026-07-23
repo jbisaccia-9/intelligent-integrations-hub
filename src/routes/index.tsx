@@ -268,14 +268,14 @@ function ChapterOne() {
   return (
     <section
       id="chapter-01"
-      className="relative overflow-hidden border-b border-black/8 bg-surface"
+      className="relative isolate overflow-hidden border-b border-black/8 bg-surface"
       style={{
         background:
           "linear-gradient(to bottom, var(--background) 0%, var(--surface) 40%, var(--surface) 100%)",
       }}
     >
       <CircuitBackdrop />
-      <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 md:py-40">
         <ChapterHeading n="01" kicker="The Systems" title="A short tour of the work." />
         <div ref={reel.ref} className={`mt-16 ${reel.className}`}>
           <div className="group relative overflow-hidden rounded-lg border border-black/10 bg-black shadow-[0_40px_120px_-40px_rgba(0,0,0,0.6)] transition-colors hover:border-primary/30">
@@ -293,23 +293,33 @@ function ChapterOne() {
         </div>
 
         <div ref={expertise.ref} className={`mt-28 ${expertise.className}`}>
-          <div className="grid gap-12 md:grid-cols-[minmax(0,1fr)_2fr]">
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Expertise</p>
-              <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">
-                Production AI systems for regulated and enterprise environments.
-              </h3>
+          <div
+            className="relative rounded-lg border border-black/8 p-8 md:p-12"
+            style={{
+              background:
+                "linear-gradient(180deg, color-mix(in oklab, var(--background) 92%, transparent) 0%, color-mix(in oklab, var(--surface) 96%, transparent) 100%)",
+              boxShadow: "0 1px 0 0 rgba(255,255,255,0.6) inset",
+              backdropFilter: "blur(2px)",
+            }}
+          >
+            <div className="grid gap-12 md:grid-cols-[minmax(0,1fr)_2fr]">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Expertise</p>
+                <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">
+                  Production AI systems for regulated and enterprise environments.
+                </h3>
+              </div>
+              <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">
+                {EXPERTISE.map((item, i) => (
+                  <li key={item} className="flex items-start gap-3 border-b border-black/8 pb-4 text-sm transition-colors hover:border-primary/40">
+                    <span className="mt-0.5 font-mono text-[10px] tabular-nums text-muted-foreground">
+                      [{i.toString().padStart(2, "0")}]
+                    </span>
+                    <span className="text-foreground/90">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">
-              {EXPERTISE.map((item, i) => (
-                <li key={item} className="flex items-start gap-3 border-b border-black/8 pb-4 text-sm transition-colors hover:border-primary/40">
-                  <span className="mt-0.5 font-mono text-[10px] tabular-nums text-muted-foreground">
-                    [{i.toString().padStart(2, "0")}]
-                  </span>
-                  <span className="text-foreground/90">{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
@@ -393,9 +403,9 @@ function ChapterTwo() {
       <DataStreamDivider />
       {/* Pinned, scrubbed stat scene (desktop). On mobile → simple stacked reveals. */}
       <div ref={wrapperRef} className="relative hidden md:block" style={{ height: "320vh" }}>
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden isolate">
           <AttentionMatrix />
-          <div className="relative mx-auto w-full max-w-6xl px-6">
+          <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
             <ChapterLabel n="02" name="ORGANIZATION" />
             <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">
               Building the systems &mdash; and bringing the organization along.
@@ -586,7 +596,7 @@ function ChapterThree() {
   return (
     <section
       id="chapter-03"
-      className="relative overflow-hidden border-b border-black/8 bg-surface"
+      className="relative isolate overflow-hidden border-b border-black/8 bg-surface"
       style={{
         background:
           "linear-gradient(to bottom, var(--background) 0%, var(--surface) 40%, var(--surface) 100%)",
@@ -595,7 +605,7 @@ function ChapterThree() {
       <DataStreamDivider />
       <GradientDescent />
       <div aria-hidden className="pointer-events-none absolute -left-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-primary/[0.06] blur-3xl" />
-      <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-48" ref={containerRef}>
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-32 md:py-48" ref={containerRef}>
         <ChapterLabel n="03" name="PERSPECTIVE" />
         <blockquote
           className="mt-12 max-w-5xl font-display italic leading-[1.08] tracking-tight text-foreground"
@@ -692,7 +702,7 @@ function ChapterFour() {
     <section
       id="chapter-04"
       ref={sectionRef}
-      className="relative overflow-hidden border-b border-black/8"
+      className="relative isolate overflow-hidden border-b border-black/8"
       style={{
         background:
           "linear-gradient(to bottom, var(--surface) 0%, var(--background) 40%, var(--background) 100%)",
@@ -700,7 +710,7 @@ function ChapterFour() {
     >
       <DataStreamDivider />
       <TokenStream />
-      <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 md:py-40">
         <div ref={headingReveal.ref} className={headingReveal.className}>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
