@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import logo from "@/assets/logo.png.asset.json";
+import { BrandLogo, BrandMark } from "@/components/BrandLogo";
 
 
 const NAV = [
@@ -25,16 +25,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 }
 
 function Wordmark() {
-
   return (
-    <Link to="/" className="group inline-flex items-center gap-3" aria-label="Intelligent Integrations — Home">
-      <img
-        src={logo.url}
-        alt="Intelligent Integrations"
-        className="h-8 w-auto md:h-9"
-        loading="eager"
-        decoding="async"
-      />
+    <Link to="/" className="group inline-flex items-center" aria-label="Intelligent Integrations — Home">
+      <BrandLogo />
     </Link>
   );
 }
