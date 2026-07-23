@@ -166,29 +166,35 @@ function ProjectsPage() {
       </section>
       <DataStreamDivider />
 
-      <section>
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+      <section className="relative isolate overflow-hidden">
+        <TokenStream />
+        <div className="relative z-10 mx-auto max-w-6xl px-6 py-16 md:py-20">
           <div className="space-y-16">
             {PROJECTS.map((p, i) => (
               <ProjectCard key={p.slug} project={p} index={i + 1} />
             ))}
           </div>
 
-          <div className="mt-20 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-border bg-surface p-6">
-            <div>
-              <p className="text-sm font-medium">More engineering work on GitHub</p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Architecture decisions, implementation details, and production-ready projects.
-              </p>
+          <DataStreamDivider className="mt-20" />
+
+          <div className="relative isolate mt-10 overflow-hidden rounded-lg border border-border bg-surface p-6">
+            <CircuitBackdrop />
+            <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-medium">More engineering work on GitHub</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Architecture decisions, implementation details, and production-ready projects.
+                </p>
+              </div>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-surface-elevated"
+              >
+                github.com/jbisaccia-9 <ArrowUpRight className="h-4 w-4" />
+              </a>
             </div>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-surface-elevated"
-            >
-              github.com/jbisaccia-9 <ArrowUpRight className="h-4 w-4" />
-            </a>
           </div>
 
           <div className="mt-10">
