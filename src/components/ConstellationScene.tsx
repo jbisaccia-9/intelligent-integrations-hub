@@ -156,7 +156,7 @@ export function ConstellationScene({
       let raf = 0;
       const threshold = 6.5;
       const threshold2 = threshold * threshold;
-      const posAttr = pGeo.getAttribute("position") as THREE.BufferAttribute;
+      const posAttr = pGeo.getAttribute("position") as import("three").BufferAttribute;
 
       const tick = () => {
         raf = requestAnimationFrame(tick);
