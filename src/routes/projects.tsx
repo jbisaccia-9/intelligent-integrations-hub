@@ -210,7 +210,8 @@ function ProjectsPage() {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article id={project.slug} className="scroll-mt-24 overflow-hidden rounded-lg border border-black/10 bg-surface transition-colors hover:border-primary/30">
+    <article id={project.slug} className="group scroll-mt-24 overflow-hidden rounded-lg border border-black/10 bg-surface transition-colors hover:border-primary/30">
+      <TerminalHeader path={project.slug} />
       <header className="flex flex-wrap items-start justify-between gap-4 border-b border-border p-6 md:p-8">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
