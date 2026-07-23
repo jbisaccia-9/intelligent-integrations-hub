@@ -142,8 +142,36 @@
   animation: scroll-hint 2.2s ease-in-out infinite;
 }
 
+/* Masked text reveal — used for line-by-line perspective */
+@utility mask-reveal {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+@utility mask-reveal-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.mask-reveal.is-in .mask-reveal-inner,
+.mask-reveal[data-in="1"] .mask-reveal-inner {
+  transform: translateY(0);
+}
+
+/* Chapter kicker — used at the top of each chapter */
+@utility chapter-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal, [class*="reveal"] { opacity: 1 !important; transform: none !important; transition: none !important; }
   .ambient-glow { animation: none !important; }
   .scroll-hint { animation: none !important; }
+  .mask-reveal-inner { transform: none !important; transition: none !important; }
 }
+
