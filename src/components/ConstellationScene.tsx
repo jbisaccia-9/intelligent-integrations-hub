@@ -1,16 +1,15 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Lightweight 3D particle constellation rendered with three.js.
- * - Lazy-loaded (dynamic import) so it never blocks SSR / first paint.
- * - Paused when offscreen (IntersectionObserver).
- * - Disabled entirely for prefers-reduced-motion.
- * - Capped particle count for mobile.
+ * Stylized 3D feed-forward neural network for the light editorial theme.
  *
- * The scene is meant to sit as a full-bleed backdrop behind the hero
- * (and, faintly, behind the closing CTA). It listens to a
- * `--constellation-opacity` CSS variable on itself for scroll-scrubbed
- * fade-out (set by GSAP on the parent).
+ * - Distinct vertical layer planes (input → hidden → hidden → output).
+ * - Nodes rendered as soft ink dots; edges as fine gray-blue lines.
+ * - Bright blue pulses travel from input → output in continuous waves.
+ * - Nodes brighten momentarily when a pulse arrives at their end.
+ * - Slow mouse parallax, scroll-scrubbed fade (via `--constellation-opacity`
+ *   CSS variable set on the host element by the page).
+ * - Lazy-loaded, offscreen-paused, prefers-reduced-motion aware, mobile-capped.
  */
 export function ConstellationScene({
   className = "",
@@ -30,7 +29,6 @@ export function ConstellationScene({
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
 
-    // No WebGL? Bail silently — CSS background still shows.
     const testCanvas = document.createElement("canvas");
     const gl = testCanvas.getContext("webgl2") || testCanvas.getContext("webgl");
     if (!gl) return;
@@ -45,9 +43,12 @@ export function ConstellationScene({
       const width = () => host.clientWidth || window.innerWidth;
       const height = () => host.clientHeight || window.innerHeight;
 
+      const isMobile = window.innerWidth < 768;
+
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(55, width() / height(), 0.1, 200);
-      camera.position.z = 40;
+      const camera = new THREE.PerspectiveCamera(42, width() / height(), 0.1, 200);
+      camera.position.set(0, 0, 46);
+      camera.lookAt(0, 0, 0);
 
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -62,69 +63,193 @@ export function ConstellationScene({
       renderer.domElement.style.height = "100%";
       host.appendChild(renderer.domElement);
 
-      // ---- particles ----
-      const isMobile = window.innerWidth < 768;
-      const count = Math.round((isMobile ? 90 : 220) * density);
-      const positions = new Float32Array(count * 3);
-      const velocities = new Float32Array(count * 3);
-      const R = 42;
-      for (let i = 0; i < count; i++) {
-        positions[i * 3 + 0] = (Math.random() - 0.5) * R * 2;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * R * 1.2;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * R;
-        velocities[i * 3 + 0] = (Math.random() - 0.5) * 0.008;
-        velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.008;
-        velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.008;
+      // ---- palette (blueprint / engraving on ivory) ----
+      const INK = new THREE.Color(0x1a2440);           // deep ink for nodes
+      const INK_SOFT = new THREE.Color(0x6a7796);      // muted gray-blue for edges
+      const BLUE = new THREE.Color(0x2f4fbf);          // logo blue for pulses / activation
+
+      // ---- layer geometry ----
+      // Layer sizes across the network. Scaled by density.
+      const layerSizes = (
+        isMobile
+          ? [4, 6, 6, 4]
+          : [5, 8, 8, 5]
+      ).map((n) => Math.max(3, Math.round(n * density)));
+      const layerCount = layerSizes.length;
+
+      const spanX = isMobile ? 26 : 34;
+      const spanY = isMobile ? 16 : 20;
+      const layerX = (i: number) =>
+        layerCount === 1 ? 0 : -spanX / 2 + (i / (layerCount - 1)) * spanX;
+
+      type Node = { x: number; y: number; z: number; base: number; act: number };
+      const layers: Node[][] = layerSizes.map((count, li) => {
+        const arr: Node[] = [];
+        for (let i = 0; i < count; i++) {
+          const t = count === 1 ? 0.5 : i / (count - 1);
+          const y = -spanY / 2 + t * spanY;
+          // gentle organic jitter so layer planes feel hand-drawn
+          const jitterX = (Math.sin(li * 3.1 + i * 1.7) * 0.6);
+          const jitterY = (Math.cos(li * 2.3 + i * 2.1) * 0.4);
+          const jitterZ = (Math.sin(li * 1.9 + i * 0.9) * 1.4);
+          arr.push({
+            x: layerX(li) + jitterX,
+            y: y + jitterY,
+            z: jitterZ,
+            base: 0,
+            act: 0, // activation brightness 0..1, decays each frame
+          });
+        }
+        return arr;
+      });
+
+      // ---- nodes as PointsMaterial with a soft round sprite ----
+      const totalNodes = layers.reduce((n, l) => n + l.length, 0);
+      const nodePositions = new Float32Array(totalNodes * 3);
+      const nodeColors = new Float32Array(totalNodes * 3);
+      const nodeSizes = new Float32Array(totalNodes);
+      const nodeIndex: Array<{ li: number; ni: number }> = [];
+      {
+        let k = 0;
+        for (let li = 0; li < layers.length; li++) {
+          for (let ni = 0; ni < layers[li].length; ni++) {
+            const n = layers[li][ni];
+            nodePositions[k * 3 + 0] = n.x;
+            nodePositions[k * 3 + 1] = n.y;
+            nodePositions[k * 3 + 2] = n.z;
+            nodeColors[k * 3 + 0] = INK.r;
+            nodeColors[k * 3 + 1] = INK.g;
+            nodeColors[k * 3 + 2] = INK.b;
+            nodeSizes[k] = 1;
+            nodeIndex.push({ li, ni });
+            k++;
+          }
+        }
+      }
+      const nodeGeo = new THREE.BufferGeometry();
+      nodeGeo.setAttribute("position", new THREE.BufferAttribute(nodePositions, 3));
+      nodeGeo.setAttribute("color", new THREE.BufferAttribute(nodeColors, 3));
+
+      const dotCanvas = document.createElement("canvas");
+      dotCanvas.width = dotCanvas.height = 64;
+      const dctx = dotCanvas.getContext("2d")!;
+      const dgrad = dctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+      dgrad.addColorStop(0.0, "rgba(255,255,255,1)");
+      dgrad.addColorStop(0.35, "rgba(255,255,255,0.85)");
+      dgrad.addColorStop(1.0, "rgba(255,255,255,0)");
+      dctx.fillStyle = dgrad;
+      dctx.fillRect(0, 0, 64, 64);
+      const dotTex = new THREE.CanvasTexture(dotCanvas);
+
+      const nodeMat = new THREE.PointsMaterial({
+        size: 1.15,
+        map: dotTex,
+        vertexColors: true,
+        transparent: true,
+        depthWrite: false,
+        opacity: 0.9,
+      });
+      const nodePoints = new THREE.Points(nodeGeo, nodeMat);
+      scene.add(nodePoints);
+
+      // ---- edges: connect every node in layer L to every node in layer L+1 ----
+      type Edge = { a: Node; b: Node; ai: number; bi: number };
+      const edges: Edge[] = [];
+      {
+        let offset = 0;
+        const layerOffsets: number[] = [];
+        for (let li = 0; li < layers.length; li++) {
+          layerOffsets.push(offset);
+          offset += layers[li].length;
+        }
+        for (let li = 0; li < layers.length - 1; li++) {
+          const a = layers[li];
+          const b = layers[li + 1];
+          for (let i = 0; i < a.length; i++) {
+            for (let j = 0; j < b.length; j++) {
+              edges.push({
+                a: a[i],
+                b: b[j],
+                ai: layerOffsets[li] + i,
+                bi: layerOffsets[li + 1] + j,
+              });
+            }
+          }
+        }
       }
 
-      const pGeo = new THREE.BufferGeometry();
-      pGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-      // Soft round sprite via canvas texture
-      const spriteCanvas = document.createElement("canvas");
-      spriteCanvas.width = spriteCanvas.height = 64;
-      const sctx = spriteCanvas.getContext("2d")!;
-      const grad = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-      grad.addColorStop(0.0, "rgba(255, 214, 150, 1)");
-      grad.addColorStop(0.4, "rgba(255, 190, 110, 0.55)");
-      grad.addColorStop(1.0, "rgba(255, 170, 80, 0)");
-      sctx.fillStyle = grad;
-      sctx.fillRect(0, 0, 64, 64);
-      const sprite = new THREE.CanvasTexture(spriteCanvas);
-
-      const pMat = new THREE.PointsMaterial({
-        size: 0.55,
-        map: sprite,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending,
-        color: 0xffd18a,
-      });
-      const points = new THREE.Points(pGeo, pMat);
-      scene.add(points);
-
-      // ---- connecting lines (rebuilt each frame within threshold) ----
-      const maxLines = isMobile ? 140 : 380;
-      const linePositions = new Float32Array(maxLines * 2 * 3);
-      const lineGeo = new THREE.BufferGeometry();
-      const lineAttr = new THREE.BufferAttribute(linePositions, 3);
-      lineAttr.setUsage(THREE.DynamicDrawUsage);
-      lineGeo.setAttribute("position", lineAttr);
-      const lineMat = new THREE.LineBasicMaterial({
-        color: 0xffb974,
+      const edgePositions = new Float32Array(edges.length * 2 * 3);
+      for (let e = 0; e < edges.length; e++) {
+        const { a, b } = edges[e];
+        edgePositions[e * 6 + 0] = a.x;
+        edgePositions[e * 6 + 1] = a.y;
+        edgePositions[e * 6 + 2] = a.z;
+        edgePositions[e * 6 + 3] = b.x;
+        edgePositions[e * 6 + 4] = b.y;
+        edgePositions[e * 6 + 5] = b.z;
+      }
+      const edgeGeo = new THREE.BufferGeometry();
+      edgeGeo.setAttribute("position", new THREE.BufferAttribute(edgePositions, 3));
+      const edgeMat = new THREE.LineBasicMaterial({
+        color: INK_SOFT,
         transparent: true,
         opacity: 0.18,
-        blending: THREE.AdditiveBlending,
         depthWrite: false,
       });
-      const lineSegs = new THREE.LineSegments(lineGeo, lineMat);
-      scene.add(lineSegs);
+      const edgeLines = new THREE.LineSegments(edgeGeo, edgeMat);
+      scene.add(edgeLines);
+
+      // ---- pulses: bright blue dots traveling along edges ----
+      // Reuse a fixed pool sized per edge count.
+      const maxPulses = Math.min(edges.length, isMobile ? 28 : 70);
+      type Pulse = { e: number; t: number; speed: number; alive: boolean };
+      const pulses: Pulse[] = Array.from({ length: maxPulses }, () => ({
+        e: 0, t: 0, speed: 0, alive: false,
+      }));
+      const spawnPulse = (p: Pulse) => {
+        p.e = Math.floor(Math.random() * edges.length);
+        p.t = 0;
+        p.speed = 0.22 + Math.random() * 0.35; // units per second
+        p.alive = true;
+      };
+      // Stagger initial pulses so waves feel continuous.
+      for (let i = 0; i < pulses.length; i++) {
+        if (Math.random() < 0.6) {
+          spawnPulse(pulses[i]);
+          pulses[i].t = Math.random();
+        }
+      }
+
+      const pulsePositions = new Float32Array(maxPulses * 3);
+      const pulseGeo = new THREE.BufferGeometry();
+      const pulseAttr = new THREE.BufferAttribute(pulsePositions, 3);
+      pulseAttr.setUsage(THREE.DynamicDrawUsage);
+      pulseGeo.setAttribute("position", pulseAttr);
+
+      const pulseCanvas = document.createElement("canvas");
+      pulseCanvas.width = pulseCanvas.height = 64;
+      const pctx = pulseCanvas.getContext("2d")!;
+      const pgrad = pctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+      pgrad.addColorStop(0.0, "rgba(80,120,255,1)");
+      pgrad.addColorStop(0.35, "rgba(60,90,220,0.75)");
+      pgrad.addColorStop(1.0, "rgba(60,90,220,0)");
+      pctx.fillStyle = pgrad;
+      pctx.fillRect(0, 0, 64, 64);
+      const pulseTex = new THREE.CanvasTexture(pulseCanvas);
+
+      const pulseMat = new THREE.PointsMaterial({
+        size: 1.4,
+        map: pulseTex,
+        color: BLUE,
+        transparent: true,
+        depthWrite: false,
+        opacity: 0.95,
+      });
+      const pulsePoints = new THREE.Points(pulseGeo, pulseMat);
+      scene.add(pulsePoints);
 
       // ---- interaction ----
-      let mx = 0;
-      let my = 0;
-      let tmx = 0;
-      let tmy = 0;
+      let tmx = 0, tmy = 0, mx = 0, my = 0;
       const onMove = (e: PointerEvent) => {
         const rect = host.getBoundingClientRect();
         tmx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
@@ -142,7 +267,6 @@ export function ConstellationScene({
       const ro = new ResizeObserver(onResize);
       ro.observe(host);
 
-      // ---- offscreen pause ----
       let visible = true;
       const io = new IntersectionObserver(
         (entries) => {
@@ -154,79 +278,93 @@ export function ConstellationScene({
 
       // ---- render loop ----
       let raf = 0;
-      const threshold = 6.5;
-      const threshold2 = threshold * threshold;
-      const posAttr = pGeo.getAttribute("position") as import("three").BufferAttribute;
+      let last = performance.now();
+      const nodeColorAttr = nodeGeo.getAttribute("color") as import("three").BufferAttribute;
 
-      const tick = () => {
+      const tick = (now: number) => {
         raf = requestAnimationFrame(tick);
+        const dt = Math.min(0.05, (now - last) / 1000);
+        last = now;
         if (!visible) return;
 
-        // read scrubbed opacity from CSS var each frame
+        // scroll-scrubbed opacity from CSS var
         const cs = getComputedStyle(host);
         const o = parseFloat(cs.getPropertyValue("--constellation-opacity") || "1");
-        const clamped = isNaN(o) ? 1 : Math.max(0, Math.min(1, o));
-        host.style.opacity = String(clamped);
+        host.style.opacity = String(isNaN(o) ? 1 : Math.max(0, Math.min(1, o)));
 
-        // ease camera to pointer
-        mx += (tmx - mx) * 0.03;
-        my += (tmy - my) * 0.03;
-        camera.position.x = mx * 4;
-        camera.position.y = -my * 3;
+        // ease camera parallax
+        mx += (tmx - mx) * 0.04;
+        my += (tmy - my) * 0.04;
+        camera.position.x = mx * 3;
+        camera.position.y = -my * 2;
         camera.lookAt(0, 0, 0);
 
-        // drift particles
-        const arr = posAttr.array as Float32Array;
-        for (let i = 0; i < count; i++) {
-          const ix = i * 3;
-          arr[ix] += velocities[ix];
-          arr[ix + 1] += velocities[ix + 1];
-          arr[ix + 2] += velocities[ix + 2];
-          if (arr[ix] > R || arr[ix] < -R) velocities[ix] *= -1;
-          if (arr[ix + 1] > R * 0.6 || arr[ix + 1] < -R * 0.6) velocities[ix + 1] *= -1;
-          if (arr[ix + 2] > R * 0.5 || arr[ix + 2] < -R * 0.5) velocities[ix + 2] *= -1;
-        }
-        posAttr.needsUpdate = true;
-
-        // rebuild lines within neighbour threshold (single pass, capped)
-        let li = 0;
-        for (let i = 0; i < count && li < maxLines; i++) {
-          const ax = arr[i * 3];
-          const ay = arr[i * 3 + 1];
-          const az = arr[i * 3 + 2];
-          for (let j = i + 1; j < count && li < maxLines; j++) {
-            const dx = ax - arr[j * 3];
-            const dy = ay - arr[j * 3 + 1];
-            const dz = az - arr[j * 3 + 2];
-            const d2 = dx * dx + dy * dy + dz * dz;
-            if (d2 < threshold2) {
-              linePositions[li * 6 + 0] = ax;
-              linePositions[li * 6 + 1] = ay;
-              linePositions[li * 6 + 2] = az;
-              linePositions[li * 6 + 3] = arr[j * 3];
-              linePositions[li * 6 + 4] = arr[j * 3 + 1];
-              linePositions[li * 6 + 5] = arr[j * 3 + 2];
-              li++;
-            }
+        // decay node activations
+        for (const layer of layers) {
+          for (const n of layer) {
+            n.act *= Math.max(0, 1 - dt * 2.2);
           }
         }
-        lineGeo.setDrawRange(0, li * 2);
-        lineAttr.needsUpdate = true;
+
+        // advance pulses
+        for (let i = 0; i < pulses.length; i++) {
+          const p = pulses[i];
+          if (!p.alive) {
+            if (Math.random() < dt * 1.4) spawnPulse(p);
+            pulsePositions[i * 3 + 0] = 9999;
+            pulsePositions[i * 3 + 1] = 9999;
+            pulsePositions[i * 3 + 2] = 9999;
+            continue;
+          }
+          p.t += p.speed * dt;
+          const edge = edges[p.e];
+          if (p.t >= 1) {
+            // activation ripple at destination node
+            edge.b.act = Math.min(1.4, edge.b.act + 0.9);
+            p.alive = false;
+            pulsePositions[i * 3 + 0] = 9999;
+            pulsePositions[i * 3 + 1] = 9999;
+            pulsePositions[i * 3 + 2] = 9999;
+            continue;
+          }
+          const t = p.t;
+          pulsePositions[i * 3 + 0] = edge.a.x + (edge.b.x - edge.a.x) * t;
+          pulsePositions[i * 3 + 1] = edge.a.y + (edge.b.y - edge.a.y) * t;
+          pulsePositions[i * 3 + 2] = edge.a.z + (edge.b.z - edge.a.z) * t;
+        }
+        pulseAttr.needsUpdate = true;
+
+        // write node colors: ink base + blue tint by activation
+        const colArr = nodeColorAttr.array as Float32Array;
+        for (let k = 0; k < nodeIndex.length; k++) {
+          const { li, ni } = nodeIndex[k];
+          const a = Math.min(1, layers[li][ni].act);
+          const r = INK.r + (BLUE.r - INK.r) * a;
+          const g = INK.g + (BLUE.g - INK.g) * a;
+          const b = INK.b + (BLUE.b - INK.b) * a;
+          colArr[k * 3 + 0] = r;
+          colArr[k * 3 + 1] = g;
+          colArr[k * 3 + 2] = b;
+        }
+        nodeColorAttr.needsUpdate = true;
 
         renderer.render(scene, camera);
       };
-      tick();
+      raf = requestAnimationFrame(tick);
 
       cleanup = () => {
         cancelAnimationFrame(raf);
         io.disconnect();
         ro.disconnect();
         if (respondToPointer) window.removeEventListener("pointermove", onMove);
-        pGeo.dispose();
-        pMat.dispose();
-        lineGeo.dispose();
-        lineMat.dispose();
-        sprite.dispose();
+        nodeGeo.dispose();
+        nodeMat.dispose();
+        edgeGeo.dispose();
+        edgeMat.dispose();
+        pulseGeo.dispose();
+        pulseMat.dispose();
+        dotTex.dispose();
+        pulseTex.dispose();
         renderer.dispose();
         if (renderer.domElement.parentNode === host) {
           host.removeChild(renderer.domElement);
@@ -246,9 +384,10 @@ export function ConstellationScene({
       aria-hidden
       className={className}
       style={{
-        // fallback backdrop for reduced-motion / no-WebGL
+        // Static blueprint fallback for reduced-motion / no-WebGL — ivory wash
+        // with a faint gray-blue tint, echoing the neural layout.
         backgroundImage:
-          "radial-gradient(60% 50% at 20% 30%, color-mix(in oklab, var(--primary) 12%, transparent) 0%, transparent 60%), radial-gradient(45% 40% at 80% 70%, color-mix(in oklab, oklch(0.55 0.15 250) 18%, transparent) 0%, transparent 65%)",
+          "radial-gradient(55% 45% at 25% 35%, color-mix(in oklab, var(--primary) 8%, transparent) 0%, transparent 60%), radial-gradient(45% 40% at 80% 65%, color-mix(in oklab, var(--primary) 6%, transparent) 0%, transparent 65%)",
       }}
     />
   );
