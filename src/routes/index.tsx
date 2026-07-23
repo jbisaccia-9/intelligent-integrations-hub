@@ -217,7 +217,7 @@ function Leadership() {
 function Stat({ number, label }: { number: string; label: string }) {
   return (
     <div>
-      <p className="font-serif text-5xl leading-none tracking-tight text-primary md:text-6xl">{number}</p>
+      <p className="font-display text-5xl leading-none tracking-tight text-primary md:text-6xl">{number}</p>
       <p className="mt-3 text-sm text-muted-foreground">{label}</p>
     </div>
   );
@@ -232,7 +232,7 @@ function Perspective() {
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Perspective</p>
             <h2 className="mt-3 text-2xl md:text-3xl">A note on what actually matters.</h2>
           </div>
-          <div className="max-w-3xl space-y-6 border-l border-border pl-8 font-serif text-xl leading-[1.5] tracking-tight text-foreground/90 md:text-2xl md:leading-[1.45]">
+          <div className="max-w-3xl space-y-6 border-l border-border pl-8 font-display text-xl leading-[1.5] tracking-tight text-foreground/90 md:text-2xl md:leading-[1.45]">
             <p>
               Enterprise AI success is an organizational challenge, not an engineering one. The
               model is the easy part. The hard part is governance, trust, and adoption &mdash; the
