@@ -109,7 +109,11 @@ function SiteFooter() {
       <div className="border-t border-black/8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-5 text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} Joseph Bisaccia. All rights reserved.</span>
-          <span className="font-mono">Building secure, compliant, enterprise AI systems.</span>
+          <div className="flex items-center gap-5">
+            <Link to="/privacy" className="transition-colors hover:text-foreground">Privacy</Link>
+            <Link to="/terms" className="transition-colors hover:text-foreground">Terms</Link>
+            <span className="font-mono">Building secure, compliant, enterprise AI systems.</span>
+          </div>
         </div>
       </div>
     </footer>
