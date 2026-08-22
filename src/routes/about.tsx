@@ -13,7 +13,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About — Joseph Bisaccia" },
       { property: "og:description", content: "Lead AI Engineer helping organizations deploy AI responsibly at scale." },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://getaiintegrations.com/about" }],
   }),
   component: AboutPage,
 });

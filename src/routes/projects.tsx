@@ -13,7 +13,7 @@ export const Route = createFileRoute("/projects")({
       { property: "og:description", content: "Delivered AI engagements and representative capabilities: RAG, agentic workflows, governance, and automation." },
 
     ],
-    links: [{ rel: "canonical", href: "/projects" }],
+    links: [{ rel: "canonical", href: "https://getaiintegrations.com/projects" }],
   }),
   component: ProjectsPage,
 });

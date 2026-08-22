@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: "Enterprise AI systems and the organizations that trust them." },
       { name: "twitter:image", content: portfolioPoster.url },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://getaiintegrations.com/" }],
   }),
   component: Home,
 });
