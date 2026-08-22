@@ -194,6 +194,36 @@ function AboutPage() {
         </div>
       </section>
 
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_2fr]">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Education &amp; credentials</p>
+              <h2 className="mt-3 text-2xl md:text-3xl">Formal grounding.</h2>
+            </div>
+            <div className="grid gap-10 sm:grid-cols-2">
+              <ul className="space-y-6">
+                {EDUCATION.map((e) => (
+                  <li key={e.title}>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{e.period}</p>
+                    <p className="mt-1 text-sm font-semibold">{e.title}</p>
+                    <p className="text-sm text-muted-foreground">{e.org}</p>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-3">
+                <li className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Certifications</li>
+                {CERTIFICATIONS.map((c) => (
+                  <li key={c} className="border-b border-border/70 pb-3 text-sm">{c}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
       <section>
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-3 md:py-24">
           <ExternalLink href={GITHUB_URL} label="GitHub" value="jbisaccia-9" />
