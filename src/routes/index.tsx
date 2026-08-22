@@ -794,14 +794,35 @@ function ChapterFour() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-          <Link to="/projects" className="inline-flex items-center gap-1.5 text-primary hover:opacity-80">
+        <div className="mt-10">
+          <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80">
             All seven gate projects <ArrowRight className="h-3.5 w-3.5" />
           </Link>
-          <Link to="/projects" className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground">
-            Professional engagements <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
         </div>
+
+        <div className="mt-20">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            Professional engagements
+          </p>
+          <div className="mt-6 grid gap-px overflow-hidden rounded-lg border border-black/10 bg-black/10 md:grid-cols-3">
+            {FEATURED_PROJECTS.map((p) => (
+              <Link
+                key={p.slug}
+                to="/projects"
+                hash={p.slug}
+                className="group flex flex-col gap-2 bg-surface p-6 transition-colors hover:bg-surface-elevated"
+              >
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.context}</p>
+                <h3 className="text-lg leading-snug">{p.title}</h3>
+                <p className="text-sm text-muted-foreground">{p.summary}</p>
+                <span className="mt-auto inline-flex items-center gap-1 pt-3 text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                  See details <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
 
         <div ref={githubReveal.ref} className={`mt-24 ${githubReveal.className}`}>
           <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-center">
