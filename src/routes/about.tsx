@@ -64,15 +64,27 @@ const CERTIFICATIONS = [
   "Anthropic — Claude Code 101",
 ];
 
-const CAPABILITIES = [
-  "Production AI systems from architecture through operations",
-  "RAG and retrieval infrastructure over sensitive corpora",
-  "Agentic workflow development with structured evaluation",
-  "HIPAA-aware and security-first design for LLM applications",
-  "LLM evaluation, reward metrics, and hallucination mitigation",
-  "Automation and systems integration across CRM and operations tooling",
-  "Technical project management across engineering and business teams",
-  "Training, enablement, and change management for AI adoption",
+const CAPABILITY_PILLARS = [
+  {
+    n: "01",
+    title: "Enterprise AI architecture",
+    desc: "Secure, production-minded AI systems spanning RAG, agentic workflows, integrations, and operations.",
+  },
+  {
+    n: "02",
+    title: "Governance, security & evaluation",
+    desc: "HIPAA-aware design, permission boundaries, measurable evaluation, hallucination mitigation, and release gates.",
+  },
+  {
+    n: "03",
+    title: "Automation & systems integration",
+    desc: "CRM, operations, and back-office workflows connected through practical APIs and automation platforms.",
+  },
+  {
+    n: "04",
+    title: "Adoption & technical leadership",
+    desc: "Technical program leadership, staff enablement, change management, and the training needed to make systems stick.",
+  },
 ];
 
 
