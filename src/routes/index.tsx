@@ -749,29 +749,35 @@ function ChapterFour() {
             <div>
               <ChapterLabel n="04" name="WORK" />
               <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">
-                Selected engineering work.
+                Nothing ships until it passes a gate.
               </h2>
-
+              <p className="mt-6 max-w-2xl text-muted-foreground">
+                Open-source evaluation and governance harnesses &mdash; runnable, tested, and
+                CI-checked. Every dataset is synthetic and every repository documents its limits.
+              </p>
             </div>
             <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80">
               All projects <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
         </div>
-        <div className="mt-16 grid gap-6 md:grid-cols-3 md:gap-4">
-          {FEATURED_PROJECTS.map((p, i) => (
-            <Link
-              key={p.slug}
-              to="/projects"
-              hash={p.slug}
+        <div className="mt-16 grid gap-6 md:grid-cols-2 md:gap-4">
+          {FEATURED_GATES.map((p, i) => (
+            <a
+              key={p.name}
+              href={p.repo}
+              target="_blank"
+              rel="noreferrer"
               ref={(el) => { cardRefs.current[i] = el as unknown as HTMLElement | null; }}
               className="group relative flex flex-col overflow-hidden rounded-lg border border-black/10 bg-surface transition-colors will-change-transform hover:border-primary/30 hover:bg-surface-elevated"
             >
-              <TerminalHeader path={p.slug} />
+              <TerminalHeader path={p.name} />
               <div className="relative flex flex-1 flex-col gap-4 p-7">
                 <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.context}</p>
-                <h3 className="relative text-xl leading-snug">{p.title}</h3>
+                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">github.com/jbisaccia-9</p>
+                <h3 className="relative font-mono text-xl leading-snug">
+                  jbisaccia-9/<span className="text-primary">{p.name}</span>
+                </h3>
                 <p className="relative text-sm text-muted-foreground">{p.summary}</p>
                 <div className="relative mt-auto flex flex-wrap gap-1.5 pt-2">
                   {p.stack.slice(0, 4).map((s) => (
@@ -781,24 +787,32 @@ function ChapterFour() {
                   ))}
                 </div>
                 <span className="relative inline-flex items-center gap-1 text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                  See details <ArrowRight className="h-3.5 w-3.5" />
+                  View repository <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>
-
               </div>
-            </Link>
+            </a>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          <Link to="/projects" className="inline-flex items-center gap-1.5 text-primary hover:opacity-80">
+            All seven gate projects <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+          <Link to="/projects" className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground">
+            Professional engagements <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
 
         <div ref={githubReveal.ref} className={`mt-24 ${githubReveal.className}`}>
           <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-center">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Elsewhere</p>
-              <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">Profiles and background.</h3>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Open source</p>
+              <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">Seven gates, public and runnable.</h3>
               <p className="mt-6 max-w-2xl text-muted-foreground">
-                Most of my work lives inside client and employer environments. For background,
-                the resume and profile links below are the fastest way to see scope and history.
+                Retrieval, judge calibration, permissions, PHI redaction, ROI assumptions,
+                targeting pipelines, and order validation &mdash; each with a threshold that has to
+                be earned before anything ships. Client and employer work stays private.
               </p>
-
             </div>
             <a
               href={GITHUB_URL}
@@ -814,6 +828,7 @@ function ChapterFour() {
             </a>
           </div>
         </div>
+
       </div>
     </section>
   );
