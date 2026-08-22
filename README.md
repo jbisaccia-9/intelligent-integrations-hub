@@ -1,26 +1,86 @@
-# Intelligent Integrations Hub
+# getaiintegrations.com
 
-build a website for my business....it's an ai model training independent contracting llc...I also work on developing ai integrations for small businesses..I've worked for major ai labs via projects on Handshake AI and Outlier AI...here's the link to one of my videos highlighting some of my work...make it professional and visually appealing...include a contact form and pricing tiers for small business ai integrations...finally publish the webpage to a free/available url for access...make sure the business is called "Intelligent Integrations" Include the link to my linked in or a qr code...  https://www.linkedin.com/in/joseph-bisaccia-20662384/
+Personal portfolio site for **Joseph Bisaccia**, an AI Engineering Leader building enterprise-grade AI systems, governance harnesses, and the organizations that trust them.
 
-This project was built with [Lovable](https://lovable.dev).
+Live site: [https://getaiintegrations.com](https://getaiintegrations.com)
 
-**Live app**: https://intelligent-integrations-hub.lovable.app
+---
 
-## Build with Lovable
+## About this project
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/6033c6f1-d4ee-4a14-a047-376e5c0048c5).
+This is a curated career platform, not a business landing page. It presents my work across:
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- **Enterprise AI architecture** — agentic workflows, clinical RAG, HIPAA-compliant pipelines
+- **AI governance & evaluation** — open-source "*-gate" harnesses for retrieval, safety, and performance
+- **Technical leadership** — enabling teams of 250+ practitioners, training 65+ managers
+- **Applied AI engineering** — forward-deployed systems, integrations, and platform strategy
 
-## Development
+The site reframes the earlier "Intelligent Integrations" business identity into an executive-trajectory portfolio: proof of work, perspective, and trajectory toward Head of AI / CTO roles.
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+---
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+## Tech stack
+
+- **Framework:** [TanStack Start](https://tanstack.com/start) (React 19, full-stack SSR/SSG)
+- **Build tool:** Vite 7
+- **Styling:** Tailwind CSS v4 with custom editorial design tokens
+- **Typography:** Instrument Serif display + mono annotations
+- **Motion:** GSAP ScrollTrigger, custom WebGL/Canvas scenes
+- **Deployment:** Lovable Cloud / Cloudflare Workers edge runtime
+- **Analytics:** Lovable project insights
+
+---
+
+## Site structure
+
+| Route | Purpose |
+|-------|---------|
+| `/` | Cinematic scroll narrative: leadership stats, perspective, featured work, contact |
+| `/projects` | Verified professional work + open-source `*-gate` evaluation harnesses |
+| `/about` | Career timeline, capabilities, certifications, downloadable resume |
+| `/contact` | Direct conversation channel for leadership opportunities & collaborations |
+| `/privacy` | Privacy policy + messaging consent (A2P compliant) |
+| `/terms` | Terms of service |
+
+---
+
+## Featured open-source work
+
+A family of runnable, tested, CI-checked evaluation harnesses. All use synthetic datasets and document their limits.
+
+- [`rag-gate`](https://github.com/jbisaccia-9/rag-gate) — Retrieval-Augmented Generation evaluation
+- [`kappa-gate`](https://github.com/jbisaccia-9/kappa-gate) — Inter-annotator agreement & labeling quality
+- [`perm-gate`](https://github.com/jbisaccia-9/perm-gate) — Permission & access governance checks
+- [`phi-gate`](https://github.com/jbisaccia-9/phi-gate) — PII / sensitive-data detection pipeline
+- [`roi-gate`](https://github.com/jbisaccia-9/roi-gate) — AI investment ROI estimation
+- [`target-gate`](https://github.com/jbisaccia-9/target-gate) — Targeted capability benchmarking
+- [`trade-gate`](https://github.com/jbisaccia-9/trade-gate) — Trade-off analysis for model selection
+
+Thesis: *nothing ships until it passes a gate — and the gate itself must be earned.*
+
+---
+
+## Professional background
+
+- **Lead AI Engineer** — Behavior Frontiers (agentic workflows, clinical RAG, HIPAA)
+- **AI Engineer / Technical Project Manager** — Capital Energy
+- **Frontier Model Training Contractor** — Handshake AI, Outlier AI, Mercor
+- **Education** — Quantic M.S. in AI, Arizona State University
+- **Certifications** — NVIDIA DLI, IBM, Anthropic, Databricks, Quantic, Micro1, PMI CAPM
+
+Resume: [https://getaiintegrations.com/resume.pdf](https://getaiintegrations.com/resume.pdf)
+
+---
+
+## Connect
+
+- LinkedIn: [https://www.linkedin.com/in/joseph-bisaccia-ai/](https://www.linkedin.com/in/joseph-bisaccia-ai/)
+- GitHub: [https://github.com/jbisaccia-9](https://github.com/jbisaccia-9)
+- Email: [jbisaccia@ai-intelligentintegrations.com](mailto:jbisaccia@ai-intelligentintegrations.com)
+
+---
+
+## License
+
+© Joseph Bisaccia. All rights reserved.
+Source code is provided for reference as part of this portfolio.
