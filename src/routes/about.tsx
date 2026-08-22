@@ -58,11 +58,15 @@ const EDUCATION = [
 ];
 
 const CERTIFICATIONS = [
-  "IBM / Coursera — Retrieval Augmented Generation (RAG)",
-  "IBM / Coursera — Agentic AI",
-  "PMI — Certified Associate in Project Management (CAPM)",
-  "Anthropic — Claude Code 101",
+  { issuer: "NVIDIA Deep Learning Institute", name: "Building RAG Agents with LLMs", year: "2026" },
+  { issuer: "IBM", name: "RAG & Agentic AI Professional Certificate", year: "2026" },
+  { issuer: "Anthropic", name: "Claude Code; Claude Code in Action", year: "2026" },
+  { issuer: "Databricks", name: "Get Started with Generative AI", year: "2026" },
+  { issuer: "Quantic", name: "AI-Assisted Software Development", year: "2026" },
+  { issuer: "Micro1", name: "Certified AI Model Trainer", year: "2026" },
+  { issuer: "Project Management Institute", name: "Certified Associate in Project Management (CAPM)", year: "2025" },
 ];
+
 
 const CAPABILITY_PILLARS = [
   {
