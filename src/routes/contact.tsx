@@ -13,7 +13,7 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact — Joseph Bisaccia" },
       { property: "og:description", content: "Enterprise AI consulting, advisory, and technical collaboration." },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://getaiintegrations.com/contact" }],
   }),
   component: ContactPage,
 });

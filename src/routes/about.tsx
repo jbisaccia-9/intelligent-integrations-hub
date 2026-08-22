@@ -13,42 +13,68 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About — Joseph Bisaccia" },
       { property: "og:description", content: "Lead AI Engineer helping organizations deploy AI responsibly at scale." },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://getaiintegrations.com/about" }],
   }),
   component: AboutPage,
 });
 
 const ROLES = [
   {
-    period: "2025 — Present",
+    period: "Jul 2026 — Present",
     title: "Lead AI Engineer",
     org: "Behavior Frontiers",
-    desc: "Leading enterprise AI engineering across clinical and operations teams. Architecting HIPAA-compliant agentic workflows, PHI-safe RAG systems, and audit-ready evaluation harnesses for regulated healthcare.",
+    desc: "Founding AI engineering resource for a national network of autism and behavioral health centers. Building HIPAA-compliant AI infrastructure, RAG pipelines, agentic workflows, and LLM automation for clinical and operational teams, and leading the training and change management behind adoption.",
+  },
+  {
+    period: "2024 — Jul 2026",
+    title: "AI Engineer & Technical Project Manager",
+    org: "Capital Energy",
+    desc: "Built a customer-facing RAG chatbot with agentic logic (40% faster response times) and an outbound lead reactivation agent on Voiceflow, Twilio, and ElevenLabs. Led the CRM migration to Core 365 and designed Make and Zapier automation pipelines — 40% less manual work, 30% faster setup.",
   },
   {
     period: "2024 — Present",
-    title: "Independent AI Engineer",
-    org: "Intelligent Integrations · Handshake AI · Outlier AI · Mercor",
-    desc: "Production LLM systems for enterprise clients and contract model-training work for frontier AI labs. Agentic workflows, RAG platforms, and evaluation infrastructure.",
+    title: "AI Model Training & Prompt Engineering Specialist",
+    org: "Handshake AI · Outlier AI · Mercor",
+    desc: "Contract work for frontier AI platforms: expert data annotation and dataset curation for LLM training, evaluation of outputs against reward metrics, and RLHF and preference-data workflows.",
   },
   {
-    period: "2022 — 2024",
-    title: "AI Implementation Lead",
-    org: "Capital Energy",
-    desc: "Led enterprise AI adoption across sales and operations — production deployments of custom assistants, automations, and data pipelines with measurable operational impact.",
+    period: "2022 — 2025",
+    title: "Instructional Designer & AP Computer Science Teacher",
+    org: "Gilbert Public Schools",
+    desc: "Designed computer science curriculum and taught AP Computer Science, alongside instructional design and technology training work for staff.",
   },
+  {
+    period: "2017 — 2022",
+    title: "Instructional Designer & Technology Trainer",
+    org: "Higley Unified School District",
+    desc: "Led district-wide technology training and instructional design programs — the foundation of the adoption and change-management work I now apply to enterprise AI rollouts.",
+  },
+];
+
+const EDUCATION = [
+  { period: "2026 — 2027", title: "M.S., Artificial Intelligence Engineering", org: "Quantic School of Business & Technology" },
+  { period: "2020 — 2022", title: "M.Ed., Education", org: "Arizona State University" },
+  { period: "2010 — 2013", title: "B.A.", org: "Arizona State University" },
+];
+
+const CERTIFICATIONS = [
+  "IBM / Coursera — Retrieval Augmented Generation (RAG)",
+  "IBM / Coursera — Agentic AI",
+  "PMI — Certified Associate in Project Management (CAPM)",
+  "Anthropic — Claude Code 101",
 ];
 
 const CAPABILITIES = [
   "Production AI systems from architecture through operations",
-  "Enterprise AI governance, policy, and compliance frameworks",
-  "Security-first design for LLM applications and agentic systems",
   "RAG and retrieval infrastructure over sensitive corpora",
   "Agentic workflow development with structured evaluation",
-  "Technical program leadership across engineering and business teams",
-  "Change management and cross-functional AI adoption",
-  "LLM evaluation, benchmarking, and continuous quality monitoring",
+  "HIPAA-aware and security-first design for LLM applications",
+  "LLM evaluation, reward metrics, and hallucination mitigation",
+  "Automation and systems integration across CRM and operations tooling",
+  "Technical project management across engineering and business teams",
+  "Training, enablement, and change management for AI adoption",
 ];
+
 
 function AboutPage() {
   return (
@@ -71,11 +97,13 @@ function AboutPage() {
                 applied machine learning, security engineering, and technical program leadership.
               </p>
               <p className="mt-4 text-base leading-relaxed text-foreground/85">
-                I design and operate enterprise AI systems where governance, compliance, and
-                infrastructure are first-class concerns: HIPAA-aware agentic workflows, PHI-safe
-                RAG over sensitive corpora, and evaluation harnesses that make model behavior
-                auditable. My focus is quiet, durable AI &mdash; the kind regulated organizations can
-                actually put in production.
+                Today I lead AI engineering at Behavior Frontiers, where I&rsquo;m the founding AI
+                resource for a national behavioral health network &mdash; HIPAA-compliant
+                infrastructure, RAG pipelines, and agentic workflows for clinical and operational
+                teams. Before that I built customer-facing RAG assistants and automation programs
+                in the solar industry, and I continue contract model-training and evaluation work
+                for frontier AI platforms. A decade of instructional design and technology training
+                sits underneath all of it: the systems only matter if people adopt them.
               </p>
               <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6 text-sm">
                 <div>
@@ -92,9 +120,10 @@ function AboutPage() {
                 </div>
                 <div>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Based</dt>
-                  <dd className="mt-1 text-foreground/90">United States · Remote</dd>
+                  <dd className="mt-1 text-foreground/90">Gilbert, Arizona · Remote</dd>
                 </div>
               </dl>
+
             </div>
             <div className="order-1 md:order-2">
               <figure className="relative">
@@ -164,6 +193,36 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_2fr]">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Education &amp; credentials</p>
+              <h2 className="mt-3 text-2xl md:text-3xl">Formal grounding.</h2>
+            </div>
+            <div className="grid gap-10 sm:grid-cols-2">
+              <ul className="space-y-6">
+                {EDUCATION.map((e) => (
+                  <li key={e.title}>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{e.period}</p>
+                    <p className="mt-1 text-sm font-semibold">{e.title}</p>
+                    <p className="text-sm text-muted-foreground">{e.org}</p>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-3">
+                <li className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Certifications</li>
+                {CERTIFICATIONS.map((c) => (
+                  <li key={c} className="border-b border-border/70 pb-3 text-sm">{c}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
 
       <section>
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-3 md:py-24">
