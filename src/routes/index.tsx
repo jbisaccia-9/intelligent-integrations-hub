@@ -760,12 +760,13 @@ function ChapterFour() {
         <div ref={githubReveal.ref} className={`mt-24 ${githubReveal.className}`}>
           <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-center">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Open work</p>
-              <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">Architecture, implementation, and decisions in the open.</h3>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Elsewhere</p>
+              <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">Profiles and background.</h3>
               <p className="mt-6 max-w-2xl text-muted-foreground">
-                Production-ready AI projects, architecture decisions, and engineering documentation
-                &mdash; published on GitHub.
+                Most of my work lives inside client and employer environments. For background,
+                the resume and profile links below are the fastest way to see scope and history.
               </p>
+
             </div>
             <a
               href={GITHUB_URL}
