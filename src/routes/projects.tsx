@@ -243,14 +243,15 @@ function ProjectsPage() {
             className="mt-8 max-w-4xl font-display leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.75rem, 7vw, 6rem)" }}
           >
-            Work delivered in production environments.
+            Gates, harnesses, and delivered systems.
           </h1>
           <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Engagements below are drawn from professional roles. Each leads with what it
-            changed for the organization, followed by architecture, security, and governance
-            decisions. Where work is ongoing or client-confidential, scope is described rather
-            than embellished.
+            Two bodies of work: open-source evaluation and governance harnesses published on
+            GitHub &mdash; runnable, tested, and CI-checked on synthetic data &mdash; and
+            professional engagements delivered inside employer and client environments. The two
+            are kept separate on purpose.
           </p>
+
         </div>
       </section>
       <DataStreamDivider />
