@@ -357,11 +357,12 @@ function ProjectsPage() {
             <CircuitBackdrop />
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-medium">GitHub profile</p>
+                <p className="text-sm font-medium">All seven gate projects live on GitHub</p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Most engineering work is delivered inside client and employer environments and
-                  is not public.
+                  Clone, run the tests, and read the limits each repository documents. Client and
+                  employer work stays private.
                 </p>
+
               </div>
               <a
                 href={GITHUB_URL}
