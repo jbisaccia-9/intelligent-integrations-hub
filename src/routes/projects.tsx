@@ -260,8 +260,69 @@ function ProjectsPage() {
         <TokenStream />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-16 md:py-20">
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+            Open-source evaluation &amp; governance harnesses
+          </p>
+          <h2 className="mt-3 text-2xl md:text-3xl">
+            Nothing ships until it passes a gate &mdash; and the gate itself must be earned.
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
+            Seven runnable, tested, CI-checked projects published on GitHub. Every dataset is
+            synthetic, every repository documents its own limits, and none of these are employer
+            or client production deployments.
+          </p>
+          <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
+            {GATES.map((g, i) => (
+              <a
+                key={g.name}
+                href={g.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex flex-col bg-background p-6 transition-colors hover:bg-surface"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-[10px] tracking-[0.22em] text-primary/70 tabular-nums">
+                      [{String(i).padStart(2, "0")}]
+                    </p>
+                    <h3 className="mt-2 font-mono text-base text-foreground">
+                      jbisaccia-9/<span className="text-primary">{g.name}</span>
+                    </h3>
+                  </div>
+                  <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/90">{g.tagline}</p>
+                <dl className="mt-4 space-y-2 text-sm">
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Gate</dt>
+                    <dd className="mt-0.5 text-foreground/85">{g.gate}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Evidence</dt>
+                    <dd className="mt-0.5 text-foreground/85">{g.evidence}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Limits</dt>
+                    <dd className="mt-0.5 text-muted-foreground">{g.caveat}</dd>
+                  </div>
+                </dl>
+                <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
+                  {g.tags.map((t) => (
+                    <span key={t} className="rounded border border-black/10 bg-black/[0.02] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <DataStreamDivider className="mt-20" />
+
+          <p className="mt-20 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
             Professional engagements
           </p>
+          <h2 className="mt-3 text-2xl md:text-3xl">Delivered inside employer and client environments.</h2>
+
           <div className="mt-10 space-y-16">
             {PROJECTS.map((p, i) => (
               <ProjectCard key={p.slug} project={p} index={i + 1} />
