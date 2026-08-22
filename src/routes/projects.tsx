@@ -254,7 +254,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <header className="flex flex-wrap items-start justify-between gap-4 border-b border-border p-6 md:p-8">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-            Case {String(index).padStart(2, "0")} · {project.context}
+            {String(index).padStart(2, "0")} · {project.context}
           </p>
           <h2 className="mt-2 text-2xl md:text-3xl">{project.title}</h2>
         </div>
