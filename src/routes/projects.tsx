@@ -8,9 +8,10 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Joseph Bisaccia" },
-      { name: "description", content: "Engineering case studies from Joseph Bisaccia — enterprise RAG platforms, HIPAA-compliant agentic workflows, and production AI infrastructure." },
+      { name: "description", content: "Production AI work by Joseph Bisaccia: HIPAA-compliant AI infrastructure in behavioral health, RAG and agentic assistants, automation programs, and frontier-lab model evaluation." },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
-      { property: "og:description", content: "Engineering case studies for production AI systems: governance, security, and infrastructure." },
+      { property: "og:description", content: "Delivered AI engagements and representative capabilities: RAG, agentic workflows, governance, and automation." },
+
     ],
     links: [{ rel: "canonical", href: "/projects" }],
   }),
