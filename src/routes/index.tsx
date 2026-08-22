@@ -717,8 +717,9 @@ function ChapterFour() {
             <div>
               <ChapterLabel n="04" name="WORK" />
               <h2 className="mt-6 max-w-4xl text-4xl leading-[1.05] md:text-6xl">
-                Selected engineering case studies.
+                Selected engineering work.
               </h2>
+
             </div>
             <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80">
               All projects <ArrowRight className="h-3.5 w-3.5" />
