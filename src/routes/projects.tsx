@@ -154,7 +154,84 @@ const CAPABILITIES: { title: string; body: string }[] = [
 ];
 
 
+type Gate = {
+  name: string;
+  repo: string;
+  tagline: string;
+  gate: string;
+  evidence: string;
+  caveat: string;
+  tags: string[];
+};
+
+const GATES: Gate[] = [
+  {
+    name: "rag-gate",
+    repo: "https://github.com/jbisaccia-9/rag-gate",
+    tagline: "Retrieval quality gate for RAG systems — the index only serves once retrieval is good enough.",
+    gate: "Serves only at recall@3 ≥ 0.90.",
+    evidence: "Baseline caught at 0.83, then fixed to 1.00 on the current small synthetic set.",
+    caveat: "Synthetic corpus; README notes benchmark saturation and the limits of a small labeled set.",
+    tags: ["RAG", "Retrieval eval", "CI gate"],
+  },
+  {
+    name: "kappa-gate",
+    repo: "https://github.com/jbisaccia-9/kappa-gate",
+    tagline: "Calibration harness for LLM-as-judge evaluation using Cohen's kappa against human labels.",
+    gate: "Requires kappa ≥ 0.70 and agreement ≥ 0.85 before a judge is trusted.",
+    evidence: "The mock judge is refused; a recorded claude-opus-5 run passes.",
+    caveat: "Dimension-level limitations documented in the README; small labeled sample.",
+    tags: ["LLM-as-judge", "Cohen's kappa", "Evaluation"],
+  },
+  {
+    name: "perm-gate",
+    repo: "https://github.com/jbisaccia-9/perm-gate",
+    tagline: "Prompt-layer guardrails versus permission-layer enforcement, measured side by side.",
+    gate: "Access decisions must be enforced below the prompt, not inside it.",
+    evidence: "On the synthetic test set, prompt mode leaked 4/5; permission mode leaked 0/5.",
+    caveat: "The assistant under test is deliberately not an LLM — the README explains why that isolates the variable.",
+    tags: ["Authorization", "Guardrails", "Security"],
+  },
+  {
+    name: "phi-gate",
+    repo: "https://github.com/jbisaccia-9/phi-gate",
+    tagline: "Regex-tier redaction gate for PHI-shaped identifiers in healthcare-adjacent text.",
+    gate: "Redaction must clear the recall and precision floor before text moves downstream.",
+    evidence: "Recall 1.00 and precision 0.95 on the current synthetic corpus.",
+    caveat: "Free-text names and addresses are explicitly out of scope for the regex tier.",
+    tags: ["PHI", "Redaction", "Healthcare"],
+  },
+  {
+    name: "roi-gate",
+    repo: "https://github.com/jbisaccia-9/roi-gate",
+    tagline: "A deliberately conservative model for AI adoption ROI, built to resist vendor-deck math.",
+    gate: "CI refuses aggressive assumptions before a number can be published.",
+    evidence: "On the synthetic example, the conservative model reports $24,048/yr against $517,704/yr under vendor-deck assumptions.",
+    caveat: "Illustrative synthetic inputs — a modeling tool, not a forecast of any organization's results.",
+    tags: ["ROI modeling", "Assumption gating", "CI"],
+  },
+  {
+    name: "target-gate",
+    repo: "https://github.com/jbisaccia-9/target-gate",
+    tagline: "Twice-monthly provider-targeting pipeline where list delivery is blocked until quality gates pass.",
+    gate: "Identifier, freshness, dedupe, coverage, and brief-grounding gates must all pass before delivery.",
+    evidence: "Synthetic fixtures committed to the repo; production-shaped adapters for Azure Functions, Foundry, and Graph.",
+    caveat: "Fixtures are synthetic; adapters are production-shaped rather than a deployed production system.",
+    tags: ["Pipelines", "Data quality", "Azure"],
+  },
+  {
+    name: "trade-gate",
+    repo: "https://github.com/jbisaccia-9/trade-gate",
+    tagline: "Order-validation guardrail design study — how a validation layer refuses malformed intent.",
+    gate: "Orders must clear validation rules before they are ever considered valid.",
+    evidence: "Synthetic fixtures with tested, CI-checked validation rules.",
+    caveat: "Educational design study. Not a trading system and not financial advice.",
+    tags: ["Validation", "Guardrails", "Educational"],
+  },
+];
+
 function ProjectsPage() {
+
   return (
     <SiteLayout>
       <section id="projects-hero" className="relative isolate overflow-hidden border-b border-black/8">
