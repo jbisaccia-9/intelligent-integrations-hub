@@ -97,11 +97,13 @@ function AboutPage() {
                 applied machine learning, security engineering, and technical program leadership.
               </p>
               <p className="mt-4 text-base leading-relaxed text-foreground/85">
-                I design and operate enterprise AI systems where governance, compliance, and
-                infrastructure are first-class concerns: HIPAA-aware agentic workflows, PHI-safe
-                RAG over sensitive corpora, and evaluation harnesses that make model behavior
-                auditable. My focus is quiet, durable AI &mdash; the kind regulated organizations can
-                actually put in production.
+                Today I lead AI engineering at Behavior Frontiers, where I&rsquo;m the founding AI
+                resource for a national behavioral health network &mdash; HIPAA-compliant
+                infrastructure, RAG pipelines, and agentic workflows for clinical and operational
+                teams. Before that I built customer-facing RAG assistants and automation programs
+                in the solar industry, and I continue contract model-training and evaluation work
+                for frontier AI platforms. A decade of instructional design and technology training
+                sits underneath all of it: the systems only matter if people adopt them.
               </p>
               <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6 text-sm">
                 <div>
@@ -118,9 +120,10 @@ function AboutPage() {
                 </div>
                 <div>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Based</dt>
-                  <dd className="mt-1 text-foreground/90">United States · Remote</dd>
+                  <dd className="mt-1 text-foreground/90">Gilbert, Arizona · Remote</dd>
                 </div>
               </dl>
+
             </div>
             <div className="order-1 md:order-2">
               <figure className="relative">
