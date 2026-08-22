@@ -21,12 +21,12 @@ export const Route = createFileRoute("/privacy")({
 function Section({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
   return (
     <section className="mt-14 first:mt-0">
-      <p className={MOTIF_MONO_LABEL}>
+      <h2 className={MOTIF_MONO_LABEL}>
         <span className="text-primary/80">{"//"}</span>{" "}
         <span className="tabular-nums text-foreground/80">{n}</span>
         <span className="mx-2 text-black/25">—</span>
         <span>{title}</span>
-      </p>
+      </h2>
       <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-foreground/80">{children}</div>
       <div className="mt-10">
         <DataStreamDivider />
