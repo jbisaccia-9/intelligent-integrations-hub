@@ -50,58 +50,58 @@ const EXPERTISE = [
 
 const FEATURED_PROJECTS = [
   {
-    slug: "hipaa-clinical-copilot",
-    title: "HIPAA-compliant clinical agent platform",
+    slug: "hipaa-clinical-ai-function",
+    title: "Founding the AI function in regulated healthcare",
     context: "Behavior Frontiers · Healthcare",
     summary:
-      "Gave clinical and operations teams a safe way to use LLMs over PHI — cutting documentation turnaround and setting the internal blueprint for regulated AI expansion.",
-    stack: ["LangGraph", "OpenAI", "pgvector", "AWS"],
+      "Building HIPAA-compliant AI infrastructure, RAG pipelines, and agentic workflows for clinical and operational teams across a national network of autism and behavioral health centers.",
+    stack: ["Python", "LangChain", "RAG", "HIPAA"],
   },
   {
-    slug: "enterprise-rag-platform",
-    title: "Enterprise RAG platform",
-    context: "Multi-tenant knowledge retrieval",
+    slug: "solar-rag-chatbot",
+    title: "Customer-facing RAG chatbot with agentic logic",
+    context: "Capital Energy · Solar",
     summary:
-      "Unified grounded knowledge access across departments with per-tenant isolation and citation-first synthesis — measurable answer quality, zero observed cross-tenant leakage.",
-    stack: ["pgvector", "OpenSearch", "Bedrock", "Terraform"],
+      "Designed and deployed an inbound-query assistant that reduced response times by 40% and increased self-service adoption.",
+    stack: ["RAG", "Agentic logic", "API integration"],
   },
   {
-    slug: "agentic-ops-copilots",
-    title: "Agentic operations copilots",
-    context: "Sales, RevOps & back-office",
+    slug: "lead-reactivation-agent",
+    title: "Outbound lead reactivation agent",
+    context: "Capital Energy · Sales operations",
     summary:
-      "Redirected significant operational hours to higher-leverage work via tool-using agents with structured evaluation harnesses keeping behavior within policy.",
-    stack: ["LangChain", "Temporal", "OpenAI", "Anthropic"],
+      "Voice and messaging agent built with Voiceflow, Twilio, and ElevenLabs to automate prospect engagement and accelerate pipeline.",
+    stack: ["Voiceflow", "Twilio", "ElevenLabs"],
   },
 ];
 
 const LEADERSHIP = [
   {
-    kicker: "Company-wide rollout",
-    title: "Microsoft Copilot enablement — Lead",
-    body: "Designed and delivered the Copilot training program for mid-level managers. Expanding the rollout across the organization's behavioral therapy practice.",
+    kicker: "Founding AI resource",
+    title: "Standing up an enterprise AI function",
+    body: "Leading AI engineering from the ground up across a national network of behavioral health centers — infrastructure, governance priorities, and delivery.",
   },
   {
-    kicker: "Department-level AI",
-    title: "Custom GPTs in deployment",
-    body: "Currently deploying five department-scoped GPTs — each tuned to the workflows, sources, and guardrails of the team it serves.",
+    kicker: "Governance & security",
+    title: "Compliance-oriented implementation",
+    body: "Setting governance-oriented AI priorities with clinical, operations, and department stakeholders so enterprise workflows stay auditable and compliant.",
   },
   {
-    kicker: "Executive & operations",
-    title: "Agentic workflows for the back office",
-    body: "Building agentic systems that assist executive-level reporting and scheduling, and streamline HR and billing operations.",
+    kicker: "Training enablement",
+    title: "Change management for distributed teams",
+    body: "Leading staff training and change management so distributed teams adopt AI tools responsibly — building on a decade of instructional design and district-wide rollouts.",
   },
   {
-    kicker: "Community",
-    title: "The Velocity Room",
-    body: "Active member of an AI engineering collective — recurring meetups, technical exchange, and shared work with practicing AI engineers.",
+    kicker: "Frontier model work",
+    title: "Model training & evaluation",
+    body: "Ongoing contract work with Handshake AI, Outlier AI, and Mercor: dataset curation, reward-metric evaluation, and RLHF preference workflows.",
   },
 ];
 
 const STATS = [
-  { target: 65, suffix: "", label: "Managers trained in Copilot program" },
-  { target: 250, suffix: "+", label: "Practitioners in expanding rollout" },
-  { target: 5, suffix: "", label: "Custom department GPTs in deployment" },
+  { target: 40, suffix: "%", label: "Faster response times from the RAG assistant" },
+  { target: 40, suffix: "%", label: "Reduction in manual operational work via automation" },
+  { target: 30, suffix: "%", label: "Reduction in setup time across workflows" },
 ];
 
 const PERSPECTIVE_LINES = [
@@ -109,6 +109,7 @@ const PERSPECTIVE_LINES = [
   "challenge, not an engineering one.",
   "The model is the easy part.",
 ];
+
 
 function Home() {
   useHeroScrollFade();
