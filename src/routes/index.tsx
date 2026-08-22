@@ -749,8 +749,9 @@ function ChapterFour() {
                   ))}
                 </div>
                 <span className="relative inline-flex items-center gap-1 text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                  Read case study <ArrowRight className="h-3.5 w-3.5" />
+                  See details <ArrowRight className="h-3.5 w-3.5" />
                 </span>
+
               </div>
             </Link>
           ))}
