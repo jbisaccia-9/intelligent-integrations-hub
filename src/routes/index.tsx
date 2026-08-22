@@ -892,7 +892,7 @@ function ChapterFive() {
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
                 Connect With Joseph <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <a href="/resume.pdf" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+              <a href="/resume.pdf?v=2026-08-22-databricks" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 Download resume →
               </a>
             </div>
