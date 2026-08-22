@@ -8,9 +8,10 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Joseph Bisaccia" },
-      { name: "description", content: "Production AI work by Joseph Bisaccia: HIPAA-compliant AI infrastructure in behavioral health, RAG and agentic assistants, automation programs, and frontier-lab model evaluation." },
+      { name: "description", content: "Seven open-source AI evaluation and governance harnesses (rag-gate, kappa-gate, perm-gate, phi-gate, roi-gate, target-gate, trade-gate) plus professional AI engineering engagements." },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
-      { property: "og:description", content: "Delivered AI engagements and representative capabilities: RAG, agentic workflows, governance, and automation." },
+      { property: "og:description", content: "Open-source evaluation and governance gates on GitHub, plus delivered enterprise AI engagements." },
+
 
     ],
     links: [{ rel: "canonical", href: "https://getaiintegrations.com/projects" }],
