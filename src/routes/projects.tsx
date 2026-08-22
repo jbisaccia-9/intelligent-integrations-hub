@@ -165,12 +165,13 @@ function ProjectsPage() {
             className="mt-8 max-w-4xl font-display leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.75rem, 7vw, 6rem)" }}
           >
-            Case studies from production AI systems.
+            Work delivered in production environments.
           </h1>
           <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Each entry leads with the outcome and what it enabled for the organization,
-            followed by the architecture, security, and governance decisions that made it
-            possible.
+            Engagements below are drawn from professional roles. Each leads with what it
+            changed for the organization, followed by architecture, security, and governance
+            decisions. Where work is ongoing or client-confidential, scope is described rather
+            than embellished.
           </p>
         </div>
       </section>
@@ -179,7 +180,10 @@ function ProjectsPage() {
       <section className="relative isolate overflow-hidden">
         <TokenStream />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-16 md:py-20">
-          <div className="space-y-16">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+            Professional engagements
+          </p>
+          <div className="mt-10 space-y-16">
             {PROJECTS.map((p, i) => (
               <ProjectCard key={p.slug} project={p} index={i + 1} />
             ))}
@@ -187,13 +191,36 @@ function ProjectsPage() {
 
           <DataStreamDivider className="mt-20" />
 
-          <div className="relative isolate mt-10 overflow-hidden rounded-lg border border-border bg-surface p-6">
+          <div className="mt-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+              Representative capabilities
+            </p>
+            <h2 className="mt-3 text-2xl md:text-3xl">What I can build for an engagement.</h2>
+            <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+              Capability areas rather than delivered case studies &mdash; scoped to a client&rsquo;s
+              environment during discovery.
+            </p>
+            <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">
+              {CAPABILITIES.map((c, i) => (
+                <div key={c.title} className="bg-background p-6">
+                  <p className="font-mono text-[10px] tracking-[0.22em] text-primary/70 tabular-nums">
+                    [{String(i).padStart(2, "0")}]
+                  </p>
+                  <h3 className="mt-2 text-lg leading-snug">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative isolate mt-16 overflow-hidden rounded-lg border border-border bg-surface p-6">
             <CircuitBackdrop />
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-medium">More engineering work on GitHub</p>
+                <p className="text-sm font-medium">GitHub profile</p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Architecture decisions, implementation details, and production-ready projects.
+                  Most engineering work is delivered inside client and employer environments and
+                  is not public.
                 </p>
               </div>
               <a
@@ -206,6 +233,7 @@ function ProjectsPage() {
               </a>
             </div>
           </div>
+
 
           <div className="mt-10">
             <Link to="/contact" className="inline-flex items-center gap-2 text-sm text-primary hover:opacity-80">
