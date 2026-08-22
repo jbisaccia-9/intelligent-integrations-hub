@@ -12,8 +12,34 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Joseph Bisaccia is a Lead AI Engineer helping organizations deploy AI responsibly at scale — governance, compliance, infrastructure, and agentic workflows." },
       { property: "og:title", content: "About — Joseph Bisaccia" },
       { property: "og:description", content: "Lead AI Engineer helping organizations deploy AI responsibly at scale." },
+      { property: "og:type", content: "profile" },
+      { property: "og:url", content: "https://getaiintegrations.com/about" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://getaiintegrations.com/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          "@id": "https://getaiintegrations.com/about#webpage",
+          url: "https://getaiintegrations.com/about",
+          name: "About — Joseph Bisaccia",
+          description:
+            "Joseph Bisaccia is a Lead AI Engineer helping organizations deploy AI responsibly at scale — governance, compliance, infrastructure, and agentic workflows.",
+          isPartOf: { "@id": "https://getaiintegrations.com/#website" },
+          mainEntity: { "@id": "https://getaiintegrations.com/#person" },
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://getaiintegrations.com/" },
+              { "@type": "ListItem", position: 2, name: "About", item: "https://getaiintegrations.com/about" },
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: AboutPage,
 });
