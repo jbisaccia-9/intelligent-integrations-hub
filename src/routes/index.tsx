@@ -214,7 +214,7 @@ function Hero() {
         </div>
         <div className="mt-20 grid gap-8 border-t border-black/8 pt-8 text-sm text-muted-foreground sm:grid-cols-3">
           <Meta label="Focus" value="Enterprise AI Governance, Security, Infrastructure" />
-          <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers &mdash; leading company-wide AI enablement" />
+          <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers &mdash; building the AI function from the ground up" />
           <Meta label="Open to" value="Advisory engagements &amp; speaking opportunities" />
         </div>
       </div>
