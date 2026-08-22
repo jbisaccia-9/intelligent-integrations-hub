@@ -64,15 +64,27 @@ const CERTIFICATIONS = [
   "Anthropic — Claude Code 101",
 ];
 
-const CAPABILITIES = [
-  "Production AI systems from architecture through operations",
-  "RAG and retrieval infrastructure over sensitive corpora",
-  "Agentic workflow development with structured evaluation",
-  "HIPAA-aware and security-first design for LLM applications",
-  "LLM evaluation, reward metrics, and hallucination mitigation",
-  "Automation and systems integration across CRM and operations tooling",
-  "Technical project management across engineering and business teams",
-  "Training, enablement, and change management for AI adoption",
+const CAPABILITY_PILLARS = [
+  {
+    n: "01",
+    title: "Enterprise AI architecture",
+    desc: "Secure, production-minded AI systems spanning RAG, agentic workflows, integrations, and operations.",
+  },
+  {
+    n: "02",
+    title: "Governance, security & evaluation",
+    desc: "HIPAA-aware design, permission boundaries, measurable evaluation, hallucination mitigation, and release gates.",
+  },
+  {
+    n: "03",
+    title: "Automation & systems integration",
+    desc: "CRM, operations, and back-office workflows connected through practical APIs and automation platforms.",
+  },
+  {
+    n: "04",
+    title: "Adoption & technical leadership",
+    desc: "Technical program leadership, staff enablement, change management, and the training needed to make systems stick.",
+  },
 ];
 
 
@@ -178,18 +190,26 @@ function AboutPage() {
           <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_2fr]">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Capabilities</p>
-              <h2 className="mt-3 text-2xl md:text-3xl">What I bring to engagements.</h2>
+              <h2 className="mt-3 text-2xl md:text-3xl">An operating model for applied AI.</h2>
             </div>
-            <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
-              {CAPABILITIES.map((c, i) => (
-                <li key={c} className="flex items-start gap-3 border-b border-border/70 pb-3 text-sm">
-                  <span className="mt-0.5 shrink-0 font-mono text-[10px] tracking-[0.22em] text-primary/70 tabular-nums">
-                    [{String(i).padStart(2, "0")}]
-                  </span>
-                  <span>{c}</span>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <p className="max-w-2xl text-sm leading-relaxed text-foreground/85">
+                The work follows a single thread: design the system, harden the guardrails, connect it to what the
+                business already runs, and build the adoption muscle so it actually lasts.
+              </p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {CAPABILITY_PILLARS.map((p) => (
+                  <div
+                    key={p.title}
+                    className="group rounded-md border border-border bg-surface p-5 transition-colors hover:bg-surface-elevated"
+                  >
+                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary/70">[{p.n}]</p>
+                    <h3 className="mt-3 text-base font-semibold leading-snug">{p.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/80">{p.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
