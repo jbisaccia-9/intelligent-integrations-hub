@@ -8,9 +8,10 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Joseph Bisaccia" },
-      { name: "description", content: "Production AI work by Joseph Bisaccia: HIPAA-compliant AI infrastructure in behavioral health, RAG and agentic assistants, automation programs, and frontier-lab model evaluation." },
+      { name: "description", content: "Seven open-source AI evaluation and governance harnesses (rag-gate, kappa-gate, perm-gate, phi-gate, roi-gate, target-gate, trade-gate) plus professional AI engineering engagements." },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
-      { property: "og:description", content: "Delivered AI engagements and representative capabilities: RAG, agentic workflows, governance, and automation." },
+      { property: "og:description", content: "Open-source evaluation and governance gates on GitHub, plus delivered enterprise AI engagements." },
+
 
     ],
     links: [{ rel: "canonical", href: "https://getaiintegrations.com/projects" }],
@@ -154,7 +155,84 @@ const CAPABILITIES: { title: string; body: string }[] = [
 ];
 
 
+type Gate = {
+  name: string;
+  repo: string;
+  tagline: string;
+  gate: string;
+  evidence: string;
+  caveat: string;
+  tags: string[];
+};
+
+const GATES: Gate[] = [
+  {
+    name: "rag-gate",
+    repo: "https://github.com/jbisaccia-9/rag-gate",
+    tagline: "Retrieval quality gate for RAG systems — the index only serves once retrieval is good enough.",
+    gate: "Serves only at recall@3 ≥ 0.90.",
+    evidence: "Baseline caught at 0.83, then fixed to 1.00 on the current small synthetic set.",
+    caveat: "Synthetic corpus; README notes benchmark saturation and the limits of a small labeled set.",
+    tags: ["RAG", "Retrieval eval", "CI gate"],
+  },
+  {
+    name: "kappa-gate",
+    repo: "https://github.com/jbisaccia-9/kappa-gate",
+    tagline: "Calibration harness for LLM-as-judge evaluation using Cohen's kappa against human labels.",
+    gate: "Requires kappa ≥ 0.70 and agreement ≥ 0.85 before a judge is trusted.",
+    evidence: "The mock judge is refused; a recorded claude-opus-5 run passes.",
+    caveat: "Dimension-level limitations documented in the README; small labeled sample.",
+    tags: ["LLM-as-judge", "Cohen's kappa", "Evaluation"],
+  },
+  {
+    name: "perm-gate",
+    repo: "https://github.com/jbisaccia-9/perm-gate",
+    tagline: "Prompt-layer guardrails versus permission-layer enforcement, measured side by side.",
+    gate: "Access decisions must be enforced below the prompt, not inside it.",
+    evidence: "On the synthetic test set, prompt mode leaked 4/5; permission mode leaked 0/5.",
+    caveat: "The assistant under test is deliberately not an LLM — the README explains why that isolates the variable.",
+    tags: ["Authorization", "Guardrails", "Security"],
+  },
+  {
+    name: "phi-gate",
+    repo: "https://github.com/jbisaccia-9/phi-gate",
+    tagline: "Regex-tier redaction gate for PHI-shaped identifiers in healthcare-adjacent text.",
+    gate: "Redaction must clear the recall and precision floor before text moves downstream.",
+    evidence: "Recall 1.00 and precision 0.95 on the current synthetic corpus.",
+    caveat: "Free-text names and addresses are explicitly out of scope for the regex tier.",
+    tags: ["PHI", "Redaction", "Healthcare"],
+  },
+  {
+    name: "roi-gate",
+    repo: "https://github.com/jbisaccia-9/roi-gate",
+    tagline: "A deliberately conservative model for AI adoption ROI, built to resist vendor-deck math.",
+    gate: "CI refuses aggressive assumptions before a number can be published.",
+    evidence: "On the synthetic example, the conservative model reports $24,048/yr against $517,704/yr under vendor-deck assumptions.",
+    caveat: "Illustrative synthetic inputs — a modeling tool, not a forecast of any organization's results.",
+    tags: ["ROI modeling", "Assumption gating", "CI"],
+  },
+  {
+    name: "target-gate",
+    repo: "https://github.com/jbisaccia-9/target-gate",
+    tagline: "Twice-monthly provider-targeting pipeline where list delivery is blocked until quality gates pass.",
+    gate: "Identifier, freshness, dedupe, coverage, and brief-grounding gates must all pass before delivery.",
+    evidence: "Synthetic fixtures committed to the repo; production-shaped adapters for Azure Functions, Foundry, and Graph.",
+    caveat: "Fixtures are synthetic; adapters are production-shaped rather than a deployed production system.",
+    tags: ["Pipelines", "Data quality", "Azure"],
+  },
+  {
+    name: "trade-gate",
+    repo: "https://github.com/jbisaccia-9/trade-gate",
+    tagline: "Order-validation guardrail design study — how a validation layer refuses malformed intent.",
+    gate: "Orders must clear validation rules before they are ever considered valid.",
+    evidence: "Synthetic fixtures with tested, CI-checked validation rules.",
+    caveat: "Educational design study. Not a trading system and not financial advice.",
+    tags: ["Validation", "Guardrails", "Educational"],
+  },
+];
+
 function ProjectsPage() {
+
   return (
     <SiteLayout>
       <section id="projects-hero" className="relative isolate overflow-hidden border-b border-black/8">
@@ -166,14 +244,15 @@ function ProjectsPage() {
             className="mt-8 max-w-4xl font-display leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.75rem, 7vw, 6rem)" }}
           >
-            Work delivered in production environments.
+            Gates, harnesses, and delivered systems.
           </h1>
           <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Engagements below are drawn from professional roles. Each leads with what it
-            changed for the organization, followed by architecture, security, and governance
-            decisions. Where work is ongoing or client-confidential, scope is described rather
-            than embellished.
+            Two bodies of work: open-source evaluation and governance harnesses published on
+            GitHub &mdash; runnable, tested, and CI-checked on synthetic data &mdash; and
+            professional engagements delivered inside employer and client environments. The two
+            are kept separate on purpose.
           </p>
+
         </div>
       </section>
       <DataStreamDivider />
@@ -182,8 +261,69 @@ function ProjectsPage() {
         <TokenStream />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-16 md:py-20">
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+            Open-source evaluation &amp; governance harnesses
+          </p>
+          <h2 className="mt-3 text-2xl md:text-3xl">
+            Nothing ships until it passes a gate &mdash; and the gate itself must be earned.
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
+            Seven runnable, tested, CI-checked projects published on GitHub. Every dataset is
+            synthetic, every repository documents its own limits, and none of these are employer
+            or client production deployments.
+          </p>
+          <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
+            {GATES.map((g, i) => (
+              <a
+                key={g.name}
+                href={g.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex flex-col bg-background p-6 transition-colors hover:bg-surface"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-[10px] tracking-[0.22em] text-primary/70 tabular-nums">
+                      [{String(i).padStart(2, "0")}]
+                    </p>
+                    <h3 className="mt-2 font-mono text-base text-foreground">
+                      jbisaccia-9/<span className="text-primary">{g.name}</span>
+                    </h3>
+                  </div>
+                  <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/90">{g.tagline}</p>
+                <dl className="mt-4 space-y-2 text-sm">
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Gate</dt>
+                    <dd className="mt-0.5 text-foreground/85">{g.gate}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Evidence</dt>
+                    <dd className="mt-0.5 text-foreground/85">{g.evidence}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Limits</dt>
+                    <dd className="mt-0.5 text-muted-foreground">{g.caveat}</dd>
+                  </div>
+                </dl>
+                <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
+                  {g.tags.map((t) => (
+                    <span key={t} className="rounded border border-black/10 bg-black/[0.02] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <DataStreamDivider className="mt-20" />
+
+          <p className="mt-20 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
             Professional engagements
           </p>
+          <h2 className="mt-3 text-2xl md:text-3xl">Delivered inside employer and client environments.</h2>
+
           <div className="mt-10 space-y-16">
             {PROJECTS.map((p, i) => (
               <ProjectCard key={p.slug} project={p} index={i + 1} />
@@ -218,11 +358,12 @@ function ProjectsPage() {
             <CircuitBackdrop />
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-medium">GitHub profile</p>
+                <p className="text-sm font-medium">All seven gate projects live on GitHub</p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Most engineering work is delivered inside client and employer environments and
-                  is not public.
+                  Clone, run the tests, and read the limits each repository documents. Client and
+                  employer work stays private.
                 </p>
+
               </div>
               <a
                 href={GITHUB_URL}
