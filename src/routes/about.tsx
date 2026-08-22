@@ -225,7 +225,7 @@ function AboutPage() {
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Education &amp; credentials</p>
               <h2 className="mt-3 text-2xl md:text-3xl">Formal grounding.</h2>
             </div>
-            <div className="grid gap-10 sm:grid-cols-2">
+            <div className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
               <ul className="space-y-6">
                 {EDUCATION.map((e) => (
                   <li key={e.title}>
@@ -235,13 +235,22 @@ function AboutPage() {
                   </li>
                 ))}
               </ul>
-              <ul className="space-y-3">
-                <li className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Certifications</li>
-                {CERTIFICATIONS.map((c) => (
-                  <li key={c} className="border-b border-border/70 pb-3 text-sm">{c}</li>
-                ))}
-              </ul>
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Certifications</p>
+                <ul className="mt-4 divide-y divide-border/70 border-t border-border/70">
+                  {CERTIFICATIONS.map((c) => (
+                    <li key={c.name} className="flex items-baseline justify-between gap-4 py-3">
+                      <div className="min-w-0">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">{c.issuer}</p>
+                        <p className="mt-0.5 text-sm leading-snug text-foreground/90">{c.name}</p>
+                      </div>
+                      <span className="shrink-0 font-mono text-[10px] tracking-[0.18em] text-muted-foreground">{c.year}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
