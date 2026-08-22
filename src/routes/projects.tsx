@@ -34,114 +34,124 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    slug: "hipaa-clinical-copilot",
-    title: "HIPAA-compliant clinical agent platform",
-    context: "Behavior Frontiers · Regulated healthcare",
+    slug: "hipaa-clinical-ai-function",
+    title: "Enterprise AI function for a national behavioral health network",
+    context: "Behavior Frontiers · Jul 2026 – Present",
     problem:
-      "Clinical and operations teams spent hours navigating fragmented documentation, intake, and reporting workflows across PHI-heavy systems, with no safe path to apply LLMs.",
+      "A national network of autism and behavioral health centers had no in-house AI engineering capability and no compliant path to apply LLMs to clinical and operational work.",
     solution:
-      "An agentic workflow platform that assists staff over PHI-safe knowledge bases, drafts intake and documentation artifacts, and routes anything ambiguous to a human reviewer.",
+      "Serving as the founding AI engineering resource: building HIPAA-compliant AI infrastructure, RAG pipelines, agentic workflows, and LLM-powered automation for clinical and operational teams.",
     architecture:
-      "Retrieval layer over segmented, tenant-scoped indexes; tool-using agents orchestrated with typed contracts; evaluation harness with golden sets, red-team suites, and continuous regression tracking.",
-    technologies: ["Python", "TypeScript", "LangGraph", "OpenAI", "Anthropic", "Postgres / pgvector", "AWS", "Terraform"],
+      "Retrieval pipelines over internal documentation, agentic workflows for repeatable operational tasks, and LLM automation integrated with existing enterprise systems.",
+    technologies: ["Python", "LangChain", "RAG", "Agentic workflows", "API integration"],
     security:
-      "PHI isolation, encryption in transit and at rest, least-privilege IAM, prompt-injection defenses, secret scanning, and full audit logging of model inputs, tool calls, and outputs.",
+      "HIPAA-compliant infrastructure design, PHI-aware data handling, and secure enterprise AI architecture patterns for a regulated clinical environment.",
     governance:
-      "Policy-driven guardrails, human-in-the-loop review, model and prompt versioning, evaluation gates before rollout, and structured incident response for model behavior regressions.",
+      "Governance-oriented implementation priorities set with clinical, operations, and department stakeholders; LLM evaluation and hallucination-mitigation practices applied to deployed workflows.",
     impact:
-      "Cut documentation turnaround for high-volume workflows, freed clinical time, and established an internal blueprint for safely extending LLMs to additional regulated workflows.",
+      "Established the organization's AI function and the training and change-management program that lets distributed teams adopt AI tools responsibly. Work is in progress; outcome metrics are not yet published.",
   },
   {
-    slug: "enterprise-rag-platform",
-    title: "Enterprise RAG platform",
-    context: "Multi-tenant knowledge retrieval",
+    slug: "solar-rag-chatbot",
+    title: "Customer-facing RAG chatbot with agentic logic",
+    context: "Capital Energy · 2024 – Jul 2026",
     problem:
-      "Teams across departments needed grounded answers over private document corpora, without leaking data across tenants or bypassing existing access controls.",
+      "Inbound solar inquiries arrived faster than the team could answer them, slowing response times and pushing routine questions onto sales staff.",
     solution:
-      "A governed retrieval platform with per-tenant isolation, hybrid vector + keyword search, permission-aware chunking, and policy-checked answer synthesis.",
+      "Designed and deployed a customer-facing RAG chatbot with agentic logic that answers inbound solar queries directly and hands off when human help is needed.",
     architecture:
-      "Ingestion pipeline with document normalization, chunking, and embedding; hybrid search over pgvector and OpenSearch; retrieval-time ACL enforcement; synthesis layer with citation-first prompting and refusal policies.",
-    technologies: ["pgvector", "OpenSearch", "OpenAI", "Bedrock", "TypeScript", "Terraform", "AWS"],
+      "Retrieval over the company's product and process documentation, agentic routing for multi-step questions, and integration with existing customer channels.",
+    technologies: ["RAG", "Prompt engineering", "Agentic logic", "API integration"],
     security:
-      "Row-level tenant isolation, IAM-scoped access, encrypted embeddings, prompt-injection sanitization, and continuous evaluation against exfiltration probes.",
+      "Scoped credentials for integrated systems and constrained retrieval sources to approved company content.",
     governance:
-      "Source citations on every answer, retrieval provenance logging, model routing policies, and evaluation dashboards for accuracy, refusal, and hallucination rates.",
+      "Prompt iteration guided by output review and response-quality evaluation before broader rollout.",
     impact:
-      "Unified knowledge access across departments with measurable answer quality and no observed cross-tenant leakage in production.",
+      "Reduced response times by 40% and increased self-service adoption for inbound queries.",
   },
   {
-    slug: "agentic-ops-copilots",
-    title: "Agentic operations copilots",
-    context: "Sales, RevOps &amp; back-office automation",
+    slug: "lead-reactivation-agent",
+    title: "Outbound lead reactivation agent",
+    context: "Capital Energy · 2024 – Jul 2026",
     problem:
-      "High-volume, long-tail operational work (CRM hygiene, document drafting, inbox triage) consumed skilled time and resisted deterministic automation.",
+      "A large backlog of dormant prospects sat untouched because manual outreach did not scale with the sales team's capacity.",
     solution:
-      "Tool-using agents that plan, act, and verify against enterprise systems, with structured evaluation harnesses ensuring behavior stays within policy as prompts and models evolve.",
+      "Built an outbound reactivation agent using Voiceflow, Twilio, and ElevenLabs to automate prospect engagement and route interested leads back to sales.",
     architecture:
-      "Durable orchestration for long-running agent runs, typed tool interfaces to internal systems, retrieval for context, and offline evaluation against curated task suites.",
-    technologies: ["LangChain", "Temporal", "TypeScript", "OpenAI", "Anthropic", "Postgres"],
+      "Conversation flows in Voiceflow, telephony and messaging via Twilio, synthesized voice via ElevenLabs, with outcomes written back to the CRM.",
+    technologies: ["Voiceflow", "Twilio", "ElevenLabs", "CRM administration"],
     security:
-      "Scoped tool credentials, per-agent policy allowlists, action-level audit trails, and human approvals gating destructive operations.",
+      "Scoped API credentials per integrated service and controlled contact lists for outreach.",
     governance:
-      "Deterministic evaluation gates in CI, model version pinning, prompt change review, and post-deployment behavior monitoring.",
+      "Human handoff for qualified conversations and review of agent transcripts to tune behavior.",
     impact:
-      "Redirected significant operational hours to higher-leverage work with measurable throughput gains and no material incident record.",
+      "Automated prospect engagement at scale and accelerated sales pipeline growth.",
   },
   {
-    slug: "voice-ai-front-desk",
-    title: "Voice AI front-desk & intake agent",
-    context: "Multi-location service operations",
+    slug: "crm-migration-automation",
+    title: "CRM migration and operational automation program",
+    context: "Capital Energy · Technical project management",
     problem:
-      "Front-desk staff were overwhelmed by inbound calls for scheduling, intake, and routine questions, causing missed calls and lost revenue outside business hours.",
+      "Fragmented systems and manual handoffs made operational work slow to run and slow to set up for new campaigns and teams.",
     solution:
-      "A production voice agent that answers calls, qualifies intent, books appointments, and escalates cleanly to a human — with structured call transcripts written back to the CRM.",
+      "Led the CRM migration to Core 365 as technical project manager — data migration, workflow redesign, and system integration — and designed Make and Zapier automation pipelines across operations.",
     architecture:
-      "Low-latency speech pipeline (STT → LLM planner → tool calls → TTS), telephony via SIP/Twilio, deterministic booking tools, and a supervisor model that scores every call for QA.",
-    technologies: ["Twilio", "Deepgram", "ElevenLabs", "OpenAI Realtime", "Node.js", "Postgres"],
+      "Migrated CRM data model and redesigned workflows, with Make and Zapier pipelines connecting CRM, communications, and internal tooling.",
+    technologies: ["Core 365", "Make", "Zapier", "CRM administration", "API integration"],
     security:
-      "Recording consent handling, PII redaction on transcripts, scoped API credentials per tenant, and rate-limited tool access to prevent misuse.",
+      "Controlled data migration with scoped access during cutover and per-connection credential management.",
     governance:
-      "Per-call evaluation scoring, escalation logging, prompt and voice version pinning, and dashboards tracking answer rate, booking conversion, and containment.",
+      "Staged migration plan with stakeholder sign-off, workflow documentation, and post-cutover support.",
     impact:
-      "Recovered a large share of previously missed calls and shifted routine intake off human staff without measurable drop in caller satisfaction.",
+      "Reduced manual operational work by 40% and setup time by 30%.",
   },
   {
-    slug: "n8n-integrations-suite",
-    title: "AI-native integrations & workflow suite",
-    context: "SMB automation · Intelligent Integrations",
+    slug: "frontier-model-training",
+    title: "Model training, evaluation, and RLHF contract work",
+    context: "Handshake AI · Outlier AI · Mercor · 2024 – Present",
     problem:
-      "Growing teams were stitching CRMs, billing, email, and internal tools together with brittle Zaps that broke silently and had no visibility into failures.",
+      "Frontier AI platforms need expert human judgment to curate training data and evaluate model behavior on technical and conversational tasks.",
     solution:
-      "A managed workflow layer built on n8n and typed adapters, augmented with LLM steps for classification, extraction, and drafting — with observability and replay built in.",
+      "Ongoing contract work performing expert data annotation and dataset curation for LLM training pipelines, evaluating outputs against reward metrics, and contributing to RLHF and preference-data workflows.",
     architecture:
-      "Self-hosted n8n on containerized infra, typed integration modules for Stripe / HubSpot / Gmail / Slack, LLM sub-workflows for enrichment and triage, and a run store for auditability.",
-    technologies: ["n8n", "TypeScript", "Stripe", "HubSpot", "OpenAI", "Docker", "Postgres"],
+      "Platform-provided annotation and evaluation environments with rubric-based scoring and preference comparison tasks.",
+    technologies: ["LLM evaluation", "RLHF", "Preference data", "Prompt engineering"],
     security:
-      "Per-workflow credential scoping, secret rotation, webhook signature verification, and structured error alerts to on-call.",
+      "Work performed under each platform's confidentiality and data-handling requirements; project specifics are not disclosed.",
     governance:
-      "Versioned workflows, staged rollouts, run-level audit trail, and SLOs tracked per integration for reliability and cost.",
+      "Rubric-driven scoring focused on response quality, alignment, consistency, and hallucination mitigation.",
     impact:
-      "Replaced a fragile Zap sprawl with a governed automation layer, cutting integration incidents and enabling AI-assisted steps inside existing business processes.",
-  },
-  {
-    slug: "llm-evaluation-harness",
-    title: "LLM evaluation & regression harness",
-    context: "Cross-team model quality tooling",
-    problem:
-      "Prompt and model changes were shipping without a reliable way to catch regressions, and stakeholders had no shared view of model quality over time.",
-    solution:
-      "A reusable evaluation harness with golden datasets, rubric-graded judges, red-team suites, and CI gates that block regressions before they reach production.",
-    architecture:
-      "Dataset registry with versioned test suites, deterministic + LLM-judge scoring, side-by-side model comparison, CI integration, and a dashboard for accuracy, cost, and latency trends.",
-    technologies: ["Python", "TypeScript", "OpenAI", "Anthropic", "GitHub Actions", "Postgres"],
-    security:
-      "Scrubbed evaluation datasets, isolated evaluation credentials, and controlled access to sensitive golden sets.",
-    governance:
-      "Signed-off evaluation gates before promotion, historical scorecards per prompt/model version, and clear ownership of failing suites.",
-    impact:
-      "Made model quality measurable and enforceable — teams ship prompt and model changes with confidence and a clear audit trail.",
+      "Directly informs how I design evaluation and hallucination-mitigation practices for enterprise deployments.",
   },
 ];
+
+const CAPABILITIES: { title: string; body: string }[] = [
+  {
+    title: "RAG and retrieval infrastructure",
+    body: "Ingestion, chunking, and retrieval over private corpora with citation-first synthesis and access-aware sourcing.",
+  },
+  {
+    title: "Agentic workflow development",
+    body: "Tool-using agents scoped to defined business processes, with human handoff at the points that need judgment.",
+  },
+  {
+    title: "LLM evaluation & hallucination mitigation",
+    body: "Rubric and reward-metric evaluation of model outputs, applied before rollout and revisited as prompts and models change.",
+  },
+  {
+    title: "Governed, compliant AI architecture",
+    body: "Secure enterprise AI patterns for healthcare and other regulated industries, including HIPAA-aware infrastructure design.",
+  },
+  {
+    title: "Automation & systems integration",
+    body: "Make, Zapier, and API-level integration across CRM, communications, and internal tooling.",
+  },
+  {
+    title: "Adoption, training & change management",
+    body: "Stakeholder engagement and training enablement so distributed teams actually use what gets built.",
+  },
+];
+
 
 function ProjectsPage() {
   return (
