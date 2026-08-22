@@ -48,7 +48,39 @@ const EXPERTISE = [
   "LLM Evaluation",
 ];
 
+const FEATURED_GATES = [
+  {
+    name: "rag-gate",
+    repo: "https://github.com/jbisaccia-9/rag-gate",
+    summary:
+      "Retrieval gate that only serves at recall@3 ≥ 0.90. Baseline caught at 0.83, fixed to 1.00 on the current small synthetic set.",
+    stack: ["RAG", "Retrieval eval", "CI gate"],
+  },
+  {
+    name: "kappa-gate",
+    repo: "https://github.com/jbisaccia-9/kappa-gate",
+    summary:
+      "LLM-as-judge calibration on Cohen's kappa — a judge is trusted only at kappa ≥ 0.70 and agreement ≥ 0.85. The mock judge is refused.",
+    stack: ["LLM-as-judge", "Calibration"],
+  },
+  {
+    name: "perm-gate",
+    repo: "https://github.com/jbisaccia-9/perm-gate",
+    summary:
+      "Prompt-layer guards versus permission-layer enforcement: on the synthetic set, prompt mode leaked 4/5 and permission mode 0/5.",
+    stack: ["Authorization", "Security"],
+  },
+  {
+    name: "phi-gate",
+    repo: "https://github.com/jbisaccia-9/phi-gate",
+    summary:
+      "Regex-tier PHI-shaped redaction gate — recall 1.00, precision 0.95 on the current synthetic corpus. Free-text names and addresses out of scope.",
+    stack: ["PHI", "Redaction"],
+  },
+];
+
 const FEATURED_PROJECTS = [
+
   {
     slug: "hipaa-clinical-ai-function",
     title: "Founding the AI function in regulated healthcare",
