@@ -1,86 +1,80 @@
 # getaiintegrations.com
 
-Personal portfolio site for **Joseph Bisaccia**, an AI Engineering Leader building enterprise-grade AI systems, governance harnesses, and the organizations that trust them.
+[![ci](https://github.com/jbisaccia-9/intelligent-integrations-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/jbisaccia-9/intelligent-integrations-hub/actions/workflows/ci.yml)
 
-Live site: [https://getaiintegrations.com](https://getaiintegrations.com)
+Source for [getaiintegrations.com](https://getaiintegrations.com) — the portfolio site of
+**Joseph Bisaccia**, Lead AI Engineer building secure, governed enterprise AI in
+regulated healthcare.
 
----
+The site is the front door to the [*-gate* projects](https://github.com/jbisaccia-9):
+seven runnable, tested, CI-checked harnesses with one thesis — **nothing ships until it
+passes a gate, and the gate itself must be earned.** This repo holds itself to the same
+standard: the site must build, and every repo it links to must exist, before a push lands.
 
-## About this project
+## The gate
 
-This is a curated career platform, not a business landing page. It presents my work across:
+| check | enforced where |
+|---|---|
+| `npm run build` succeeds | CI on every push/PR |
+| every `github.com/jbisaccia-9/<repo>` link on the site returns 200 | CI (`scripts/check_links.sh`) |
+| no secrets, vendor names, or machine paths in tracked content | local pre-push hook (`scripts/prepush_guard.sh`) |
 
-- **Enterprise AI architecture** — agentic workflows, clinical RAG, HIPAA-compliant pipelines
-- **AI governance & evaluation** — open-source "*-gate" harnesses for retrieval, safety, and performance
-- **Technical leadership** — enabling teams of 250+ practitioners, training 65+ managers
-- **Applied AI engineering** — forward-deployed systems, integrations, and platform strategy
+[`RESULTS.md`](RESULTS.md) is captured output from `scripts/make_results.sh` — regenerated
+by script, never hand-edited. Lint/format findings are *reported* there, not gated: the site
+is authored in Lovable, which rewrites formatting on every sync, so a prettier gate would
+fail on every regenerated file without saying anything about the site.
 
-The site reframes the earlier "Intelligent Integrations" business identity into an executive-trajectory portfolio: proof of work, perspective, and trajectory toward Head of AI / CTO roles.
+## Run it
 
----
+```bash
+npm install
+npm run dev      # local dev server
+npm run build    # the gate
+bash scripts/check_links.sh
+```
 
-## Tech stack
+Install the pre-push guard once per clone:
 
-- **Framework:** [TanStack Start](https://tanstack.com/start) (React 19, full-stack SSR/SSG)
-- **Build tool:** Vite 7
-- **Styling:** Tailwind CSS v4 with custom editorial design tokens
-- **Typography:** Instrument Serif display + mono annotations
-- **Motion:** GSAP ScrollTrigger, custom WebGL/Canvas scenes
-- **Deployment:** Lovable Cloud / Cloudflare Workers edge runtime
-- **Analytics:** Lovable project insights
+```bash
+cp scripts/prepush_guard.sh .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+```
 
----
+## What the site links to
 
-## Site structure
+| repo | the gate |
+|---|---|
+| [kappa-gate](https://github.com/jbisaccia-9/kappa-gate) | an LLM-as-judge is trusted only above Cohen's κ ≥ 0.70 against hand-authored labels |
+| [roi-gate](https://github.com/jbisaccia-9/roi-gate) | an ROI figure is reportable only if the model was biased *against* the claim |
+| [phi-gate](https://github.com/jbisaccia-9/phi-gate) | a PHI-shaped redaction layer must clear recall ≥ 0.95 before it may front an LLM |
+| [trade-gate](https://github.com/jbisaccia-9/trade-gate) | no order executes while the local book and the broker snapshot disagree |
+| [perm-gate](https://github.com/jbisaccia-9/perm-gate) | zero leaks under scoped credentials; the prompt-layer failure stays demonstrable |
+| [rag-gate](https://github.com/jbisaccia-9/rag-gate) | an index serves only above recall@3 ≥ 0.90 on labeled queries |
+| [target-gate](https://github.com/jbisaccia-9/target-gate) | no outbound list is sent until identifiers, freshness, dedupe, and coverage all clear |
 
-| Route | Purpose |
-|-------|---------|
-| `/` | Cinematic scroll narrative: leadership stats, perspective, featured work, contact |
-| `/projects` | Verified professional work + open-source `*-gate` evaluation harnesses |
-| `/about` | Career timeline, capabilities, certifications, downloadable resume |
-| `/contact` | Direct conversation channel for leadership opportunities & collaborations |
-| `/privacy` | Privacy policy + messaging consent (A2P compliant) |
-| `/terms` | Terms of service |
+## Stack
 
----
+TanStack Start (React 19) · Vite 7 · Tailwind CSS v4 · GSAP ScrollTrigger · deployed on
+Lovable Cloud / Cloudflare Workers. Analytics is Google Analytics 4; the `G-…` measurement
+ID in `.env` is a public identifier that ships in the page HTML, not a credential — there are
+no secrets in this repository or its history.
 
-## Featured open-source work
+## Routes
 
-A family of runnable, tested, CI-checked evaluation harnesses. All use synthetic datasets and document their limits.
+| route | purpose |
+|---|---|
+| `/` | scroll narrative: focus, perspective, featured work, contact |
+| `/projects` | professional engagements + the *-gate* harnesses |
+| `/about` | career timeline, capabilities, certifications, résumé |
+| `/contact` | `mailto:` only — no form backend |
+| `/privacy`, `/terms` | policy pages |
 
-- [`rag-gate`](https://github.com/jbisaccia-9/rag-gate) — Retrieval-Augmented Generation evaluation
-- [`kappa-gate`](https://github.com/jbisaccia-9/kappa-gate) — Inter-annotator agreement & labeling quality
-- [`perm-gate`](https://github.com/jbisaccia-9/perm-gate) — Permission & access governance checks
-- [`phi-gate`](https://github.com/jbisaccia-9/phi-gate) — PII / sensitive-data detection pipeline
-- [`roi-gate`](https://github.com/jbisaccia-9/roi-gate) — AI investment ROI estimation
-- [`target-gate`](https://github.com/jbisaccia-9/target-gate) — Targeted capability benchmarking
-- [`trade-gate`](https://github.com/jbisaccia-9/trade-gate) — Trade-off analysis for model selection
+## What this repo is not
 
-Thesis: *nothing ships until it passes a gate — and the gate itself must be earned.*
-
----
-
-## Professional background
-
-- **Lead AI Engineer** — Behavior Frontiers (agentic workflows, clinical RAG, HIPAA)
-- **AI Engineer / Technical Project Manager** — Capital Energy
-- **Frontier Model Training Contractor** — Handshake AI, Outlier AI, Mercor
-- **Education** — Quantic M.S. in AI, Arizona State University
-- **Certifications** — NVIDIA DLI, IBM, Anthropic, Databricks, Quantic, Micro1, PMI CAPM
-
-Resume: [https://getaiintegrations.com/resume.pdf](https://getaiintegrations.com/resume.pdf)
-
----
-
-## Connect
-
-- LinkedIn: [https://www.linkedin.com/in/joseph-bisaccia-ai/](https://www.linkedin.com/in/joseph-bisaccia-ai/)
-- GitHub: [https://github.com/jbisaccia-9](https://github.com/jbisaccia-9)
-- Email: [jbisaccia@ai-intelligentintegrations.com](mailto:jbisaccia@ai-intelligentintegrations.com)
-
----
+It is not an example of hand-written front-end code — the UI was generated in Lovable and
+iterated there. The engineering in this repo is the gate around it, which is the same
+thing the rest of the portfolio is about. Client and employer work stays private.
 
 ## License
 
-© Joseph Bisaccia. All rights reserved.
-Source code is provided for reference as part of this portfolio.
+MIT for the source code. Site copy, résumé, videos, and images are © Joseph Bisaccia,
+all rights reserved — see [LICENSE](LICENSE).

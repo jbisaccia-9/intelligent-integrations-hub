@@ -1,0 +1,16 @@
+name: ci
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "22"}
+      - run: npm install --no-audit --no-fund
+      # The gate: the site must build. Lint/format is reported, not enforced
+      # (Lovable regenerates formatting on every sync - see README).
+      - run: npm run build
+      - run: npm run lint || echo "lint has formatting findings (reported, not gated)"
+      # Link gate: every -gate repo the site links to must actually exist.
+      - run: bash scripts/check_links.sh
