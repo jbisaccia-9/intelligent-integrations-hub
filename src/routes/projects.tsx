@@ -11,10 +11,56 @@ export const Route = createFileRoute("/projects")({
       { name: "description", content: "Seven open-source AI evaluation and governance harnesses (rag-gate, kappa-gate, perm-gate, phi-gate, roi-gate, target-gate, trade-gate) plus professional AI engineering engagements." },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
       { property: "og:description", content: "Open-source evaluation and governance gates on GitHub, plus delivered enterprise AI engagements." },
-
-
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://getaiintegrations.com/projects" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://getaiintegrations.com/projects" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "@id": "https://getaiintegrations.com/projects#webpage",
+          url: "https://getaiintegrations.com/projects",
+          name: "Projects — Joseph Bisaccia",
+          description:
+            "Open-source AI evaluation and governance harnesses plus professional AI engineering engagements.",
+          isPartOf: { "@id": "https://getaiintegrations.com/#website" },
+          about: { "@id": "https://getaiintegrations.com/#person" },
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: [
+              "rag-gate",
+              "kappa-gate",
+              "perm-gate",
+              "phi-gate",
+              "roi-gate",
+              "target-gate",
+              "trade-gate",
+            ].map((name, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: {
+                "@type": "SoftwareSourceCode",
+                name,
+                codeRepository: `https://github.com/jbisaccia-9/${name}`,
+                programmingLanguage: "Python",
+                author: { "@id": "https://getaiintegrations.com/#person" },
+              },
+            })),
+          },
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://getaiintegrations.com/" },
+              { "@type": "ListItem", position: 2, name: "Projects", item: "https://getaiintegrations.com/projects" },
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: ProjectsPage,
 });

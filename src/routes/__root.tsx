@@ -4,9 +4,12 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
+import { initAnalytics, trackPageView } from "@/lib/analytics";
 
 import appCss from "../styles.css?url";
 
@@ -91,6 +94,57 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://getaiintegrations.com/#organization",
+              name: "Intelligent Integrations",
+              url: "https://getaiintegrations.com/",
+              logo: "https://getaiintegrations.com/favicon.svg",
+              email: "jbisaccia@ai-intelligentintegrations.com",
+              founder: { "@id": "https://getaiintegrations.com/#person" },
+              sameAs: [
+                "https://github.com/jbisaccia-9",
+                "https://www.linkedin.com/in/joseph-bisaccia-ai/",
+              ],
+            },
+            {
+              "@type": "Person",
+              "@id": "https://getaiintegrations.com/#person",
+              name: "Joseph Bisaccia",
+              url: "https://getaiintegrations.com/",
+              jobTitle: "AI Engineering Leader",
+              email: "jbisaccia@ai-intelligentintegrations.com",
+              worksFor: { "@id": "https://getaiintegrations.com/#organization" },
+              knowsAbout: [
+                "Enterprise AI Governance",
+                "AI Security",
+                "Retrieval-Augmented Generation",
+                "Agentic Workflows",
+                "LLM Evaluation",
+              ],
+              sameAs: [
+                "https://github.com/jbisaccia-9",
+                "https://www.linkedin.com/in/joseph-bisaccia-ai/",
+              ],
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://getaiintegrations.com/#website",
+              url: "https://getaiintegrations.com/",
+              name: "Joseph Bisaccia — AI Engineering Leader",
+              publisher: { "@id": "https://getaiintegrations.com/#organization" },
+              inLanguage: "en-US",
+            },
+          ],
+        }),
+      },
+    ],
   }),
 
   shellComponent: RootShell,
@@ -115,6 +169,20 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    trackPageView(pathname);
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>

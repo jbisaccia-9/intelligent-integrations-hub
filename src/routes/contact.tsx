@@ -4,6 +4,7 @@ import { ArrowUpRight, Mail, Linkedin } from "lucide-react";
 import { SiteLayout, EMAIL, LINKEDIN_URL, GITHUB_URL } from "@/components/SiteLayout";
 import { SignalScene } from "@/components/ambient/SignalScene";
 import { DataStreamDivider, StatusLine, AttentionMatrix } from "@/components/ChapterMotifs";
+import { trackFormSubmission } from "@/lib/analytics";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -12,8 +13,34 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Connect with Joseph Bisaccia about AI engineering leadership, strategic collaborations, speaking, and enterprise AI governance." },
       { property: "og:title", content: "Contact — Joseph Bisaccia" },
       { property: "og:description", content: "AI engineering leadership, strategic collaborations, speaking, and thoughtful conversations about governed enterprise AI." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://getaiintegrations.com/contact" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://getaiintegrations.com/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "@id": "https://getaiintegrations.com/contact#webpage",
+          url: "https://getaiintegrations.com/contact",
+          name: "Contact — Joseph Bisaccia",
+          description:
+            "Connect with Joseph Bisaccia about AI engineering leadership, strategic collaborations, speaking, and enterprise AI governance.",
+          isPartOf: { "@id": "https://getaiintegrations.com/#website" },
+          about: { "@id": "https://getaiintegrations.com/#person" },
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://getaiintegrations.com/" },
+              { "@type": "ListItem", position: 2, name: "Contact", item: "https://getaiintegrations.com/contact" },
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: ContactPage,
 });
@@ -23,6 +50,7 @@ function ContactPage() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    trackFormSubmission("contact_form", { has_organization: Boolean(form.org) });
     const subject = encodeURIComponent(
       `Website conversation — ${form.name || "website visitor"}`
     );

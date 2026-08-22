@@ -25,12 +25,32 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Joseph Bisaccia is an AI Engineering Leader building secure enterprise AI systems and leading the organizational change that makes them work — governance, agentic workflows, and adoption at scale." },
       { property: "og:title", content: "Joseph Bisaccia — AI Engineering Leader" },
       { property: "og:description", content: "Enterprise AI systems and the organizations that trust them. Governance, agentic workflows, and company-wide AI enablement." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://getaiintegrations.com/" },
       { property: "og:image", content: portfolioPoster.url },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Joseph Bisaccia — AI Engineering Leader" },
       { name: "twitter:description", content: "Enterprise AI systems and the organizations that trust them." },
       { name: "twitter:image", content: portfolioPoster.url },
     ],
     links: [{ rel: "canonical", href: "https://getaiintegrations.com/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": "https://getaiintegrations.com/#webpage",
+          url: "https://getaiintegrations.com/",
+          name: "Joseph Bisaccia — AI Engineering Leader",
+          description:
+            "Joseph Bisaccia is an AI Engineering Leader building secure enterprise AI systems and leading the organizational change that makes them work.",
+          isPartOf: { "@id": "https://getaiintegrations.com/#website" },
+          about: { "@id": "https://getaiintegrations.com/#person" },
+          primaryImageOfPage: portfolioPoster.url,
+        }),
+      },
+    ],
   }),
   component: Home,
 });
