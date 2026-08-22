@@ -241,13 +241,13 @@ function Hero() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-md border border-black/12 bg-black/[0.02] px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-black/[0.04]"
           >
-            Request Advisory Session
+            Connect With Joseph
           </Link>
         </div>
         <div className="mt-20 grid gap-8 border-t border-black/8 pt-8 text-sm text-muted-foreground sm:grid-cols-3">
           <Meta label="Focus" value="Enterprise AI Governance, Security, Infrastructure" />
           <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers &mdash; building the AI function from the ground up" />
-          <Meta label="Open to" value="Advisory engagements &amp; speaking opportunities" />
+          <Meta label="Open to" value="AI engineering leadership, strategic collaborations &amp; speaking" />
         </div>
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center">
@@ -890,7 +890,7 @@ function ChapterFive() {
             <div className="flex flex-col gap-4 md:items-end">
               <StatusLine text="system: online · accepting_connections" />
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
-                Request Advisory Session <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                Connect With Joseph <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <a href="/resume.pdf" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 Download resume →

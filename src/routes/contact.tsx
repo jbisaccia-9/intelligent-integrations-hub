@@ -9,9 +9,9 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Joseph Bisaccia" },
-      { name: "description", content: "Contact Joseph Bisaccia for enterprise AI consulting engagements, advisory work, and technical collaboration." },
+      { name: "description", content: "Connect with Joseph Bisaccia about AI engineering leadership, strategic collaborations, speaking, and enterprise AI governance." },
       { property: "og:title", content: "Contact — Joseph Bisaccia" },
-      { property: "og:description", content: "Enterprise AI consulting, advisory, and technical collaboration." },
+      { property: "og:description", content: "AI engineering leadership, strategic collaborations, speaking, and thoughtful conversations about governed enterprise AI." },
     ],
     links: [{ rel: "canonical", href: "https://getaiintegrations.com/contact" }],
   }),
@@ -24,7 +24,7 @@ function ContactPage() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(
-      `Enterprise AI inquiry — ${form.name || "website visitor"}`
+      `Website conversation — ${form.name || "website visitor"}`
     );
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nOrganization: ${form.org}\n\n${form.message}`
@@ -43,12 +43,12 @@ function ContactPage() {
             className="mt-8 max-w-4xl font-display leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.75rem, 7vw, 6rem)" }}
           >
-            Request an advisory session.
+            Start a conversation.
           </h1>
           <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Available for advisory engagements, speaking opportunities, and select
-            hands-on work with organizations building AI into serious infrastructure.
-            Share a bit of context and I&rsquo;ll respond directly.
+            Open to AI engineering leadership opportunities, strategic collaborations, speaking,
+            and thoughtful conversations about governed enterprise AI. Share a bit of context
+            and I&rsquo;ll respond directly.
           </p>
         </div>
       </section>
@@ -62,10 +62,11 @@ function ContactPage() {
         <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-6 py-16 md:py-20 lg:grid-cols-5">
           <div className="space-y-8 lg:col-span-2">
             <div className="rounded-md border border-border bg-surface p-5 text-sm">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Engagements</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Opportunities</p>
               <p className="mt-3 text-sm text-muted-foreground">
-                Advisory and hands-on engineering for organizations deploying AI in production —
-                governance, security, RAG, agentic systems, and infrastructure.
+                Senior and lead AI engineering, applied AI and forward-deployed roles, AI platform
+                and governance leadership, strategic collaborations, speaking, and select advisory
+                conversations.
               </p>
             </div>
 
@@ -97,14 +98,14 @@ function ContactPage() {
             <Field label="Organization">
               <input maxLength={150} value={form.org} onChange={(e) => setForm({ ...form, org: e.target.value })} className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
             </Field>
-            <Field label="What are you trying to build or solve?" required>
+            <Field label="What would you like to discuss?" required>
               <textarea required rows={7} maxLength={2000} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full resize-none rounded-md border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary" />
             </Field>
             <div className="flex items-center justify-between gap-4">
               <StatusLine text="system: online · accepting_connections" />
             </div>
             <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
-              Send inquiry
+              Send message
             </button>
             <p className="text-center text-xs text-muted-foreground">
               Submitting opens your email client with the message pre-filled.

@@ -265,7 +265,7 @@ function AboutPage() {
         </div>
         <div className="mx-auto max-w-6xl px-6 pb-24">
           <Link to="/contact" className="inline-flex items-center gap-2 text-sm text-primary hover:opacity-80">
-            Discuss an engagement <ArrowRight className="h-3.5 w-3.5" />
+            Start a conversation <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </section>
