@@ -20,6 +20,14 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Environment files — never commit these to a public repo.
+# .env is where Lovable connector credentials land; a future sync could put a
+# real key here, and without this rule it would be committed straight to public.
+# Keep .env.example (placeholders only) as the documented template.
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
