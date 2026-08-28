@@ -287,7 +287,7 @@ function AboutPage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-3 md:py-24">
           <ExternalLink href={GITHUB_URL} label="GitHub" value="jbisaccia-9" />
           <ExternalLink href={LINKEDIN_URL} label="LinkedIn" value="joseph-bisaccia-ai" />
-          <ExternalLink href="/resume.pdf?v=2026-08-22-databricks" label="Resume" value="Download PDF" internal />
+          <ExternalLink href="/resume.pdf?v=2026-08-27-agentic-workflows" label="Resume" value="Download PDF" internal />
         </div>
         <div className="mx-auto max-w-6xl px-6 pb-24">
           <Link to="/contact" className="inline-flex items-center gap-2 text-sm text-primary hover:opacity-80">
