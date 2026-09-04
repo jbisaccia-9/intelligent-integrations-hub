@@ -1,6 +1,6 @@
 # Results
 
-Generated 2026-08-22 by `scripts/make_results.sh` — every block below is captured command output, not prose.
+Generated 2026-09-01 by `scripts/make_results.sh` — every block below is captured command output, not prose.
 
 ## Build (the gate)
 
@@ -8,7 +8,7 @@ Generated 2026-08-22 by `scripts/make_results.sh` — every block below is captu
 
 ```
 .output/server/_libs/three.mjs                          1,066.72 kB
-✓ built in 1.92s
+✓ built in 1.91s
 
 [nitro]  WARN  [cloudflare] Wrangler config main is overridden and will be ignored.
 
@@ -36,6 +36,7 @@ Generated 2026-08-22 by `scripts/make_results.sh` — every block below is captu
 `bash scripts/check_links.sh` — exit 0
 
 ```
+  PASS  200 https://github.com/jbisaccia-9/intelligent-integrations-hub
   PASS  200 https://github.com/jbisaccia-9/kappa-gate
   PASS  200 https://github.com/jbisaccia-9/perm-gate
   PASS  200 https://github.com/jbisaccia-9/phi-gate
