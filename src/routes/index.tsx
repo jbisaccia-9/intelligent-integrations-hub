@@ -21,15 +21,15 @@ import portfolioPoster from "@/assets/portfolio-poster.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Joseph Bisaccia — AI Engineering Leader" },
-      { name: "description", content: "Joseph Bisaccia is an AI Engineering Leader building secure enterprise AI systems and leading the organizational change that makes them work — governance, agentic workflows, and adoption at scale." },
-      { property: "og:title", content: "Joseph Bisaccia — AI Engineering Leader" },
-      { property: "og:description", content: "Enterprise AI systems and the organizations that trust them. Governance, agentic workflows, and company-wide AI enablement." },
+      { title: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
+      { name: "description", content: "Joseph Bisaccia is an AI engineering and enterprise AI leader connecting architecture, governance, adoption, and measurable value." },
+      { property: "og:title", content: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
+      { property: "og:description", content: "Enterprise AI systems and the organizations that trust them — architecture, governance, adoption, and measurable value." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://getaiintegrations.com/" },
       { property: "og:image", content: portfolioPoster.url },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Joseph Bisaccia — AI Engineering Leader" },
+      { name: "twitter:title", content: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
       { name: "twitter:description", content: "Enterprise AI systems and the organizations that trust them." },
       { name: "twitter:image", content: portfolioPoster.url },
     ],
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
           url: "https://getaiintegrations.com/",
           name: "Joseph Bisaccia — AI Engineering Leader",
           description:
-            "Joseph Bisaccia is an AI Engineering Leader building secure enterprise AI systems and leading the organizational change that makes them work.",
+            "Joseph Bisaccia is an AI engineering and enterprise AI leader connecting architecture, governance, adoption, and measurable value.",
           isPartOf: { "@id": "https://getaiintegrations.com/#website" },
           about: { "@id": "https://getaiintegrations.com/#person" },
           primaryImageOfPage: portfolioPoster.url,
@@ -77,25 +77,25 @@ const FEATURED_GATES = [
     stack: ["RAG", "Retrieval eval", "CI gate"],
   },
   {
-    name: "kappa-gate",
-    repo: "https://github.com/jbisaccia-9/kappa-gate",
-    summary:
-      "LLM-as-judge calibration on Cohen's kappa — a judge is trusted only at kappa ≥ 0.70 and agreement ≥ 0.85. The mock judge is refused.",
-    stack: ["LLM-as-judge", "Calibration"],
-  },
-  {
-    name: "perm-gate",
-    repo: "https://github.com/jbisaccia-9/perm-gate",
-    summary:
-      "Prompt-layer guards versus permission-layer enforcement: on the synthetic set, prompt mode leaked 4/5 and permission mode 0/5.",
-    stack: ["Authorization", "Security"],
-  },
-  {
     name: "phi-gate",
     repo: "https://github.com/jbisaccia-9/phi-gate",
     summary:
-      "Regex-tier PHI-shaped redaction gate — recall 1.00, precision 0.95 on the current synthetic corpus. Free-text names and addresses out of scope.",
-    stack: ["PHI", "Redaction"],
+      "Measured PHI/PII redaction gate — recall 1.00 and precision 0.95 on a 24-case synthetic corpus, above both release thresholds.",
+    stack: ["PHI", "Redaction", "Healthcare"],
+  },
+  {
+    name: "kappa-gate",
+    repo: "https://github.com/jbisaccia-9/kappa-gate",
+    summary:
+      "LLM-as-judge calibration on Cohen's kappa — a judge is trusted only at kappa ≥ 0.70 and agreement ≥ 0.85.",
+    stack: ["LLM-as-judge", "Calibration"],
+  },
+  {
+    name: "trade-gate",
+    repo: "https://github.com/jbisaccia-9/trade-gate",
+    summary:
+      "Order-validation design study that blocks action when the order book is stale, unreconciled, underfunded, or outside quote-sanity limits.",
+    stack: ["MCP", "Validation", "Guardrails"],
   },
 ];
 
@@ -106,13 +106,13 @@ const FEATURED_PROJECTS = [
     title: "Founding the AI function in regulated healthcare",
     context: "Behavior Frontiers · Healthcare",
     summary:
-      "Building HIPAA-compliant AI infrastructure, RAG pipelines, and agentic workflows for clinical and operational teams across a national network of autism and behavioral health centers.",
-    stack: ["Python", "LangChain", "RAG", "HIPAA"],
+       "Led a 72-seat Microsoft Copilot rollout to 92% active use in 30 days, deployed five agentic workflows, and established governance and value measurement.",
+    stack: ["Microsoft Graph", "Agentic workflows", "Governance", "ROI"],
   },
   {
     slug: "solar-rag-chatbot",
     title: "Customer-facing RAG chatbot with agentic logic",
-    context: "Capital Energy · Solar",
+    context: "Capital Energy · Sep 2025–Jul 2026",
     summary:
       "Designed and deployed an inbound-query assistant that reduced response times by 40% and increased self-service adoption.",
     stack: ["RAG", "Agentic logic", "API integration"],
@@ -120,7 +120,7 @@ const FEATURED_PROJECTS = [
   {
     slug: "lead-reactivation-agent",
     title: "Outbound lead reactivation agent",
-    context: "Capital Energy · Sales operations",
+    context: "Capital Energy · Sep 2025–Jul 2026",
     summary:
       "Voice and messaging agent built with Voiceflow, Twilio, and ElevenLabs to automate prospect engagement and accelerate pipeline.",
     stack: ["Voiceflow", "Twilio", "ElevenLabs"],
@@ -131,17 +131,17 @@ const LEADERSHIP = [
   {
     kicker: "Founding AI resource",
     title: "Standing up an enterprise AI function",
-    body: "Leading AI engineering from the ground up across a national network of behavioral health centers — infrastructure, governance priorities, and delivery.",
+    body: "Leading enterprise AI delivery across a national behavioral health network — architecture, governance, enablement, measurement, and five deployed agentic workflows.",
   },
   {
     kicker: "Governance & security",
     title: "Compliance-oriented implementation",
-    body: "Setting governance-oriented AI priorities with clinical, operations, and department stakeholders so enterprise workflows stay auditable and compliant.",
+    body: "Designing least-privilege access and six privacy, security, and data-quality launch gates so enterprise workflows stay auditable and compliant.",
   },
   {
     kicker: "Training enablement",
     title: "Change management for distributed teams",
-    body: "Leading staff training and change management so distributed teams adopt AI tools responsibly — building on a decade of instructional design and district-wide rollouts.",
+    body: "Led a 72-seat Microsoft Copilot deployment to 66 active users and 8,021 prompts in 30 days through focused enablement and daily measurement.",
   },
   {
     kicker: "Frontier model work",
@@ -151,9 +151,9 @@ const LEADERSHIP = [
 ];
 
 const STATS = [
-  { target: 40, suffix: "%", label: "Faster response times from the RAG assistant" },
-  { target: 40, suffix: "%", label: "Reduction in manual operational work via automation" },
-  { target: 30, suffix: "%", label: "Reduction in setup time across workflows" },
+  { target: 92, suffix: "%", label: "Active use across a 72-seat Microsoft Copilot rollout in 30 days" },
+  { target: 8021, suffix: "", label: "Prompts measured through a daily Microsoft Graph pipeline in 30 days" },
+  { target: 5, suffix: "", label: "Agentic workflows deployed across growth, clinical, onboarding, and site operations" },
 ];
 
 const PERSPECTIVE_LINES = [
@@ -235,7 +235,7 @@ function Hero() {
       </div>
       <div className="relative mx-auto flex min-h-[100vh] max-w-6xl flex-col justify-center px-6 py-28 md:py-32">
         <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
-          <span className="text-primary/80">{"//"}</span> Joseph Bisaccia <span className="mx-1 text-black/25">·</span> AI Engineering Leader
+           <span className="text-primary/80">{"//"}</span> Joseph Bisaccia <span className="mx-1 text-black/25">·</span> AI Engineering &amp; Enterprise AI Leader
         </p>
         <h1
           className="mt-8 max-w-[16ch] font-display leading-[0.95] tracking-tight text-foreground accent-glow"
@@ -487,7 +487,7 @@ function ChapterTwo() {
                       className="mt-6 font-display leading-none tracking-tight text-primary accent-glow tabular-nums"
                       style={{ fontSize: "clamp(6rem, 20vw, 18rem)" }}
                     >
-                      {displayValues[i]}
+                      {displayValues[i].toLocaleString("en-US")}
                       {s.suffix}
                     </p>
                     <p className="mt-8 max-w-2xl font-mono text-sm uppercase tracking-[0.14em] text-foreground/80 md:text-base">
@@ -602,7 +602,7 @@ function MobileCount({ target }: { target: number }) {
     io.observe(el);
     return () => io.disconnect();
   }, [target]);
-  return <span ref={ref}>{v}</span>;
+  return <span ref={ref}>{v.toLocaleString("en-US")}</span>;
 }
 
 /* ------------------------------------------------------------------ */
@@ -816,7 +816,7 @@ function ChapterFour() {
 
         <div className="mt-10">
           <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80">
-            All seven gate projects <ArrowRight className="h-3.5 w-3.5" />
+            View the full project portfolio <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
 
@@ -848,11 +848,11 @@ function ChapterFour() {
           <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-center">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Open source</p>
-              <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">Seven gates, public and runnable.</h3>
+              <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">Top projects, public and runnable.</h3>
               <p className="mt-6 max-w-2xl text-muted-foreground">
-                Retrieval, judge calibration, permissions, PHI redaction, ROI assumptions,
-                targeting pipelines, and order validation &mdash; each with a threshold that has to
-                be earned before anything ships. Client and employer work stays private.
+                Six pinned evaluation, security, and data-quality projects &mdash; each with a
+                measurable threshold that has to be earned before anything ships. Client and
+                employer work stays private.
               </p>
             </div>
             <a
@@ -912,7 +912,7 @@ function ChapterFive() {
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
                 Connect With Joseph <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <a href="/resume.pdf?v=2026-08-27-agentic-workflows" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+              <a href="/resume.pdf?v=2026-09-22-ai-leadership" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 Download resume →
               </a>
             </div>
