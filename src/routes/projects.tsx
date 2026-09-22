@@ -137,7 +137,7 @@ const PROJECTS: Project[] = [
   {
     slug: "crm-migration-automation",
     title: "CRM migration and operational automation program",
-    context: "Capital Energy · Technical project management",
+    context: "Capital Energy · Sep 2025 – Jul 2026",
     problem:
       "Fragmented systems and manual handoffs made operational work slow to run and slow to set up for new campaigns and teams.",
     solution:

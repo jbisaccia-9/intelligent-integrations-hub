@@ -487,7 +487,7 @@ function ChapterTwo() {
                       className="mt-6 font-display leading-none tracking-tight text-primary accent-glow tabular-nums"
                       style={{ fontSize: "clamp(6rem, 20vw, 18rem)" }}
                     >
-                      {displayValues[i]}
+                      {displayValues[i].toLocaleString("en-US")}
                       {s.suffix}
                     </p>
                     <p className="mt-8 max-w-2xl font-mono text-sm uppercase tracking-[0.14em] text-foreground/80 md:text-base">
@@ -602,7 +602,7 @@ function MobileCount({ target }: { target: number }) {
     io.observe(el);
     return () => io.disconnect();
   }, [target]);
-  return <span ref={ref}>{v}</span>;
+  return <span ref={ref}>{v.toLocaleString("en-US")}</span>;
 }
 
 /* ------------------------------------------------------------------ */
@@ -816,7 +816,7 @@ function ChapterFour() {
 
         <div className="mt-10">
           <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80">
-            All seven gate projects <ArrowRight className="h-3.5 w-3.5" />
+            View the full project portfolio <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
 
