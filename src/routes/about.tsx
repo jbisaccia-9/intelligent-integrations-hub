@@ -9,9 +9,9 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Joseph Bisaccia" },
-      { name: "description", content: "Joseph Bisaccia is a Lead AI Engineer helping organizations deploy AI responsibly at scale — governance, compliance, infrastructure, and agentic workflows." },
+      { name: "description", content: "Joseph Bisaccia is an AI engineering and enterprise AI leader connecting architecture, governance, adoption, and measurable value." },
       { property: "og:title", content: "About — Joseph Bisaccia" },
-      { property: "og:description", content: "Lead AI Engineer helping organizations deploy AI responsibly at scale." },
+      { property: "og:description", content: "AI engineering leader connecting architecture, governance, adoption, and measurable enterprise value." },
       { property: "og:type", content: "profile" },
       { property: "og:url", content: "https://getaiintegrations.com/about" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/about")({
           url: "https://getaiintegrations.com/about",
           name: "About — Joseph Bisaccia",
           description:
-            "Joseph Bisaccia is a Lead AI Engineer helping organizations deploy AI responsibly at scale — governance, compliance, infrastructure, and agentic workflows.",
+            "Joseph Bisaccia is an AI engineering and enterprise AI leader connecting architecture, governance, adoption, and measurable value.",
           isPartOf: { "@id": "https://getaiintegrations.com/#website" },
           mainEntity: { "@id": "https://getaiintegrations.com/#person" },
           breadcrumb: {
@@ -49,17 +49,17 @@ const ROLES = [
     period: "Jul 2026 — Present",
     title: "Lead AI Engineer",
     org: "Behavior Frontiers",
-    desc: "Founding AI engineering resource for a national network of autism and behavioral health centers. Building HIPAA-compliant AI infrastructure, RAG pipelines, agentic workflows, and LLM automation for clinical and operational teams, and leading the training and change management behind adoption.",
+    desc: "Leading enterprise AI delivery, governance, enablement, and value measurement for a national behavioral health network. Reached 92% active use across a 72-seat Microsoft Copilot rollout in 30 days, deployed five agentic workflows, and built secure automation for clinical and site operations.",
   },
   {
-    period: "2024 — Jul 2026",
-    title: "AI Engineer & Technical Project Manager",
+    period: "Sep 2025 — Jul 2026",
+    title: "AI Engineer / Technical Project Manager",
     org: "Capital Energy",
     desc: "Built a customer-facing RAG chatbot with agentic logic (40% faster response times) and an outbound lead reactivation agent on Voiceflow, Twilio, and ElevenLabs. Led the CRM migration to Core 365 and designed Make and Zapier automation pipelines — 40% less manual work, 30% faster setup.",
   },
   {
-    period: "2024 — Present",
-    title: "AI Model Training & Prompt Engineering Specialist",
+    period: "Nov 2024 — Present",
+    title: "AI Prompt Engineer & Model Trainer",
     org: "Handshake AI · Outlier AI · Mercor",
     desc: "Contract work for frontier AI platforms: expert data annotation and dataset curation for LLM training, evaluation of outputs against reward metrics, and RLHF and preference-data workflows.",
   },
@@ -78,19 +78,16 @@ const ROLES = [
 ];
 
 const EDUCATION = [
-  { period: "2026 — 2027", title: "M.S., Artificial Intelligence Engineering", org: "Quantic School of Business & Technology" },
-  { period: "2020 — 2022", title: "M.Ed., Education", org: "Arizona State University" },
-  { period: "2010 — 2013", title: "B.A.", org: "Arizona State University" },
+  { period: "Expected 2027", title: "M.S., Artificial Intelligence Engineering", org: "Quantic School of Business & Technology" },
+  { period: "2022", title: "M.Ed., Administrative Leadership", org: "Arizona State University" },
+  { period: "2013", title: "B.A., Journalism & Mass Communication", org: "Arizona State University" },
 ];
 
 const CERTIFICATIONS = [
   { issuer: "NVIDIA Deep Learning Institute", name: "Building RAG Agents with LLMs", year: "2026" },
   { issuer: "IBM", name: "RAG & Agentic AI Professional Certificate", year: "2026" },
-  { issuer: "Anthropic", name: "Claude Code; Claude Code in Action", year: "2026" },
+  { issuer: "Anthropic", name: "Claude Code in Action", year: "2026" },
   { issuer: "Databricks", name: "Get Started with Generative AI", year: "2026" },
-  { issuer: "Quantic", name: "AI-Assisted Software Development", year: "2026" },
-  { issuer: "Micro1", name: "Certified AI Model Trainer", year: "2026" },
-  { issuer: "Project Management Institute", name: "Certified Associate in Project Management (CAPM)", year: "2025" },
 ];
 
 
@@ -139,10 +136,11 @@ function AboutPage() {
                 applied machine learning, security engineering, and technical program leadership.
               </p>
               <p className="mt-4 text-base leading-relaxed text-foreground/85">
-                Today I lead AI engineering at Behavior Frontiers, where I&rsquo;m the founding AI
-                resource for a national behavioral health network &mdash; HIPAA-compliant
-                infrastructure, RAG pipelines, and agentic workflows for clinical and operational
-                teams. Before that I built customer-facing RAG assistants and automation programs
+                 Today I lead AI engineering at Behavior Frontiers, connecting architecture,
+                 governance, adoption, and financial outcomes for a national behavioral health
+                 network. I led a 72-seat Microsoft Copilot deployment to 92% active use in 30 days,
+                 alongside secure agentic workflows for clinical and operational teams. Before that
+                 I built customer-facing RAG assistants and automation programs
                 in the solar industry, and I continue contract model-training and evaluation work
                 for frontier AI platforms. A decade of instructional design and technology training
                 sits underneath all of it: the systems only matter if people adopt them.
@@ -287,7 +285,7 @@ function AboutPage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-3 md:py-24">
           <ExternalLink href={GITHUB_URL} label="GitHub" value="jbisaccia-9" />
           <ExternalLink href={LINKEDIN_URL} label="LinkedIn" value="joseph-bisaccia-ai" />
-          <ExternalLink href="/resume.pdf?v=2026-08-27-agentic-workflows" label="Resume" value="Download PDF" internal />
+          <ExternalLink href="/resume.pdf?v=2026-09-22-ai-leadership" label="Resume" value="Download PDF" internal />
         </div>
         <div className="mx-auto max-w-6xl px-6 pb-24">
           <Link to="/contact" className="inline-flex items-center gap-2 text-sm text-primary hover:opacity-80">

@@ -6,8 +6,8 @@ Source for [getaiintegrations.com](https://getaiintegrations.com) — the portfo
 **Joseph Bisaccia**, Lead AI Engineer building secure, governed enterprise AI in
 regulated healthcare.
 
-The site is the front door to the [*-gate* projects](https://github.com/jbisaccia-9):
-seven runnable, tested, CI-checked harnesses with one thesis — **nothing ships until it
+The site is the front door to Joseph’s [top public AI projects](https://github.com/jbisaccia-9):
+runnable, tested, CI-checked harnesses with one thesis — **nothing ships until it
 passes a gate, and the gate itself must be earned.** This repo holds itself to the same
 standard: the site must build, and every repo it links to must exist, before a push lands.
 
@@ -43,12 +43,11 @@ cp scripts/prepush_guard.sh .git/hooks/pre-push && chmod +x .git/hooks/pre-push
 
 | repo | the gate |
 |---|---|
-| [kappa-gate](https://github.com/jbisaccia-9/kappa-gate) | an LLM-as-judge is trusted only above Cohen's κ ≥ 0.70 against hand-authored labels |
-| [roi-gate](https://github.com/jbisaccia-9/roi-gate) | an ROI figure is reportable only if the model was biased *against* the claim |
-| [phi-gate](https://github.com/jbisaccia-9/phi-gate) | a PHI-shaped redaction layer must clear recall ≥ 0.95 before it may front an LLM |
-| [trade-gate](https://github.com/jbisaccia-9/trade-gate) | no order executes while the local book and the broker snapshot disagree |
-| [perm-gate](https://github.com/jbisaccia-9/perm-gate) | zero leaks under scoped credentials; the prompt-layer failure stays demonstrable |
 | [rag-gate](https://github.com/jbisaccia-9/rag-gate) | an index serves only above recall@3 ≥ 0.90 on labeled queries |
+| [phi-gate](https://github.com/jbisaccia-9/phi-gate) | a PHI/PII redaction layer must clear measured recall and precision thresholds |
+| [kappa-gate](https://github.com/jbisaccia-9/kappa-gate) | an LLM-as-judge is trusted only above Cohen's κ ≥ 0.70 against hand-authored labels |
+| [trade-gate](https://github.com/jbisaccia-9/trade-gate) | no order proceeds while reconciliation, cash, or quote-sanity checks fail |
+| [perm-gate](https://github.com/jbisaccia-9/perm-gate) | zero leaks under scoped credentials; the prompt-layer failure stays demonstrable |
 | [target-gate](https://github.com/jbisaccia-9/target-gate) | no outbound list is sent until identifiers, freshness, dedupe, and coverage all clear |
 
 ## Stack

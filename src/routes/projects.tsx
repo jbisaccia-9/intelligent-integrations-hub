@@ -8,9 +8,9 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Joseph Bisaccia" },
-      { name: "description", content: "Seven open-source AI evaluation and governance harnesses (rag-gate, kappa-gate, perm-gate, phi-gate, roi-gate, target-gate, trade-gate) plus professional AI engineering engagements." },
+      { name: "description", content: "Joseph Bisaccia’s top public AI evaluation, security, and governance projects, plus selected enterprise AI engineering outcomes." },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
-      { property: "og:description", content: "Open-source evaluation and governance gates on GitHub, plus delivered enterprise AI engagements." },
+      { property: "og:description", content: "Top public AI evaluation, security, and governance projects, plus selected enterprise AI engineering outcomes." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://getaiintegrations.com/projects" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -33,12 +33,11 @@ export const Route = createFileRoute("/projects")({
             "@type": "ItemList",
             itemListElement: [
               "rag-gate",
-              "kappa-gate",
-              "perm-gate",
               "phi-gate",
-              "roi-gate",
-              "target-gate",
+              "kappa-gate",
               "trade-gate",
+              "perm-gate",
+              "target-gate",
             ].map((name, i) => ({
               "@type": "ListItem",
               position: i + 1,
@@ -88,21 +87,21 @@ const PROJECTS: Project[] = [
     problem:
       "A national network of autism and behavioral health centers had no in-house AI engineering capability and no compliant path to apply LLMs to clinical and operational work.",
     solution:
-      "Serving as the founding AI engineering resource: building HIPAA-compliant AI infrastructure, RAG pipelines, agentic workflows, and LLM-powered automation for clinical and operational teams.",
+      "Led the technical rollout, governance, enablement, and measurement model for Microsoft Copilot; deployed five agentic workflows and built secure automation for clinical and site operations.",
     architecture:
-      "Retrieval pipelines over internal documentation, agentic workflows for repeatable operational tasks, and LLM automation integrated with existing enterprise systems.",
-    technologies: ["Python", "LangChain", "RAG", "Agentic workflows", "API integration"],
+      "A daily Microsoft Graph usage pipeline, agentic workflows across growth and operations, and least-privilege integration patterns for regulated enterprise systems.",
+    technologies: ["Python", "Microsoft Graph", "Agentic workflows", "Salesforce", "Power BI"],
     security:
-      "HIPAA-compliant infrastructure design, PHI-aware data handling, and secure enterprise AI architecture patterns for a regulated clinical environment.",
+      "Least-privilege Salesforce identity design blocked model access to out-of-scope intake fields, backed by privacy, security, and data-quality launch gates.",
     governance:
-      "Governance-oriented implementation priorities set with clinical, operations, and department stakeholders; LLM evaluation and hallucination-mitigation practices applied to deployed workflows.",
+      "Six documented privacy, security, and data-quality gates paired with a conservative, usage-tiered value model that charges every seat and discounts realization.",
     impact:
-      "Established the organization's AI function and the training and change-management program that lets distributed teams adopt AI tools responsibly. Work is in progress; outcome metrics are not yet published.",
+      "Reached 66 active users across 72 Microsoft Copilot seats (92%) and 8,021 prompts in 30 days; the conservative model estimates $52,654 in annualized net value after license costs.",
   },
   {
     slug: "solar-rag-chatbot",
     title: "Customer-facing RAG chatbot with agentic logic",
-    context: "Capital Energy · 2024 – Jul 2026",
+    context: "Capital Energy · Sep 2025 – Jul 2026",
     problem:
       "Inbound solar inquiries arrived faster than the team could answer them, slowing response times and pushing routine questions onto sales staff.",
     solution:
@@ -120,7 +119,7 @@ const PROJECTS: Project[] = [
   {
     slug: "lead-reactivation-agent",
     title: "Outbound lead reactivation agent",
-    context: "Capital Energy · 2024 – Jul 2026",
+    context: "Capital Energy · Sep 2025 – Jul 2026",
     problem:
       "A large backlog of dormant prospects sat untouched because manual outreach did not scale with the sales team's capacity.",
     solution:
@@ -156,7 +155,7 @@ const PROJECTS: Project[] = [
   {
     slug: "frontier-model-training",
     title: "Model training, evaluation, and RLHF contract work",
-    context: "Handshake AI · Outlier AI · Mercor · 2024 – Present",
+    context: "Handshake AI · Outlier AI · Mercor · Nov 2024 – Present",
     problem:
       "Frontier AI platforms need expert human judgment to curate training data and evaluate model behavior on technical and conversational tasks.",
     solution:
@@ -217,63 +216,54 @@ const GATES: Gate[] = [
     repo: "https://github.com/jbisaccia-9/rag-gate",
     tagline: "Retrieval quality gate for RAG systems — the index only serves once retrieval is good enough.",
     gate: "Serves only at recall@3 ≥ 0.90.",
-    evidence: "Baseline caught at 0.83, then fixed to 1.00 on the current small synthetic set.",
-    caveat: "Synthetic corpus; README notes benchmark saturation and the limits of a small labeled set.",
+    evidence: "Recall@3 1.00 and MRR 0.958 on the current 12-query labeled set; an earlier 0.83 baseline was correctly blocked.",
+    caveat: "Small, hand-labeled evaluation set; live NVIDIA embedding path requires API access.",
     tags: ["RAG", "Retrieval eval", "CI gate"],
+  },
+  {
+    name: "phi-gate",
+    repo: "https://github.com/jbisaccia-9/phi-gate",
+    tagline: "Measured PHI/PII redaction gate for healthcare-adjacent text.",
+    gate: "Redaction must clear the recall and precision floor before text moves downstream.",
+    evidence: "Recall 1.00 and precision 0.95 on the current 24-case synthetic labeled corpus.",
+    caveat: "A small synthetic corpus demonstrating methodology; NER-based address detection is out of scope.",
+    tags: ["PHI", "Redaction", "Healthcare"],
   },
   {
     name: "kappa-gate",
     repo: "https://github.com/jbisaccia-9/kappa-gate",
     tagline: "Calibration harness for LLM-as-judge evaluation using Cohen's kappa against human labels.",
     gate: "Requires kappa ≥ 0.70 and agreement ≥ 0.85 before a judge is trusted.",
-    evidence: "The mock judge is refused; a recorded claude-opus-5 run passes.",
-    caveat: "Dimension-level limitations documented in the README; small labeled sample.",
+    evidence: "A heuristic judge scored 80% accuracy but κ 0.61 and was refused; a recorded 30/30 live run passed.",
+    caveat: "Small synthetic evaluation set; live results depend on external model access.",
     tags: ["LLM-as-judge", "Cohen's kappa", "Evaluation"],
+  },
+  {
+    name: "trade-gate",
+    repo: "https://github.com/jbisaccia-9/trade-gate",
+    tagline: "Order-validation design study that refuses stale, unreconciled, or malformed trading intent.",
+    gate: "Book reconciliation, cash sufficiency, and ±5% quote-sanity checks must all pass.",
+    evidence: "CI tests clean-order and deliberately unsafe paths plus citation grounding on decision IDs.",
+    caveat: "Synthetic quotes only; no live-market or backtested performance claim.",
+    tags: ["MCP", "Validation", "Guardrails"],
   },
   {
     name: "perm-gate",
     repo: "https://github.com/jbisaccia-9/perm-gate",
     tagline: "Prompt-layer guardrails versus permission-layer enforcement, measured side by side.",
     gate: "Access decisions must be enforced below the prompt, not inside it.",
-    evidence: "On the synthetic test set, prompt mode leaked 4/5; permission mode leaked 0/5.",
-    caveat: "The assistant under test is deliberately not an LLM — the README explains why that isolates the variable.",
+    evidence: "The CI suite requires zero leaks under scoped permission enforcement while preserving the prompt-only failure case.",
+    caveat: "A focused architectural proof of concept rather than a full production pipeline.",
     tags: ["Authorization", "Guardrails", "Security"],
-  },
-  {
-    name: "phi-gate",
-    repo: "https://github.com/jbisaccia-9/phi-gate",
-    tagline: "Regex-tier redaction gate for PHI-shaped identifiers in healthcare-adjacent text.",
-    gate: "Redaction must clear the recall and precision floor before text moves downstream.",
-    evidence: "Recall 1.00 and precision 0.95 on the current synthetic corpus.",
-    caveat: "Free-text names and addresses are explicitly out of scope for the regex tier.",
-    tags: ["PHI", "Redaction", "Healthcare"],
-  },
-  {
-    name: "roi-gate",
-    repo: "https://github.com/jbisaccia-9/roi-gate",
-    tagline: "A deliberately conservative model for AI adoption ROI, built to resist vendor-deck math.",
-    gate: "CI refuses aggressive assumptions before a number can be published.",
-    evidence: "On the synthetic example, the conservative model reports $24,048/yr against $517,704/yr under vendor-deck assumptions.",
-    caveat: "Illustrative synthetic inputs — a modeling tool, not a forecast of any organization's results.",
-    tags: ["ROI modeling", "Assumption gating", "CI"],
   },
   {
     name: "target-gate",
     repo: "https://github.com/jbisaccia-9/target-gate",
-    tagline: "Twice-monthly provider-targeting pipeline where list delivery is blocked until quality gates pass.",
-    gate: "Identifier, freshness, dedupe, coverage, and brief-grounding gates must all pass before delivery.",
-    evidence: "Synthetic fixtures committed to the repo; production-shaped adapters for Azure Functions, Foundry, and Graph.",
-    caveat: "Fixtures are synthetic; adapters are production-shaped rather than a deployed production system.",
+    tagline: "Healthcare provider-targeting pipeline where delivery is blocked until data-quality gates pass.",
+    gate: "Checksum, freshness, dedupe, field coverage, market coverage, and brief grounding must pass.",
+    evidence: "CI enforces ≥80% field coverage and rejects a deliberately hallucinated provider brief.",
+    caveat: "CI and demos use fixture snapshots; adapters are production-shaped, not a deployment claim.",
     tags: ["Pipelines", "Data quality", "Azure"],
-  },
-  {
-    name: "trade-gate",
-    repo: "https://github.com/jbisaccia-9/trade-gate",
-    tagline: "Order-validation guardrail design study — how a validation layer refuses malformed intent.",
-    gate: "Orders must clear validation rules before they are ever considered valid.",
-    evidence: "Synthetic fixtures with tested, CI-checked validation rules.",
-    caveat: "Educational design study. Not a trading system and not financial advice.",
-    tags: ["Validation", "Guardrails", "Educational"],
   },
 ];
 
@@ -313,7 +303,7 @@ function ProjectsPage() {
             Nothing ships until it passes a gate &mdash; and the gate itself must be earned.
           </h2>
           <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
-            Seven runnable, tested, CI-checked projects published on GitHub. Every dataset is
+             Six pinned, runnable, tested, CI-checked projects published on GitHub. Every dataset is
             synthetic, every repository documents its own limits, and none of these are employer
             or client production deployments.
           </p>
@@ -404,7 +394,7 @@ function ProjectsPage() {
             <CircuitBackdrop />
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-medium">All seven gate projects live on GitHub</p>
+                 <p className="text-sm font-medium">Explore the complete public portfolio on GitHub</p>
                 <p className="mt-1 text-sm text-muted-foreground">
                   Clone, run the tests, and read the limits each repository documents. Client and
                   employer work stays private.
