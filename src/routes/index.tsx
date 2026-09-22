@@ -21,15 +21,15 @@ import portfolioPoster from "@/assets/portfolio-poster.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Joseph Bisaccia — AI Engineering Leader" },
+      { title: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
       { name: "description", content: "Joseph Bisaccia is an AI engineering and enterprise AI leader connecting architecture, governance, adoption, and measurable value." },
-      { property: "og:title", content: "Joseph Bisaccia — AI Engineering Leader" },
+      { property: "og:title", content: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
       { property: "og:description", content: "Enterprise AI systems and the organizations that trust them — architecture, governance, adoption, and measurable value." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://getaiintegrations.com/" },
       { property: "og:image", content: portfolioPoster.url },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Joseph Bisaccia — AI Engineering Leader" },
+      { name: "twitter:title", content: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
       { name: "twitter:description", content: "Enterprise AI systems and the organizations that trust them." },
       { name: "twitter:image", content: portfolioPoster.url },
     ],
@@ -235,7 +235,7 @@ function Hero() {
       </div>
       <div className="relative mx-auto flex min-h-[100vh] max-w-6xl flex-col justify-center px-6 py-28 md:py-32">
         <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
-          <span className="text-primary/80">{"//"}</span> Joseph Bisaccia <span className="mx-1 text-black/25">·</span> AI Engineering Leader
+           <span className="text-primary/80">{"//"}</span> Joseph Bisaccia <span className="mx-1 text-black/25">·</span> AI Engineering &amp; Enterprise AI Leader
         </p>
         <h1
           className="mt-8 max-w-[16ch] font-display leading-[0.95] tracking-tight text-foreground accent-glow"
