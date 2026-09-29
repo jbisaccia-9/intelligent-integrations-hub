@@ -19,3 +19,10 @@
 - [x] Reword the prompts stat so it no longer names the measurement pipeline.
 - [x] Re-run the sensitive-term scan, formatting, lint, and build.
 - [x] Hold the result staged for review without publishing.
+
+## Public-safe v3 consistency pass
+
+- [x] Replace the downloadable résumé with the v3 public-safe file (hash verified).
+- [x] Bump all four résumé links to ?v=2026-09-29-public-safe-v3.
+- [x] Correct repository count wording from 11 to 12 (README, Projects, Home).
+- [x] Sensitive-term scan, formatting, lint, and build clean; staged for review.
