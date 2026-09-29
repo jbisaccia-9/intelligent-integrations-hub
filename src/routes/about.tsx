@@ -202,7 +202,7 @@ function AboutPage() {
                   <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
                     Based
                   </dt>
-                  <dd className="mt-1 text-foreground/90">Gilbert, Arizona · Remote</dd>
+                  <dd className="mt-1 text-foreground/90">San Francisco Bay Area, California</dd>
                 </div>
               </dl>
             </div>
