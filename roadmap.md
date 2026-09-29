@@ -40,3 +40,10 @@
 - [x] Align deployed AI workflow count across Home, About, and Projects.
 - [x] Feature five specified public reference gates in order, with matching metadata and structured data.
 - [x] Scan for sensitive and stale terms; formatting and lint pass; preview build checked; staged, not published.
+
+## Résumé refresh (public-safe v6 → v7)
+
+- [x] Replace the résumé with the hyperlink-enabled v6 PDF (2 pages, five gate links verified).
+- [x] Replace the résumé with the finalized v7 PDF (2 pages, five gate links verified, hash checked).
+- [x] Bump all four résumé links to ?v=2026-09-29-public-safe-v7; no stale v6 references remain.
+- [x] Sensitive-term scan clean; formatting, lint, and production build pass; staged, not published.
