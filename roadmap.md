@@ -8,7 +8,7 @@
 
 ## Public-safe positioning refresh
 
-- [ ] Replace résumé and update all download cache-busters.
-- [ ] Keep employer work aggregate and align Home, Projects, About, Contact, and SEO with current positioning.
-- [ ] Feature eight selected gates from the 11 public repositories, including verify-gate and fanout-gate.
-- [ ] Check sensitive terms, formatting, lint, build, links, and displayed pages.
+- [x] Replace résumé and update all download cache-busters.
+- [x] Keep employer work aggregate and align Home, Projects, About, Contact, and SEO with current positioning.
+- [x] Feature eight selected gates from the 11 public repositories, including verify-gate and fanout-gate.
+- [x] Check sensitive terms, formatting, lint, preview build, links, and displayed pages. Existing project-wide lint findings remain outside the changed files.
