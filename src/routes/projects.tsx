@@ -44,22 +44,18 @@ export const Route = createFileRoute("/projects")({
           about: { "@id": "https://getaiintegrations.com/#person" },
           mainEntity: {
             "@type": "ItemList",
-            itemListElement: [
-              "verify-gate",
-              "mcp-gate",
-              "target-gate",
-              "rag-gate",
-              "roi-gate",
-            ].map((name, i) => ({
-              "@type": "ListItem",
-              position: i + 1,
-              item: {
-                "@type": "SoftwareSourceCode",
-                name,
-                codeRepository: `https://github.com/jbisaccia-9/${name}`,
-                author: { "@id": "https://getaiintegrations.com/#person" },
-              },
-            })),
+            itemListElement: ["verify-gate", "mcp-gate", "target-gate", "rag-gate", "roi-gate"].map(
+              (name, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                item: {
+                  "@type": "SoftwareSourceCode",
+                  name,
+                  codeRepository: `https://github.com/jbisaccia-9/${name}`,
+                  author: { "@id": "https://getaiintegrations.com/#person" },
+                },
+              }),
+            ),
           },
           breadcrumb: {
             "@type": "BreadcrumbList",
@@ -276,7 +272,8 @@ const GATES: Gate[] = [
     repo: "https://github.com/jbisaccia-9/roi-gate",
     tagline: "Conservative adoption and value model that refuses unsupported ROI claims.",
     gate: "Realization discount, all-seat costs, license cost, excluded roles, and zero benefit for inactive users.",
-    evidence: "7 tests; the conservative model passed and all 5 vendor-deck assumptions were refused.",
+    evidence:
+      "7 tests; the conservative model passed and all 5 vendor-deck assumptions were refused.",
     caveat: "Synthetic adoption data and methodology, not an employer deployment.",
     tags: ["ROI", "Adoption", "Evaluation"],
   },
@@ -323,9 +320,9 @@ function ProjectsPage() {
             Nothing ships until it passes a gate &mdash; and the gate itself must be earned.
           </h2>
           <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
-            Five selected projects from 12 public Python and JavaScript gate repositories. These
-            are tested, CI-checked harnesses using synthetic fixtures, not employer or client
-            production deployments; each repository documents its limits.
+            Five selected projects from 12 public Python and JavaScript gate repositories. These are
+            tested, CI-checked harnesses using synthetic fixtures, not employer or client production
+            deployments; each repository documents its limits.
           </p>
           <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
             {GATES.map((g, i) => (

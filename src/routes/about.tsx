@@ -168,14 +168,13 @@ function AboutPage() {
                 Today I lead AI engineering at Behavior Frontiers, connecting architecture,
                 governance, adoption, and measurable value for a national behavioral health network.
                 I led a 72-seat Microsoft Copilot deployment to 92% active use and 8,021 prompts in
-                30 days, alongside 10 deployed AI workflows in regulated clinical and
-                operational contexts. The portfolio is designed around sustainable billable-hour
-                growth, denial prevention, and service capacity; private implementations remain
-                confidential. Before that I built customer-facing RAG assistants and automation
-                programs in the solar industry, and I continue contract model-training and
-                evaluation work for frontier AI platforms. A decade of instructional design and
-                technology training sits underneath all of it: the systems only matter if people
-                adopt them.
+                30 days, alongside 10 deployed AI workflows in regulated clinical and operational
+                contexts. The portfolio is designed around sustainable billable-hour growth, denial
+                prevention, and service capacity; private implementations remain confidential.
+                Before that I built customer-facing RAG assistants and automation programs in the
+                solar industry, and I continue contract model-training and evaluation work for
+                frontier AI platforms. A decade of instructional design and technology training sits
+                underneath all of it: the systems only matter if people adopt them.
               </p>
               <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6 text-sm">
                 <div>
