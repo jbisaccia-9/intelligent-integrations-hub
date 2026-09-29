@@ -2,15 +2,28 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { SiteLayout, GITHUB_URL } from "@/components/SiteLayout";
 import { ArchitectureScene } from "@/components/ambient/ArchitectureScene";
-import { DataStreamDivider, TokenStream, CircuitBackdrop, TerminalHeader } from "@/components/ChapterMotifs";
+import {
+  DataStreamDivider,
+  TokenStream,
+  CircuitBackdrop,
+  TerminalHeader,
+} from "@/components/ChapterMotifs";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Joseph Bisaccia" },
-      { name: "description", content: "Joseph Bisaccia’s top public AI evaluation, security, and governance projects, plus selected enterprise AI engineering outcomes." },
+      {
+        name: "description",
+        content:
+          "Explore eight selected gates from Joseph Bisaccia’s 11 public Python and JavaScript repositories, alongside aggregate enterprise AI leadership outcomes.",
+      },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
-      { property: "og:description", content: "Top public AI evaluation, security, and governance projects, plus selected enterprise AI engineering outcomes." },
+      {
+        property: "og:description",
+        content:
+          "Eight selected public AI gates and aggregate forward-deployed enterprise AI leadership outcomes.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://getaiintegrations.com/projects" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -26,7 +39,7 @@ export const Route = createFileRoute("/projects")({
           url: "https://getaiintegrations.com/projects",
           name: "Projects — Joseph Bisaccia",
           description:
-            "Open-source AI evaluation and governance harnesses plus professional AI engineering engagements.",
+            "Eight selected public gates from 11 Python and JavaScript repositories, plus aggregate enterprise AI leadership outcomes.",
           isPartOf: { "@id": "https://getaiintegrations.com/#website" },
           about: { "@id": "https://getaiintegrations.com/#person" },
           mainEntity: {
@@ -38,6 +51,8 @@ export const Route = createFileRoute("/projects")({
               "trade-gate",
               "perm-gate",
               "target-gate",
+              "verify-gate",
+              "fanout-gate",
             ].map((name, i) => ({
               "@type": "ListItem",
               position: i + 1,
@@ -45,7 +60,6 @@ export const Route = createFileRoute("/projects")({
                 "@type": "SoftwareSourceCode",
                 name,
                 codeRepository: `https://github.com/jbisaccia-9/${name}`,
-                programmingLanguage: "Python",
                 author: { "@id": "https://getaiintegrations.com/#person" },
               },
             })),
@@ -53,8 +67,18 @@ export const Route = createFileRoute("/projects")({
           breadcrumb: {
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://getaiintegrations.com/" },
-              { "@type": "ListItem", position: 2, name: "Projects", item: "https://getaiintegrations.com/projects" },
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://getaiintegrations.com/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Projects",
+                item: "https://getaiintegrations.com/projects",
+              },
             ],
           },
         }),
@@ -85,18 +109,17 @@ const PROJECTS: Project[] = [
     title: "Enterprise AI function for a national behavioral health network",
     context: "Behavior Frontiers · Jul 2026 – Present",
     problem:
-      "A national network of autism and behavioral health centers had no in-house AI engineering capability and no compliant path to apply LLMs to clinical and operational work.",
+      "A national behavioral health network needed secure enterprise AI delivery and organization-wide adoption in a regulated setting.",
     solution:
-      "Led the technical rollout, governance, enablement, and measurement model for Microsoft Copilot; deployed five agentic workflows and built secure automation for clinical and site operations.",
+      "Led a 72-seat Microsoft Copilot rollout and deployed five agentic workflows in regulated clinical and operational contexts, with governance and value measurement.",
     architecture:
-      "A daily Microsoft Graph usage pipeline, agentic workflows across growth and operations, and least-privilege integration patterns for regulated enterprise systems.",
-    technologies: ["Python", "Microsoft Graph", "Agentic workflows", "Salesforce", "Power BI"],
-    security:
-      "Least-privilege Salesforce identity design blocked model access to out-of-scope intake fields, backed by privacy, security, and data-quality launch gates.",
+      "Secure, governed enterprise AI delivery with adoption and value measured at the program level; private implementation details are not disclosed.",
+    technologies: ["Enterprise AI", "Agentic workflows", "Governance", "Adoption"],
+    security: "Regulated delivery grounded in appropriate access boundaries and privacy review.",
     governance:
-      "Six documented privacy, security, and data-quality gates paired with a conservative, usage-tiered value model that charges every seat and discounts realization.",
+      "Evaluation, rollout oversight, and conservative value measurement support sustainable billable-hour growth, denial prevention, and service capacity without disclosing private workflows.",
     impact:
-      "Reached 66 active users across 72 Microsoft Copilot seats (92%) and 8,021 prompts in 30 days; the conservative model estimates $52,654 in annualized net value after license costs.",
+      "Reached 66 active users across 72 Microsoft Copilot seats (92%) and 8,021 prompts in 30 days; conservative modeling estimates $52,654 in annualized net value after license costs.",
   },
   {
     slug: "solar-rag-chatbot",
@@ -131,8 +154,7 @@ const PROJECTS: Project[] = [
       "Scoped API credentials per integrated service and controlled contact lists for outreach.",
     governance:
       "Human handoff for qualified conversations and review of agent transcripts to tune behavior.",
-    impact:
-      "Automated prospect engagement at scale and accelerated sales pipeline growth.",
+    impact: "Automated prospect engagement at scale and accelerated sales pipeline growth.",
   },
   {
     slug: "crm-migration-automation",
@@ -149,8 +171,7 @@ const PROJECTS: Project[] = [
       "Controlled data migration with scoped access during cutover and per-connection credential management.",
     governance:
       "Staged migration plan with stakeholder sign-off, workflow documentation, and post-cutover support.",
-    impact:
-      "Reduced manual operational work by 40% and setup time by 30%.",
+    impact: "Reduced manual operational work by 40% and setup time by 30%.",
   },
   {
     slug: "frontier-model-training",
@@ -199,7 +220,6 @@ const CAPABILITIES: { title: string; body: string }[] = [
   },
 ];
 
-
 type Gate = {
   name: string;
   repo: string;
@@ -212,11 +232,34 @@ type Gate = {
 
 const GATES: Gate[] = [
   {
+    name: "verify-gate",
+    repo: "https://github.com/jbisaccia-9/verify-gate",
+    tagline: "Document-verification gate with explicit human approval before release.",
+    gate: "Source facts, disclosure, file fidelity, eligibility, and byte-bound human approval must all clear.",
+    evidence: "21 tests; 9/9 valid packets passed, while 6/6 counterexamples were refused.",
+    caveat:
+      "Synthetic fixtures and non-production harness; not evidence of an employer deployment.",
+    tags: ["Verification", "Human approval", "Release gate"],
+  },
+  {
+    name: "fanout-gate",
+    repo: "https://github.com/jbisaccia-9/fanout-gate",
+    tagline: "Private-message delivery harness with failure and duplicate-retry controls.",
+    gate: "Delivery requires valid inputs and refusal of failure modes and duplicate retries.",
+    evidence:
+      "23 tests; 22/22 valid messages delivered, 6/6 failure modes refused, and all 22 duplicate retries refused.",
+    caveat:
+      "Synthetic fixtures and non-production harness; not evidence of live messaging or an employer deployment.",
+    tags: ["Delivery", "Idempotency", "Release gate"],
+  },
+  {
     name: "rag-gate",
     repo: "https://github.com/jbisaccia-9/rag-gate",
-    tagline: "Retrieval quality gate for RAG systems — the index only serves once retrieval is good enough.",
+    tagline:
+      "Retrieval quality gate for RAG systems — the index only serves once retrieval is good enough.",
     gate: "Serves only at recall@3 ≥ 0.90.",
-    evidence: "Recall@3 1.00 and MRR 0.958 on the current 12-query labeled set; an earlier 0.83 baseline was correctly blocked.",
+    evidence:
+      "Recall@3 1.00 and MRR 0.958 on the current 12-query labeled set; an earlier 0.83 baseline was correctly blocked.",
     caveat: "Small, hand-labeled evaluation set; live NVIDIA embedding path requires API access.",
     tags: ["RAG", "Retrieval eval", "CI gate"],
   },
@@ -226,24 +269,29 @@ const GATES: Gate[] = [
     tagline: "Measured PHI/PII redaction gate for healthcare-adjacent text.",
     gate: "Redaction must clear the recall and precision floor before text moves downstream.",
     evidence: "Recall 1.00 and precision 0.95 on the current 24-case synthetic labeled corpus.",
-    caveat: "A small synthetic corpus demonstrating methodology; NER-based address detection is out of scope.",
+    caveat:
+      "A small synthetic corpus demonstrating methodology; NER-based address detection is out of scope.",
     tags: ["PHI", "Redaction", "Healthcare"],
   },
   {
     name: "kappa-gate",
     repo: "https://github.com/jbisaccia-9/kappa-gate",
-    tagline: "Calibration harness for LLM-as-judge evaluation using Cohen's kappa against human labels.",
+    tagline:
+      "Calibration harness for LLM-as-judge evaluation using Cohen's kappa against human labels.",
     gate: "Requires kappa ≥ 0.70 and agreement ≥ 0.85 before a judge is trusted.",
-    evidence: "A heuristic judge scored 80% accuracy but κ 0.61 and was refused; a recorded 30/30 live run passed.",
+    evidence:
+      "A heuristic judge scored 80% accuracy but κ 0.61 and was refused; a recorded 30/30 live run passed.",
     caveat: "Small synthetic evaluation set; live results depend on external model access.",
     tags: ["LLM-as-judge", "Cohen's kappa", "Evaluation"],
   },
   {
     name: "trade-gate",
     repo: "https://github.com/jbisaccia-9/trade-gate",
-    tagline: "Order-validation design study that refuses stale, unreconciled, or malformed trading intent.",
+    tagline:
+      "Order-validation design study that refuses stale, unreconciled, or malformed trading intent.",
     gate: "Book reconciliation, cash sufficiency, and ±5% quote-sanity checks must all pass.",
-    evidence: "CI tests clean-order and deliberately unsafe paths plus citation grounding on decision IDs.",
+    evidence:
+      "CI tests clean-order and deliberately unsafe paths plus citation grounding on decision IDs.",
     caveat: "Synthetic quotes only; no live-market or backtested performance claim.",
     tags: ["MCP", "Validation", "Guardrails"],
   },
@@ -252,30 +300,41 @@ const GATES: Gate[] = [
     repo: "https://github.com/jbisaccia-9/perm-gate",
     tagline: "Prompt-layer guardrails versus permission-layer enforcement, measured side by side.",
     gate: "Access decisions must be enforced below the prompt, not inside it.",
-    evidence: "The CI suite requires zero leaks under scoped permission enforcement while preserving the prompt-only failure case.",
+    evidence:
+      "The CI suite requires zero leaks under scoped permission enforcement while preserving the prompt-only failure case.",
     caveat: "A focused architectural proof of concept rather than a full production pipeline.",
     tags: ["Authorization", "Guardrails", "Security"],
   },
   {
     name: "target-gate",
     repo: "https://github.com/jbisaccia-9/target-gate",
-    tagline: "Healthcare provider-targeting pipeline where delivery is blocked until data-quality gates pass.",
+    tagline:
+      "Healthcare provider-targeting pipeline where delivery is blocked until data-quality gates pass.",
     gate: "Checksum, freshness, dedupe, field coverage, market coverage, and brief grounding must pass.",
-    evidence: "CI enforces ≥80% field coverage and rejects a deliberately hallucinated provider brief.",
-    caveat: "CI and demos use fixture snapshots; adapters are production-shaped, not a deployment claim.",
+    evidence:
+      "CI enforces ≥80% field coverage and rejects a deliberately hallucinated provider brief.",
+    caveat:
+      "CI and demos use fixture snapshots; adapters are production-shaped, not a deployment claim.",
     tags: ["Pipelines", "Data quality", "Azure"],
   },
 ];
 
 function ProjectsPage() {
-
   return (
     <SiteLayout>
-      <section id="projects-hero" className="relative isolate overflow-hidden border-b border-black/8">
+      <section
+        id="projects-hero"
+        className="relative isolate overflow-hidden border-b border-black/8"
+      >
         <ArchitectureScene anchorId="projects-hero" />
-        <div aria-hidden className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.06] blur-3xl" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.06] blur-3xl"
+        />
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-28 md:py-36">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Projects</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+            Projects
+          </p>
           <h1
             className="mt-8 max-w-4xl font-display leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.75rem, 7vw, 6rem)" }}
@@ -283,12 +342,10 @@ function ProjectsPage() {
             Gates, harnesses, and delivered systems.
           </h1>
           <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Two bodies of work: open-source evaluation and governance harnesses published on
-            GitHub &mdash; runnable, tested, and CI-checked on synthetic data &mdash; and
-            professional engagements delivered inside employer and client environments. The two
-            are kept separate on purpose.
+            Eleven public Python and JavaScript gate repositories, with eight selected projects
+            featured here, alongside aggregate outcomes from forward-deployed enterprise AI
+            leadership. Public tests use synthetic fixtures; private employer work stays private.
           </p>
-
         </div>
       </section>
       <DataStreamDivider />
@@ -303,9 +360,9 @@ function ProjectsPage() {
             Nothing ships until it passes a gate &mdash; and the gate itself must be earned.
           </h2>
           <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
-             Six pinned, runnable, tested, CI-checked projects published on GitHub. Every dataset is
-            synthetic, every repository documents its own limits, and none of these are employer
-            or client production deployments.
+            Eight selected projects from 11 public Python and JavaScript gate repositories. These
+            are tested, CI-checked harnesses using synthetic fixtures, not employer or client
+            production deployments; each repository documents its limits.
           </p>
           <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
             {GATES.map((g, i) => (
@@ -330,21 +387,30 @@ function ProjectsPage() {
                 <p className="mt-3 text-sm leading-relaxed text-foreground/90">{g.tagline}</p>
                 <dl className="mt-4 space-y-2 text-sm">
                   <div>
-                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Gate</dt>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                      Gate
+                    </dt>
                     <dd className="mt-0.5 text-foreground/85">{g.gate}</dd>
                   </div>
                   <div>
-                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Evidence</dt>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                      Evidence
+                    </dt>
                     <dd className="mt-0.5 text-foreground/85">{g.evidence}</dd>
                   </div>
                   <div>
-                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Limits</dt>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                      Limits
+                    </dt>
                     <dd className="mt-0.5 text-muted-foreground">{g.caveat}</dd>
                   </div>
                 </dl>
                 <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
                   {g.tags.map((t) => (
-                    <span key={t} className="rounded border border-black/10 bg-black/[0.02] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                    <span
+                      key={t}
+                      className="rounded border border-black/10 bg-black/[0.02] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground"
+                    >
                       {t}
                     </span>
                   ))}
@@ -358,7 +424,9 @@ function ProjectsPage() {
           <p className="mt-20 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
             Professional engagements
           </p>
-          <h2 className="mt-3 text-2xl md:text-3xl">Delivered inside employer and client environments.</h2>
+          <h2 className="mt-3 text-2xl md:text-3xl">
+            Delivered inside employer and client environments.
+          </h2>
 
           <div className="mt-10 space-y-16">
             {PROJECTS.map((p, i) => (
@@ -372,10 +440,10 @@ function ProjectsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
               Representative capabilities
             </p>
-            <h2 className="mt-3 text-2xl md:text-3xl">What I can build for an engagement.</h2>
+            <h2 className="mt-3 text-2xl md:text-3xl">Where I lead and build.</h2>
             <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-              Capability areas rather than delivered case studies &mdash; scoped to a client&rsquo;s
-              environment during discovery.
+              Capability areas rather than delivered case studies &mdash; shaped by applied AI
+              engineering and enterprise delivery.
             </p>
             <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">
               {CAPABILITIES.map((c, i) => (
@@ -394,12 +462,13 @@ function ProjectsPage() {
             <CircuitBackdrop />
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-4">
               <div>
-                 <p className="text-sm font-medium">Explore the complete public portfolio on GitHub</p>
+                <p className="text-sm font-medium">
+                  Explore the complete public portfolio on GitHub
+                </p>
                 <p className="mt-1 text-sm text-muted-foreground">
                   Clone, run the tests, and read the limits each repository documents. Client and
                   employer work stays private.
                 </p>
-
               </div>
               <a
                 href={GITHUB_URL}
@@ -412,9 +481,11 @@ function ProjectsPage() {
             </div>
           </div>
 
-
           <div className="mt-10">
-            <Link to="/contact" className="inline-flex items-center gap-2 text-sm text-primary hover:opacity-80">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 text-sm text-primary hover:opacity-80"
+            >
               Discuss a similar engagement <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -426,7 +497,10 @@ function ProjectsPage() {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article id={project.slug} className="group scroll-mt-24 overflow-hidden rounded-lg border border-black/10 bg-surface transition-colors hover:border-primary/30">
+    <article
+      id={project.slug}
+      className="group scroll-mt-24 overflow-hidden rounded-lg border border-black/10 bg-surface transition-colors hover:border-primary/30"
+    >
       <TerminalHeader path={project.slug} />
       <header className="flex flex-wrap items-start justify-between gap-4 border-b border-border p-6 md:p-8">
         <div>
@@ -467,10 +541,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <Field label="Governance" value={project.governance} />
       </div>
       <div className="border-t border-border p-6 md:p-8">
-        <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Technologies</p>
+        <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+          Technologies
+        </p>
         <div className="flex flex-wrap gap-1.5">
           {project.technologies.map((t) => (
-            <span key={t} className="rounded border border-border bg-surface px-2 py-1 font-mono text-[10px] text-foreground/80">
+            <span
+              key={t}
+              className="rounded border border-border bg-surface px-2 py-1 font-mono text-[10px] text-foreground/80"
+            >
               {t}
             </span>
           ))}
@@ -483,8 +562,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div className="bg-background p-6 md:p-8">
-      <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{label}</p>
-      <p className="mt-2 text-sm leading-relaxed text-foreground/90" dangerouslySetInnerHTML={{ __html: value }} />
+      <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+        {label}
+      </p>
+      <p
+        className="mt-2 text-sm leading-relaxed text-foreground/90"
+        dangerouslySetInnerHTML={{ __html: value }}
+      />
     </div>
   );
 }

@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { BrandLogo, BrandMark } from "@/components/BrandLogo";
 
-
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Projects" },
@@ -26,12 +25,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
 function Wordmark() {
   return (
-    <Link to="/" className="group inline-flex items-center" aria-label="Intelligent Integrations — Home">
+    <Link
+      to="/"
+      className="group inline-flex items-center"
+      aria-label="Intelligent Integrations — Home"
+    >
       <BrandLogo />
     </Link>
   );
 }
-
 
 function SiteNav() {
   return (
@@ -58,7 +60,10 @@ function SiteNav() {
           >
             GitHub
           </a>
-          <a href="/resume.pdf?v=2026-09-22-ai-leadership" className="transition-colors hover:text-foreground">
+          <a
+            href="/resume.pdf?v=2026-09-29-public-safe"
+            className="transition-colors hover:text-foreground"
+          >
             Resume
           </a>
         </nav>
@@ -83,26 +88,65 @@ function SiteFooter() {
             <p className="font-display text-2xl leading-tight">Intelligent Integrations</p>
           </div>
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">
-            Joseph Bisaccia &middot; AI Engineering Leader &middot; Enterprise AI Governance, Security &amp; Infrastructure.
+            Joseph Bisaccia &middot; AI Engineering Leader &middot; Enterprise AI Governance,
+            Security &amp; Infrastructure.
           </p>
         </div>
         <div>
-          <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Site</p>
+          <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            Site
+          </p>
           <ul className="space-y-2.5 text-sm">
             {NAV.map((n) => (
               <li key={n.to}>
-                <Link to={n.to} className="text-foreground/80 transition-colors hover:text-primary">{n.label}</Link>
+                <Link to={n.to} className="text-foreground/80 transition-colors hover:text-primary">
+                  {n.label}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Elsewhere</p>
+          <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            Elsewhere
+          </p>
           <ul className="space-y-2.5 text-sm">
-            <li><a className="text-foreground/80 transition-colors hover:text-primary" href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a></li>
-            <li><a className="text-foreground/80 transition-colors hover:text-primary" href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</a></li>
-            <li><a className="text-foreground/80 transition-colors hover:text-primary" href="/resume.pdf?v=2026-09-22-ai-leadership">Resume</a></li>
-            <li><a className="text-foreground/80 transition-colors hover:text-primary" href={`mailto:${EMAIL}`}>Email</a></li>
+            <li>
+              <a
+                className="text-foreground/80 transition-colors hover:text-primary"
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                className="text-foreground/80 transition-colors hover:text-primary"
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
+                className="text-foreground/80 transition-colors hover:text-primary"
+                href="/resume.pdf?v=2026-09-29-public-safe"
+              >
+                Resume
+              </a>
+            </li>
+            <li>
+              <a
+                className="text-foreground/80 transition-colors hover:text-primary"
+                href={`mailto:${EMAIL}`}
+              >
+                Email
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -110,8 +154,12 @@ function SiteFooter() {
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-5 text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} Joseph Bisaccia. All rights reserved.</span>
           <div className="flex items-center gap-5">
-            <Link to="/privacy" className="transition-colors hover:text-foreground">Privacy</Link>
-            <Link to="/terms" className="transition-colors hover:text-foreground">Terms</Link>
+            <Link to="/privacy" className="transition-colors hover:text-foreground">
+              Privacy
+            </Link>
+            <Link to="/terms" className="transition-colors hover:text-foreground">
+              Terms
+            </Link>
             <span className="font-mono">Building secure, compliant, enterprise AI systems.</span>
           </div>
         </div>
