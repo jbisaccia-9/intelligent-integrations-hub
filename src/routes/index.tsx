@@ -919,7 +919,7 @@ function ChapterFour() {
                 Top projects, public and runnable.
               </h3>
               <p className="mt-6 max-w-2xl text-muted-foreground">
-                Eleven public Python and JavaScript gate repositories, with selected projects
+                Twelve public Python and JavaScript gate repositories, with selected projects
                 featured here. Each demonstrates a measurable release threshold on synthetic
                 fixtures; employer work stays private.
               </p>
@@ -992,7 +992,7 @@ function ChapterFive() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="/resume.pdf?v=2026-09-29-public-safe-v2"
+                href="/resume.pdf?v=2026-09-29-public-safe-v3"
                 className="text-sm text-muted-foreground transition-colors hover:text-primary"
               >
                 Download resume →

@@ -6,7 +6,7 @@ Source for [getaiintegrations.com](https://getaiintegrations.com) — the portfo
 **Joseph Bisaccia**, Lead AI Engineer building secure, governed enterprise AI in
 regulated healthcare.
 
-The site is the front door to selected projects from Joseph’s [11 public Python and JavaScript gate repositories](https://github.com/jbisaccia-9):
+The site is the front door to selected projects from Joseph’s [12 public Python and JavaScript gate repositories](https://github.com/jbisaccia-9):
 runnable, tested, CI-checked harnesses with one thesis — **nothing ships until it
 passes a gate, and the gate itself must be earned.** This repo holds itself to the same
 standard: the site must build, and every repo it links to must exist, before a push lands.
