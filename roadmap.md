@@ -26,3 +26,10 @@
 - [x] Bump all four résumé links to ?v=2026-09-29-public-safe-v3.
 - [x] Correct repository count wording from 11 to 12 (README, Projects, Home).
 - [x] Sensitive-term scan, formatting, lint, and build clean; staged for review.
+
+## Career-location pass (public-safe v4)
+
+- [x] Replace the downloadable résumé with the attached Joseph_Bisaccia_Resume_Web.pdf (hash verified, 2 pages).
+- [x] Bump all four résumé links to ?v=2026-09-29-public-safe-v4.
+- [x] Change the About location line to San Francisco Bay Area, California; keep Gilbert Public Schools and Arizona State University intact.
+- [x] Sensitive-term scan, formatting, lint, and build clean; staged for review, not deployed.
