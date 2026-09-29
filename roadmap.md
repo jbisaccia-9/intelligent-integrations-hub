@@ -36,7 +36,7 @@
 
 ## Final career presentation (public-safe v5)
 
-- [ ] Replace the résumé and bump all four links to v5.
-- [ ] Align deployed AI workflow count across Home, About, and Projects.
-- [ ] Feature five specified public reference gates in order, with matching metadata and structured data.
-- [ ] Scan for sensitive and stale terms; run formatting, lint, and build; leave staged, not published.
+- [x] Replace the résumé and bump all four links to v5.
+- [x] Align deployed AI workflow count across Home, About, and Projects.
+- [x] Feature five specified public reference gates in order, with matching metadata and structured data.
+- [x] Scan for sensitive and stale terms; formatting and lint pass; preview build checked; staged, not published.
