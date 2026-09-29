@@ -8,9 +8,9 @@ export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — Joseph Bisaccia" },
-      { name: "description", content: "Joseph Bisaccia’s top public AI evaluation, security, and governance projects, plus selected enterprise AI engineering outcomes." },
+      { name: "description", content: "Explore eight selected gates from Joseph Bisaccia’s 11 public Python and JavaScript repositories, alongside aggregate enterprise AI leadership outcomes." },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
-      { property: "og:description", content: "Top public AI evaluation, security, and governance projects, plus selected enterprise AI engineering outcomes." },
+      { property: "og:description", content: "Eight selected public AI gates and aggregate forward-deployed enterprise AI leadership outcomes." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://getaiintegrations.com/projects" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/projects")({
           url: "https://getaiintegrations.com/projects",
           name: "Projects — Joseph Bisaccia",
           description:
-            "Open-source AI evaluation and governance harnesses plus professional AI engineering engagements.",
+            "Eight selected public gates from 11 Python and JavaScript repositories, plus aggregate enterprise AI leadership outcomes.",
           isPartOf: { "@id": "https://getaiintegrations.com/#website" },
           about: { "@id": "https://getaiintegrations.com/#person" },
           mainEntity: {
@@ -38,6 +38,8 @@ export const Route = createFileRoute("/projects")({
               "trade-gate",
               "perm-gate",
               "target-gate",
+              "verify-gate",
+              "fanout-gate",
             ].map((name, i) => ({
               "@type": "ListItem",
               position: i + 1,
@@ -45,7 +47,6 @@ export const Route = createFileRoute("/projects")({
                 "@type": "SoftwareSourceCode",
                 name,
                 codeRepository: `https://github.com/jbisaccia-9/${name}`,
-                programmingLanguage: "Python",
                 author: { "@id": "https://getaiintegrations.com/#person" },
               },
             })),
@@ -85,18 +86,18 @@ const PROJECTS: Project[] = [
     title: "Enterprise AI function for a national behavioral health network",
     context: "Behavior Frontiers · Jul 2026 – Present",
     problem:
-      "A national network of autism and behavioral health centers had no in-house AI engineering capability and no compliant path to apply LLMs to clinical and operational work.",
+      "A national behavioral health network needed secure enterprise AI delivery and organization-wide adoption in a regulated setting.",
     solution:
-      "Led the technical rollout, governance, enablement, and measurement model for Microsoft Copilot; deployed five agentic workflows and built secure automation for clinical and site operations.",
+      "Led a 72-seat Microsoft Copilot rollout and deployed five agentic workflows in regulated clinical and operational contexts, with governance and value measurement.",
     architecture:
-      "A daily Microsoft Graph usage pipeline, agentic workflows across growth and operations, and least-privilege integration patterns for regulated enterprise systems.",
-    technologies: ["Python", "Microsoft Graph", "Agentic workflows", "Salesforce", "Power BI"],
+      "Secure, governed enterprise AI delivery with adoption and value measured at the program level; private implementation details are not disclosed.",
+    technologies: ["Enterprise AI", "Agentic workflows", "Governance", "Adoption"],
     security:
-      "Least-privilege Salesforce identity design blocked model access to out-of-scope intake fields, backed by privacy, security, and data-quality launch gates.",
+      "Regulated delivery grounded in appropriate access boundaries and privacy review.",
     governance:
-      "Six documented privacy, security, and data-quality gates paired with a conservative, usage-tiered value model that charges every seat and discounts realization.",
+      "Evaluation, rollout oversight, and conservative value measurement support sustainable billable-hour growth, denial prevention, and service capacity without disclosing private workflows.",
     impact:
-      "Reached 66 active users across 72 Microsoft Copilot seats (92%) and 8,021 prompts in 30 days; the conservative model estimates $52,654 in annualized net value after license costs.",
+      "Reached 66 active users across 72 Microsoft Copilot seats (92%) and 8,021 prompts in 30 days; conservative modeling estimates $52,654 in annualized net value after license costs.",
   },
   {
     slug: "solar-rag-chatbot",
@@ -212,6 +213,24 @@ type Gate = {
 
 const GATES: Gate[] = [
   {
+    name: "verify-gate",
+    repo: "https://github.com/jbisaccia-9/verify-gate",
+    tagline: "Document-verification gate with explicit human approval before release.",
+    gate: "Source facts, disclosure, file fidelity, eligibility, and byte-bound human approval must all clear.",
+    evidence: "21 tests; 9/9 valid packets passed, while 6/6 counterexamples were refused.",
+    caveat: "Synthetic fixtures and non-production harness; not evidence of an employer deployment.",
+    tags: ["Verification", "Human approval", "Release gate"],
+  },
+  {
+    name: "fanout-gate",
+    repo: "https://github.com/jbisaccia-9/fanout-gate",
+    tagline: "Private-message delivery harness with failure and duplicate-retry controls.",
+    gate: "Delivery requires valid inputs and refusal of failure modes and duplicate retries.",
+    evidence: "23 tests; 22/22 valid messages delivered, 6/6 failure modes refused, and all 22 duplicate retries refused.",
+    caveat: "Synthetic fixtures and non-production harness; not evidence of live messaging or an employer deployment.",
+    tags: ["Delivery", "Idempotency", "Release gate"],
+  },
+  {
     name: "rag-gate",
     repo: "https://github.com/jbisaccia-9/rag-gate",
     tagline: "Retrieval quality gate for RAG systems — the index only serves once retrieval is good enough.",
@@ -283,10 +302,9 @@ function ProjectsPage() {
             Gates, harnesses, and delivered systems.
           </h1>
           <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Two bodies of work: open-source evaluation and governance harnesses published on
-            GitHub &mdash; runnable, tested, and CI-checked on synthetic data &mdash; and
-            professional engagements delivered inside employer and client environments. The two
-            are kept separate on purpose.
+             Eleven public Python and JavaScript gate repositories, with eight selected projects
+             featured here, alongside aggregate outcomes from forward-deployed enterprise AI
+             leadership. Public tests use synthetic fixtures; private employer work stays private.
           </p>
 
         </div>
@@ -303,9 +321,9 @@ function ProjectsPage() {
             Nothing ships until it passes a gate &mdash; and the gate itself must be earned.
           </h2>
           <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
-             Six pinned, runnable, tested, CI-checked projects published on GitHub. Every dataset is
-            synthetic, every repository documents its own limits, and none of these are employer
-            or client production deployments.
+             Eight selected projects from 11 public Python and JavaScript gate repositories.
+             These are tested, CI-checked harnesses using synthetic fixtures, not employer or
+             client production deployments; each repository documents its limits.
           </p>
           <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
             {GATES.map((g, i) => (
@@ -372,10 +390,10 @@ function ProjectsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
               Representative capabilities
             </p>
-            <h2 className="mt-3 text-2xl md:text-3xl">What I can build for an engagement.</h2>
+             <h2 className="mt-3 text-2xl md:text-3xl">Where I lead and build.</h2>
             <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-              Capability areas rather than delivered case studies &mdash; scoped to a client&rsquo;s
-              environment during discovery.
+               Capability areas rather than delivered case studies &mdash; shaped by applied AI
+               engineering and enterprise delivery.
             </p>
             <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">
               {CAPABILITIES.map((c, i) => (
