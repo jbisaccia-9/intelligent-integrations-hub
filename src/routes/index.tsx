@@ -992,7 +992,7 @@ function ChapterFive() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="/resume.pdf?v=2026-09-29-public-safe"
+                href="/resume.pdf?v=2026-09-29-public-safe-v2"
                 className="text-sm text-muted-foreground transition-colors hover:text-primary"
               >
                 Download resume →
