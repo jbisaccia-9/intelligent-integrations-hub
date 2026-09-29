@@ -22,9 +22,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
-      { name: "description", content: "Joseph Bisaccia is an AI engineering and enterprise AI leader connecting architecture, governance, adoption, and measurable value." },
+      { name: "description", content: "Joseph Bisaccia is a Lead AI Engineer connecting secure regulated AI delivery with enterprise adoption, sustainable billable-hour growth, and measurable value." },
       { property: "og:title", content: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
-      { property: "og:description", content: "Enterprise AI systems and the organizations that trust them — architecture, governance, adoption, and measurable value." },
+      { property: "og:description", content: "Secure enterprise AI delivery, adoption, and measurable value in regulated environments." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://getaiintegrations.com/" },
       { property: "og:image", content: portfolioPoster.url },
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
           url: "https://getaiintegrations.com/",
           name: "Joseph Bisaccia — AI Engineering Leader",
           description:
-            "Joseph Bisaccia is an AI engineering and enterprise AI leader connecting architecture, governance, adoption, and measurable value.",
+            "Joseph Bisaccia is a Lead AI Engineer connecting secure regulated AI delivery, enterprise adoption, and measurable value.",
           isPartOf: { "@id": "https://getaiintegrations.com/#website" },
           about: { "@id": "https://getaiintegrations.com/#person" },
           primaryImageOfPage: portfolioPoster.url,
@@ -70,32 +70,32 @@ const EXPERTISE = [
 
 const FEATURED_GATES = [
   {
-    name: "rag-gate",
-    repo: "https://github.com/jbisaccia-9/rag-gate",
+    name: "verify-gate",
+    repo: "https://github.com/jbisaccia-9/verify-gate",
     summary:
-      "Retrieval gate that only serves at recall@3 ≥ 0.90. Baseline caught at 0.83, fixed to 1.00 on the current small synthetic set.",
-    stack: ["RAG", "Retrieval eval", "CI gate"],
+      "Document verification gate: 9/9 valid synthetic packets passed; 6/6 counterexamples refused until checks and human approval cleared.",
+    stack: ["Verification", "Human approval", "CI gate"],
   },
   {
-    name: "phi-gate",
-    repo: "https://github.com/jbisaccia-9/phi-gate",
+    name: "fanout-gate",
+    repo: "https://github.com/jbisaccia-9/fanout-gate",
     summary:
-      "Measured PHI/PII redaction gate — recall 1.00 and precision 0.95 on a 24-case synthetic corpus, above both release thresholds.",
-    stack: ["PHI", "Redaction", "Healthcare"],
+      "Private-message delivery gate: 22/22 valid synthetic messages delivered; all 22 duplicate retries and 6/6 failure modes refused.",
+    stack: ["Delivery", "Idempotency", "CI gate"],
   },
   {
-    name: "kappa-gate",
-    repo: "https://github.com/jbisaccia-9/kappa-gate",
+    name: "perm-gate",
+    repo: "https://github.com/jbisaccia-9/perm-gate",
     summary:
-      "LLM-as-judge calibration on Cohen's kappa — a judge is trusted only at kappa ≥ 0.70 and agreement ≥ 0.85.",
-    stack: ["LLM-as-judge", "Calibration"],
+      "Permission-layer enforcement measured against prompt-only guardrails; scoped access must produce zero leaks on synthetic tests.",
+    stack: ["Authorization", "Guardrails", "Security"],
   },
   {
-    name: "trade-gate",
-    repo: "https://github.com/jbisaccia-9/trade-gate",
+    name: "target-gate",
+    repo: "https://github.com/jbisaccia-9/target-gate",
     summary:
-      "Order-validation design study that blocks action when the order book is stale, unreconciled, underfunded, or outside quote-sanity limits.",
-    stack: ["MCP", "Validation", "Guardrails"],
+      "Data-quality gate blocks delivery until identifier, freshness, dedupe, coverage, and grounding checks pass on fixtures.",
+    stack: ["Pipelines", "Data quality", "CI gate"],
   },
 ];
 
@@ -106,8 +106,8 @@ const FEATURED_PROJECTS = [
     title: "Founding the AI function in regulated healthcare",
     context: "Behavior Frontiers · Healthcare",
     summary:
-       "Led a 72-seat Microsoft Copilot rollout to 92% active use in 30 days, deployed five agentic workflows, and established governance and value measurement.",
-    stack: ["Microsoft Graph", "Agentic workflows", "Governance", "ROI"],
+       "Led a 72-seat Microsoft Copilot rollout to 92% active use and 8,021 prompts in 30 days; deployed five agentic workflows with governance and measured value.",
+    stack: ["Enterprise AI", "Agentic workflows", "Governance", "Value"],
   },
   {
     slug: "solar-rag-chatbot",
@@ -131,12 +131,12 @@ const LEADERSHIP = [
   {
     kicker: "Founding AI resource",
     title: "Standing up an enterprise AI function",
-    body: "Leading enterprise AI delivery across a national behavioral health network — architecture, governance, enablement, measurement, and five deployed agentic workflows.",
+    body: "Leading secure enterprise AI delivery across a national behavioral health network — governance, adoption, measured value, and five deployed agentic workflows in regulated clinical and operational contexts.",
   },
   {
     kicker: "Governance & security",
     title: "Compliance-oriented implementation",
-    body: "Designing least-privilege access and six privacy, security, and data-quality launch gates so enterprise workflows stay auditable and compliant.",
+    body: "Building governance and evaluation into regulated AI delivery so adoption and value can be measured without compromising trust.",
   },
   {
     kicker: "Training enablement",
@@ -153,7 +153,7 @@ const LEADERSHIP = [
 const STATS = [
   { target: 92, suffix: "%", label: "Active use across a 72-seat Microsoft Copilot rollout in 30 days" },
   { target: 8021, suffix: "", label: "Prompts measured through a daily Microsoft Graph pipeline in 30 days" },
-  { target: 5, suffix: "", label: "Agentic workflows deployed across growth, clinical, onboarding, and site operations" },
+  { target: 5, suffix: "", label: "Agentic workflows deployed in regulated clinical and operational contexts" },
 ];
 
 const PERSPECTIVE_LINES = [
@@ -247,8 +247,8 @@ function Hero() {
           that trust them.
         </h1>
         <p className="mt-10 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          I lead enterprise AI adoption end to end: secure infrastructure, agentic workflows,
-          and the training programs that turn skeptical teams into confident AI operators.
+          I connect secure AI delivery in regulated environments with enterprise adoption,
+          sustainable billable-hour growth, and measurable value.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <Link
@@ -850,9 +850,9 @@ function ChapterFour() {
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Open source</p>
               <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">Top projects, public and runnable.</h3>
               <p className="mt-6 max-w-2xl text-muted-foreground">
-                Six pinned evaluation, security, and data-quality projects &mdash; each with a
-                measurable threshold that has to be earned before anything ships. Client and
-                employer work stays private.
+                Eleven public Python and JavaScript gate repositories, with selected projects
+                featured here. Each demonstrates a measurable release threshold on synthetic
+                fixtures; employer work stays private.
               </p>
             </div>
             <a
@@ -912,7 +912,7 @@ function ChapterFive() {
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
                 Connect With Joseph <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <a href="/resume.pdf?v=2026-09-22-ai-leadership" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+              <a href="/resume.pdf?v=2026-09-29-public-safe" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 Download resume →
               </a>
             </div>

@@ -58,7 +58,7 @@ function SiteNav() {
           >
             GitHub
           </a>
-          <a href="/resume.pdf?v=2026-09-22-ai-leadership" className="transition-colors hover:text-foreground">
+          <a href="/resume.pdf?v=2026-09-29-public-safe" className="transition-colors hover:text-foreground">
             Resume
           </a>
         </nav>
@@ -101,7 +101,7 @@ function SiteFooter() {
           <ul className="space-y-2.5 text-sm">
             <li><a className="text-foreground/80 transition-colors hover:text-primary" href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a></li>
             <li><a className="text-foreground/80 transition-colors hover:text-primary" href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</a></li>
-            <li><a className="text-foreground/80 transition-colors hover:text-primary" href="/resume.pdf?v=2026-09-22-ai-leadership">Resume</a></li>
+            <li><a className="text-foreground/80 transition-colors hover:text-primary" href="/resume.pdf?v=2026-09-29-public-safe">Resume</a></li>
             <li><a className="text-foreground/80 transition-colors hover:text-primary" href={`mailto:${EMAIL}`}>Email</a></li>
           </ul>
         </div>

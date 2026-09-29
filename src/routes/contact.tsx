@@ -10,9 +10,9 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Joseph Bisaccia" },
-      { name: "description", content: "Connect with Joseph Bisaccia about AI engineering leadership, strategic collaborations, speaking, and enterprise AI governance." },
+      { name: "description", content: "Connect with Joseph Bisaccia about lead and forward-deployed AI engineering roles, platform and governance leadership, collaborations, and speaking." },
       { property: "og:title", content: "Contact — Joseph Bisaccia" },
-      { property: "og:description", content: "AI engineering leadership, strategic collaborations, speaking, and thoughtful conversations about governed enterprise AI." },
+      { property: "og:description", content: "Lead and forward-deployed AI engineering, enterprise AI governance, collaborations, and speaking." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://getaiintegrations.com/contact" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/contact")({
           url: "https://getaiintegrations.com/contact",
           name: "Contact — Joseph Bisaccia",
           description:
-            "Connect with Joseph Bisaccia about AI engineering leadership, strategic collaborations, speaking, and enterprise AI governance.",
+            "Connect with Joseph Bisaccia about lead and forward-deployed AI engineering, enterprise AI governance, collaborations, and speaking.",
           isPartOf: { "@id": "https://getaiintegrations.com/#website" },
           about: { "@id": "https://getaiintegrations.com/#person" },
           breadcrumb: {
@@ -74,9 +74,9 @@ function ContactPage() {
             Start a conversation.
           </h1>
           <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Open to AI engineering leadership opportunities, strategic collaborations, speaking,
-            and thoughtful conversations about governed enterprise AI. Share a bit of context
-            and I&rsquo;ll respond directly.
+             Open to senior and lead AI engineering, applied AI and forward-deployed roles,
+             AI platform and governance leadership, strategic collaborations, and speaking.
+             Share a bit of context and I&rsquo;ll respond directly.
           </p>
         </div>
       </section>
@@ -93,8 +93,8 @@ function ContactPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Opportunities</p>
               <p className="mt-3 text-sm text-muted-foreground">
                 Senior and lead AI engineering, applied AI and forward-deployed roles, AI platform
-                and governance leadership, strategic collaborations, speaking, and select advisory
-                conversations.
+                 and governance leadership, strategic collaborations, speaking, and tightly scoped
+                 advisory work.
               </p>
             </div>
 

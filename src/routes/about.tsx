@@ -9,9 +9,9 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Joseph Bisaccia" },
-      { name: "description", content: "Joseph Bisaccia is an AI engineering and enterprise AI leader connecting architecture, governance, adoption, and measurable value." },
+      { name: "description", content: "Joseph Bisaccia is a Lead AI Engineer in regulated healthcare, leading secure enterprise AI delivery, adoption, governance, and measurable value." },
       { property: "og:title", content: "About — Joseph Bisaccia" },
-      { property: "og:description", content: "AI engineering leader connecting architecture, governance, adoption, and measurable enterprise value." },
+      { property: "og:description", content: "Lead AI Engineer connecting secure regulated AI delivery, enterprise adoption, and measurable value." },
       { property: "og:type", content: "profile" },
       { property: "og:url", content: "https://getaiintegrations.com/about" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/about")({
           url: "https://getaiintegrations.com/about",
           name: "About — Joseph Bisaccia",
           description:
-            "Joseph Bisaccia is an AI engineering and enterprise AI leader connecting architecture, governance, adoption, and measurable value.",
+            "Joseph Bisaccia is a Lead AI Engineer connecting secure regulated AI delivery, enterprise adoption, and measurable value.",
           isPartOf: { "@id": "https://getaiintegrations.com/#website" },
           mainEntity: { "@id": "https://getaiintegrations.com/#person" },
           breadcrumb: {
@@ -49,7 +49,7 @@ const ROLES = [
     period: "Jul 2026 — Present",
     title: "Lead AI Engineer",
     org: "Behavior Frontiers",
-    desc: "Leading enterprise AI delivery, governance, enablement, and value measurement for a national behavioral health network. Reached 92% active use across a 72-seat Microsoft Copilot rollout in 30 days, deployed five agentic workflows, and built secure automation for clinical and site operations.",
+    desc: "Leading secure enterprise AI delivery, governance, adoption, and value measurement for a national behavioral health network. Deployed five agentic workflows in regulated clinical and operational contexts; a 72-seat Microsoft Copilot rollout reached 92% active use and 8,021 prompts in 30 days. Private implementations remain confidential.",
   },
   {
     period: "Sep 2025 — Jul 2026",
@@ -133,13 +133,16 @@ function AboutPage() {
               </h1>
               <p className="mt-8 text-lg text-muted-foreground">
                 I&rsquo;m Joseph Bisaccia — a Lead AI Engineer working at the intersection of
-                applied machine learning, security engineering, and technical program leadership.
+                 applied AI, security engineering, and forward-deployed enterprise leadership.
               </p>
               <p className="mt-4 text-base leading-relaxed text-foreground/85">
                  Today I lead AI engineering at Behavior Frontiers, connecting architecture,
-                 governance, adoption, and financial outcomes for a national behavioral health
-                 network. I led a 72-seat Microsoft Copilot deployment to 92% active use in 30 days,
-                 alongside secure agentic workflows for clinical and operational teams. Before that
+                  governance, adoption, and measurable value for a national behavioral health
+                  network. I led a 72-seat Microsoft Copilot deployment to 92% active use and 8,021
+                  prompts in 30 days, alongside five deployed agentic workflows in regulated
+                  clinical and operational contexts. The portfolio is designed around sustainable
+                  billable-hour growth, denial prevention, and service capacity; private implementations
+                  remain confidential. Before that
                  I built customer-facing RAG assistants and automation programs
                 in the solar industry, and I continue contract model-training and evaluation work
                 for frontier AI platforms. A decade of instructional design and technology training
@@ -285,7 +288,7 @@ function AboutPage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-20 md:grid-cols-3 md:py-24">
           <ExternalLink href={GITHUB_URL} label="GitHub" value="jbisaccia-9" />
           <ExternalLink href={LINKEDIN_URL} label="LinkedIn" value="joseph-bisaccia-ai" />
-          <ExternalLink href="/resume.pdf?v=2026-09-22-ai-leadership" label="Resume" value="Download PDF" internal />
+          <ExternalLink href="/resume.pdf?v=2026-09-29-public-safe" label="Resume" value="Download PDF" internal />
         </div>
         <div className="mx-auto max-w-6xl px-6 pb-24">
           <Link to="/contact" className="inline-flex items-center gap-2 text-sm text-primary hover:opacity-80">
