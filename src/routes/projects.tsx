@@ -16,7 +16,7 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Explore eight selected gates from Joseph Bisaccia’s 11 public Python and JavaScript repositories, alongside aggregate enterprise AI leadership outcomes.",
+          "Explore eight selected gates from Joseph Bisaccia’s 12 public Python and JavaScript repositories, alongside aggregate enterprise AI leadership outcomes.",
       },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
       {
