@@ -169,7 +169,7 @@ const STATS = [
   {
     target: 8021,
     suffix: "",
-    label: "Prompts measured through a daily Microsoft Graph pipeline in 30 days",
+    label: "Prompts measured across the 72-seat enterprise rollout in 30 days",
   },
   {
     target: 5,
