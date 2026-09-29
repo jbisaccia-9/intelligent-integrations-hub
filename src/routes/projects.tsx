@@ -16,7 +16,7 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Explore eight selected gates from Joseph Bisaccia’s 11 public Python and JavaScript repositories, alongside aggregate enterprise AI leadership outcomes.",
+          "Explore eight selected gates from Joseph Bisaccia’s 12 public Python and JavaScript repositories, alongside aggregate enterprise AI leadership outcomes.",
       },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
       {
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/projects")({
           url: "https://getaiintegrations.com/projects",
           name: "Projects — Joseph Bisaccia",
           description:
-            "Eight selected public gates from 11 Python and JavaScript repositories, plus aggregate enterprise AI leadership outcomes.",
+            "Eight selected public gates from 12 Python and JavaScript repositories, plus aggregate enterprise AI leadership outcomes.",
           isPartOf: { "@id": "https://getaiintegrations.com/#website" },
           about: { "@id": "https://getaiintegrations.com/#person" },
           mainEntity: {
@@ -342,7 +342,7 @@ function ProjectsPage() {
             Gates, harnesses, and delivered systems.
           </h1>
           <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Eleven public Python and JavaScript gate repositories, with eight selected projects
+            Twelve public Python and JavaScript gate repositories, with eight selected projects
             featured here, alongside aggregate outcomes from forward-deployed enterprise AI
             leadership. Public tests use synthetic fixtures; private employer work stays private.
           </p>
@@ -360,7 +360,7 @@ function ProjectsPage() {
             Nothing ships until it passes a gate &mdash; and the gate itself must be earned.
           </h2>
           <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
-            Eight selected projects from 11 public Python and JavaScript gate repositories. These
+            Eight selected projects from 12 public Python and JavaScript gate repositories. These
             are tested, CI-checked harnesses using synthetic fixtures, not employer or client
             production deployments; each repository documents its limits.
           </p>
