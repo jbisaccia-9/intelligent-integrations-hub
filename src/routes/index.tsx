@@ -22,15 +22,26 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
-      { name: "description", content: "Joseph Bisaccia is a Lead AI Engineer connecting secure regulated AI delivery with enterprise adoption, sustainable billable-hour growth, and measurable value." },
+      {
+        name: "description",
+        content:
+          "Joseph Bisaccia is a Lead AI Engineer connecting secure regulated AI delivery with enterprise adoption, sustainable billable-hour growth, and measurable value.",
+      },
       { property: "og:title", content: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
-      { property: "og:description", content: "Secure enterprise AI delivery, adoption, and measurable value in regulated environments." },
+      {
+        property: "og:description",
+        content:
+          "Secure enterprise AI delivery, adoption, and measurable value in regulated environments.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://getaiintegrations.com/" },
       { property: "og:image", content: portfolioPoster.url },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Joseph Bisaccia — AI Engineering & Enterprise AI Leader" },
-      { name: "twitter:description", content: "Enterprise AI systems and the organizations that trust them." },
+      {
+        name: "twitter:description",
+        content: "Enterprise AI systems and the organizations that trust them.",
+      },
       { name: "twitter:image", content: portfolioPoster.url },
     ],
     links: [{ rel: "canonical", href: "https://getaiintegrations.com/" }],
@@ -100,13 +111,12 @@ const FEATURED_GATES = [
 ];
 
 const FEATURED_PROJECTS = [
-
   {
     slug: "hipaa-clinical-ai-function",
     title: "Founding the AI function in regulated healthcare",
     context: "Behavior Frontiers · Healthcare",
     summary:
-       "Led a 72-seat Microsoft Copilot rollout to 92% active use and 8,021 prompts in 30 days; deployed five agentic workflows with governance and measured value.",
+      "Led a 72-seat Microsoft Copilot rollout to 92% active use and 8,021 prompts in 30 days; deployed five agentic workflows with governance and measured value.",
     stack: ["Enterprise AI", "Agentic workflows", "Governance", "Value"],
   },
   {
@@ -151,9 +161,21 @@ const LEADERSHIP = [
 ];
 
 const STATS = [
-  { target: 92, suffix: "%", label: "Active use across a 72-seat Microsoft Copilot rollout in 30 days" },
-  { target: 8021, suffix: "", label: "Prompts measured through a daily Microsoft Graph pipeline in 30 days" },
-  { target: 5, suffix: "", label: "Agentic workflows deployed in regulated clinical and operational contexts" },
+  {
+    target: 92,
+    suffix: "%",
+    label: "Active use across a 72-seat Microsoft Copilot rollout in 30 days",
+  },
+  {
+    target: 8021,
+    suffix: "",
+    label: "Prompts measured through a daily Microsoft Graph pipeline in 30 days",
+  },
+  {
+    target: 5,
+    suffix: "",
+    label: "Agentic workflows deployed in regulated clinical and operational contexts",
+  },
 ];
 
 const PERSPECTIVE_LINES = [
@@ -161,7 +183,6 @@ const PERSPECTIVE_LINES = [
   "challenge, not an engineering one.",
   "The model is the easy part.",
 ];
-
 
 function Home() {
   useHeroScrollFade();
@@ -235,7 +256,8 @@ function Hero() {
       </div>
       <div className="relative mx-auto flex min-h-[100vh] max-w-6xl flex-col justify-center px-6 py-28 md:py-32">
         <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
-           <span className="text-primary/80">{"//"}</span> Joseph Bisaccia <span className="mx-1 text-black/25">·</span> AI Engineering &amp; Enterprise AI Leader
+          <span className="text-primary/80">{"//"}</span> Joseph Bisaccia{" "}
+          <span className="mx-1 text-black/25">·</span> AI Engineering &amp; Enterprise AI Leader
         </p>
         <h1
           className="mt-8 max-w-[16ch] font-display leading-[0.95] tracking-tight text-foreground accent-glow"
@@ -243,7 +265,8 @@ function Hero() {
         >
           I build AI systems <span className="italic text-primary">&mdash;</span>
           <br />
-          and the organizations<br />
+          and the organizations
+          <br />
           that trust them.
         </h1>
         <p className="mt-10 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -255,7 +278,8 @@ function Hero() {
             to="/projects"
             className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
           >
-            View Projects <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            View Projects{" "}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link
             to="/contact"
@@ -266,8 +290,14 @@ function Hero() {
         </div>
         <div className="mt-20 grid gap-8 border-t border-black/8 pt-8 text-sm text-muted-foreground sm:grid-cols-3">
           <Meta label="Focus" value="Enterprise AI Governance, Security, Infrastructure" />
-          <Meta label="Currently" value="Lead AI Engineer, Behavior Frontiers &mdash; building the AI function from the ground up" />
-          <Meta label="Open to" value="AI engineering leadership, strategic collaborations &amp; speaking" />
+          <Meta
+            label="Currently"
+            value="Lead AI Engineer, Behavior Frontiers &mdash; building the AI function from the ground up"
+          />
+          <Meta
+            label="Open to"
+            value="AI engineering leadership, strategic collaborations &amp; speaking"
+          />
         </div>
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center">
@@ -283,7 +313,9 @@ function Hero() {
 function Meta({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{label}</p>
+      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+        {label}
+      </p>
       <p className="mt-2 text-foreground/90" dangerouslySetInnerHTML={{ __html: value }} />
     </div>
   );
@@ -293,15 +325,7 @@ function Meta({ label, value }: { label: string; value: string }) {
 /* CHAPTER SHELL                                                       */
 /* ------------------------------------------------------------------ */
 
-function ChapterHeading({
-  n,
-  kicker,
-  title,
-}: {
-  n: string;
-  kicker: string;
-  title: string;
-}) {
+function ChapterHeading({ n, kicker, title }: { n: string; kicker: string; title: string }) {
   const r = useReveal<HTMLDivElement>();
   return (
     <div ref={r.ref} className={r.className}>
@@ -332,7 +356,10 @@ function ChapterOne() {
         <ChapterHeading n="01" kicker="The Systems" title="A short tour of the work." />
         <div ref={reel.ref} className={`mt-16 ${reel.className}`}>
           <div className="group relative overflow-hidden rounded-lg border border-black/10 bg-black shadow-[0_40px_120px_-40px_rgba(0,0,0,0.6)] transition-colors hover:border-primary/30">
-            <div aria-hidden className="pointer-events-none absolute -inset-px rounded-lg bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-px rounded-lg bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+            />
             <video
               controls
               preload="metadata"
@@ -357,14 +384,19 @@ function ChapterOne() {
           >
             <div className="grid gap-12 md:grid-cols-[minmax(0,1fr)_2fr]">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Expertise</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Expertise
+                </p>
                 <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">
                   Production AI systems for regulated and enterprise environments.
                 </h3>
               </div>
               <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">
                 {EXPERTISE.map((item, i) => (
-                  <li key={item} className="flex items-start gap-3 border-b border-black/8 pb-4 text-sm transition-colors hover:border-primary/40">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 border-b border-black/8 pb-4 text-sm transition-colors hover:border-primary/40"
+                  >
                     <span className="mt-0.5 font-mono text-[10px] tabular-nums text-muted-foreground">
                       [{i.toString().padStart(2, "0")}]
                     </span>
@@ -481,7 +513,8 @@ function ChapterTwo() {
                     aria-hidden={!on}
                   >
                     <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-                      <span className="text-primary/80">{"//"}</span> 0{i + 1} / {STATS.length.toString().padStart(2, "0")}
+                      <span className="text-primary/80">{"//"}</span> 0{i + 1} /{" "}
+                      {STATS.length.toString().padStart(2, "0")}
                     </p>
                     <p
                       className="mt-6 font-display leading-none tracking-tight text-primary accent-glow tabular-nums"
@@ -491,7 +524,8 @@ function ChapterTwo() {
                       {s.suffix}
                     </p>
                     <p className="mt-8 max-w-2xl font-mono text-sm uppercase tracking-[0.14em] text-foreground/80 md:text-base">
-                      <span className="mr-2 text-primary/70">&gt;</span>{s.label}
+                      <span className="mr-2 text-primary/70">&gt;</span>
+                      {s.label}
                     </p>
                   </div>
                 );
@@ -551,10 +585,17 @@ function ChapterTwo() {
                 key={item.title}
                 className="group relative bg-surface p-7 transition-colors hover:bg-surface-elevated"
               >
-                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{item.kicker}</p>
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+                />
+                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  {item.kicker}
+                </p>
                 <h3 className="relative mt-3 text-xl leading-snug">{item.title}</h3>
-                <p className="relative mt-4 text-sm leading-relaxed text-foreground/80">{item.body}</p>
+                <p className="relative mt-4 text-sm leading-relaxed text-foreground/80">
+                  {item.body}
+                </p>
               </article>
             ))}
           </div>
@@ -595,7 +636,12 @@ function MobileCount({ target }: { target: number }) {
     };
     const io = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) if (e.isIntersecting) { run(); io.disconnect(); break; }
+        for (const e of entries)
+          if (e.isIntersecting) {
+            run();
+            io.disconnect();
+            break;
+          }
       },
       { threshold: 0.4 },
     );
@@ -657,7 +703,10 @@ function ChapterThree() {
     >
       <DataStreamDivider />
       <GradientDescent />
-      <div aria-hidden className="pointer-events-none absolute -left-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-primary/[0.06] blur-3xl" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-primary/[0.06] blur-3xl"
+      />
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-32 md:py-48" ref={containerRef}>
         <ChapterLabel n="03" name="PERSPECTIVE" />
         <blockquote
@@ -678,8 +727,8 @@ function ChapterThree() {
         </blockquote>
         <div className="mt-16 grid max-w-4xl gap-6 border-l border-black/12 pl-8 text-lg leading-[1.65] text-foreground/85 md:text-xl">
           <ProseLine>
-            The hard part is governance, trust, and adoption &mdash; the slow work of
-            building something a regulated organization can actually stand behind.
+            The hard part is governance, trust, and adoption &mdash; the slow work of building
+            something a regulated organization can actually stand behind.
           </ProseLine>
           <ProseLine>
             The leaders who win the next decade won&rsquo;t just ship models. They&rsquo;ll build
@@ -728,8 +777,7 @@ function ChapterFour() {
       const vh = window.innerHeight;
       const rect = section.getBoundingClientRect();
       // progress: 0 as section enters viewport, 1 as it leaves
-      const p =
-        1 - Math.max(0, Math.min(1, (rect.top + rect.height / 2) / (vh + rect.height / 2)));
+      const p = 1 - Math.max(0, Math.min(1, (rect.top + rect.height / 2) / (vh + rect.height / 2)));
       cardRefs.current.forEach((el, i) => {
         if (!el) return;
         const s = speeds[i % speeds.length];
@@ -776,7 +824,10 @@ function ChapterFour() {
                 CI-checked. Every dataset is synthetic and every repository documents its limits.
               </p>
             </div>
-            <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80">
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80"
+            >
               All projects <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -788,20 +839,30 @@ function ChapterFour() {
               href={p.repo}
               target="_blank"
               rel="noreferrer"
-              ref={(el) => { cardRefs.current[i] = el as unknown as HTMLElement | null; }}
+              ref={(el) => {
+                cardRefs.current[i] = el as unknown as HTMLElement | null;
+              }}
               className="group relative flex flex-col overflow-hidden rounded-lg border border-black/10 bg-surface transition-colors will-change-transform hover:border-primary/30 hover:bg-surface-elevated"
             >
               <TerminalHeader path={p.name} />
               <div className="relative flex flex-1 flex-col gap-4 p-7">
-                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">github.com/jbisaccia-9</p>
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
+                />
+                <p className="relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  github.com/jbisaccia-9
+                </p>
                 <h3 className="relative font-mono text-xl leading-snug">
                   jbisaccia-9/<span className="text-primary">{p.name}</span>
                 </h3>
                 <p className="relative text-sm text-muted-foreground">{p.summary}</p>
                 <div className="relative mt-auto flex flex-wrap gap-1.5 pt-2">
                   {p.stack.slice(0, 4).map((s) => (
-                    <span key={s} className="rounded border border-black/10 bg-black/[0.02] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                    <span
+                      key={s}
+                      className="rounded border border-black/10 bg-black/[0.02] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground"
+                    >
                       {s}
                     </span>
                   ))}
@@ -815,7 +876,10 @@ function ChapterFour() {
         </div>
 
         <div className="mt-10">
-          <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-1.5 text-sm text-primary hover:opacity-80"
+          >
             View the full project portfolio <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
@@ -832,7 +896,9 @@ function ChapterFour() {
                 hash={p.slug}
                 className="group flex flex-col gap-2 bg-surface p-6 transition-colors hover:bg-surface-elevated"
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.context}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  {p.context}
+                </p>
                 <h3 className="text-lg leading-snug">{p.title}</h3>
                 <p className="text-sm text-muted-foreground">{p.summary}</p>
                 <span className="mt-auto inline-flex items-center gap-1 pt-3 text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100">
@@ -843,12 +909,15 @@ function ChapterFour() {
           </div>
         </div>
 
-
         <div ref={githubReveal.ref} className={`mt-24 ${githubReveal.className}`}>
           <div className="grid gap-10 md:grid-cols-[2fr_1fr] md:items-center">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Open source</p>
-              <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">Top projects, public and runnable.</h3>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                Open source
+              </p>
+              <h3 className="mt-4 text-3xl md:text-5xl leading-[1.05]">
+                Top projects, public and runnable.
+              </h3>
               <p className="mt-6 max-w-2xl text-muted-foreground">
                 Eleven public Python and JavaScript gate repositories, with selected projects
                 featured here. Each demonstrates a measurable release threshold on synthetic
@@ -862,14 +931,15 @@ function ChapterFour() {
               className="group inline-flex items-center justify-between gap-4 rounded-md border border-black/10 bg-surface px-6 py-5 text-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-surface-elevated"
             >
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">github.com</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  github.com
+                </p>
                 <p className="mt-1 font-medium">jbisaccia-9</p>
               </div>
               <ArrowUpRight className="h-4 w-4 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           </div>
         </div>
-
       </div>
     </section>
   );
@@ -899,20 +969,32 @@ function ChapterFive() {
           }}
         />
       </div>
-      <div aria-hidden className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.05] blur-3xl" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-primary/[0.05] blur-3xl"
+      />
       <div className="relative mx-auto max-w-6xl px-6 py-32 md:py-48">
         <div ref={r.ref} className={r.className}>
           <ChapterLabel n="05" name="CONTACT" />
           <div className="mt-10 grid gap-12 md:grid-cols-[2fr_1fr] md:items-end">
             <h2 className="max-w-4xl text-4xl leading-[1.05] md:text-6xl">
-              Building the AI systems <span className="italic text-primary">&mdash;</span> and the organizations <span className="italic text-primary">&mdash;</span> that the next decade will run on.
+              Building the AI systems <span className="italic text-primary">&mdash;</span> and the
+              organizations <span className="italic text-primary">&mdash;</span> that the next
+              decade will run on.
             </h2>
             <div className="flex flex-col gap-4 md:items-end">
               <StatusLine text="system: online · accepting_connections" />
-              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
-                Connect With Joseph <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
+              >
+                Connect With Joseph{" "}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <a href="/resume.pdf?v=2026-09-29-public-safe" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+              <a
+                href="/resume.pdf?v=2026-09-29-public-safe"
+                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
                 Download resume →
               </a>
             </div>
