@@ -61,7 +61,7 @@ function SiteNav() {
             GitHub
           </a>
           <a
-            href="/resume.pdf?v=2026-09-29-public-safe-v5"
+            href="/resume.pdf?v=2026-09-29-public-safe-v6"
             className="transition-colors hover:text-foreground"
           >
             Resume
@@ -134,7 +134,7 @@ function SiteFooter() {
             <li>
               <a
                 className="text-foreground/80 transition-colors hover:text-primary"
-                href="/resume.pdf?v=2026-09-29-public-safe-v5"
+                href="/resume.pdf?v=2026-09-29-public-safe-v6"
               >
                 Resume
               </a>
