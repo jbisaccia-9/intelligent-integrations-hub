@@ -33,3 +33,10 @@
 - [x] Bump all four résumé links to ?v=2026-09-29-public-safe-v4.
 - [x] Change the About location line to San Francisco Bay Area, California; keep Gilbert Public Schools and Arizona State University intact.
 - [x] Sensitive-term scan, formatting, lint, and build clean; staged for review, not deployed.
+
+## Final career presentation (public-safe v5)
+
+- [x] Replace the résumé and bump all four links to v5.
+- [x] Align deployed AI workflow count across Home, About, and Projects.
+- [x] Feature five specified public reference gates in order, with matching metadata and structured data.
+- [x] Scan for sensitive and stale terms; formatting and lint pass; preview build checked; staged, not published.

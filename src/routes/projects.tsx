@@ -16,13 +16,13 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Explore eight selected gates from Joseph Bisaccia’s 12 public Python and JavaScript repositories, alongside aggregate enterprise AI leadership outcomes.",
+          "Explore five selected gates from Joseph Bisaccia’s 12 public Python and JavaScript repositories, alongside aggregate enterprise AI leadership outcomes.",
       },
       { property: "og:title", content: "Projects — Joseph Bisaccia" },
       {
         property: "og:description",
         content:
-          "Eight selected public AI gates and aggregate forward-deployed enterprise AI leadership outcomes.",
+          "Five selected public AI gates and aggregate forward-deployed enterprise AI leadership outcomes.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://getaiintegrations.com/projects" },
@@ -39,30 +39,23 @@ export const Route = createFileRoute("/projects")({
           url: "https://getaiintegrations.com/projects",
           name: "Projects — Joseph Bisaccia",
           description:
-            "Eight selected public gates from 12 Python and JavaScript repositories, plus aggregate enterprise AI leadership outcomes.",
+            "Five selected public gates from 12 Python and JavaScript repositories, plus aggregate enterprise AI leadership outcomes.",
           isPartOf: { "@id": "https://getaiintegrations.com/#website" },
           about: { "@id": "https://getaiintegrations.com/#person" },
           mainEntity: {
             "@type": "ItemList",
-            itemListElement: [
-              "rag-gate",
-              "phi-gate",
-              "kappa-gate",
-              "trade-gate",
-              "perm-gate",
-              "target-gate",
-              "verify-gate",
-              "fanout-gate",
-            ].map((name, i) => ({
-              "@type": "ListItem",
-              position: i + 1,
-              item: {
-                "@type": "SoftwareSourceCode",
-                name,
-                codeRepository: `https://github.com/jbisaccia-9/${name}`,
-                author: { "@id": "https://getaiintegrations.com/#person" },
-              },
-            })),
+            itemListElement: ["verify-gate", "mcp-gate", "target-gate", "rag-gate", "roi-gate"].map(
+              (name, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                item: {
+                  "@type": "SoftwareSourceCode",
+                  name,
+                  codeRepository: `https://github.com/jbisaccia-9/${name}`,
+                  author: { "@id": "https://getaiintegrations.com/#person" },
+                },
+              }),
+            ),
           },
           breadcrumb: {
             "@type": "BreadcrumbList",
@@ -111,7 +104,7 @@ const PROJECTS: Project[] = [
     problem:
       "A national behavioral health network needed secure enterprise AI delivery and organization-wide adoption in a regulated setting.",
     solution:
-      "Led a 72-seat Microsoft Copilot rollout and deployed five agentic workflows in regulated clinical and operational contexts, with governance and value measurement.",
+      "Led a 72-seat Microsoft Copilot rollout and deployed 10 AI workflows in regulated clinical and operational contexts, with governance and value measurement.",
     architecture:
       "Secure, governed enterprise AI delivery with adoption and value measured at the program level; private implementation details are not disclosed.",
     technologies: ["Enterprise AI", "Agentic workflows", "Governance", "Adoption"],
@@ -242,15 +235,26 @@ const GATES: Gate[] = [
     tags: ["Verification", "Human approval", "Release gate"],
   },
   {
-    name: "fanout-gate",
-    repo: "https://github.com/jbisaccia-9/fanout-gate",
-    tagline: "Private-message delivery harness with failure and duplicate-retry controls.",
-    gate: "Delivery requires valid inputs and refusal of failure modes and duplicate retries.",
+    name: "mcp-gate",
+    repo: "https://github.com/jbisaccia-9/mcp-gate",
+    tagline: "MCP file-access server with an enforced roots boundary below the prompt layer.",
+    gate: "Canonicalize and resolve paths before the authorized-root check.",
     evidence:
-      "23 tests; 22/22 valid messages delivered, 6/6 failure modes refused, and all 22 duplicate retries refused.",
+      "11 tests; boundary mode blocked all 4 escape attacks that leaked through prompt-only control.",
+    caveat: "Synthetic fixture/reference harness, not an employer deployment.",
+    tags: ["MCP", "Tool security", "Authorization"],
+  },
+  {
+    name: "target-gate",
+    repo: "https://github.com/jbisaccia-9/target-gate",
+    tagline:
+      "Healthcare provider-targeting pipeline where delivery is blocked until data-quality gates pass.",
+    gate: "Checksum, freshness, dedupe, field coverage, market coverage, and brief grounding must pass.",
+    evidence:
+      "CI enforces ≥80% field coverage and rejects a deliberately hallucinated provider brief.",
     caveat:
-      "Synthetic fixtures and non-production harness; not evidence of live messaging or an employer deployment.",
-    tags: ["Delivery", "Idempotency", "Release gate"],
+      "CI and demos use fixture snapshots; adapters are production-shaped, not a deployment claim.",
+    tags: ["Pipelines", "Data quality", "Azure"],
   },
   {
     name: "rag-gate",
@@ -264,58 +268,14 @@ const GATES: Gate[] = [
     tags: ["RAG", "Retrieval eval", "CI gate"],
   },
   {
-    name: "phi-gate",
-    repo: "https://github.com/jbisaccia-9/phi-gate",
-    tagline: "Measured PHI/PII redaction gate for healthcare-adjacent text.",
-    gate: "Redaction must clear the recall and precision floor before text moves downstream.",
-    evidence: "Recall 1.00 and precision 0.95 on the current 24-case synthetic labeled corpus.",
-    caveat:
-      "A small synthetic corpus demonstrating methodology; NER-based address detection is out of scope.",
-    tags: ["PHI", "Redaction", "Healthcare"],
-  },
-  {
-    name: "kappa-gate",
-    repo: "https://github.com/jbisaccia-9/kappa-gate",
-    tagline:
-      "Calibration harness for LLM-as-judge evaluation using Cohen's kappa against human labels.",
-    gate: "Requires kappa ≥ 0.70 and agreement ≥ 0.85 before a judge is trusted.",
+    name: "roi-gate",
+    repo: "https://github.com/jbisaccia-9/roi-gate",
+    tagline: "Conservative adoption and value model that refuses unsupported ROI claims.",
+    gate: "Realization discount, all-seat costs, license cost, excluded roles, and zero benefit for inactive users.",
     evidence:
-      "A heuristic judge scored 80% accuracy but κ 0.61 and was refused; a recorded 30/30 live run passed.",
-    caveat: "Small synthetic evaluation set; live results depend on external model access.",
-    tags: ["LLM-as-judge", "Cohen's kappa", "Evaluation"],
-  },
-  {
-    name: "trade-gate",
-    repo: "https://github.com/jbisaccia-9/trade-gate",
-    tagline:
-      "Order-validation design study that refuses stale, unreconciled, or malformed trading intent.",
-    gate: "Book reconciliation, cash sufficiency, and ±5% quote-sanity checks must all pass.",
-    evidence:
-      "CI tests clean-order and deliberately unsafe paths plus citation grounding on decision IDs.",
-    caveat: "Synthetic quotes only; no live-market or backtested performance claim.",
-    tags: ["MCP", "Validation", "Guardrails"],
-  },
-  {
-    name: "perm-gate",
-    repo: "https://github.com/jbisaccia-9/perm-gate",
-    tagline: "Prompt-layer guardrails versus permission-layer enforcement, measured side by side.",
-    gate: "Access decisions must be enforced below the prompt, not inside it.",
-    evidence:
-      "The CI suite requires zero leaks under scoped permission enforcement while preserving the prompt-only failure case.",
-    caveat: "A focused architectural proof of concept rather than a full production pipeline.",
-    tags: ["Authorization", "Guardrails", "Security"],
-  },
-  {
-    name: "target-gate",
-    repo: "https://github.com/jbisaccia-9/target-gate",
-    tagline:
-      "Healthcare provider-targeting pipeline where delivery is blocked until data-quality gates pass.",
-    gate: "Checksum, freshness, dedupe, field coverage, market coverage, and brief grounding must pass.",
-    evidence:
-      "CI enforces ≥80% field coverage and rejects a deliberately hallucinated provider brief.",
-    caveat:
-      "CI and demos use fixture snapshots; adapters are production-shaped, not a deployment claim.",
-    tags: ["Pipelines", "Data quality", "Azure"],
+      "7 tests; the conservative model passed and all 5 vendor-deck assumptions were refused.",
+    caveat: "Synthetic adoption data and methodology, not an employer deployment.",
+    tags: ["ROI", "Adoption", "Evaluation"],
   },
 ];
 
@@ -342,7 +302,7 @@ function ProjectsPage() {
             Gates, harnesses, and delivered systems.
           </h1>
           <p className="mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Twelve public Python and JavaScript gate repositories, with eight selected projects
+            Twelve public Python and JavaScript gate repositories, with five selected projects
             featured here, alongside aggregate outcomes from forward-deployed enterprise AI
             leadership. Public tests use synthetic fixtures; private employer work stays private.
           </p>
@@ -360,9 +320,9 @@ function ProjectsPage() {
             Nothing ships until it passes a gate &mdash; and the gate itself must be earned.
           </h2>
           <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
-            Eight selected projects from 12 public Python and JavaScript gate repositories. These
-            are tested, CI-checked harnesses using synthetic fixtures, not employer or client
-            production deployments; each repository documents its limits.
+            Five selected projects from 12 public Python and JavaScript gate repositories. These are
+            tested, CI-checked harnesses using synthetic fixtures, not employer or client production
+            deployments; each repository documents its limits.
           </p>
           <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
             {GATES.map((g, i) => (

@@ -116,7 +116,7 @@ const FEATURED_PROJECTS = [
     title: "Founding the AI function in regulated healthcare",
     context: "Behavior Frontiers · Healthcare",
     summary:
-      "Led a 72-seat Microsoft Copilot rollout to 92% active use and 8,021 prompts in 30 days; deployed five agentic workflows with governance and measured value.",
+      "Led a 72-seat Microsoft Copilot rollout to 92% active use and 8,021 prompts in 30 days; deployed 10 AI workflows with governance and measured value.",
     stack: ["Enterprise AI", "Agentic workflows", "Governance", "Value"],
   },
   {
@@ -141,7 +141,7 @@ const LEADERSHIP = [
   {
     kicker: "Founding AI resource",
     title: "Standing up an enterprise AI function",
-    body: "Leading secure enterprise AI delivery across a national behavioral health network — governance, adoption, measured value, and five deployed agentic workflows in regulated clinical and operational contexts.",
+    body: "Leading secure enterprise AI delivery across a national behavioral health network — governance, adoption, measured value, and 10 deployed AI workflows in regulated clinical and operational contexts.",
   },
   {
     kicker: "Governance & security",
@@ -172,9 +172,9 @@ const STATS = [
     label: "Prompts measured across the 72-seat enterprise rollout in 30 days",
   },
   {
-    target: 5,
+    target: 10,
     suffix: "",
-    label: "Agentic workflows deployed in regulated clinical and operational contexts",
+    label: "AI workflows deployed in regulated clinical and operational contexts",
   },
 ];
 
@@ -992,7 +992,7 @@ function ChapterFive() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="/resume.pdf?v=2026-09-29-public-safe-v4"
+                href="/resume.pdf?v=2026-09-29-public-safe-v5"
                 className="text-sm text-muted-foreground transition-colors hover:text-primary"
               >
                 Download resume →
