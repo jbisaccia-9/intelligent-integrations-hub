@@ -67,7 +67,7 @@ const ROLES = [
     period: "Jul 2026 — Present",
     title: "Lead AI Engineer",
     org: "Behavior Frontiers",
-    desc: "Leading secure enterprise AI delivery, governance, adoption, and value measurement for a national behavioral health network. Deployed 10 AI workflows in regulated clinical and operational contexts; a 72-seat Microsoft Copilot rollout reached 92% active use and 8,021 prompts in 30 days. Private implementations remain confidential.",
+    desc: "Leading secure enterprise AI delivery, governance, adoption, and value measurement for a national behavioral health network. Delivered 10 deployed AI workflows in regulated clinical and operational contexts; a 72-seat Microsoft Copilot rollout reached 92% active use and 8,021 prompts in 30 days. Private implementations remain confidential.",
   },
   {
     period: "Sep 2025 — Jul 2026",
