@@ -110,7 +110,6 @@ const FEATURED_GATES = [
   },
 ];
 
-
 const LEADERSHIP = [
   {
     kicker: "Founding AI resource",
@@ -892,8 +891,8 @@ function ChapterFour() {
               </h3>
               <p className="text-sm leading-relaxed text-muted-foreground md:text-base md:leading-relaxed">
                 Shipped a RAG assistant that reduced response times by 40%, then expanded the
-                customer-engagement stack with a Voiceflow, Twilio, and ElevenLabs
-                lead-reactivation agent.
+                customer-engagement stack with a Voiceflow, Twilio, and ElevenLabs lead-reactivation
+                agent.
               </p>
               <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2 pt-3 text-sm">
                 {[
