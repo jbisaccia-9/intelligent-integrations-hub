@@ -110,32 +110,6 @@ const FEATURED_GATES = [
   },
 ];
 
-const FEATURED_PROJECTS = [
-  {
-    slug: "hipaa-clinical-ai-function",
-    title: "Founding the AI function in regulated healthcare",
-    context: "Behavior Frontiers · Healthcare",
-    summary:
-      "Led a 72-seat Microsoft Copilot rollout to 92% active use and 8,021 prompts in 30 days; deployed 10 AI workflows with governance and measured value.",
-    stack: ["Enterprise AI", "Agentic workflows", "Governance", "Value"],
-  },
-  {
-    slug: "solar-rag-chatbot",
-    title: "Customer-facing RAG chatbot with agentic logic",
-    context: "Capital Energy · Sep 2025–Jul 2026",
-    summary:
-      "Designed and deployed an inbound-query assistant that reduced response times by 40% and increased self-service adoption.",
-    stack: ["RAG", "Agentic logic", "API integration"],
-  },
-  {
-    slug: "lead-reactivation-agent",
-    title: "Outbound lead reactivation agent",
-    context: "Capital Energy · Sep 2025–Jul 2026",
-    summary:
-      "Voice and messaging agent built with Voiceflow, Twilio, and ElevenLabs to automate prospect engagement and accelerate pipeline.",
-    stack: ["Voiceflow", "Twilio", "ElevenLabs"],
-  },
-];
 
 const LEADERSHIP = [
   {
@@ -888,24 +862,56 @@ function ChapterFour() {
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
             Professional engagements
           </p>
-          <div className="mt-6 grid gap-px overflow-hidden rounded-lg border border-black/10 bg-black/10 md:grid-cols-3">
-            {FEATURED_PROJECTS.map((p) => (
-              <Link
-                key={p.slug}
-                to="/projects"
-                hash={p.slug}
-                className="group flex flex-col gap-2 bg-surface p-6 transition-colors hover:bg-surface-elevated"
-              >
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  {p.context}
-                </p>
-                <h3 className="text-lg leading-snug">{p.title}</h3>
-                <p className="text-sm text-muted-foreground">{p.summary}</p>
-                <span className="mt-auto inline-flex items-center gap-1 pt-3 text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                  See details <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </Link>
-            ))}
+          <div className="mt-6 grid gap-px overflow-hidden rounded-lg border border-black/10 bg-black/10 md:grid-cols-2">
+            <Link
+              to="/projects"
+              hash="hipaa-clinical-ai-function"
+              className="group flex flex-col gap-4 bg-surface p-8 transition-colors hover:bg-surface-elevated focus-visible:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary md:p-10"
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                Behavior Frontiers · Healthcare · Jul 2026–Present
+              </p>
+              <h3 className="text-xl leading-snug md:text-2xl">
+                Building the AI function in regulated healthcare
+              </h3>
+              <p className="text-sm leading-relaxed text-muted-foreground md:text-base md:leading-relaxed">
+                Founded the AI function across a national behavioral-health network, leading a
+                72-seat Copilot rollout to 92% adoption and deploying 10 governed workflows tied to
+                quality, efficiency, and billable-hour growth.
+              </p>
+              <span className="mt-auto inline-flex items-center gap-1 pt-3 text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                See details <ArrowRight className="h-3.5 w-3.5" />
+              </span>
+            </Link>
+            <div className="flex flex-col gap-4 bg-surface p-8 md:p-10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                Capital Energy · Energy · Sep 2025–Jul 2026
+              </p>
+              <h3 className="text-xl leading-snug md:text-2xl">
+                Customer-facing AI for response speed and pipeline growth
+              </h3>
+              <p className="text-sm leading-relaxed text-muted-foreground md:text-base md:leading-relaxed">
+                Shipped a RAG assistant that reduced response times by 40%, then expanded the
+                customer-engagement stack with a Voiceflow, Twilio, and ElevenLabs
+                lead-reactivation agent.
+              </p>
+              <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2 pt-3 text-sm">
+                {[
+                  { hash: "solar-rag-chatbot", label: "RAG assistant" },
+                  { hash: "lead-reactivation-agent", label: "Lead reactivation agent" },
+                ].map((l) => (
+                  <Link
+                    key={l.hash}
+                    to="/projects"
+                    hash={l.hash}
+                    className="group/link inline-flex items-center gap-1 rounded-sm text-primary underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  >
+                    {l.label}
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5" />
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
