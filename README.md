@@ -6,21 +6,21 @@ Source for [getaiintegrations.com](https://getaiintegrations.com) — the portfo
 **Joseph Bisaccia**, Lead AI Engineer building secure, governed enterprise AI in
 regulated healthcare.
 
-The site is the front door to the [*-gate* projects](https://github.com/jbisaccia-9):
-seven runnable, tested, CI-checked harnesses with one thesis — **nothing ships until it
+The site is the front door to selected projects from Joseph’s [12 public Python and JavaScript gate repositories](https://github.com/jbisaccia-9):
+runnable, tested, CI-checked harnesses with one thesis — **nothing ships until it
 passes a gate, and the gate itself must be earned.** This repo holds itself to the same
 standard: the site must build, and every repo it links to must exist, before a push lands.
 
 ## The gate
 
-| check | enforced where |
-|---|---|
-| `npm run build` succeeds | CI on every push/PR |
-| every `github.com/jbisaccia-9/<repo>` link on the site returns 200 | CI (`scripts/check_links.sh`) |
-| no secrets, vendor names, or machine paths in tracked content | local pre-push hook (`scripts/prepush_guard.sh`) |
+| check                                                              | enforced where                                   |
+| ------------------------------------------------------------------ | ------------------------------------------------ |
+| `npm run build` succeeds                                           | CI on every push/PR                              |
+| every `github.com/jbisaccia-9/<repo>` link on the site returns 200 | CI (`scripts/check_links.sh`)                    |
+| no secrets, vendor names, or machine paths in tracked content      | local pre-push hook (`scripts/prepush_guard.sh`) |
 
 [`RESULTS.md`](RESULTS.md) is captured output from `scripts/make_results.sh` — regenerated
-by script, never hand-edited. Lint/format findings are *reported* there, not gated: the site
+by script, never hand-edited. Lint/format findings are _reported_ there, not gated: the site
 is authored in Lovable, which rewrites formatting on every sync, so a prettier gate would
 fail on every regenerated file without saying anything about the site.
 
@@ -41,15 +41,16 @@ cp scripts/prepush_guard.sh .git/hooks/pre-push && chmod +x .git/hooks/pre-push
 
 ## What the site links to
 
-| repo | the gate |
-|---|---|
-| [kappa-gate](https://github.com/jbisaccia-9/kappa-gate) | an LLM-as-judge is trusted only above Cohen's κ ≥ 0.70 against hand-authored labels |
-| [roi-gate](https://github.com/jbisaccia-9/roi-gate) | an ROI figure is reportable only if the model was biased *against* the claim |
-| [phi-gate](https://github.com/jbisaccia-9/phi-gate) | a PHI-shaped redaction layer must clear recall ≥ 0.95 before it may front an LLM |
-| [trade-gate](https://github.com/jbisaccia-9/trade-gate) | no order executes while the local book and the broker snapshot disagree |
-| [perm-gate](https://github.com/jbisaccia-9/perm-gate) | zero leaks under scoped credentials; the prompt-layer failure stays demonstrable |
-| [rag-gate](https://github.com/jbisaccia-9/rag-gate) | an index serves only above recall@3 ≥ 0.90 on labeled queries |
-| [target-gate](https://github.com/jbisaccia-9/target-gate) | no outbound list is sent until identifiers, freshness, dedupe, and coverage all clear |
+| repo                                                      | the gate                                                                                                                                                  |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [verify-gate](https://github.com/jbisaccia-9/verify-gate) | document verification requires source facts, disclosure, file fidelity, eligibility, and byte-bound human approval; synthetic counterexamples are refused |
+| [fanout-gate](https://github.com/jbisaccia-9/fanout-gate) | private-message delivery refuses invalid inputs and duplicate retries on synthetic fixtures                                                               |
+| [rag-gate](https://github.com/jbisaccia-9/rag-gate)       | an index serves only above recall@3 ≥ 0.90 on labeled queries                                                                                             |
+| [phi-gate](https://github.com/jbisaccia-9/phi-gate)       | a PHI/PII redaction layer must clear measured recall and precision thresholds                                                                             |
+| [kappa-gate](https://github.com/jbisaccia-9/kappa-gate)   | an LLM-as-judge is trusted only above Cohen's κ ≥ 0.70 against hand-authored labels                                                                       |
+| [trade-gate](https://github.com/jbisaccia-9/trade-gate)   | no order proceeds while reconciliation, cash, or quote-sanity checks fail                                                                                 |
+| [perm-gate](https://github.com/jbisaccia-9/perm-gate)     | zero leaks under scoped credentials; the prompt-layer failure stays demonstrable                                                                          |
+| [target-gate](https://github.com/jbisaccia-9/target-gate) | no outbound list is sent until identifiers, freshness, dedupe, and coverage all clear                                                                     |
 
 ## Stack
 
@@ -60,13 +61,13 @@ no secrets in this repository or its history.
 
 ## Routes
 
-| route | purpose |
-|---|---|
-| `/` | scroll narrative: focus, perspective, featured work, contact |
-| `/projects` | professional engagements + the *-gate* harnesses |
-| `/about` | career timeline, capabilities, certifications, résumé |
-| `/contact` | `mailto:` only — no form backend |
-| `/privacy`, `/terms` | policy pages |
+| route                | purpose                                                      |
+| -------------------- | ------------------------------------------------------------ |
+| `/`                  | scroll narrative: focus, perspective, featured work, contact |
+| `/projects`          | professional engagements + the _-gate_ harnesses             |
+| `/about`             | career timeline, capabilities, certifications, résumé        |
+| `/contact`           | `mailto:` only — no form backend                             |
+| `/privacy`, `/terms` | policy pages                                                 |
 
 ## What this repo is not
 
