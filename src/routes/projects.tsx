@@ -104,15 +104,16 @@ const PROJECTS: Project[] = [
     problem:
       "A national behavioral health network needed secure enterprise AI delivery and organization-wide adoption in a regulated setting.",
     solution:
-      "Led a 72-seat Microsoft Copilot rollout and deployed 10 AI workflows in regulated clinical and operational contexts, with governance and value measurement.",
+      "Built and deployed 12 production AI workflows across regulated clinical, HR, and operational processes, with governance, independent validation, and value measurement built into delivery.",
     architecture:
-      "Secure, governed enterprise AI delivery with adoption and value measured at the program level; private implementation details are not disclosed.",
+      "Secure Azure-based delivery with status- and error-code-only telemetry, independent output validation against source systems the workflows do not control, and no client data leaving the protected environment.",
     technologies: ["Enterprise AI", "Agentic workflows", "Governance", "Adoption"],
-    security: "Regulated delivery grounded in appropriate access boundaries and privacy review.",
+    security:
+      "Regulated delivery grounded in access boundaries, privacy review, and fail-safe behavior that refuses to publish incomplete results.",
     governance:
-      "Evaluation, rollout oversight, and conservative value measurement support sustainable billable-hour growth, denial prevention, and service capacity without disclosing private workflows.",
+      "Weekly run and accuracy scorecards support sustainable billable-hour growth, denial prevention, and service capacity without disclosing private workflows or client data.",
     impact:
-      "Reached 66 active users across 72 Microsoft Copilot seats (92%) and 8,021 prompts in 30 days; conservative modeling estimates $52,654 in annualized net value after license costs.",
+      "Sustained 99.97% run success across 18,454 production runs, with 11 of 12 workflows at or above a 95% success target. The first independent accuracy measurement verified 2,197 records across eight checks with zero errors; all five production failures were integration or authentication issues resolved within one to two days, with no logic defects.",
   },
   {
     slug: "solar-rag-chatbot",
