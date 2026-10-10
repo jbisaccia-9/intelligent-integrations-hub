@@ -346,7 +346,7 @@ function AboutPage() {
           <ExternalLink href={GITHUB_URL} label="GitHub" value="jbisaccia-9" />
           <ExternalLink href={LINKEDIN_URL} label="LinkedIn" value="joseph-bisaccia-ai" />
           <ExternalLink
-            href="/resume.pdf?v=2026-10-09-production-reliability-v1"
+            href="/resume.pdf?v=2026-10-09-production-reliability-v2"
             label="Resume"
             value="Download PDF"
             internal
