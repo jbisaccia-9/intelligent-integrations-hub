@@ -114,7 +114,7 @@ const LEADERSHIP = [
   {
     kicker: "Founding AI resource",
     title: "Standing up an enterprise AI function",
-    body: "Leading secure enterprise AI delivery across a national behavioral health network — governance, adoption, measured value, and 10 deployed AI workflows in regulated clinical and operational contexts.",
+    body: "Leading secure enterprise AI delivery across a national behavioral health network — 12 production workflows, independent accuracy validation, governance, adoption, and measured value.",
   },
   {
     kicker: "Governance & security",
@@ -135,19 +135,22 @@ const LEADERSHIP = [
 
 const STATS = [
   {
-    target: 92,
+    target: 99.97,
     suffix: "%",
-    label: "Active use across a 72-seat Microsoft Copilot rollout in 30 days",
+    precision: 2,
+    label: "Run success across 18,454 production workflow executions since August 2026",
   },
   {
-    target: 8021,
+    target: 2197,
     suffix: "",
-    label: "Prompts measured across the 72-seat enterprise rollout in 30 days",
+    precision: 0,
+    label: "Records independently verified across eight accuracy checks with zero errors",
   },
   {
-    target: 10,
+    target: 12,
     suffix: "",
-    label: "AI workflows deployed in regulated clinical and operational contexts",
+    precision: 0,
+    label: "Production AI workflows deployed across clinical, HR, and operational processes",
   },
 ];
 
@@ -423,7 +426,8 @@ function ChapterTwo() {
         const local = Math.max(0, Math.min(1, (progress - i * seg) / seg));
         // ease-out cubic
         const eased = 1 - Math.pow(1 - local, 3);
-        return Math.round(eased * s.target);
+        const factor = 10 ** s.precision;
+        return Math.round(eased * s.target * factor) / factor;
       });
       setDisplayValues(values);
 
@@ -493,7 +497,10 @@ function ChapterTwo() {
                       className="mt-6 font-display leading-none tracking-tight text-primary accent-glow tabular-nums"
                       style={{ fontSize: "clamp(6rem, 20vw, 18rem)" }}
                     >
-                      {displayValues[i].toLocaleString("en-US")}
+                      {displayValues[i].toLocaleString("en-US", {
+                        minimumFractionDigits: s.precision,
+                        maximumFractionDigits: s.precision,
+                      })}
                       {s.suffix}
                     </p>
                     <p className="mt-8 max-w-2xl font-mono text-sm uppercase tracking-[0.14em] text-foreground/80 md:text-base">
@@ -537,7 +544,7 @@ function ChapterTwo() {
                 className="mt-3 font-display leading-none tracking-tight text-primary accent-glow"
                 style={{ fontSize: "clamp(5rem, 24vw, 9rem)" }}
               >
-                <MobileCount target={s.target} />
+                <MobileCount target={s.target} precision={s.precision} />
                 {s.suffix}
               </p>
               <p className="mt-3 text-base text-foreground/85">{s.label}</p>
@@ -580,7 +587,7 @@ function ChapterTwo() {
   );
 }
 
-function MobileCount({ target }: { target: number }) {
+function MobileCount({ target, precision }: { target: number; precision: number }) {
   // Simple count-up for mobile stats (no scrubbing).
   const ref = useRef<HTMLSpanElement | null>(null);
   const [v, setV] = useState(0);
@@ -602,7 +609,8 @@ function MobileCount({ target }: { target: number }) {
       const step = (now: number) => {
         const t = Math.min(1, (now - start) / dur);
         const eased = 1 - Math.pow(1 - t, 3);
-        setV(Math.round(eased * target));
+        const factor = 10 ** precision;
+        setV(Math.round(eased * target * factor) / factor);
         if (t < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
@@ -620,8 +628,15 @@ function MobileCount({ target }: { target: number }) {
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [target]);
-  return <span ref={ref}>{v.toLocaleString("en-US")}</span>;
+  }, [precision, target]);
+  return (
+    <span ref={ref}>
+      {v.toLocaleString("en-US", {
+        minimumFractionDigits: precision,
+        maximumFractionDigits: precision,
+      })}
+    </span>
+  );
 }
 
 /* ------------------------------------------------------------------ */
@@ -874,9 +889,10 @@ function ChapterFour() {
                 Building the AI function in regulated healthcare
               </h3>
               <p className="text-sm leading-relaxed text-muted-foreground md:text-base md:leading-relaxed">
-                Founded the AI function across a national behavioral-health network, leading a
-                72-seat Copilot rollout to 92% adoption and deploying 10 governed workflows tied to
-                quality, efficiency, and billable-hour growth.
+                Founded the AI function across a national behavioral-health network and deployed 12
+                governed production workflows sustaining 99.97% run success across 18,454 runs, with
+                independent accuracy validation and reporting tied to quality, efficiency, and
+                billable-hour growth.
               </p>
               <span className="mt-auto inline-flex items-center gap-1 pt-3 text-sm text-primary opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                 See details <ArrowRight className="h-3.5 w-3.5" />
@@ -997,7 +1013,7 @@ function ChapterFive() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="/resume.pdf?v=2026-09-29-public-safe-v7"
+                href="/resume.pdf?v=2026-10-09-production-reliability-v1"
                 className="text-sm text-muted-foreground transition-colors hover:text-primary"
               >
                 Download resume →

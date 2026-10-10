@@ -67,7 +67,7 @@ const ROLES = [
     period: "Jul 2026 — Present",
     title: "Lead AI Engineer",
     org: "Behavior Frontiers",
-    desc: "Leading secure enterprise AI delivery, governance, adoption, and value measurement for a national behavioral health network. Deployed 10 AI workflows in regulated clinical and operational contexts; a 72-seat Microsoft Copilot rollout reached 92% active use and 8,021 prompts in 30 days. Private implementations remain confidential.",
+    desc: "Leading secure enterprise AI delivery, governance, adoption, and value measurement for a national behavioral health network. Built and deployed 12 production AI workflows sustaining 99.97% run success across 18,454 production runs since August 2026. Private implementations remain confidential.",
   },
   {
     period: "Sep 2025 — Jul 2026",
@@ -167,14 +167,17 @@ function AboutPage() {
               <p className="mt-4 text-base leading-relaxed text-foreground/85">
                 Today I lead AI engineering at Behavior Frontiers, connecting architecture,
                 governance, adoption, and measurable value for a national behavioral health network.
-                I led a 72-seat Microsoft Copilot deployment to 92% active use and 8,021 prompts in
-                30 days, alongside 10 deployed AI workflows in regulated clinical and operational
-                contexts. The portfolio is designed around sustainable billable-hour growth, denial
-                prevention, and service capacity; private implementations remain confidential.
-                Before that I built customer-facing RAG assistants and automation programs in the
-                solar industry, and I continue contract model-training and evaluation work for
-                frontier AI platforms. A decade of instructional design and technology training sits
-                underneath all of it: the systems only matter if people adopt them.
+                I built and deployed 12 production AI workflows in regulated clinical and
+                operational contexts, sustaining 99.97% run success across 18,454 production runs
+                since August 2026. An independent Azure accuracy pipeline verified 2,197 records
+                across eight checks with zero errors in its first measurement. The portfolio is
+                designed around sustainable billable-hour growth, denial prevention, and service
+                capacity; private implementations remain confidential. I also led a 72-seat
+                Microsoft Copilot deployment to 92% active use and 8,021 prompts in 30 days. Before
+                that I built customer-facing RAG assistants and automation programs in the solar
+                industry, and I continue contract model-training and evaluation work for frontier AI
+                platforms. A decade of instructional design and technology training sits underneath
+                all of it: the systems only matter if people adopt them.
               </p>
               <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6 text-sm">
                 <div>
@@ -343,7 +346,7 @@ function AboutPage() {
           <ExternalLink href={GITHUB_URL} label="GitHub" value="jbisaccia-9" />
           <ExternalLink href={LINKEDIN_URL} label="LinkedIn" value="joseph-bisaccia-ai" />
           <ExternalLink
-            href="/resume.pdf?v=2026-09-29-public-safe-v7"
+            href="/resume.pdf?v=2026-10-09-production-reliability-v1"
             label="Resume"
             value="Download PDF"
             internal
